@@ -1,0 +1,17 @@
+<wiki:comment>
+@eFapsPackage  org.efaps.wiki.contacts
+@eFapsUUID     ab04d325-116a-4502-94da-1f4e7ef889b2
+@eFapsRevision $Rev: 4506 $
+</wiki:comment>
+
+
+
+
+#summary Mostrar
+<wiki:toc max_depth="3"/>
+
+----
+
+Aquí se muestra la información del contacto según su clasificación.
+
+Así como un árbol de subordinados y superiores del contacto.

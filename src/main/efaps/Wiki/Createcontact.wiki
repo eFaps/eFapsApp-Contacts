@@ -1,0 +1,25 @@
+<wiki:comment>
+@eFapsPackage  org.efaps.wiki.contacts
+@eFapsUUID     fe1c16aa-904e-4925-8014-34ea9ccfcdaf
+@eFapsRevision $Rev: 4570 $
+</wiki:comment>
+
+
+
+
+#summary Crear Contacto
+<wiki:toc max_depth="3"/>
+
+----
+
+Aquí se crea un nuevo contacto, se puede introducir información general como el apellido o la razón social
+o si se desea se hace click en el símbolo:
+
+http://imagen1.png
+
+para seleccionar el tipo de contacto cuyos datos se quieren introducir.
+
+El tipo de contacto puede ser: Cliente, Empresa, Persona, Proveedor, Sucursal.
+
+Basta con activar la casilla correspondiente al tipo de contacto y hacer click en el botón update para
+empezar a introducir los datos del contacto seleccionado.

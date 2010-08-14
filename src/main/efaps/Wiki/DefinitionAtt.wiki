@@ -1,0 +1,24 @@
+<wiki:comment>
+@eFapsPackage  org.efaps.wiki.contacts
+@eFapsUUID     f0221c0c-0f4f-4997-95ff-12b22bf9f12d
+@eFapsRevision $Rev: 4570 $
+</wiki:comment>
+
+
+
+
+#summary Definición de Atributos
+<wiki:toc max_depth="3"/>
+
+----
+
+Muestra los diferentes valores dados a las definiciones de atributos de los contactos
+tales como teléfono, fax,e-mail.
+Desde aquí se puede iniciar la introducción de los valores de dichos atributos.
+
+Para eliminar el valor de alguna definición de atributo tiene que seleccionar una definición
+haciendo check en una casilla,hacer click en Acción y luego seleccionar borrar selecto(s).
+
+
+
+

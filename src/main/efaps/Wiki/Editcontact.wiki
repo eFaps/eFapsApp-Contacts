@@ -1,0 +1,17 @@
+<wiki:comment>
+@eFapsPackage  org.efaps.wiki.contacts
+@eFapsUUID     b4935d02-80aa-43d4-b863-5102624b65aa
+@eFapsRevision $Rev: 4506 $
+</wiki:comment>
+
+
+
+
+#summary Editar
+<wiki:toc max_depth="3"/>
+
+----
+
+Aquí se pueden cambiar los datos, como dar nueva razón social, dirección legal,
+etc.
+

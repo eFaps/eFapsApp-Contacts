@@ -1,0 +1,39 @@
+<wiki:comment>
+@eFapsPackage  org.efaps.wiki.contacts
+@eFapsUUID     1db6017b-d0f2-4fad-a0cb-62854b528373
+@eFapsRevision $Rev$
+</wiki:comment>
+
+
+
+
+#summary Contactos
+<wiki:toc max_depth="3"/>
+
+----
+
+El módulo de contactos guarda la información de todos los entes relacionados con la empresa.
+
+Lista de  Contactos
+
+Un contacto dependiendo de la relación que guarda con la empresa puede ser clasificado de la siguiente manera:
+
+
+  #Cliente
+  #Empresa
+  #Persona
+  #Proveedor
+  #Sucursal
+
+
+== Como crear nuevos contactos: ==
+
+Abra el módulo Contactos y haga clic sobre Contactos. Aparecerá una lista de contactos descritos mediante los apellidos
+ó razón social según sea el caso.
+
+Para crear un nuevo contacto haga click en Acción y luego aparecerá una ventana para registrar la información del nuevo contacto.
+
+Para eliminar un contacto o más ya existentes, primero seleccionar con un check el contacto o contactos que se desean eliminar, luego hacer click en Acción
+y seleccionar el comando borrar selecto(s); los contactos serás eliliminados siempre que no tengas alguna información.
+Para exportar un contacto o más, seleccionar con un check los contactos que se desean exportar luego elegir el formato de exportación
+el cual puede ser PDF o XLS, en una sola hoja o en varias hojas.
