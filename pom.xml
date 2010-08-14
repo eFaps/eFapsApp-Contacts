@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003 - 2009 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ************************************************************************
+    * Module Definition
+    ************************************************************************* -->
+    <packaging>jar</packaging>
+    <groupId>org.efaps.module</groupId>
+    <artifactId>efaps-crm-contacts</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>eFaps CRM Contacts Module</name>
+    <description>
+    </description>
+<url>http://www.efaps.org</url>
+    <licenses>
+        <license>
+            <name>Apache 2.0 License</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>tim.moxter</id>
+            <name>Tim Moxter</name>
+            <email>tim.moxter(ad)efaps.org</email>
+            <url>www.efaps.org</url>
+            <organization>moxter.net Ltd. &amp; Co.KG</organization>
+            <organizationUrl>http://www.moxter.net/de/</organizationUrl>
+            <timezone>+1</timezone>
+            <properties />
+        </developer>
+        <developer>
+            <id>jan.moxter</id>
+            <name>Jan Moxter</name>
+            <email>jan.moxter(ad)efaps.org</email>
+            <url>www.efaps.org</url>
+            <organization>moxter.net S.A.C, Peru</organization>
+            <organizationUrl>http://www.moxter.net/pe/</organizationUrl>
+            <timezone>-5</timezone>
+            <properties />
+        </developer>
+    </developers>
+    <inceptionYear>2003</inceptionYear>
+    <organization>
+        <name>The eFaps Team</name>
+        <url>http://www.efaps.org</url>
+    </organization>
+
+    <!-- Environment Settings -->
+    <issueManagement>
+        <system>eFaps Issues on Google Code</system>
+        <url>http://issues.efaps.org</url>
+    </issueManagement>
+
+    <!-- SubVersion Repository -->
+    <scm>
+        <connection>scm:svn:http://efaps.googlecode.com/svn/eFaps-WebApp-Install</connection>
+        <developerConnection>scm:svn:https://efaps.googlecode.com/svn/eFaps-WebApp-Install</developerConnection>
+        <url>http://efaps.googlecode.com/svn/eFaps-WebApp-Install</url>
+    </scm>
+
+    <!-- Distribution Repository -->
+    <distributionManagement>
+        <site>
+            <id>efaps</id>
+            <name>Maven eFaps Plug-In Site</name>
+            <url>svn:https://eFaps.googlecode.com/svn/site/eFaps-WebApp-Install</url>
+        </site>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <!-- correct encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- ************************************************************************
+    * Project itself
+    ************************************************************************* -->
+    <build>
+        <plugins>
+            <!--
+                Compiler Settings:
+                - Java 1.6 is needed!
+                - encoding UTF8
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--
+                eFaps plugin
+            -->
+            <plugin>
+                <groupId>org.efaps</groupId>
+                <artifactId>maven-efaps-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-ciclass</goal>
+                            <goal>generate-installation</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <userName>Administrator</userName>
+                    <passWord>Administrator</passWord>
+                    <transactionTimeout>900</transactionTimeout>
+                    <!-- used from the generateUUID goal -->
+                    <count>${count}</count>
+                    <ciName>Contacts</ciName>
+                </configuration>
+                <dependencies>
+                    <!-- Connection Pooling -->
+                    <dependency>
+                        <groupId>commons-dbcp</groupId>
+                        <artifactId>commons-dbcp</artifactId>
+                        <version>1.2.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+<!-- ************************************************************************
+    * Profiles
+    ************************************************************************* -->
+    <profiles>
+        <!--
+            Release Profile is done without tests, but with source and JavaDoc!
+        -->
+        <profile>
+            <id>release-profile</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- No test.. -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                   <!-- Attach Sources -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Attach JavaDoc -->
+                    <plugin>
+                        <inherited>true</inherited>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Update Release Info -->
+                    <plugin>
+                        <inherited>true</inherited>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <configuration>
+                            <updateReleaseInfo>true</updateReleaseInfo>
+                        </configuration>
+                    </plugin>
+                     <!-- signing the artefact with gpg -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <!-- ************************************************************************
+    * Reporting
+    ************************************************************************* -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                            <report>summary</report>
+                            <report>dependencies</report>
+                            <report>project-team</report>
+                            <!--   <report>mailing-list</report>-->
+                            <!-- <report>cim</report> -->
+                            <report>issue-tracking</report>
+                            <report>license</report>
+                            <report>scm</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <!-- JavaCC reporting -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javacc-maven-plugin</artifactId>
+            </plugin>
+            <!-- java doc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <minmemory>128m</minmemory>
+                    <maxmemory>1g</maxmemory>
+                    <level>private</level>
+                    <detectLinks/>
+                </configuration>
+            </plugin>
+            <!-- source code -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <configuration>
+                    <linkJavadoc>false</linkJavadoc>
+                    <javadocDir>apidocs</javadocDir>
+                </configuration>
+            </plugin>
+            <!-- checkstyle -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <configLocation>${basedir}/src/checkstyle/efaps_checks.xml</configLocation>
+                </configuration>
+            </plugin>
+            <!-- PMD report -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <linkXref>true</linkXref>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <targetJdk>1.5</targetJdk>
+                </configuration>
+            </plugin>
+            <!--  findbugs report -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <configuration/>
+            </plugin>
+        </plugins>
+    </reporting>
+    <!-- ************************************************************************
+    * Dependencies
+    ************************************************************************* -->
+    <dependencies>
+        <!-- eFaps kernel -->
+        <dependency>
+            <groupId>org.efaps</groupId>
+            <artifactId>efaps-webapp-install</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>
