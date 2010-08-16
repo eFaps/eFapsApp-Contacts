@@ -27,7 +27,7 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>498022c2-a5cb-4faf-bb24-ab17f330e8d7</uuid>
-    <file-application>eFaps-Contacts</file-application>
+    <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>

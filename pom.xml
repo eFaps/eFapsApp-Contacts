@@ -33,14 +33,14 @@
     * Module Definition
     ************************************************************************* -->
     <packaging>jar</packaging>
-    <groupId>org.efaps.module</groupId>
-    <artifactId>efaps-crm-contacts</artifactId>
+    <groupId>org.efaps.apps</groupId>
+    <artifactId>contacts</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>eFaps CRM Contacts Module</name>
+    <name>eFaps Contacts App</name>
     <description>
     </description>
-<url>http://www.efaps.org</url>
+    <url>http://www.efaps.org</url>
     <licenses>
         <license>
             <name>Apache 2.0 License</name>
@@ -84,16 +84,16 @@
 
     <!-- SubVersion Repository -->
     <scm>
-        <connection>scm:svn:http://efaps.googlecode.com/svn/eFaps-WebApp-Install</connection>
-        <developerConnection>scm:svn:https://efaps.googlecode.com/svn/eFaps-WebApp-Install</developerConnection>
-        <url>http://efaps.googlecode.com/svn/eFaps-WebApp-Install</url>
+        <connection>scm:svn:http://efaps.googlecode.com/svn/eFapsApps/contacts/trunk</connection>
+        <developerConnection>scm:svn:https://efaps.googlecode.com/svn/eFapsApps/contacts/trunk</developerConnection>
+        <url>http://code.google.com/p/efaps/source/browse/#svn/eFapsApps/contacts/trunk</url>
     </scm>
 
     <!-- Distribution Repository -->
     <distributionManagement>
         <site>
             <id>efaps</id>
-            <name>Maven eFaps Plug-In Site</name>
+            <name>eFaps App contacts</name>
             <url>svn:https://eFaps.googlecode.com/svn/site/eFaps-WebApp-Install</url>
         </site>
         <snapshotRepository>

@@ -28,7 +28,7 @@
               xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
   <uuid>a142a302-ec07-4190-96a9-bde3ca6912f3</uuid>
-  <bundle name="eFaps-Contacts" sequence="1"/>
+  <bundle name="eFapsApp-Contacts" sequence="1"/>
   <resource>
     <type>Properties</type>
     <language>en</language>
