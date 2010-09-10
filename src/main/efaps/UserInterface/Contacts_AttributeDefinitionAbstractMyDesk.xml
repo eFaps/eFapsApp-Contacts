@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2010 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -27,31 +27,30 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>6df9b624-3523-4d68-9eff-2c7d41d03601</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>6df9b624-3523-4d68-9eff-2c7d41d03601</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_AttributeDefinitionAbstractMyDesk</name>
-    <!-- target definitions -->
-    <target>
-      <menu>Contacts_AttributeDefinitionAbstractMyDesk_Menu</menu>
-      <table>Contacts_AttributeDefinitionAbstractTable</table>
-      <evaluate program="org.efaps.esjp.common.uitable.QueryEvaluate">
-        <property name="Types">Contacts_AttributeDefinitionAbstract</property>
-        <property name="ExpandChildTypes">true</property>
-      </evaluate>
-      <help>org.efaps.wiki.contacts.DefinitionAtt.wiki</help>
-    </target>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_AttributeDefinitionAbstractMyDesk</name>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
+        <!-- target definitions -->
+        <target>
+            <menu>Contacts_AttributeDefinitionAbstractMyDesk_Menu</menu>
+            <table>Contacts_AttributeDefinitionAbstractTable</table>
+            <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
+                <property name="Types">Contacts_AttributeDefinitionAbstract</property>
+                <property name="ExpandChildTypes">true</property>
+            </evaluate>
+            <help>org.efaps.wiki.contacts.DefinitionAtt.wiki</help>
+        </target>
 
-    <access>
-      <role>Contacts_Admin</role>
-    </access>
-
-    <!-- property definitions -->
-    <property name="Target">content</property>
-    <property name="TargetShowCheckBoxes">true</property>
-    <property name="TargetTableSortKey">name</property>
-  </definition>
+        <!-- property definitions -->
+        <property name="Target">content</property>
+        <property name="TargetShowCheckBoxes">true</property>
+        <property name="TargetTableSortKey">value</property>
+    </definition>
  </ui-command>
