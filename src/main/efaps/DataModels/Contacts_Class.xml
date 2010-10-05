@@ -23,123 +23,125 @@
 
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd" 
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>0a67eae7-b31f-4bed-bb5e-d0c962b89023</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-  
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_Class</name>
-    <purpose classification="true" abstract="true">
-        <LinkColumn>ContactId</LinkColumn>
-    </purpose>
-    
-    <attribute>
-      <name>OID</name>
-      <type>OID</type>
-      <sqltable>Contacts_ClassSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>0a67eae7-b31f-4bed-bb5e-d0c962b89023</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-    <attribute>
-      <name>ID</name>
-      <type>Long</type>
-      <sqltable>Contacts_ClassSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    
-    <attribute>
-      <name>ContactId</name>
-      <type>Link</type>
-      <typelink>Contacts_Contact</typelink>
-      <sqltable>Contacts_ClassSQLTable</sqltable>
-      <sqlcolumn>CONTACTID</sqlcolumn>
-    </attribute>
-    
-     <attributeset>
-      <name>PhoneSet</name>
-      <type>MultiLineArray</type>
-      <parent>Contacts_AttributeAbstract</parent>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>RELID</sqlcolumn>
-      <attribute>
-        <name>Description4Phone</name>
-        <type>LinkWithRanges</type>
-        <typelink>Contacts_AttributeDefinitionPhone</typelink>
-        <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-        <sqlcolumn>DEFID</sqlcolumn>
-        <trigger name="Contacts_Class.PhoneSet.Description4Phone" 
-                 event="RANGE_VALUE" 
-                 program="org.efaps.esjp.admin.datamodel.RangesValue">
-          <property name="Value">Value</property>
-          <property name="Type">Contacts_AttributeDefinitionPhone</property>
-        </trigger>
-      </attribute>
-      <attribute>
-        <name>Phone</name>
-        <type>String</type>
-        <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-        <sqlcolumn>VALUE</sqlcolumn>
-      </attribute>
-    </attributeset>
-    
-    <attributeset>
-      <name>FaxSet</name>
-      <type>MultiLineArray</type>
-      <parent>Contacts_AttributeAbstract</parent>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>RELID</sqlcolumn>
-      <attribute>
-        <name>Description4Fax</name>
-        <type>LinkWithRanges</type>
-        <typelink>Contacts_AttributeDefinitionFax</typelink>
-        <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-        <sqlcolumn>DEFID</sqlcolumn>
-        <trigger name="Contacts_Class.EmailSet.Description4Fax" 
-                 event="RANGE_VALUE" 
-                 program="org.efaps.esjp.admin.datamodel.RangesValue">
-          <property name="Value">Value</property>
-          <property name="Type">Contacts_AttributeDefinitionFax</property>
-        </trigger>
-      </attribute>
-      <attribute>
-        <name>Fax</name>
-        <type>String</type>
-        <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-        <sqlcolumn>VALUE</sqlcolumn>
-      </attribute>
-    </attributeset>
-    
-    
-    <attributeset>
-      <name>EmailSet</name>
-      <type>MultiLineArray</type>
-      <parent>Contacts_AttributeAbstract</parent>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>RELID</sqlcolumn>
-      <attribute>
-        <name>Description4Email</name>
-        <type>LinkWithRanges</type>
-        <typelink>Contacts_AttributeDefinitionEmail</typelink>
-        <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-        <sqlcolumn>DEFID</sqlcolumn>
-        <trigger name="Contacts_Class.EmailSet.Description4Email" 
-                 event="RANGE_VALUE" 
-                 program="org.efaps.esjp.admin.datamodel.RangesValue">
-          <property name="Value">Value</property>
-          <property name="Type">Contacts_AttributeDefinitionEmail</property>
-        </trigger>
-      </attribute>
-      <attribute>
-        <name>Email</name>
-        <type>String</type>
-        <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-        <sqlcolumn>VALUE</sqlcolumn>
-      </attribute>
-    </attributeset>
-    <classifies type="Contacts_Contact" relType="Contacts_Contact2Class" relLinkAttribute="Contact" relTypeAttribute="ClassTypeId"/>
-  </definition>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_Class</name>
+        <purpose classification="true" abstract="true">
+            <LinkColumn>ContactId</LinkColumn>
+        </purpose>
+
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+
+        <attribute>
+            <name>ContactId</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+
+        <attributeset>
+            <name>PhoneSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstract</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <attribute>
+                <name>Description4Phone</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionPhone</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger name="Contacts_Class.PhoneSet.Description4Phone"
+                         event="RANGE_VALUE"
+                         program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionPhone</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Phone</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+        </attributeset>
+
+        <attributeset>
+            <name>FaxSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstract</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <attribute>
+                <name>Description4Fax</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionFax</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger name="Contacts_Class.EmailSet.Description4Fax"
+                         event="RANGE_VALUE"
+                         program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionFax</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Fax</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+        </attributeset>
+
+
+        <attributeset>
+            <name>EmailSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstract</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <attribute>
+                <name>Description4Email</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionEmail</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger name="Contacts_Class.EmailSet.Description4Email"
+                         event="RANGE_VALUE"
+                         program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionEmail</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Email</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+        </attributeset>
+        <classifies type="Contacts_Contact"
+                    relType="Contacts_Contact2Class"
+                    relLinkAttribute="Contact"
+                    relTypeAttribute="ClassTypeId"
+                    multipleSelect="true" />
+    </definition>
 </datamodel-type>
