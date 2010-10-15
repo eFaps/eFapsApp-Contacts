@@ -32,6 +32,11 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ContactTree_ContactFrom_Menu_Action_AddExistingBilling</name>
+        <!-- access -->
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
         <!-- target definition -->
         <target>
             <search>Contacts_ContactTree_ContactFrom_Menu_Action_AddExistingContact_Search</search>
@@ -39,12 +44,9 @@
                 <property name="ConnectChildAttribute">To</property>
                 <property name="ConnectParentAttribute">From</property>
                 <property name="ConnectType">Contacts_Billing2Location</property>
+                <property name="AllowMultiple">true</property>
             </execute>
         </target>
-        <access>
-            <role>Contacts_Admin</role>
-            <role>Contacts_Modifier</role>
-        </access>
         <!-- properties -->
         <property name="Target">modal</property>
     </definition>
