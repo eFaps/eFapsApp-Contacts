@@ -26,31 +26,28 @@
 <ui-command xmlns="http://www.efaps.org/xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
-  <uuid>741df1ed-05b5-412b-b918-a0cb749e8cbb</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ContactTree_ContactTo_Menu_Action_AddExistingContact</name>
-    <!-- target definition -->
-    <target>
-      <search>Contacts_ContactTree_ContactTo_Menu_Action_AddExistingContact_Search</search>
-      <execute program="org.efaps.esjp.common.uisearch.Connect">
-        <property name="ConnectChildAttribute">From</property>
-        <property name="ConnectParentAttribute">To</property>
-        <property name="ConnectType">Contacts_Organisation2Person</property>
-      </execute>
-    </target>
-    
-    <access>
-      <role>Contacts_Admin</role>
-      <role>Contacts_Modifier</role>
-    </access>
-    
-    <!-- properties -->
-    <property name="Target">modal</property>
-  </definition>
-
+    <uuid>741df1ed-05b5-412b-b918-a0cb749e8cbb</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ContactTree_ContactTo_Menu_Action_AddExistingContact</name>
+        <!-- access -->
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
+        <!-- target definition -->
+        <target>
+            <search>Contacts_ContactTree_ContactTo_Menu_Action_AddExistingContact_Search</search>
+            <execute program="org.efaps.esjp.common.uisearch.Connect">
+                <property name="ConnectChildAttribute">From</property>
+                <property name="ConnectParentAttribute">To</property>
+                <property name="ConnectType">Contacts_Organisation2Person</property>
+                <property name="AllowMultiple">true</property>
+            </execute>
+        </target>
+        <!-- properties -->
+        <property name="Target">modal</property>
+    </definition>
 </ui-command>
