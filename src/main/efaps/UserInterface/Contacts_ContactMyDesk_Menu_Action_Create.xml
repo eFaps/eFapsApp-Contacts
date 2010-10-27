@@ -27,33 +27,33 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>6805237f-8f1a-4737-872c-3a6269827074</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>6805237f-8f1a-4737-872c-3a6269827074</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ContactMyDesk_Menu_Action_Create</name>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ContactMyDesk_Menu_Action_Create</name>
+        <icon>Contacts_Contact+Add</icon>
 
-    <!-- target definitions -->
-    <target>
-      <form>Contacts_ContactForm</form>
-      <execute program="org.efaps.esjp.common.uiform.Create"/>
-      <help>org.efaps.wiki.contacts.Createcontact.wiki</help>
-    </target>
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
 
-    <icon>Contacts_Contact+Add</icon>
+        <!-- target definitions -->
+        <target>
+            <form>Contacts_ContactForm</form>
+            <execute program="org.efaps.esjp.common.uiform.Create" />
+            <help>org.efaps.wiki.contacts.Createcontact.wiki</help>
+        </target>
 
-    <access>
-      <role>Contacts_Admin</role>
-      <role>Contacts_Modifier</role>
-    </access>
-    <!-- properties -->
-    <property name="Target">modal</property>
-    <property name="TargetCreateType">Contacts_Contact</property>
-    <property name="TargetMode">create</property>
-    <property name="WindowHeight">460</property>
-    <property name="WindowWidth">515</property>
-  </definition>
+        <!-- properties -->
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Contacts_Contact</property>
+        <property name="TargetMode">create</property>
+        <property name="WindowHeight">460</property>
+        <property name="WindowWidth">515</property>
+    </definition>
 
 </ui-command>

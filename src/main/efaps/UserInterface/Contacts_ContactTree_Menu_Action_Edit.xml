@@ -27,33 +27,30 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>e32695f7-bd88-42b6-98ad-6511fd0e891f</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>e32695f7-bd88-42b6-98ad-6511fd0e891f</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ContactTree_Menu_Action_Edit</name>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ContactTree_Menu_Action_Edit</name>
+        <icon>Contacts_Contact+Edit</icon>
 
-    <!-- target definitions -->
-    <target>
-      <form>Contacts_ContactForm</form>
-      <execute program="org.efaps.esjp.common.uiform.Edit"/>
-    </target>
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
+        <!-- target definitions -->
+        <target>
+            <form>Contacts_ContactForm</form>
+            <execute program="org.efaps.esjp.common.uiform.Edit" />
+        </target>
 
-    <icon>Contacts_Contact+Edit</icon>
-
-    <access>
-      <role>Contacts_Admin</role>
-      <role>Contacts_Modifier</role>
-    </access>
-
-    <!-- properties -->
-    <property name="Target">modal</property>
-    <property name="TargetCreateType">Contacts_Contact</property>
-    <property name="TargetMode">edit</property>
-    <property name="WindowHeight">460</property>
-    <property name="WindowWidth">515</property>
-  </definition>
-
+        <!-- properties -->
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Contacts_Contact</property>
+        <property name="TargetMode">edit</property>
+        <property name="WindowHeight">460</property>
+        <property name="WindowWidth">515</property>
+    </definition>
 </ui-command>

@@ -27,28 +27,26 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>08d76b76-0fad-4905-9461-0ae118a49333</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>08d76b76-0fad-4905-9461-0ae118a49333</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_AttributeDefinitionAbstractTree</name>
-    <!-- targets -->
-    <target>
-      <menu>Contacts_AttributeDefinitionAbstractTree_Menu</menu>
-      <form>Contacts_AttributeDefinitionAbstractForm</form>        
-    </target>
-    <!-- type tree for -->
-    <type>Contacts_AttributeDefinitionAbstract</type>
-    
-    <access>
-      <role>Contacts_Admin</role>
-    </access>
-    
-    <!-- properties -->
-    <property name="Target">content</property>
-    <property name="TargetMode">view</property>
-  </definition>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_AttributeDefinitionAbstractTree</name>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
+        <!-- targets -->
+        <target>
+            <menu>Contacts_AttributeDefinitionAbstractTree_Menu</menu>
+            <form>Contacts_AttributeDefinitionAbstractForm</form>
+        </target>
+        <!-- type tree for -->
+        <type>Contacts_AttributeDefinitionAbstract</type>
 
+        <!-- properties -->
+        <property name="Target">content</property>
+        <property name="TargetMode">view</property>
+    </definition>
 </ui-menu>

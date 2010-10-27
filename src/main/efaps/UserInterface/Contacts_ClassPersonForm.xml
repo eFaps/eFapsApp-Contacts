@@ -38,12 +38,12 @@
         <field name="forename">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
-            <property name="Expression">Forename</property>
+            <property name="Attribute">Forename</property>
         </field>
         <field name="identityCard">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
-            <property name="Expression">IdentityCard</property>
+            <property name="Attribute">IdentityCard</property>
         </field>
     </definition>
 </ui-form>

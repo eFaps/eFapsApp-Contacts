@@ -27,27 +27,26 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>c046bb3e-2282-4a03-903c-5b29273b9694</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>c046bb3e-2282-4a03-903c-5b29273b9694</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateEmail</name>
-    <!-- target definitions -->
-    <target>
-      <form>Contacts_AttributeDefinitionAbstractForm</form>
-      <execute program="org.efaps.esjp.common.uiform.Create"/>
-    </target>
-    
-    <access>
-      <role>Contacts_Admin</role>
-    </access>
-    
-    <!-- properties -->
-    <property name="Target">modal</property>
-    <property name="TargetCreateType">Contacts_AttributeDefinitionEmail</property>
-    <property name="TargetMode">create</property>
-  </definition>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateEmail</name>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
+        <!-- target definitions -->
+
+        <target>
+            <form>Contacts_AttributeDefinitionAbstractForm</form>
+            <execute program="org.efaps.esjp.common.uiform.Create" />
+        </target>
+        <!-- properties -->
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Contacts_AttributeDefinitionEmail</property>
+        <property name="TargetMode">create</property>
+    </definition>
 
 </ui-command>

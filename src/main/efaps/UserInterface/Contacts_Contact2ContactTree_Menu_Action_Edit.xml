@@ -32,16 +32,15 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Contact2ContactTree_Menu_Action_Edit</name>
-
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
         <!-- target definitions -->
         <target>
             <form>Contacts_Contact2ContactForm</form>
             <execute program="org.efaps.esjp.common.uiform.Edit" />
         </target>
-        <access>
-            <role>Contacts_Admin</role>
-            <role>Contacts_Modifier</role>
-        </access>
 
         <!-- properties -->
         <property name="Target">modal</property>

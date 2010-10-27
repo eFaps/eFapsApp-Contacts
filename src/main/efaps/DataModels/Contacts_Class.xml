@@ -63,6 +63,7 @@
             <parent>Contacts_AttributeAbstract</parent>
             <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
+            <uuid>3c805fae-cd5c-4894-adb3-262f58a1f5d3</uuid>
             <attribute>
                 <name>Description4Phone</name>
                 <type>LinkWithRanges</type>
@@ -90,6 +91,7 @@
             <parent>Contacts_AttributeAbstract</parent>
             <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
+            <uuid>28bc7624-2afa-44d3-8a95-69d850307d4c</uuid>
             <attribute>
                 <name>Description4Fax</name>
                 <type>LinkWithRanges</type>
@@ -118,6 +120,7 @@
             <parent>Contacts_AttributeAbstract</parent>
             <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
+            <uuid>439d085d-e120-47cc-91c8-a832231fef14</uuid>
             <attribute>
                 <name>Description4Email</name>
                 <type>LinkWithRanges</type>

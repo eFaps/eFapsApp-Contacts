@@ -27,26 +27,25 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>e0f1cdea-e3b9-4801-9c9f-1b3878030ee9</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>e0f1cdea-e3b9-4801-9c9f-1b3878030ee9</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ContactMyDesk_Menu_Action_Delete</name>
-    
-    <!-- target definitions -->
-    <target>
-      <execute program="org.efaps.esjp.common.uitable.CommonDelete"/>
-    </target>
-    <icon>Contacts_Contact+Delete</icon>
-    <access>
-      <role>Contacts_Admin</role>
-    </access>
-    
-    <!-- properties -->
-    <property name="AskUser">true</property>
-    <property name="Submit">true</property>
-  </definition>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ContactMyDesk_Menu_Action_Delete</name>
+        <icon>Contacts_Contact+Delete</icon>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
+        <!-- target definitions -->
+        <target>
+            <execute program="org.efaps.esjp.common.uitable.CommonDelete" />
+        </target>
+
+        <!-- properties -->
+        <property name="AskUser">true</property>
+        <property name="Submit">true</property>
+    </definition>
 
 </ui-command>
