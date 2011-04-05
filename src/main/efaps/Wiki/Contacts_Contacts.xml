@@ -36,5 +36,6 @@
         <target>
             <wiki>org.efaps.wiki.contacts.Contacts.wiki</wiki>
         </target>
+
     </definition>
 </help-menu>
