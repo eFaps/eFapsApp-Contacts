@@ -31,10 +31,10 @@
     <file-revision>$Rev: 4500 $</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Editcontact_Contacts</name>
+        <name>Searchcontact_Contacts</name>
         <!-- targets -->
         <target>
-            <wiki>org.efaps.wiki.contacts.Editcontact.wiki</wiki>
+            <wiki>org.efaps.wiki.contacts.Searchcontact.wiki</wiki>
         </target>
     </definition>
 </help-menu>

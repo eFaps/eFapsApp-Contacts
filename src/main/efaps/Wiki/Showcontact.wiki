@@ -7,11 +7,154 @@
 
 
 
-#summary Mostrar
+#summary Acceso a un contacto
 <wiki:toc max_depth="3"/>
 
 ----
 
-Aquí se muestra la información del contacto según su clasificación.
+En este Manual de Usuario usted encontrará toda la información necesaria cuando usted ingresa a un contacto,
+de manera que usted esté informado de todas las funcionalidades y pueda trabajar en toda su potencialidad.
 
-Así como un árbol de subordinados y superiores del contacto.
+Este documento explica:
+
+  # Editar
+  # Exportar
+  # Subordinado
+  # Superior
+  # Productos
+  # Documentos
+
+==1. Editar==
+Para editar un contacto debe dirigirse a la opción acción e inmediatamente le aparecerá una ventana nueva en
+donde podrá editar todos los datos del contacto, una vez finalizado el proceso debemos de actualizar.
+
+==2. Exportar==
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+ de formatos PDF o XLS.
+
+==3. Subordinado==
+En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
+del modulo subordinado, de manera que usted esté informado de todas las funcionalidades de este modulo para que
+pueda trabajar en toda su potencialidad.
+
+Este documento explica:
+  * Crear contacto existe para facturación
+  * Agregar contacto existente.
+  * Crear contacto subordinado.
+  * Desconectar contactos selectos.
+  * Exportar
+
+
+===Crear contacto existente para facturación===
+Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
+Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un
+check en la casilla del contacto que desea agregar y acepte.
+
+===Agregar contacto existente===
+Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
+Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un check
+en la casilla del contacto que desea agregar y acepte.
+
+===Crear contacto subordinado===
+Para crear un contacto subordinado debe dirigirse a la opción acción e ingresar a crear contacto subordinado,
+le mostrara una ventana que le brinda dos tipos de creación de contacto subordinado, la primera es que usted
+deberá ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra
+manera es por medio del árbol de clasificación donde nos dirigiremos a la lupa que se encuentra en la parte
+superior de la ventana, ella nos muestra una nueva ventana en donde encontramos los distintos tipos de
+contactos, el usuario podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con
+la empresa y ahora  debemos ingresar la información correspondiente por cada campo.
+
+===Desconectar contactos selectos===
+Selecciona uno o varios contactos haciendo check en las casillas, se dirige a la opción acción y elige
+desconectar contactos selectos.
+
+===Exportar===
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos
+tipos de formatos PDF o XLS.
+
+
+==4. Superior==
+En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
+del modulo superior, de manera que usted esté informado de todas las funcionalidades de este modulo para que
+pueda trabajar en toda su potencialidad.
+
+Este documento explica:
+  * Crear contacto existe para facturación.
+  * Agregar contacto existente.
+  * Crear contacto subordinado.
+  * Desconectar contactos selectos.
+  * Exportar
+
+
+===Crear contacto existente para facturación===
+Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
+Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un
+check en la casilla del contacto que desea agregar y acepta.
+
+===Agregar contacto existente===
+Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
+Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un
+check en la casilla del contacto que desea agregar y acepta.
+
+===Crear contacto superior===
+Para crear un contacto superior debe dirigirse a la opción acción e ingresar a crear contacto superior,
+le mostrara una ventana que le brinda dos tipos de creación de contacto superior, la primera es que usted
+deberá ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra
+manera es por medio del árbol de clasificación donde nos dirigiremos a la lupa que se encuentra en la parte
+superior de la ventana, ella nos muestra una nueva ventana en donde encontramos los distintos tipos de
+contactos, el usuario podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con la
+empresa y ahora  debemos ingresar la información correspondiente por cada campo.
+
+===Desconectar contactos selectos===
+Selecciona uno o varios contactos haciendo check en las casillas, se dirige a la opción acción y elige
+desconectar contactos selectos.
+
+===Exportar===
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+de formatos PDF o XLS.
+
+==5. Productos==
+
+En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
+del modulo productos, de manera que usted esté informado de todas las funcionalidades de este modulo para que
+pueda trabajar en toda su potencialidad.
+
+Este documento explica:
+
+  * Agregar como fabricante.
+  * Agregar como proveedor.
+  * Desconectar
+  * Exportar
+
+
+===Agregar como fabricante===
+Para eso tenemos que buscar un producto, y lo haremos ingresando información en cualquiera de los campos ya
+sea en código o descripción, también puede colocar {{{(*)}}} en los dos campos y le aparecerá la lista completa
+de todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
+
+===Agregar como proveedor===
+Para eso tenemos que buscar un producto, y lo haremos ingresando información en cualquiera de los campos ya sea
+en código o descripción, también puede colocar {{{(*)}}} en los dos campos y le aparecerá la lista completa de
+todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
+
+===Desconectar===
+Selecciona uno o varios productos haciendo check en las casillas, se dirige a la opción acción y elige
+desconectar.
+
+===Exportar===
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+de formatos PDF o XLS.
+
+==6. Documentos==
+En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso del modulo documentos, de manera que usted esté informado de todas las funcionalidades de este modulo para que pueda trabajar en toda su potencialidad.
+
+Este documento explica:
+
+  * Exportar
+
+===Exportar===
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+de formatos PDF o XLS.
+
+Importante
+En el modulo documentos podrá visualizar toda clase de documentos relacionados con el cliente.

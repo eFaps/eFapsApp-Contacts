@@ -12,28 +12,53 @@
 
 ----
 
-El módulo de contactos guarda la información de todos los entes relacionados con la empresa.
+En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
+del modulo contactos, de manera que usted esté informado de todas las funcionalidades de este modulo para que
+pueda trabajar en toda su potencialidad.
 
-Lista de  Contactos
+Este documento explica:
 
-Un contacto dependiendo de la relación que guarda con la empresa puede ser clasificado de la siguiente manera:
-
-
-  #Cliente
-  #Empresa
-  #Persona
-  #Proveedor
-  #Sucursal
+  * Crear contacto.
+  * Mover documentos para contacto
+  * Borrar selecto.
+  * Exportar.
 
 
-== Como crear nuevos contactos: ==
 
-Abra el módulo Contactos y haga clic sobre Contactos. Aparecerá una lista de contactos descritos mediante los apellidos
-ó razón social según sea el caso.
+==Crear contacto==
+La ventana crear nuevo contacto le brinda dos tipos de creación de contacto, la primera es que usted deberá
+ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra manera es
+por medio del árbol de clasificación donde nos dirigiremos a la lupa que se encuentra en la parte superior de
+la ventana, ella nos muestra una nueva ventana en donde encontramos los distintos tipos de contactos, el usuario
+podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con la empresa y ahora
+debemos ingresar la información correspondiente por cada campo.
 
-Para crear un nuevo contacto haga click en Acción y luego aparecerá una ventana para registrar la información del nuevo contacto.
 
-Para eliminar un contacto o más ya existentes, primero seleccionar con un check el contacto o contactos que se desean eliminar, luego hacer click en Acción
-y seleccionar el comando borrar selecto(s); los contactos serás eliliminados siempre que no tengas alguna información.
-Para exportar un contacto o más, seleccionar con un check los contactos que se desean exportar luego elegir el formato de exportación
-el cual puede ser PDF o XLS, en una sola hoja o en varias hojas.
+Importancia
+
+Campos:
+los campos obligatorios son los que tienen borde con doble linea de color rojo y los campos secundarios son los
+que tienen borde con una linea de color negro. Colocar los datos obligatorios porque de lo contrario ocurrirá
+un error.
+
+Agregar distritos:
+ir al modulo venta, dirigirnos a administración e ingresar a atributos. Atributos es el modulo el cual nos
+ayudara a la creación de distritos.
+
+Agregar datos a clasificación:
+los datos de teléfono, fax y e-mail se agregan con el signo + y el signo – es para eliminar los datos agregados.
+
+
+==Mover documentos para contacto==
+Nos ayuda a mover todos los datos de un contacto a otro, y que este tome el papel de este contacto.
+Colocamos primero al contacto que vamos a necesitar sus datos en “De contacto” y colocamos el contacto que
+queremos trasladarle toda la información en “Para contacto”.
+
+
+==Borrar selecto==
+Seleccionamos uno o varios contactos haciendo check en las casillas, dirigirse a la opción acción y elija borrar
+selecto.
+
+==Exportar==
+Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+ de formatos PDF o XLS.
