@@ -23,8 +23,6 @@ Este documento explica:
   * Borrar selecto.
   * Exportar.
 
-
-
 ==Crear contacto==
 La ventana crear nuevo contacto le brinda dos tipos de creación de contacto, la primera es que usted deberá
 ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra manera es
@@ -33,13 +31,7 @@ la ventana, ella nos muestra una nueva ventana en donde encontramos los distinto
 podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con la empresa y ahora
 debemos ingresar la información correspondiente por cada campo.
 
-
 Importancia
-
-Campos:
-los campos obligatorios son los que tienen borde con doble linea de color rojo y los campos secundarios son los
-que tienen borde con una linea de color negro. Colocar los datos obligatorios porque de lo contrario ocurrirá
-un error.
 
 Agregar distritos:
 ir al modulo venta, dirigirnos a administración e ingresar a atributos. Atributos es el modulo el cual nos
@@ -48,12 +40,10 @@ ayudara a la creación de distritos.
 Agregar datos a clasificación:
 los datos de teléfono, fax y e-mail se agregan con el signo + y el signo – es para eliminar los datos agregados.
 
-
 ==Mover documentos para contacto==
 Nos ayuda a mover todos los datos de un contacto a otro, y que este tome el papel de este contacto.
 Colocamos primero al contacto que vamos a necesitar sus datos en “De contacto” y colocamos el contacto que
 queremos trasladarle toda la información en “Para contacto”.
-
 
 ==Borrar selecto==
 Seleccionamos uno o varios contactos haciendo check en las casillas, dirigirse a la opción acción y elija borrar
@@ -61,4 +51,4 @@ selecto.
 
 ==Exportar==
 Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
- de formatos PDF o XLS.
+de formatos PDF o XLS.

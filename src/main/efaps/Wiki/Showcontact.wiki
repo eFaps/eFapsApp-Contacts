@@ -28,22 +28,20 @@ Este documento explica:
 Para editar un contacto debe dirigirse a la opción acción e inmediatamente le aparecerá una ventana nueva en
 donde podrá editar todos los datos del contacto, una vez finalizado el proceso debemos de actualizar.
 
+
 ==2. Exportar==
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
- de formatos PDF o XLS.
+de formatos PDF o XLS.
+
 
 ==3. Subordinado==
-En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
-del modulo subordinado, de manera que usted esté informado de todas las funcionalidades de este modulo para que
-pueda trabajar en toda su potencialidad.
+El modulo subordinado contiene lo siguiente:
 
-Este documento explica:
   * Crear contacto existe para facturación
   * Agregar contacto existente.
   * Crear contacto subordinado.
   * Desconectar contactos selectos.
   * Exportar
-
 
 ===Crear contacto existente para facturación===
 Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
@@ -74,17 +72,13 @@ tipos de formatos PDF o XLS.
 
 
 ==4. Superior==
-En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
-del modulo superior, de manera que usted esté informado de todas las funcionalidades de este modulo para que
-pueda trabajar en toda su potencialidad.
+El modulo superior contiene lo siguiente:
 
-Este documento explica:
   * Crear contacto existe para facturación.
   * Agregar contacto existente.
   * Crear contacto subordinado.
   * Desconectar contactos selectos.
   * Exportar
-
 
 ===Crear contacto existente para facturación===
 Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
@@ -113,19 +107,14 @@ desconectar contactos selectos.
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
 de formatos PDF o XLS.
 
+
 ==5. Productos==
-
-En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
-del modulo productos, de manera que usted esté informado de todas las funcionalidades de este modulo para que
-pueda trabajar en toda su potencialidad.
-
-Este documento explica:
+El modulo productos contiene lo siguiente:
 
   * Agregar como fabricante.
   * Agregar como proveedor.
   * Desconectar
   * Exportar
-
 
 ===Agregar como fabricante===
 Para eso tenemos que buscar un producto, y lo haremos ingresando información en cualquiera de los campos ya
@@ -145,10 +134,9 @@ desconectar.
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
 de formatos PDF o XLS.
 
-==6. Documentos==
-En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso del modulo documentos, de manera que usted esté informado de todas las funcionalidades de este modulo para que pueda trabajar en toda su potencialidad.
 
-Este documento explica:
+==6. Documentos==
+El modulo documentos contiene lo siguiente:
 
   * Exportar
 
