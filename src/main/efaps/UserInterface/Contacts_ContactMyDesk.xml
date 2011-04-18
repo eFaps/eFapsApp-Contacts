@@ -43,6 +43,7 @@
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
                 <property name="Types">Contacts_Contact</property>
             </evaluate>
+            <help>org.efaps.wiki.contacts.Contacts.wiki</help>
         </target>
         <!-- properties -->
         <property name="Target">content</property>
