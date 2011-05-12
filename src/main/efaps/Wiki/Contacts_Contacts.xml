@@ -37,7 +37,6 @@
             <wiki>org.efaps.wiki.contacts.Contacts.wiki</wiki>
         </target>
         <childs>
-            <child>Searchcontact_Contacts</child>
             <child>DefinitionAtt_Contacts</child>
             <child>Showcontact_Contacts</child>
         </childs>

@@ -37,7 +37,7 @@ de formatos PDF o XLS.
 ==3. Subordinado==
 El menú subordinado contiene lo siguiente:
 
-  * Crear contacto existe para facturación
+  * Crear contacto existe para facturación.
   * Agregar contacto existente.
   * Crear contacto subordinado.
   * Desconectar contactos selectos.
@@ -76,19 +76,19 @@ El menú superior contiene lo siguiente:
 
   * Crear contacto existe para facturación.
   * Agregar contacto existente.
-  * Crear contacto subordinado.
+  * Crear contacto superior.
   * Desconectar contactos selectos.
   * Exportar
 
 ===Crear contacto existente para facturación===
-Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
-Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un
-check en la casilla del contacto que desea agregar y acepta.
+Para agregar un contacto existente debe dirigirse a la opción acción e ingresar a Agregar Contacto existente para facturación en donde
+le aparecera la ventana buscar contactos, en el campo Apellido / Razón Social colocar el nombre(poner {{{*}}} al final del nombre)
+ o colocar solo {{{*}}} y le aparecerá la lista completa de todos los contactos, haga un check en la casilla del contacto que desea agregar y acepta.
 
 ===Agregar contacto existente===
-Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
-Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un
-check en la casilla del contacto que desea agregar y acepta.
+Para agregar un contacto existente debe dirigirse a la opción acción e ingresar a Agregar Contacto existente para facturación en donde
+le aparecera la ventana buscar contactos, en el campo Apellido / Razón Social colocar el nombre(poner {{{*}}} al final del nombre)
+ o colocar solo {{{*}}} y le aparecerá la lista completa de todos los contactos, haga un check en la casilla del contacto que desea agregar y acepta.
 
 ===Crear contacto superior===
 Para crear un contacto superior debe dirigirse a la opción acción e ingresar a crear contacto superior,
@@ -117,13 +117,13 @@ El menú productos contiene lo siguiente:
   * Exportar
 
 ===Agregar como fabricante===
-Para eso tenemos que buscar un producto, y lo haremos ingresando información en cualquiera de los campos ya
-sea en código o descripción, también puede colocar {{{(*)}}} en los dos campos y le aparecerá la lista completa
+Para eso tenemos que buscar un producto, y lo haremos ingresando información(al final de la información colocar {{{*}}}) en cualquiera de los campos ya
+sea en código o descripción, también puede colocar solo {{{(*)}}} en los dos campos y le aparecerá la lista completa
 de todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
 
 ===Agregar como proveedor===
-Para eso tenemos que buscar un producto, y lo haremos ingresando información en cualquiera de los campos ya sea
-en código o descripción, también puede colocar {{{(*)}}} en los dos campos y le aparecerá la lista completa de
+Para eso tenemos que buscar un producto, y lo haremos ingresando información(al final de la información colocar {{{*}}}) en cualquiera de los campos ya sea
+en código o descripción, también puede colocar solo {{{*}}} en los dos campos y le aparecerá la lista completa de
 todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
 
 ===Desconectar===

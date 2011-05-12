@@ -28,7 +28,7 @@ La ventana crear nuevo contacto le brinda dos tipos de creación de contacto, la
 ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra manera es
 por medio del árbol de clasificación donde nos dirigiremos a la lupa que se encuentra en la parte superior de
 la ventana, ella nos muestra una nueva ventana en donde encontramos los distintos tipos de contactos, el usuario
-podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con la empresa y ahora
+podrá elegir mas de un tipo de contacto según la relacion que tenga el contacto con la empresa y ahora
 debemos ingresar la información correspondiente por cada campo.
 
 Importancia
@@ -40,6 +40,9 @@ ayudara a la creación de distritos.
 Agregar datos a clasificación:
 los datos de teléfono, fax y e-mail se agregan con el signo + y el signo – es para eliminar los datos agregados.
 
+Agregar valores:
+Para agregar los valores que se presentan en el telefono, fax y e-mail, debe dirigirse a [http://localhost:8080/mn/servlet/help/org.efaps.wiki.contacts.DefinitionAtt.wiki definiciones].
+
 ==Mover documentos para contacto==
 Nos ayuda a mover todos los datos de un contacto a otro, y que este tome el papel de este contacto.
 Colocamos primero al contacto que vamos a necesitar sus datos en “De contacto” y colocamos el contacto que
@@ -50,5 +53,5 @@ Seleccionamos uno o varios contactos haciendo check en las casillas, dirigirse a
 selecto.
 
 ==Exportar==
-Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
