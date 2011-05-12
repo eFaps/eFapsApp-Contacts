@@ -30,12 +30,12 @@ donde podrá editar todos los datos del contacto, una vez finalizado el proceso 
 
 
 ==2. Exportar==
-Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
 
 ==3. Subordinado==
-El modulo subordinado contiene lo siguiente:
+El menú subordinado contiene lo siguiente:
 
   * Crear contacto existe para facturación
   * Agregar contacto existente.
@@ -67,12 +67,12 @@ Selecciona uno o varios contactos haciendo check en las casillas, se dirige a la
 desconectar contactos selectos.
 
 ===Exportar===
-Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos
 tipos de formatos PDF o XLS.
 
 
 ==4. Superior==
-El modulo superior contiene lo siguiente:
+El menú superior contiene lo siguiente:
 
   * Crear contacto existe para facturación.
   * Agregar contacto existente.
@@ -104,12 +104,12 @@ Selecciona uno o varios contactos haciendo check en las casillas, se dirige a la
 desconectar contactos selectos.
 
 ===Exportar===
-Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
 
 ==5. Productos==
-El modulo productos contiene lo siguiente:
+El menú productos contiene lo siguiente:
 
   * Agregar como fabricante.
   * Agregar como proveedor.
@@ -131,18 +131,18 @@ Selecciona uno o varios productos haciendo check en las casillas, se dirige a la
 desconectar.
 
 ===Exportar===
-Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
 
 ==6. Documentos==
-El modulo documentos contiene lo siguiente:
+El menú documentos contiene lo siguiente:
 
   * Exportar
 
 ===Exportar===
-Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el modulo, en dos tipos
+Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
 Importante
-En el modulo documentos podrá visualizar toda clase de documentos relacionados con el cliente.
+En el menú documentos podrá visualizar toda clase de documentos relacionados con el cliente.

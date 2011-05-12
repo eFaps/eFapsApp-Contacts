@@ -13,7 +13,7 @@
 ----
 
 En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso del
-modulo buscar contacto, de manera que usted esté informado de todas las funcionalidades de este modulo para que
+menú buscar contacto, de manera que usted esté informado de todas las funcionalidades de este menú para que
 pueda trabajar en toda su potencialidad.
 Para buscar cualquier contacto nosotros debemos de ingresar información de este contacto en cualquiera de los
 campos ya sea en Apellido / Razón Social o D.N.I / R.U.C, también puede colocar {{{(*)}}} en los dos campos y

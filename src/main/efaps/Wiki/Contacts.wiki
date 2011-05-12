@@ -13,7 +13,7 @@
 ----
 
 En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
-del modulo contactos, de manera que usted esté informado de todas las funcionalidades de este modulo para que
+del menú contactos, de manera que usted esté informado de todas las funcionalidades de este menú para que
 pueda trabajar en toda su potencialidad.
 
 Este documento explica:
@@ -34,7 +34,7 @@ debemos ingresar la información correspondiente por cada campo.
 Importancia
 
 Agregar distritos:
-ir al modulo venta, dirigirnos a administración e ingresar a atributos. Atributos es el modulo el cual nos
+ir al menú venta, dirigirnos a administración e ingresar a [http://localhost:8080/intimotors/servlet/help/org.efaps.wiki.sales.Administration.wiki atributos]. Atributos es el modulo el cual nos
 ayudara a la creación de distritos.
 
 Agregar datos a clasificación:

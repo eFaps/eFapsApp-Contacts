@@ -7,14 +7,14 @@
 
 
 
-#summary Definición de Atributos
+#summary Definici&oacute;n de Atributos
 <wiki:toc max_depth="3"/>
 
 ----
 
 En este Manual de Usuario usted encontrará toda la información necesaria referente a la inicialización y uso
-del modulo definiciones de atributos, de manera que usted esté informado de todas las funcionalidades de este
-modulo para que pueda trabajar en toda su potencialidad.
+del menú definiciones de atributos, de manera que usted esté informado de todas las funcionalidades de este
+menú para que pueda trabajar en toda su potencialidad.
 
 Este documento explica:
 
