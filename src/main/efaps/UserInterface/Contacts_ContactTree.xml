@@ -43,6 +43,7 @@
         <target>
             <menu>Contacts_ContactTree_Menu</menu>
             <form>Contacts_ContactForm</form>
+            <help>org.efaps.wiki.contacts.Showcontact.wiki</help>
         </target>
         <!-- type tree for -->
         <type>Contacts_Contact</type>
