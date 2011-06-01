@@ -28,13 +28,13 @@ La ventana crear nuevo contacto le brinda dos tipos de creación de contacto, la
 ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra manera es
 por medio del árbol de clasificación donde nos dirigiremos a la lupa que se encuentra en la parte superior de
 la ventana, ella nos muestra una nueva ventana en donde encontramos los distintos tipos de contactos, el usuario
-podrá elegir mas de un tipo de contacto según la relacion que tenga el contacto con la empresa y ahora
+podrá elegir mas de un tipo de contacto según la relación que tenga el contacto con la empresa y ahora
 debemos ingresar la información correspondiente por cada campo.
 
 Importancia
 
 Agregar distritos:
-ir al menú venta, dirigirnos a administración e ingresar a [http://localhost:8080/intimotors/servlet/help/org.efaps.wiki.sales.Administration.wiki atributos]. Atributos es el modulo el cual nos
+ir al menú venta, dirigirnos a administración e ingresar a [http://localhost:8080/mn/servlet/help/org.efaps.wiki.sales.Administration.wiki#2.1_Atributos atributos]. Atributos es el menú el cual nos
 ayudara a la creación de distritos.
 
 Agregar datos a clasificación:

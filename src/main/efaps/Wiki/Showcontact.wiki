@@ -21,8 +21,7 @@ Este documento explica:
   # Exportar
   # Subordinado
   # Superior
-  # Productos
-  # Documentos
+
 
 ==1. Editar==
 Para editar un contacto debe dirigirse a la opción acción e inmediatamente le aparecerá una ventana nueva en
@@ -118,7 +117,7 @@ El menú productos contiene lo siguiente:
 
 ===Agregar como fabricante===
 Para eso tenemos que buscar un producto, y lo haremos ingresando información(al final de la información colocar {{{*}}}) en cualquiera de los campos ya
-sea en código o descripción, también puede colocar solo {{{(*)}}} en los dos campos y le aparecerá la lista completa
+sea en código o descripción, también puede colocar solo {{{*}}} en los dos campos y le aparecerá la lista completa
 de todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
 
 ===Agregar como proveedor===

@@ -26,7 +26,7 @@
 <help-menu xmlns="http://www.efaps.org/xsd"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>45cbc7f6-4969-44e5-832b-b4a6516f489f</uuid>
+    <uuid>0727550d-4d8a-4aec-b5f4-b2e9290184e3</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
     <definition>

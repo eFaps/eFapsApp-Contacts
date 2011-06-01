@@ -7,7 +7,7 @@
 
 
 
-#summary Definici&oacute;n de Atributos
+#summary Definiciones
 <wiki:toc max_depth="3"/>
 
 ----
@@ -36,7 +36,4 @@ haciendo un check en la casilla, dirigirse a acción y luego seleccionar borrar 
 ==Exportar==
 Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
-
-
-
 
