@@ -36,23 +36,23 @@ de formatos PDF o XLS.
 ==3. Subordinado==
 El menú subordinado contiene lo siguiente:
 
-  * Crear contacto existe para facturación.
-  * Agregar contacto existente.
-  * Crear contacto subordinado.
-  * Desconectar contactos selectos.
-  * Exportar
+  * 3.1 Crear contacto existe para facturación.
+  * 3.2 Agregar contacto existente.
+  * 3.3 Crear contacto subordinado.
+  * 3.4 Desconectar contactos selectos.
+  * 3.5 Exportar
 
-===Crear contacto existente para facturación===
+===3.1 Crear contacto existente para facturación===
 Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
 Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un
 check en la casilla del contacto que desea agregar y acepte.
 
-===Agregar contacto existente===
+===3.2 Agregar contacto existente===
 Para agregar un contacto existente debe dirigirse a la opción acción e ingresar información en el campo
 Apellido / Razón Social o colocar ({{{*}}}) y le aparecerá la lista completa de todos los contactos, haga un check
 en la casilla del contacto que desea agregar y acepte.
 
-===Crear contacto subordinado===
+===3.3 Crear contacto subordinado===
 Para crear un contacto subordinado debe dirigirse a la opción acción e ingresar a crear contacto subordinado,
 le mostrara una ventana que le brinda dos tipos de creación de contacto subordinado, la primera es que usted
 deberá ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra
@@ -61,11 +61,11 @@ superior de la ventana, ella nos muestra una nueva ventana en donde encontramos 
 contactos, el usuario podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con
 la empresa y ahora  debemos ingresar la información correspondiente por cada campo.
 
-===Desconectar contactos selectos===
+===3.4 Desconectar contactos selectos===
 Selecciona uno o varios contactos haciendo check en las casillas, se dirige a la opción acción y elige
 desconectar contactos selectos.
 
-===Exportar===
+===3.5 Exportar===
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos
 tipos de formatos PDF o XLS.
 
@@ -73,23 +73,23 @@ tipos de formatos PDF o XLS.
 ==4. Superior==
 El menú superior contiene lo siguiente:
 
-  * Crear contacto existe para facturación.
-  * Agregar contacto existente.
-  * Crear contacto superior.
-  * Desconectar contactos selectos.
-  * Exportar
+  * 4.1 Crear contacto existe para facturación.
+  * 4.2 Agregar contacto existente.
+  * 4.3 Crear contacto superior.
+  * 4.4 Desconectar contactos selectos.
+  * 4.5 Exportar
 
-===Crear contacto existente para facturación===
+===4.1 Crear contacto existente para facturación===
 Para agregar un contacto existente debe dirigirse a la opción acción e ingresar a Agregar Contacto existente para facturación en donde
 le aparecera la ventana buscar contactos, en el campo Apellido / Razón Social colocar el nombre(poner {{{*}}} al final del nombre)
  o colocar solo {{{*}}} y le aparecerá la lista completa de todos los contactos, haga un check en la casilla del contacto que desea agregar y acepta.
 
-===Agregar contacto existente===
+===4.2 Agregar contacto existente===
 Para agregar un contacto existente debe dirigirse a la opción acción e ingresar a Agregar Contacto existente para facturación en donde
 le aparecera la ventana buscar contactos, en el campo Apellido / Razón Social colocar el nombre(poner {{{*}}} al final del nombre)
  o colocar solo {{{*}}} y le aparecerá la lista completa de todos los contactos, haga un check en la casilla del contacto que desea agregar y acepta.
 
-===Crear contacto superior===
+===4.3 Crear contacto superior===
 Para crear un contacto superior debe dirigirse a la opción acción e ingresar a crear contacto superior,
 le mostrara una ventana que le brinda dos tipos de creación de contacto superior, la primera es que usted
 deberá ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra
@@ -98,11 +98,11 @@ superior de la ventana, ella nos muestra una nueva ventana en donde encontramos 
 contactos, el usuario podrá elegir mas de un tipo de contacto según la relacional que tenga el contacto con la
 empresa y ahora  debemos ingresar la información correspondiente por cada campo.
 
-===Desconectar contactos selectos===
+===4.4 Desconectar contactos selectos===
 Selecciona uno o varios contactos haciendo check en las casillas, se dirige a la opción acción y elige
 desconectar contactos selectos.
 
-===Exportar===
+===4.5 Exportar===
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
@@ -110,26 +110,26 @@ de formatos PDF o XLS.
 ==5. Productos==
 El menú productos contiene lo siguiente:
 
-  * Agregar como fabricante.
-  * Agregar como proveedor.
-  * Desconectar
-  * Exportar
+  * 5.1 Agregar como fabricante.
+  * 5.2 Agregar como proveedor.
+  * 5.3 Desconectar
+  * 5.4 Exportar
 
-===Agregar como fabricante===
+===5.1 Agregar como fabricante===
 Para eso tenemos que buscar un producto, y lo haremos ingresando información(al final de la información colocar {{{*}}}) en cualquiera de los campos ya
 sea en código o descripción, también puede colocar solo {{{*}}} en los dos campos y le aparecerá la lista completa
 de todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
 
-===Agregar como proveedor===
+===5.2 Agregar como proveedor===
 Para eso tenemos que buscar un producto, y lo haremos ingresando información(al final de la información colocar {{{*}}}) en cualquiera de los campos ya sea
 en código o descripción, también puede colocar solo {{{*}}} en los dos campos y le aparecerá la lista completa de
 todos los productos. Haga un check en la casilla del producto que desea agregar e interconecta.
 
-===Desconectar===
+===5.3 Desconectar===
 Selecciona uno o varios productos haciendo check en las casillas, se dirige a la opción acción y elige
 desconectar.
 
-===Exportar===
+===5.4 Exportar===
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
@@ -137,11 +137,12 @@ de formatos PDF o XLS.
 ==6. Documentos==
 El menú documentos contiene lo siguiente:
 
-  * Exportar
+  * 6.1 Exportar
 
-===Exportar===
+===6.1 Exportar===
 Sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
-Importante
+Importante:
 En el menú documentos podrá visualizar toda clase de documentos relacionados con el cliente.
+

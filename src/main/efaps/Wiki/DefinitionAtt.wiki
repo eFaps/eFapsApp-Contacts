@@ -18,22 +18,22 @@ menú para que pueda trabajar en toda su potencialidad.
 
 Este documento explica:
 
-  * Crear definiciones
-  * Borrar selecto(s)
-  * Exportar
+  # Crear definiciones
+  # Borrar selecto(s)
+  # Exportar
 
-==Crear definiciones==
+==1. Crear definiciones==
 Para crear una definición usted debe ingresar a la opción acción y encontrará diversas definiciones como:
 crear definición de teléfono, crear definición de email y crear definición de fax.
 
 Al momento de crear cualquiera de estas definiciones nos muestra una ventana nueva en donde nos pide llenar
 el campo valor, es donde debemos de ingresar la información.
 
-==Borrar selecto(s)==
+==2. Borrar selecto(s)==
 Para eliminar el valor de alguna definición de atributo tiene que seleccionar una o varias definiciones
 haciendo un check en la casilla, dirigirse a acción y luego seleccionar borrar selecto(s).
 
-==Exportar==
+==3. Exportar==
 Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
 de formatos PDF o XLS.
 
