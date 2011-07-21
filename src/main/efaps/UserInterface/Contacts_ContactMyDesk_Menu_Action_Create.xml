@@ -45,7 +45,6 @@
         <target>
             <form>Contacts_ContactForm</form>
             <execute program="org.efaps.esjp.common.uiform.Create" />
-            <help>org.efaps.wiki.contacts.Createcontact.wiki</help>
         </target>
 
         <!-- properties -->
