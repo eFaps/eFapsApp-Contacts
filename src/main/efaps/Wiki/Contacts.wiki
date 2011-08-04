@@ -26,32 +26,32 @@ Este documento explica:
 ==1. Crear contacto==
 La ventana crear nuevo contacto le brinda dos tipos de creación de contacto, la primera es que usted deberá
 ingresar los datos en el campo Apellido / Razón Social que aparece en la ventana principal, la otra manera es
-por medio del árbol de clasificación donde nos dirigiremos a la lupa que se encuentra en la parte superior de
-la ventana, ella nos muestra una nueva ventana en donde encontramos los distintos tipos de contactos, el usuario
-podrá elegir mas de un tipo de contacto según la relación que tenga el contacto con la empresa y ahora
-debemos ingresar la información correspondiente por cada campo.
+por medio del árbol de clasificación donde se dirige a la lupa que se encuentra en la parte superior de
+la ventana, ella le muestra una nueva ventana en donde encontrará los distintos tipos de contactos, usted
+podrá elegir mas de un tipo de contacto, según la relación que tenga el contacto con la empresa y ahora
+deberá ingresar la información correspondiente por cada campo.
 
 Importancia
 
 Agregar distritos:
-ir al menú venta, dirigirnos a administración e ingresar a [http://localhost:8080/mn/servlet/help/org.efaps.wiki.sales.Administration.wiki#2.1_Atributos atributos]. Atributos es el menú el cual nos
+ir al menú venta, dirigirse a administración e ingresar a [./org.efaps.wiki.sales.Administration.wiki#2.1_Atributos atributos]. Atributos es el menú el cual le
 ayudara a la creación de distritos.
 
 Agregar datos a clasificación:
 los datos de teléfono, fax y e-mail se agregan con el signo + y el signo – es para eliminar los datos agregados.
 
 Agregar valores:
-Para agregar los valores que se presentan en el telefono, fax y e-mail, debe dirigirse a [http://localhost:8080/mn/servlet/help/org.efaps.wiki.contacts.DefinitionAtt.wiki definiciones].
+para agregar los valores que se presentan en el telefono, fax y e-mail, debe dirigirse a [./org.efaps.wiki.contacts.DefinitionAtt.wiki definiciones].
 
 ==2. Mover documentos para contacto==
-Nos ayuda a mover todos los datos de un contacto a otro, y que este tome el papel de este contacto.
-Colocamos primero al contacto que vamos a necesitar sus datos en “De contacto” y colocamos el contacto que
-queremos trasladarle toda la información en “Para contacto”.
+Le ayuda a mover todos los datos de un contacto a otro, y que este tome el papel de este contacto.
+Colocará primero al contacto que necesita sus datos en “De contacto” y luego colocará al contacto que
+decea trasladarle toda la información en “Para contacto”.
 
 ==3. Borrar selecto==
-Seleccionamos uno o varios contactos haciendo check en las casillas, dirigirse a la opción acción y elija borrar
+Seleccionar uno o varios contactos haciendo un check en sus casillas, dirigirse a la opción acción y elegir borrar
 selecto.
 
 ==4. Exportar==
 Le sirve para poder imprimir una o varias hojas con todos los datos que se encuentran en el menú, en dos tipos
-de formatos PDF o XLS.
+de formato PDF o XLS.
