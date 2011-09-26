@@ -149,5 +149,5 @@ Sirve para poder imprimir una o varias hojas con todos los datos que se encuentr
 de formato PDF o XLS.
 
 Importante:
-En el menú documentos podrá visualizar toda clase de documentos relacionados con el cliente.
+en el menú documentos podrá visualizar toda clase de documentos relacionados con el cliente.
 
