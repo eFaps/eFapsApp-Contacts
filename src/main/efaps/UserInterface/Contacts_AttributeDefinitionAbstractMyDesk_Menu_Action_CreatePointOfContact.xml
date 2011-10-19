@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2011 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -23,32 +23,30 @@
 
 -->
 
-<access-set xmlns="http://www.efaps.org/xsd"
+<ui-command xmlns="http://www.efaps.org/xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>85eb615c-c7e8-4c0d-a049-ef1d03d1ee35</uuid>
+
+    <uuid>dcb1589f-d88c-43b1-b1ef-6439de177471</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
 
     <definition>
         <version-expression>(version==latest)</version-expression>
+        <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreatePointOfContact</name>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
+        <!-- target definitions -->
 
-        <name>Contacts_AttributesDefinition</name>
-
-        <access-type>show</access-type>
-        <access-type>read</access-type>
-
-        <type>Contacts_AttributeDefinitionEmail</type>
-        <type>Contacts_AttributeDefinitionPhone</type>
-        <type>Contacts_AttributeDefinitionAbstract</type>
-        <type>Contacts_AttributeDefinitionFax</type>
-        <type>Contacts_AttributeDefinitionPointOfContact</type>
-
-        <role>Contacts_Modifier</role>
-        <role>Contacts_Reader</role>
-
+        <target>
+            <form>Contacts_AttributeDefinitionAbstractForm</form>
+            <execute program="org.efaps.esjp.common.uiform.Create" />
+        </target>
+        <!-- properties -->
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Contacts_AttributeDefinitionPointOfContact</property>
+        <property name="TargetMode">create</property>
     </definition>
 
-</access-set>
-
-
+</ui-command>

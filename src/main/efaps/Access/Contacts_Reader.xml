@@ -26,30 +26,32 @@
 <access-set xmlns="http://www.efaps.org/xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>3ddf017e-92ae-4b7d-af82-9ca13299a967</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>3ddf017e-92ae-4b7d-af82-9ca13299a967</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
 
-    <name>Contacts_Reader</name>
+        <name>Contacts_Reader</name>
 
-    <access-type>show</access-type>
-    <access-type>read</access-type>
+        <access-type>show</access-type>
+        <access-type>read</access-type>
 
-    <type>Contacts_Contact</type>
-    <type>Contacts_Contact2Class</type>
-    <type>Contacts_Organisation2Person</type>
-    <type>Contacts_Class</type>
-    <type>Contacts_ClassOrganisation</type>
-    <type>Contacts_ClassPerson</type>
-    <type>Contacts_AttributeEmail</type>
-    <type>Contacts_AttributePhone</type>
+        <type>Contacts_Contact</type>
+        <type>Contacts_Contact2Class</type>
+        <type>Contacts_Organisation2Person</type>
+        <type>Contacts_Class</type>
+        <type>Contacts_ClassOrganisation</type>
+        <type>Contacts_ClassPerson</type>
+        <type>Contacts_ClassPointOfContact</type>
+        <type>Contacts_AttributeEmail</type>
+        <type>Contacts_AttributePhone</type>
+        <type>Contacts_AttributePointOfContact</type>
 
-    <role>Contacts_Reader</role>
+        <role>Contacts_Reader</role>
 
-  </definition>
+    </definition>
 
 </access-set>
 
