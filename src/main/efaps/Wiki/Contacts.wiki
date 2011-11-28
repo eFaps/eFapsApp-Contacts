@@ -35,7 +35,7 @@ Importancia
 
 Agregar distritos:
 ir al menú administración, dirigirse a definiciones e ingresar a [./org.efaps.wiki.definitions.Definitions.wiki#1.4_Pertenece_a_contacto atributos]. Atributos es el menú que le
-ayudará a crear de distritos.
+ayudará a crear distritos.
 
 Agregar datos a clasificación:
 los datos de teléfono, fax y e-mail se agregan con el signo + y el signo – es para eliminar los datos agregados.
