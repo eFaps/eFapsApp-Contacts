@@ -32,10 +32,15 @@
     <!-- ************************************************************************
     * Module Definition
     ************************************************************************* -->
+     <parent>
+        <groupId>org.efaps</groupId>
+        <artifactId>efaps-parent</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+    </parent>
+
     <packaging>jar</packaging>
     <groupId>org.efaps.apps</groupId>
     <artifactId>contacts</artifactId>
-    <version>1.19.0-SNAPSHOT</version>
 
     <name>eFaps Contacts App</name>
     <description>
@@ -108,178 +113,6 @@
         </repository>
     </distributionManagement>
 
-    <properties>
-        <!-- correct encoding -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <!-- ************************************************************************
-    * Profiles
-    ************************************************************************* -->
-    <profiles>
-        <!--
-            Release Profile is done without tests, but with source and JavaDoc!
-        -->
-        <profile>
-            <id>release-profile</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <!-- No test.. -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.9</version>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-                    <!-- Attach Sources -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.1.2</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- Attach JavaDoc -->
-                    <plugin>
-                        <inherited>true</inherited>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.8</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- Update Release Info -->
-                    <plugin>
-                        <inherited>true</inherited>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>2.6</version>
-                        <configuration>
-                            <updateReleaseInfo>true</updateReleaseInfo>
-                        </configuration>
-                    </plugin>
-                    <!-- signing the artefact with gpg -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.3</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
-    <!-- ************************************************************************
-    * Reporting
-    ************************************************************************* -->
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.4</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>index</report>
-                            <report>summary</report>
-                            <report>dependencies</report>
-                            <report>project-team</report>
-                            <!--   <report>mailing-list</report>-->
-                            <!-- <report>cim</report> -->
-                            <report>issue-tracking</report>
-                            <report>license</report>
-                            <report>scm</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-            <!-- JavaCC reporting -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>javacc-maven-plugin</artifactId>
-                <version>2.6</version>
-            </plugin>
-            <!-- java doc -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
-                <configuration>
-                    <minmemory>128m</minmemory>
-                    <maxmemory>1g</maxmemory>
-                    <level>private</level>
-                    <detectLinks />
-                </configuration>
-            </plugin>
-            <!-- source code -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <linkJavadoc>false</linkJavadoc>
-                    <javadocDir>apidocs</javadocDir>
-                </configuration>
-            </plugin>
-            <!-- checkstyle -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <configLocation>${basedir}/src/checkstyle/efaps_checks.xml</configLocation>
-                </configuration>
-            </plugin>
-            <!-- PMD report -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <linkXref>true</linkXref>
-                    <sourceEncoding>utf-8</sourceEncoding>
-                    <targetJdk>1.5</targetJdk>
-                </configuration>
-            </plugin>
-            <!--  findbugs report -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration />
-            </plugin>
-        </plugins>
-    </reporting>
 
     <!-- ************************************************************************
   * Project itself
@@ -287,28 +120,12 @@
     <build>
         <plugins>
             <!--
-                Compiler Settings:
-                - Java 1.6 is needed!
-                - UTF8 encoding
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-
-            <!--
                 eFaps plugin
             -->
             <plugin>
                 <groupId>org.efaps</groupId>
-                <artifactId>maven-efaps-plugin</artifactId>
-                <version>2.18.0-7.4.3.v20110701</version>
+                <artifactId>efaps-maven-plugin</artifactId>
+                <version>${maven.efaps.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -329,7 +146,7 @@
                     <dependency>
                         <groupId>commons-dbcp</groupId>
                         <artifactId>commons-dbcp</artifactId>
-                        <version>1.4</version>
+                        <version>${commons.dbcp.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -346,6 +163,5 @@
             <artifactId>efaps-webapp-install</artifactId>
             <version>${project.version}</version>
         </dependency>
-
     </dependencies>
 </project>
