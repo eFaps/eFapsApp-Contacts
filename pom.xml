@@ -161,7 +161,7 @@
         <dependency>
             <groupId>org.efaps</groupId>
             <artifactId>efaps-webapp-install</artifactId>
-            <version>${efaps.app.dependecies}</version>
+            <version>${efaps.app.dependencies}</version>
         </dependency>
     </dependencies>
 </project>
