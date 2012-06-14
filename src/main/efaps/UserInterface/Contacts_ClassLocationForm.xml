@@ -97,12 +97,6 @@
             <property name="ModeSearch">EDITABLE</property>
             <property name="Required">true</property>
         </field>
-         <field name="locationDistrictLink">
-            <property name="Columns">10</property>
-            <property name="ModeCreate">EDITABLE</property>
-            <property name="ModeEdit">EDITABLE</property>
-            <property name="Attribute">LocationDistrictLink</property>
-        </field>
         <field name="locationAdressZIP">
             <property name="Columns">15</property>
             <property name="Attribute">LocationAdressZIP</property>
