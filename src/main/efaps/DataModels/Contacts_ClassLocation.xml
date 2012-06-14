@@ -31,6 +31,9 @@
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
+        <profiles>
+            <profile name="eFaps"/>
+        </profiles>
         <name>Contacts_ClassLocation</name>
         <parent>Contacts_Class</parent>
         <purpose classification="true">
@@ -72,6 +75,77 @@
             <type>String</type>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
             <sqlcolumn>ZIP</sqlcolumn>
+        </attribute>
+    </definition>
+
+
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <profiles>
+            <profile name="ubicaciones" />
+        </profiles>
+        <name>Contacts_ClassLocation</name>
+        <parent>Contacts_Class</parent>
+        <purpose classification="true">
+            <LinkColumn>ContactLink</LinkColumn>
+        </purpose>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ContactLink</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>LocationAdressStreet</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>STREET</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>LocationAdressCity</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>CITY</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>LocationAdressZIP</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>ZIP</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>DepartmentLocationLink</name>
+            <type>Link</type>
+            <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>DEPARTMENT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ProvinceLocationLink</name>
+            <type>Link</type>
+            <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>PROVINCE</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>DistrictLocationLink</name>
+            <type>Link</type>
+            <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>DISTRICT</sqlcolumn>
         </attribute>
     </definition>
 </datamodel-type>

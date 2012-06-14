@@ -31,6 +31,9 @@
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
+        <profiles>
+            <profile name="eFaps"/>
+        </profiles>
         <name>Contacts_ClassLocationSQLTable</name>
         <database>
             <table-name>T_COCLASSLOC</table-name>
@@ -39,6 +42,27 @@
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
             <foreign name="T_COCLASSLOC_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
+        </database>
+    </definition>
+    <definition >
+        <version-expression>(version==latest)</version-expression>
+        <profiles>
+            <profile name="ubicaciones"/>
+        </profiles>
+        <name>Contacts_ClassLocationSQLTable</name>
+        <database>
+            <table-name>T_COCLASSLOC</table-name>
+            <column name="CONTACTID"        type="INTEGER" not-null="true" />
+            <column name="STREET"           type="STRING_SHORT"     not-null="true" length="255"/>
+            <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
+            <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <column name="DEPARTMENTID"     type="INTEGER" />
+            <column name="PROVINCEID"       type="INTEGER" />
+            <column name="DISTRICTID"       type="INTEGER" />
+            <foreign name="T_COCLASSLOC_FK_CONTACTID"       key="CONTACTID" reference="T_COCONTACT(ID)" />
+            <foreign name="T_COCLASSLOC_FK_DEPARTMENTID"    key="DEPARTMENTID" reference="T_UBICACION(ID)" />
+            <foreign name="T_COCLASSLOC_FK_PROVINCEID"      key="PROVINCEID" reference="T_UBICACION(ID)" />
+            <foreign name="T_COCLASSLOC_FK_DISTRICTID"      key="DISTRICTID" reference="T_UBICACION(ID)" />
         </database>
     </definition>
 </datamodel-sqltable>

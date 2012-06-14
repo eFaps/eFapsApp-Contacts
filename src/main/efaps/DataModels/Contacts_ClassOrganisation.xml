@@ -23,50 +23,49 @@
 
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd" 
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+<datamodel-type  xmlns="http://www.efaps.org/xsd"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>0cbaa002-3915-4da1-a766-581956dbf595</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-  
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassOrganisation</name>
-    <parent>Contacts_Class</parent>
-    
-    <purpose classification="true">
-      <LinkColumn>ContactId</LinkColumn>
-    </purpose>
-    
-    <attribute>
-      <name>OID</name>
-      <type>OID</type>
-      <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
+    <uuid>0cbaa002-3915-4da1-a766-581956dbf595</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-    <attribute>
-      <name>ID</name>
-      <type>Long</type>
-      <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    
-    <attribute>
-      <name>ContactId</name>
-      <type>Link</type>
-      <typelink>Contacts_Contact</typelink>
-      <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
-      <sqlcolumn>CONTACTID</sqlcolumn>
-    </attribute>
-    
-    <attribute>
-      <name>TaxNumber</name>
-      <type>String</type>
-      <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
-      <sqlcolumn>TAXID</sqlcolumn>
-    </attribute>
-    
-  </definition>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassOrganisation</name>
+        <parent>Contacts_Class</parent>
+
+        <purpose classification="true">
+            <LinkColumn>ContactId</LinkColumn>
+        </purpose>
+
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+
+        <attribute>
+            <name>ContactId</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+
+        <attribute>
+            <name>TaxNumber</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
+            <sqlcolumn>TAXID</sqlcolumn>
+        </attribute>
+    </definition>
 </datamodel-type>
