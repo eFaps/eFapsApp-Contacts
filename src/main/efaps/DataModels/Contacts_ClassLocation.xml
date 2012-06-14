@@ -131,21 +131,21 @@
             <type>Link</type>
             <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
-            <sqlcolumn>DEPARTMENT</sqlcolumn>
+            <sqlcolumn>DEPARTMENTID</sqlcolumn>
         </attribute>
         <attribute>
             <name>ProvinceLocationLink</name>
             <type>Link</type>
             <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
-            <sqlcolumn>PROVINCE</sqlcolumn>
+            <sqlcolumn>PROVINCEID</sqlcolumn>
         </attribute>
         <attribute>
             <name>DistrictLocationLink</name>
             <type>Link</type>
             <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
-            <sqlcolumn>DISTRICT</sqlcolumn>
+            <sqlcolumn>DISTRICTID</sqlcolumn>
         </attribute>
     </definition>
 </datamodel-type>
