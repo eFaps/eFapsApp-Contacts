@@ -23,16 +23,17 @@
 
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd" 
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+<datamodel-type  xmlns="http://www.efaps.org/xsd"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
   <uuid>f35bf3a5-190f-4def-9311-ca539bef656c</uuid>
   <file-application>eFapsApp-Contacts</file-application>
   <file-revision>$Rev$</file-revision>
-  
+
   <definition>
     <version-expression>(version==latest)</version-expression>
     <name>Contacts_AttributeAbstract</name>
+    <purpose abstract="true" />
     <attribute>
       <name>Type</name>
       <type>Type</type>
@@ -81,7 +82,7 @@
       <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
       <sqlcolumn>MODIFIED</sqlcolumn>
     </attribute>
-    
+
     <attribute>
       <name>Value</name>
       <type>String</type>
