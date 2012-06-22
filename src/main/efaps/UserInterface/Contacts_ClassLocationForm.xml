@@ -153,9 +153,6 @@
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="WhereAttrEqValue">Name|-</property>
             </trigger>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="updateDropDown4Ubication"
-                name="Contacts_ClassLocationForm.district.UI_FIELD_UPDATE" event="UI_FIELD_UPDATE">
-            </trigger>
         </field>
         <field name="departmentLocationEdit">
             <property name="ModeCreate">NONE</property>
@@ -206,9 +203,6 @@
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="ParentAttribute">ProvinceLocationLink</property>
             </trigger>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="updateDropDown4Ubication"
-                name="Contacts_ClassLocationForm.districtEdit.UI_FIELD_UPDATE" event="UI_FIELD_UPDATE">
-            </trigger>
         </field>
         <field name="ubication">
             <property name="Phrase">$&lt;linkto[DepartmentLocationLink].attribute[Name]&gt; - $&lt;linkto[ProvinceLocationLink].attribute[Name]&gt; - $&lt;linkto[DistrictLocationLink].attribute[Name]&gt;</property>
@@ -219,6 +213,4 @@
             <property name="ModeView">READONLY</property>
         </field>
     </definition>
-
-
 </ui-form>
