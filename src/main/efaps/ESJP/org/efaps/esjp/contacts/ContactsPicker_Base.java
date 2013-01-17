@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2011 The eFaps Team
+ * Copyright 2003 - 2013 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -169,6 +169,9 @@ public abstract class ContactsPicker_Base
             classInsert2.add(classification.getLinkAttributeName(), contactInst.getId());
             classInsert2.execute();
 
+            // create Classification of Supplier
+            addClassSupplier(_parameter, contactInst);
+
             map.put(EFapsKey.PICKER_VALUE.getKey(), name);
             map.put("contact", contactInst.getOid());
             map.put("contactData", getFieldValue4Contact(_parameter, contactInst));
@@ -176,6 +179,33 @@ public abstract class ContactsPicker_Base
         return retVal;
     }
 
+    /**
+     * To be implemented in another class
+     * 
+     * @param _parameter Parameter as passes by the eFaps API
+     * @param _classInsert Insert to a classification
+     * @throws EFapsException on error
+     */
+    protected void addClassInsert(final Parameter _parameter,
+                                  final Insert _classInsert)
+        throws EFapsException
+    {
+
+    }
+
+    /**
+     * To be implemented in another class
+     * 
+     * @param _parameter Parameter as passes by the eFaps API
+     * @param _contactInst Instance of contact to connect to supplier
+     * @throws EFapsException on error
+     */
+    protected void addClassSupplier(final Parameter _parameter,
+                                    final Instance _contactInst)
+        throws EFapsException
+    {
+
+    }
 
     /**
      * Method to get the value for the field directly under the Contact.
