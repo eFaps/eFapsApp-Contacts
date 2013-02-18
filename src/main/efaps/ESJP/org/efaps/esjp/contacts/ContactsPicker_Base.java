@@ -66,7 +66,7 @@ public abstract class ContactsPicker_Base
         final StringBuilder warnHtml = validateName4Contact(_parameter, name);
         final StringBuilder errorHtml = validateTaxNumber4Contact(_parameter, taxNumber);
 
-        if (errorHtml.length() == 0) {
+        if (errorHtml.length() == 0 && warnHtml.length() == 0) {
             ret.put(ReturnValues.TRUE, true);
         }
         if (warnHtml.length() != 0 || errorHtml.length() != 0) {
