@@ -44,33 +44,31 @@
     <version number="1" login="true" reloadCache="true">
         <description>Install complete Data Model and UI.</description>
         <script type="groovy">
+            import java.io.File;
+            import java.util.UUID;
             import org.efaps.admin.runlevel.RunLevel;
+            import org.efaps.admin.user.JAASSystem;
+            import org.efaps.admin.user.Role;
             import org.efaps.db.Context;
-            import org.efaps.db.SearchQuery;
+            import org.efaps.db.QueryBuilder;
+            import org.efaps.db.InstanceQuery;
             import org.efaps.esjp.admin.ui.UIUpdate;
             import org.efaps.importer.DataImport;
-
-            import java.net.URL
-            import java.io.File;
 
             EFAPS_LOGGER.info("Importing Data for eFapsApp-Contacts");
 
             RunLevel.init("shell");
             RunLevel.execute();
 
-            SearchQuery query = new SearchQuery();
-            query.setQueryTypes("Admin_User_JAASKey");
-            query.addWhereExprEqValue("Key", "Contacts_Admin");
-            query.addSelect("OID");
-            query.execute();
+            EFAPS_LOGGER.info("    Check if JAASKEY for Role ADMIN_REST must be imported");
+            // Admin_User_JAASKey
+            QueryBuilder queryBldr = new QueryBuilder(UUID.fromString("0e7650c6-8ec3-4c63-b377-f3eb5fb85f16"));
+            queryBldr.addWhereAttrEqValue("Key", "Contacts_Admin");
+            InstanceQuery query = queryBldr.getQuery();
+            query.executeWithoutAccessCheck();
             if (!query.next()) {
-                URL url1 = new URL(EFAPS_ROOTURL, "Data/IMPORT_AttributeDefinitions.xml");
-                DataImport imp1 = DataImport.readFile(url1);
-                imp1.updateInDB();
-
-                URL url2 = new URL(EFAPS_ROOTURL, "Data/IMPORT_UserJAASKey.xml");
-                DataImport imp2 = DataImport.readFile(url2);
-                imp2.updateInDB();
+                DataImport.readFile(new URL(EFAPS_ROOTURL, "Data/IMPORT_AttributeDefinitions.xml")).updateInDB();
+                DataImport.readFile(new URL(EFAPS_ROOTURL, "Data/IMPORT_UserJAASKey.xml")).updateInDB();
             }
 
             <!-- Contacts_MyDesk, MainToolBar -->
