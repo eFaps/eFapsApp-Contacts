@@ -37,6 +37,7 @@
     <!-- childs -->
     <childs>
       <child>Contacts_ContactMyDesk_Menu_Action_Create</child>
+      <child>Contacts_ContactMyDesk_Menu_Action_MoveDocuments2Contacts</child>
       <child>Contacts_ContactMyDesk_Menu_Action_Delete</child>
     </childs>
   </definition>

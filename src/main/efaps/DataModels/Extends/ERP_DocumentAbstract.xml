@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003 - 2013 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+-->
+
+<datamodel-type  xmlns="http://www.efaps.org/xsd"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>ad1df372-bf47-49d2-af3e-a1c4065f062d</uuid>
+    <file-application>eFapsApp-Commons</file-application>
+    <file-revision>$Rev$</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>ERP_DocumentAbstract</name>
+        <purpose abstract="true"/>
+        <attribute>
+            <name>Type</name>
+            <type>Type</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>TYPEID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>TYPEID,ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Company</name>
+            <type>CompanyLink</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>COMPANYID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Name</name>
+            <type>String</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>NAME</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Revision</name>
+            <type>String</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>REVISION</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Date</name>
+            <type>Date</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>DATE</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>DueDate</name>
+            <type>Date</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>DUEDATE</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Contact</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+        <attribute>
+          <name>Salesperson</name>
+          <type>LinkWithRanges</type>
+          <typelink>Admin_User_Person</typelink>
+          <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+          <sqlcolumn>SALESPERS</sqlcolumn>
+          <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
+                   name="ERP_DocumentAbstract.Salesperson.RANGE_VALUE"
+                   event="RANGE_VALUE">
+            <property name="Value">$&lt;FirstName&gt; $&lt;LastName&gt;</property>
+            <property name="Type">Admin_User_Person</property>
+          </trigger>
+        </attribute>
+        <attribute>
+            <name>Note</name>
+            <type>String</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>NOTE</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Flag</name>
+            <type>Integer</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>FLAG</sqlcolumn>
+            <defaultvalue>0</defaultvalue>
+        </attribute>
+        <attribute>
+            <name>StatusAbstract</name>
+            <type>Status</type>
+            <typelink>Admin_DataModel_StatusAbstract</typelink>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>STATUS</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.StatusValue"
+                    name="Sales_DocumentStatus.Status.RANGE_VALUE"
+                    event="RANGE_VALUE">
+            </trigger>
+        </attribute>
+        <attribute>
+            <name>Creator</name>
+            <type>CreatorLink</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>CREATOR</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Created</name>
+            <type>Created</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>CREATED</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Modifier</name>
+            <type>ModifierLink</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>MODIFIER</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Modified</name>
+            <type>Modified</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>MODIFIED</sqlcolumn>
+        </attribute>
+    </definition>
+</datamodel-type>
