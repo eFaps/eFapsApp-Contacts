@@ -23,24 +23,24 @@
 
 -->
 
-<datamodel-type xmlns="http://www.efaps.org/xsd" 
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+<datamodel-type xmlns="http://www.efaps.org/xsd"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  
+
   <uuid>9b0c3dcc-266a-41e7-9318-886ef4692aeb</uuid>
   <file-application>eFapsApp-Contacts</file-application>
   <file-revision>$Rev$</file-revision>
-  
-  
+
+
   <definition>
     <version-expression>(version==latest)</version-expression>
 
     <name>Contacts_AttributeDefinitionFax</name>
-    <parent>Contacts_AttributeDefinitionAbstract</parent>
-    
-    <trigger program="org.efaps.esjp.admin.access.SimpleAccessCheckOnType" 
-             name="Contacts_AttributeDefinitionPhone.ACCESSCHECK" 
+    <parent>ERP_AttributeDefinitionAbstract</parent>
+
+    <trigger program="org.efaps.esjp.admin.access.SimpleAccessCheckOnType"
+             name="Contacts_AttributeDefinitionPhone.ACCESSCHECK"
              event="ACCESSCHECK"/>
-    
+
   </definition>
 </datamodel-type>

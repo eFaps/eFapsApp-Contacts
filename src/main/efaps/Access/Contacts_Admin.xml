@@ -57,14 +57,10 @@
         <type>Contacts_ClassOrganisation</type>
         <type>Contacts_ClassPerson</type>
         <type>Contacts_ClassPointOfContact</type>
-        <type>Contacts_AttributeEmail</type>
-        <type>Contacts_AttributePhone</type>
-        <type>Contacts_AttributePointOfContact</type>
 
         <role>Contacts_Admin</role>
 
     </definition>
-
 </access-set>
 
 

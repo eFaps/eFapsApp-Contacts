@@ -40,7 +40,7 @@
         <!-- target definitions -->
 
         <target>
-            <form>Contacts_AttributeDefinitionAbstractForm</form>
+            <form>ERP_AttributeDefinitionForm</form>
             <execute program="org.efaps.esjp.common.uiform.Create" />
         </target>
         <!-- properties -->

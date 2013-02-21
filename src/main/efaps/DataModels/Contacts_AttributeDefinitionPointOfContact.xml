@@ -32,7 +32,7 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_AttributeDefinitionPointOfContact</name>
-        <parent>Contacts_AttributeDefinitionAbstract</parent>
+        <parent>ERP_AttributeDefinitionAbstract</parent>
         <trigger program="org.efaps.esjp.admin.access.SimpleAccessCheckOnType"
             name="Contacts_AttributeDefinitionPointOfContact.ACCESSCHECK" event="ACCESSCHECK" />
     </definition>

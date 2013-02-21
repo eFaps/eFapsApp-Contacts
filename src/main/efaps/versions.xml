@@ -77,6 +77,9 @@
 
             <!-- Contacts_Contact, Admin_Help_MainMenu -->
             update.add2Help("0727550d-4d8a-4aec-b5f4-b2e9290184e3", "dead549e-5cc6-49f9-9a79-8e33aa139f6d", -1);
+
+             <!-- Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action, ERP_AttributeDefinitionMyDesk_Menu-->
+            update.add2Menu("e80fd5cc-ed48-4528-8af9-754720ddcd0d", "69e0b34a-2483-4662-9a45-1ce5d4e420e6", -1);
         </script>
     </version>
 </install>

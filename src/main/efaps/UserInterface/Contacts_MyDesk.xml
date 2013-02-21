@@ -23,19 +23,18 @@
 
 -->
 
-<ui-menu xmlns="http://www.efaps.org/xsd" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+<ui-menu xmlns="http://www.efaps.org/xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  
-  <uuid>d7ede363-6f81-4576-b2a3-c02f1d8c749b</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_MyDesk</name>
-    <childs>
-      <child>Contacts_ContactMyDesk</child>
-      <child>Contacts_AttributeDefinitionAbstractMyDesk</child>
-    </childs>
-  </definition>
+
+    <uuid>d7ede363-6f81-4576-b2a3-c02f1d8c749b</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_MyDesk</name>
+        <childs>
+            <child>Contacts_ContactMyDesk</child>
+        </childs>
+    </definition>
 </ui-menu>
