@@ -40,7 +40,6 @@
 
         <type>Contacts_AttributeDefinitionEmail</type>
         <type>Contacts_AttributeDefinitionPhone</type>
-        <type>Contacts_AttributeDefinitionAbstract</type>
         <type>Contacts_AttributeDefinitionFax</type>
         <type>Contacts_AttributeDefinitionPointOfContact</type>
 
