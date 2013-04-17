@@ -41,6 +41,9 @@
             <property name="Label">Contacts_Contact/Name.Label</property>
             <property name="ShowTypeIcon">true</property>
             <property name="ModeSearch">READONLY</property>
+            <property name="FilterType">FREETEXT</property>
+            <property name="FilterRequired">TRUE</property>
+            <property name="FilterBase">DATABASE</property>
         </field>
         <field name="classification">
             <property name="Select">class.type</property>
