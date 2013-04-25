@@ -32,6 +32,7 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Contact2ContactAbstract</name>
+        <purpose abstract="true"/>
         <attribute>
             <name>Type</name>
             <type>Type</type>

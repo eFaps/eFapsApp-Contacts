@@ -33,6 +33,7 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_AttributeAbstractPointOfContact</name>
+        <purpose abstract="true"/>
         <attribute>
             <name>Type</name>
             <type>Type</type>
