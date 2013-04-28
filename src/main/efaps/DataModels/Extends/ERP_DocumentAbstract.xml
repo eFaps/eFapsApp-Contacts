@@ -58,6 +58,12 @@
             <sqlcolumn>COMPANYID</sqlcolumn>
         </attribute>
         <attribute>
+            <name>Group</name>
+            <type>GroupLink</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>GROUPID</sqlcolumn>
+        </attribute>
+        <attribute>
             <name>Name</name>
             <type>String</type>
             <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
