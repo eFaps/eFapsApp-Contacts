@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
-<!--
-
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2009 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,20 +20,19 @@
  Last Changed By: $Author$
 
 -->
+<ui-menu xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-<ui-menu xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
-    <uuid>d7ede363-6f81-4576-b2a3-c02f1d8c749b</uuid>
+    <uuid>3c827f6a-f40c-4cc3-a52c-5f2e943ec4dd</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
+
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_MyDesk</name>
+        <name>Contacts_ContactGroupMyDesk_Menu</name>
+        <!-- childs -->
         <childs>
-            <child>Contacts_ContactMyDesk</child>
-            <child>Contacts_ContactGroupMyDesk</child>
+            <child>Contacts_ContactGroupMyDesk_Menu_Action</child>
         </childs>
     </definition>
 </ui-menu>

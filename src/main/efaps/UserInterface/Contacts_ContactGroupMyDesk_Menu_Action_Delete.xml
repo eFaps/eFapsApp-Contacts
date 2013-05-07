@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
  Copyright 2003 - 2013 The eFaps Team
 
@@ -22,20 +20,27 @@
  Last Changed By: $Author$
 
 -->
+<ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-<ui-menu xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
-    <uuid>d7ede363-6f81-4576-b2a3-c02f1d8c749b</uuid>
+    <uuid>de13d162-30b1-4189-8a83-1fec80af2901</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
+
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_MyDesk</name>
-        <childs>
-            <child>Contacts_ContactMyDesk</child>
-            <child>Contacts_ContactGroupMyDesk</child>
-        </childs>
+        <name>Contacts_ContactGroupMyDesk_Menu_Action_Delete</name>
+        <icon>Contacts_Contact+Delete</icon>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
+        <!-- target definitions -->
+        <target>
+            <execute program="org.efaps.esjp.common.uitable.CommonDelete" />
+        </target>
+
+        <!-- properties -->
+        <property name="AskUser">true</property>
+        <property name="Submit">true</property>
     </definition>
-</ui-menu>
+</ui-command>
