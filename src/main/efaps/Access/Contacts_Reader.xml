@@ -39,6 +39,8 @@
         <access-type>read</access-type>
 
         <type>Contacts_Contact</type>
+        <type>Contacts_ContactGroup</type>
+        <type>Contacts_SubContact</type>
         <type>Contacts_Contact2Class</type>
         <type>Contacts_Organisation2Person</type>
         <type>Contacts_Class</type>
