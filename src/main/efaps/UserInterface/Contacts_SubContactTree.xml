@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
   Copyright 2003 - 2012 The eFaps Team
 
@@ -22,18 +20,16 @@
   Last Changed By: $Author$
 
 -->
+<ui-menu xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-<ui-menu xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
-    <uuid>e1944ac8-4007-476c-a5c8-2bfbdb2b79f9</uuid>
+    <uuid>b01d59c1-3037-486c-a6c1-7cbf67e80ab7</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
 
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_ContactTree</name>
+        <name>Contacts_SubContactTree</name>
         <access>
             <role>Contacts_Admin</role>
             <role>Contacts_Modifier</role>
@@ -41,17 +37,13 @@
         </access>
         <!-- targets -->
         <target>
-            <menu>Contacts_ContactTree_Menu</menu>
-            <form>Contacts_ContactForm</form>
+            <menu>Contacts_SubContactTree_Menu</menu>
+            <form>Contacts_SubContactForm</form>
             <help>org.efaps.wiki.contacts.Showcontact.wiki</help>
         </target>
         <!-- type tree for -->
-        <type>Contacts_Contact</type>
-        <childs>
-            <child>Contacts_ContactTree_ContactFrom</child>
-            <child>Contacts_ContactTree_ContactTo</child>
-            <child>Contacts_ContactTree_Contact2SubContact</child>
-        </childs>
+        <type>Contacts_SubContact</type>
+
         <!-- properties -->
         <property name="Target">content</property>
         <property name="TargetMode">view</property>
