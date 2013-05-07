@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2013 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+-->
+<datamodel-type xmlns="http://www.efaps.org/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>0373b459-5d79-441a-b342-a89bd744ac49</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
+
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_SubContactClass</name>
+        <purpose classification="true">
+            <LinkColumn>SubContactLink</LinkColumn>
+        </purpose>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_SubContactClassSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_SubContactClassSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>SubContactLink</name>
+            <type>Link</type>
+            <typelink>Contacts_SubContact</typelink>
+            <sqltable>Contacts_SubContactClassSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+
+        <attributeset>
+            <name>PhoneSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstract</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>9e3f65f5-d67c-46fc-a957-23632db56eb4</uuid>
+            <attribute>
+                <name>Description4Phone</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionPhone</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE"
+                    name="Contacts_SubContactClass.PhoneSet.Description4Phone"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionPhone</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Phone</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+        </attributeset>
+
+        <attributeset>
+            <name>FaxSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstract</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>8e5da096-f2ad-4c29-b604-08e6196731c3</uuid>
+            <attribute>
+                <name>Description4Fax</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionFax</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE"
+                    name="Contacts_SubContactClass.FaxSet.Description4Fax"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionFax</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Fax</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+        </attributeset>
+
+
+        <attributeset>
+            <name>EmailSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstract</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>8717f930-0b5b-48b6-8efe-0192ea607d4b</uuid>
+            <attribute>
+                <name>Description4Email</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionEmail</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE"
+                    name="Contacts_SubContactClass.EmailSet.Description4Email"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionEmail</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Email</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+        </attributeset>
+        <classifies multipleSelect="true" relLinkAttribute="Contact"
+            relType="Contacts_Contact2Class" relTypeAttribute="ClassTypeId"
+            type="Contacts_SubContact" />
+    </definition>
+</datamodel-type>

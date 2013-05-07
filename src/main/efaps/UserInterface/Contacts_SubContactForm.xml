@@ -30,7 +30,11 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_SubContactForm</name>
-        <!-- fields -->
+        <field name="classification" character="Classification">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Classification">Contacts_SubContactClass</property>
+        </field>
         <field name="name">
             <property name="Columns">40</property>
             <property name="ModeCreate">EDITABLE</property>
