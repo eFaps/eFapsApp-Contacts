@@ -36,6 +36,13 @@
                 <property name="Type">Contacts_Contact2SubContact</property>
                 <property name="LinkFrom">From</property>
             </evaluate>
+            <trigger program="org.efaps.esjp.admin.access.AccessOnField"
+                method="configCheck"
+                name="Contacts_ContactGroupMyDesk.UI_ACCESSCHECK"
+                event="UI_ACCESSCHECK">
+                <property name="SystemConfig">Contacts-Configuration</property>
+                <property name="Attribute">org.efaps.contacts.ActivateSubContacts</property>
+            </trigger>
         </target>
         <!-- properties -->
         <property name="Target">content</property>
