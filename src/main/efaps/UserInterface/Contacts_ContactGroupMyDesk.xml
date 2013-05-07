@@ -37,7 +37,7 @@
             <menu>Contacts_ContactGroupMyDesk_Menu</menu>
             <table>Contacts_ContactGroupTable</table>
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
-                <property name="Types">Contacts_ContactGroup</property>
+                <property name="Type">Contacts_ContactGroup</property>
             </evaluate>
              <trigger program="org.efaps.esjp.admin.access.AccessOnField"
                 method="configCheck"

@@ -41,7 +41,7 @@
             <menu>Contacts_ContactMyDesk_Menu</menu>
             <table>Contacts_ContactTable</table>
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
-                <property name="Types">Contacts_Contact</property>
+                <property name="Type">Contacts_Contact</property>
             </evaluate>
             <help>org.efaps.wiki.contacts.Contacts.wiki</help>
         </target>
