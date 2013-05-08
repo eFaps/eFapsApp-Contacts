@@ -42,7 +42,6 @@
         <field name="description">
             <property name="Attribute">Description</property>
             <property name="Label">Contacts_Contact2ContactAbstract/Description.Label</property>
-            <property name="HRef">${COMMONURL}/MenuTree.jsp</property>
         </field>
         <field name="fromname">
             <property name="SelectAlternateOID">linkto[ToAbstractLink].oid</property>
