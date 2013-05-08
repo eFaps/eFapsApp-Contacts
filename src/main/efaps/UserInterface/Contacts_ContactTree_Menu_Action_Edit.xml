@@ -50,7 +50,7 @@
         <property name="Target">modal</property>
         <property name="TargetCreateType">Contacts_Contact</property>
         <property name="TargetMode">edit</property>
-        <property name="WindowHeight">460</property>
-        <property name="WindowWidth">515</property>
+        <property name="WindowHeight">660</property>
+        <property name="WindowWidth">815</property>
     </definition>
 </ui-command>
