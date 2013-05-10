@@ -37,7 +37,7 @@
         <!-- target definitions -->
         <target>
             <form>Contacts_ContactForm</form>
-            <table>Contacts_ContactTable</table>
+            <table>Contacts_Contact4SearchTable</table>
             <evaluate program="org.efaps.esjp.common.uisearch.Search">
                 <property name="Types">Contacts_Contact</property>
                 <property name="IgnoreCase4Fields">name</property>

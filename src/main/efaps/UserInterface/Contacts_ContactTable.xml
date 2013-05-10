@@ -54,7 +54,7 @@
                 event="UI_FIELD_FORMAT" />
         </field>
         <field name="taxNumber">
-            <property name="Phrase">$&lt;class[Contacts_ClassOrganisation].attribute[TaxNumber]&gt;</property>
+            <property name="Select">class[Contacts_ClassOrganisation].attribute[TaxNumber]</property>
             <property name="Label">Contacts_ClassOrganisation/TaxNumber.Label</property>
         </field>
         <field name="buttonOpenInNewWindow">
