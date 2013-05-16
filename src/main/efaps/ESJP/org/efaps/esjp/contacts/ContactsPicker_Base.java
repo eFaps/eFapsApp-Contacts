@@ -91,6 +91,9 @@ public abstract class ContactsPicker_Base
         final StringBuilder html = new StringBuilder();
         final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
         queryBldr.addWhereAttrEqValue(CIContacts.Contact.Name, _name).setIgnoreCase(true);
+        if (_parameter.getInstance() != null) {
+            queryBldr.addWhereAttrNotEqValue(CIContacts.Contact.ID, _parameter.getInstance().getId());
+        }
         final InstanceQuery query = queryBldr.getQuery();
         if (!query.execute().isEmpty()) {
             html.append("<div style=\"text-align:center;\">")
@@ -116,6 +119,9 @@ public abstract class ContactsPicker_Base
         final StringBuilder html = new StringBuilder();
         final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
         queryBldr.addWhereAttrEqValue(CIContacts.ClassOrganisation.TaxNumber, _taxNumber);
+        if (_parameter.getInstance() != null) {
+            queryBldr.addWhereAttrNotEqValue(CIContacts.ClassOrganisation.ContactId, _parameter.getInstance().getId());
+        }
         final InstanceQuery query = queryBldr.getQuery();
         if (!query.execute().isEmpty()) {
             html.append("<div style=\"text-align:center;\">")
@@ -181,7 +187,7 @@ public abstract class ContactsPicker_Base
 
     /**
      * To be implemented in another class
-     * 
+     *
      * @param _parameter Parameter as passes by the eFaps API
      * @param _classInsert Insert to a classification
      * @throws EFapsException on error
@@ -195,7 +201,7 @@ public abstract class ContactsPicker_Base
 
     /**
      * To be implemented in another class
-     * 
+     *
      * @param _parameter Parameter as passes by the eFaps API
      * @param _contactInst Instance of contact to connect to supplier
      * @throws EFapsException on error
