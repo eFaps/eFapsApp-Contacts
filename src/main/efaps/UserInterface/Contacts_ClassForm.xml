@@ -35,10 +35,10 @@
     <version-expression>(version==latest)</version-expression>
     <name>Contacts_ClassForm</name>
     <type>Contacts_Class</type>
-    
+
     <field name="heading" character="Heading">
       <property name="ModeCreate">READONLY</property>
-      <property name="Level">1</property>
+      <property name="Level">2</property>
       <property name="Label">Contacts_ClassForm/heading.Heading</property>
     </field>
     <field name="phoneSet" character="Set">
