@@ -30,7 +30,6 @@
         <name>Contacts_ContactTree_Contact2SubContact_Menu_Action</name>
         <childs>
             <child>Contacts_ContactTree_Contact2SubContact_Menu_Action_CreateSubContact</child>
-            <child>Contacts_ContactTree_Contact2SubContact_Menu_Action_Disconnect</child>
         </childs>
     </definition>
 </ui-menu>

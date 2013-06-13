@@ -32,7 +32,9 @@
 
     <definition>
         <version-expression>(version==latest)</version-expression>
-
+        <profiles>
+            <profile name="eFaps"/>
+        </profiles>
         <name>Contacts_AttributesDefinition</name>
 
         <access-type>show</access-type>
@@ -47,7 +49,27 @@
         <role>Contacts_Reader</role>
 
     </definition>
+     <definition>
+        <version-expression>(version==latest)</version-expression>
+        <profiles>
+            <profile name="ubicaciones"/>
+        </profiles>
+        <name>Contacts_AttributesDefinition</name>
 
+        <access-type>show</access-type>
+        <access-type>read</access-type>
+
+        <type>Contacts_AttributeDefinitionEmail</type>
+        <type>Contacts_AttributeDefinitionPhone</type>
+        <type>Contacts_AttributeDefinitionFax</type>
+        <type>Contacts_AttributeDefinitionPointOfContact</type>
+        <type>Ubicaciones_UbicacionAbstract</type>
+        <type>Ubicaciones_UbicacionStandard</type>
+
+        <role>Contacts_Modifier</role>
+        <role>Contacts_Reader</role>
+
+    </definition>
 </access-set>
 
 

@@ -32,7 +32,9 @@
 
     <definition>
         <version-expression>(version==latest)</version-expression>
-
+        <profiles>
+            <profile name="eFaps"/>
+        </profiles>
         <name>Contacts_Admin</name>
 
         <access-type>show</access-type>
@@ -61,6 +63,42 @@
 
         <role>Contacts_Admin</role>
 
+    </definition>
+
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <profiles>
+            <profile name="ubicaciones"/>
+        </profiles>
+         <name>Contacts_Admin</name>
+
+        <access-type>show</access-type>
+        <access-type>read</access-type>
+        <access-type>modify</access-type>
+        <access-type>checkout</access-type>
+        <access-type>checkin</access-type>
+        <access-type>create</access-type>
+        <access-type>statusBoost</access-type>
+        <access-type>statusModify</access-type>
+        <access-type>delete</access-type>
+
+        <type>Contacts_AttributeDefinitionEmail</type>
+        <type>Contacts_AttributeDefinitionPhone</type>
+        <type>Contacts_AttributeDefinitionFax</type>
+        <type>Contacts_AttributeDefinitionPointOfContact</type>
+        <type>Contacts_Contact</type>
+        <type>Contacts_ContactGroup</type>
+        <type>Contacts_SubContact</type>
+        <type>Contacts_Contact2Class</type>
+        <type>Contacts_Organisation2Person</type>
+        <type>Contacts_Class</type>
+        <type>Contacts_ClassOrganisation</type>
+        <type>Contacts_ClassPerson</type>
+        <type>Contacts_ClassPointOfContact</type>
+        <type>Ubicaciones_UbicacionAbstract</type>
+        <type>Ubicaciones_UbicacionStandard</type>
+
+        <role>Contacts_Admin</role>
     </definition>
 </access-set>
 
