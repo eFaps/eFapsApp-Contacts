@@ -67,5 +67,12 @@
             <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
             <sqlcolumn>TAXID</sqlcolumn>
         </attribute>
+
+        <attribute>
+            <name>TradeName</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
+            <sqlcolumn>TRADENAME</sqlcolumn>
+        </attribute>
     </definition>
 </datamodel-type>

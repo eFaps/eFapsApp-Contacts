@@ -43,6 +43,11 @@
             <property name="Attribute">TaxNumber</property>
             <property name="Required">true</property>
         </field>
+        <field name="tradeName">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">TradeName</property>
+        </field>
     </definition>
 
 </ui-form>
