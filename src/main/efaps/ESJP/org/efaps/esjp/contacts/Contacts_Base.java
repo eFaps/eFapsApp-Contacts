@@ -103,19 +103,23 @@ public abstract class Contacts_Base
      * @throws EFapsException on error.
      */
     public Return autoComplete4Contact(final Parameter _parameter)
-                    throws EFapsException
+        throws EFapsException
     {
         final String input = (String) _parameter.get(ParameterValues.OTHERS);
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         final Map<?, ?> properties = (Map<?, ?>) _parameter.get(ParameterValues.PROPERTIES);
-        final String classesStr = (String) properties.get("Classifications");
-        String[] classes = new String[0];
-        if (classesStr != null) {
-            classes = classesStr.split(";");
-        }
-        final String key = properties.containsKey("Key") ? (String) properties.get("Key") : "OID";
+        final String minLengthStr = (String) properties.get("MinLength");
+        final Integer minLength = minLengthStr == null ? 0 : Integer.valueOf(minLengthStr);
+
         final Map<String, Map<String, String>> tmpMap = new TreeMap<String, Map<String, String>>();
-        if (input.length() > 0) {
+        if (input.length() > minLength) {
+            final String classesStr = (String) properties.get("Classifications");
+            String[] classes = new String[0];
+            if (classesStr != null) {
+                classes = classesStr.split(";");
+            }
+            final String key = properties.containsKey("Key") ? (String) properties.get("Key") : "OID";
+
             final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
             if (classes.length > 0) {
                 final Classification[] classTypes = new Classification[classes.length];
@@ -131,7 +135,7 @@ public abstract class Contacts_Base
                 multi.addAttribute("Name", key);
                 multi.execute();
                 while (multi.next()) {
-                    final String name =  multi.<String>getAttribute("Name");
+                    final String name = multi.<String>getAttribute("Name");
                     final String keyVal = multi.getAttribute(key).toString();
                     final Map<String, String> map = new HashMap<String, String>();
                     map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), keyVal);
@@ -140,7 +144,7 @@ public abstract class Contacts_Base
                     tmpMap.put(name, map);
                 }
             } else {
-                final Map<String, Instance> tax2instances = new TreeMap<String, Instance>();
+                final Map<Instance,String > inst2tax = new HashMap<Instance,String>();
                 final QueryBuilder orgQueryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
                 orgQueryBldr.addWhereAttrMatchValue(CIContacts.ClassOrganisation.TaxNumber, input + "*");
                 if (classes.length > 0) {
@@ -149,12 +153,12 @@ public abstract class Contacts_Base
                 }
                 final MultiPrintQuery multi = orgQueryBldr.getPrint();
                 multi.addAttribute(CIContacts.ClassOrganisation.TaxNumber,
-                                   CIContacts.ClassOrganisation.ContactId);
+                                CIContacts.ClassOrganisation.ContactId);
                 multi.execute();
                 while (multi.next()) {
-                    tax2instances.put(multi.<String>getAttribute(CIContacts.ClassOrganisation.TaxNumber),
-                                Instance.get(CIContacts.Contact.getType(),
-                                        multi.<Long>getAttribute(CIContacts.ClassOrganisation.ContactId).toString()));
+                    inst2tax.put(Instance.get(CIContacts.Contact.getType(),
+                                    multi.<Long>getAttribute(CIContacts.ClassOrganisation.ContactId)),
+                                    multi.<String>getAttribute(CIContacts.ClassOrganisation.TaxNumber));
                 }
 
                 final QueryBuilder persQueryBldr = new QueryBuilder(CIContacts.ClassPerson);
@@ -169,28 +173,32 @@ public abstract class Contacts_Base
                 while (multi2.next()) {
                     final String idcard = multi.<String>getAttribute(CIContacts.ClassPerson.IdentityCard);
                     if (idcard != null) {
-                        tax2instances.put(idcard, Instance.get(CIContacts.Contact.getType(),
-                                        multi.<Long>getAttribute(CIContacts.ClassPerson.ContactId).toString()));
+                        inst2tax.put(Instance.get(CIContacts.Contact.getType(),
+                                        multi.<Long>getAttribute(CIContacts.ClassPerson.ContactId)), idcard);
                     }
+                }
+                final List<Instance> queryList =new ArrayList<Instance>();
+                for (final Entry<Instance, String> entry : inst2tax.entrySet()) {
+                    if (entry.getKey().isValid()) {
+                        queryList.add(entry.getKey());
+                    }
+                }
+                final MultiPrintQuery print = new MultiPrintQuery(queryList);
+                print.setEnforceSorted(true);
+                print.addAttribute(CIContacts.Contact.Name);
+                print.addAttribute(key);
+                print.execute();
+                while (print.next()) {
+                    final Map<String, String> map = new HashMap<String, String>();
+                    final String choice = inst2tax.get(print.getCurrentInstance()) + " - "
+                                    + print.<String>getAttribute(CIContacts.Contact.Name);
+                    map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), print.getAttribute(key).toString());
+                    map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(),
+                                    print.<String>getAttribute(CIContacts.Contact.Name));
+                    map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), choice);
+                    tmpMap.put(choice, map);
                 }
 
-                for (final Entry<String, Instance> entry : tax2instances.entrySet()) {
-                    if (entry.getValue().isValid()) {
-                        final PrintQuery print = new PrintQuery(entry.getValue());
-                        print.addAttribute(CIContacts.Contact.Name);
-                        print.addAttribute(key);
-                        if (print.execute()) {
-                            final Map<String, String> map = new HashMap<String, String>();
-                            final String choice = entry.getKey() + " - "
-                                                                 + print.<String>getAttribute(CIContacts.Contact.Name);
-                            map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), print.getAttribute(key).toString());
-                            map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(),
-                                            print.<String>getAttribute(CIContacts.Contact.Name));
-                            map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), choice);
-                            tmpMap.put(choice, map);
-                        }
-                    }
-                }
             }
         }
         final Return retVal = new Return();
