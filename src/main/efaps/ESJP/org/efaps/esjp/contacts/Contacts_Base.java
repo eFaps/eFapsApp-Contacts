@@ -220,7 +220,7 @@ public abstract class Contacts_Base
         final Field field = (Field) _parameter.get(ParameterValues.UIOBJECT);
         final String fieldName = field.getName();
         final String value = _parameter.getParameterValue(fieldName);
-        final Instance instance = value.contains(".")  ? Instance.get(value)
+        final Instance instance = value.contains(".") ? Instance.get(value)
                         : Instance.get(CIContacts.Contact.getType(), value);
 
         final Map<?, ?> properties = (Map<?, ?>) _parameter.get(ParameterValues.PROPERTIES);
@@ -228,18 +228,15 @@ public abstract class Contacts_Base
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         final Map<String, String> map = new HashMap<String, String>();
 
-        final String targetFieldName = (String) properties.get("fieldName");
-        if (targetFieldName != null) {
-            if (instance.isValid()) {
-                map.put(targetFieldName, getFieldValue4Contact(instance));
-            } else {
-                map.put(targetFieldName, "????");
-            }
-            list.add(map);
+        final String targetFieldName = properties.containsKey("FieldName") ? (String) properties.get("FieldName")
+                        : "contactData";
+
+        if (instance.isValid()) {
+            map.put(targetFieldName, getFieldValue4Contact(instance));
         } else {
-            throw new EFapsException(Contacts_Base.class, "updateFields4Contact.Exception",
-                                    "Error reading properties fieldName no existing");
+            map.put(targetFieldName, "????");
         }
+        list.add(map);
 
         final Return retVal = new Return();
         retVal.put(ReturnValues.VALUES, list);
