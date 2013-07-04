@@ -253,7 +253,7 @@ public abstract class Contacts_Base
      * @return String for the field
      * @throws EFapsException on error
      */
-    protected String getFieldValue4Contact(final Instance _instance)
+    public String getFieldValue4Contact(final Instance _instance)
         throws EFapsException
     {
         boolean hasStreet = false;
