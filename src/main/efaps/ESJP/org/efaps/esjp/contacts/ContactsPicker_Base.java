@@ -63,18 +63,47 @@ public abstract class ContactsPicker_Base
         final Return ret = new Return();
         final String name = _parameter.getParameterValue("name");
         final String taxNumber = _parameter.getParameterValue("taxNumber");
+        final String identityCard = _parameter.getParameterValue("identityCard");
+        final StringBuilder warnIdentityHtml = validateIdentityCard4Contact(_parameter,identityCard);
         final StringBuilder warnHtml = validateName4Contact(_parameter, name);
         final StringBuilder errorHtml = validateTaxNumber4Contact(_parameter, taxNumber);
 
-        if (errorHtml.length() == 0 && warnHtml.length() == 0) {
+        if (errorHtml.length() == 0 && warnHtml.length() == 0 && warnIdentityHtml.length()== 0) {
             ret.put(ReturnValues.TRUE, true);
         }
-        if (warnHtml.length() != 0 || errorHtml.length() != 0) {
-            ret.put(ReturnValues.SNIPLETT, warnHtml.append(errorHtml).toString());
+        if (warnHtml.length() != 0 || errorHtml.length() != 0 || warnIdentityHtml.length() != 0 ) {
+            ret.put(ReturnValues.SNIPLETT, warnIdentityHtml.append(warnHtml.append(errorHtml)).toString());
         }
         return ret;
     }
 
+    /**
+     * Method for search the taxNumber of the Contact if exists
+     * return SNIPLETT.
+     *
+     * @param _parameter Parameter as passed from the eFaps API
+     * @param _identityCard IdentityCard.
+     * @return html StringBuilder.
+     * @throws EFapsException on error.
+     */
+    protected StringBuilder validateIdentityCard4Contact(final Parameter _parameter,
+                                                         final String identityCard)
+        throws EFapsException
+    {
+        final StringBuilder html = new StringBuilder();
+        final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassPerson);
+        queryBldr.addWhereAttrEqValue(CIContacts.ClassPerson.IdentityCard, identityCard);
+        if (_parameter.getInstance() != null) {
+            queryBldr.addWhereAttrNotEqValue(CIContacts.ClassPerson.ContactId, _parameter.getInstance().getId());
+        }
+        final InstanceQuery query = queryBldr.getQuery();
+        if (!query.execute().isEmpty()) {
+            html.append("<div style=\"text-align:center;\">")
+                 .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingIdentityCard"))
+                 .append("</div>");
+        }
+        return html;
+    }
     /**
      * Method for return the name of a contact.
      *

@@ -44,6 +44,7 @@
         <target>
             <form>Contacts_ContactForm</form>
             <execute program="org.efaps.esjp.common.uiform.Edit" />
+            <validate program="org.efaps.esjp.contacts.ContactsPicker" method="validateContact" />
         </target>
 
         <!-- properties -->
