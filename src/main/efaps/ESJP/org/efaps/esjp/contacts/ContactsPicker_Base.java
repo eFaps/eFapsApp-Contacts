@@ -67,16 +67,26 @@ public abstract class ContactsPicker_Base
         final StringBuilder warnIdentityHtml = validateIdentityCard4Contact(_parameter,identityCard);
         final StringBuilder warnHtml = validateName4Contact(_parameter, name);
         final StringBuilder errorHtml = validateTaxNumber4Contact(_parameter, taxNumber);
+        final StringBuilder mistakeHtml = validateAdd4Contact(_parameter);
 
-        if (errorHtml.length() == 0 && warnHtml.length() == 0 && warnIdentityHtml.length()== 0) {
+        if (errorHtml.length() == 0 && warnHtml.length() == 0 && warnIdentityHtml.length()== 0 && mistakeHtml.length()==0) {
             ret.put(ReturnValues.TRUE, true);
         }
-        if (warnHtml.length() != 0 || errorHtml.length() != 0 || warnIdentityHtml.length() != 0 ) {
-            ret.put(ReturnValues.SNIPLETT, warnIdentityHtml.append(warnHtml.append(errorHtml)).toString());
+        if (warnHtml.length() != 0 || errorHtml.length() != 0 || warnIdentityHtml.length() != 0 || mistakeHtml.length()!=0 ) {
+            warnHtml.append(errorHtml);
+            warnIdentityHtml.append(warnHtml);
+            ret.put(ReturnValues.SNIPLETT, mistakeHtml.append(warnIdentityHtml).toString());
         }
         return ret;
     }
 
+    public StringBuilder validateAdd4Contact(Parameter _parameter)
+        throws EFapsException
+    {
+        final StringBuilder html = new StringBuilder();
+        //To implement
+        return html;
+    }
     /**
      * Method for search the taxNumber of the Contact if exists
      * return SNIPLETT.
