@@ -303,6 +303,33 @@ public abstract class Contacts_Base
         return strBldr.toString();
     }
 
+    /**
+     * Method to check if the instance is of the classification Carrier
+     * 
+     * @param _parameter as passed from eFaps API.
+     * @return Return ret.
+     * @throws EFapsException on error.
+     */
+    public Return checkContactsClassCarrier(final Parameter _parameter)
+        throws EFapsException
+    {
+        final Return ret = new Return();
+        final Instance instance = _parameter.getInstance();
+        final String clazz = "Sales_Contacts_ClassCarrier";
+        final Classification classif = (Classification) Type.get(clazz);
+        
+        final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
+        queryBldr.addWhereClassification(classif);
+        queryBldr.addWhereAttrEqValue(CIContacts.Contact.ID, instance.getId());
+        final MultiPrintQuery multi = queryBldr.getPrint();
+        multi.execute();
+        if (multi.next()) {
+            ret.put(ReturnValues.TRUE, true);
+        }
+
+        return ret;
+    }
+
     //for to add a new select
     protected String getNewSelect(final PrintQuery _print) throws EFapsException{
         return "";
