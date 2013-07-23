@@ -171,10 +171,10 @@ public abstract class Contacts_Base
                 multi2.addAttribute(CIContacts.ClassPerson.IdentityCard, CIContacts.ClassPerson.ContactId);
                 multi2.execute();
                 while (multi2.next()) {
-                    final String idcard = multi.<String>getAttribute(CIContacts.ClassPerson.IdentityCard);
+                    final String idcard = multi2.<String>getAttribute(CIContacts.ClassPerson.IdentityCard);
                     if (idcard != null) {
                         inst2tax.put(Instance.get(CIContacts.Contact.getType(),
-                                        multi.<Long>getAttribute(CIContacts.ClassPerson.ContactId)), idcard);
+                                        multi2.<Long>getAttribute(CIContacts.ClassPerson.ContactId)), idcard);
                     }
                 }
                 final List<Instance> queryList =new ArrayList<Instance>();
@@ -257,6 +257,10 @@ public abstract class Contacts_Base
         if (Type.get("Sales_Contacts_ClassClient") != null) {
             hasStreet = true;
         }
+        if (hasStreet){
+            hasStreet = _instance.getType().equals(Type.get("Sales_Contacts_ClassClient"));
+        }
+        
         final PrintQuery print = new PrintQuery(_instance);
         if (hasStreet) {
             print.addSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
@@ -269,6 +273,7 @@ public abstract class Contacts_Base
         final String taxnumber = print.<String>getSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
         final String idcard = print.<String>getSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
         final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
+        
         String street = "";
         if (hasStreet) {
             street  = print.getSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
@@ -281,12 +286,20 @@ public abstract class Contacts_Base
         final StringBuilder strBldr = new StringBuilder();
         strBldr.append(dni ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
                            : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))
-               .append(": ").append(dni ? idcard : taxnumber).append("  -  ");
-        if (hasStreet) {
-            strBldr.append(DBProperties.getProperty("Sales_Contacts_ClassClient/BillingAdressStreet.Label"));
+               .append(": ").append(dni ? idcard : taxnumber);
+
+        if (!street.isEmpty() || !locStreet.isEmpty()){
+            strBldr.append("  -  ");
+            if (hasStreet) {
+                strBldr.append(DBProperties.getProperty("Sales_Contacts_ClassClient/BillingAdressStreet.Label"));
+            }
+            if (!locStreet.isEmpty()) {
+                strBldr.append(DBProperties.getProperty("Contacts_ClassLocation/LocationAdressStreet.Label"));
+            }
+            strBldr.append(": ")
+            .append(street.length() > 0 ? street : locStreet);
         }
-        strBldr.append(": ")
-               .append(street.length() > 0 ? street : locStreet);
+
         return strBldr.toString();
     }
 
