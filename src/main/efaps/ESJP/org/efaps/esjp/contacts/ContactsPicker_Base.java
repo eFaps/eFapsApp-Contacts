@@ -80,7 +80,7 @@ public abstract class ContactsPicker_Base
         return ret;
     }
 
-    public StringBuilder validateAdd4Contact(Parameter _parameter)
+    public StringBuilder validateAdd4Contact(final Parameter _parameter)
         throws EFapsException
     {
         final StringBuilder html = new StringBuilder();
