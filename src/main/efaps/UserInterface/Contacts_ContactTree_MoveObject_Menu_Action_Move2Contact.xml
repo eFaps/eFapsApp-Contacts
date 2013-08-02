@@ -48,6 +48,5 @@ xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.
         <property name="WindowHeight">200</property>
         <property name="WindowWidth">500</property>
         <property name="Submit">true</property>
-        <property name="SubmitSelectedRows">1</property>
     </definition>
 </ui-command>
