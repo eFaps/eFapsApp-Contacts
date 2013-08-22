@@ -32,9 +32,9 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassPointOfContact</name>
-        <parent>Contacts_Class</parent>
         <purpose classification="true">
             <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_Class</parent>
         </purpose>
         <attribute>
             <name>OID</name>

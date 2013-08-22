@@ -35,9 +35,9 @@
             <profile name="eFaps"/>
         </profiles>
         <name>Contacts_ClassLocation</name>
-        <parent>Contacts_Class</parent>
         <purpose classification="true">
             <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_Class</parent>
         </purpose>
         <attribute>
             <name>OID</name>
@@ -85,9 +85,9 @@
             <profile name="ubicaciones" />
         </profiles>
         <name>Contacts_ClassLocation</name>
-        <parent>Contacts_Class</parent>
         <purpose classification="true">
             <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_Class</parent>
         </purpose>
         <attribute>
             <name>OID</name>

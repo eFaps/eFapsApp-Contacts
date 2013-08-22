@@ -33,10 +33,10 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassOrganisation</name>
-        <parent>Contacts_Class</parent>
 
         <purpose classification="true">
             <LinkColumn>ContactId</LinkColumn>
+            <parent>Contacts_Class</parent>
         </purpose>
 
         <attribute>
