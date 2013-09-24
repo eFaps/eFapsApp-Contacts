@@ -79,7 +79,7 @@
 
             <!-- Contacts_MyDesk, MainToolBar -->
             UIUpdate update = new UIUpdate();
-            update.add2Menu("d7ede363-6f81-4576-b2a3-c02f1d8c749b", "87001cc3-c45c-44de-b8f1-776df507f268", 1);
+            update.add2Menu("d7ede363-6f81-4576-b2a3-c02f1d8c749b", "87001cc3-c45c-44de-b8f1-776df507f268", 2);
 
             <!-- Contacts_Contact, Admin_Help_MainMenu -->
             update.add2Help("0727550d-4d8a-4aec-b5f4-b2e9290184e3", "dead549e-5cc6-49f9-9a79-8e33aa139f6d", -1);
