@@ -37,7 +37,9 @@
       <table-name>T_COCLASSPERS</table-name>
       <!-- columns -->
       <column name="CONTACTID"        type="INTEGER"          not-null="true"/>
-      <column name="FORENAME"         type="STRING_SHORT"     not-null="true" length="255"/>
+      <column name="FORENAME"         type="STRING_SHORT"                     length="255"/>
+      <column name="LASTNAME"         type="STRING_SHORT"                     length="255"/>
+      <column name="LASTNAME2"        type="STRING_SHORT"                     length="255"/>
       <column name="IDCARD"           type="STRING_SHORT"     not-null="true" length="255"/>
       <foreign name="T_COCLASSPERS_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)"/>
      </database>

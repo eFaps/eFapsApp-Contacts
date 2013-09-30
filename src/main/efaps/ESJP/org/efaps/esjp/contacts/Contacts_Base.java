@@ -45,6 +45,7 @@ import org.efaps.db.QueryBuilder;
 import org.efaps.db.Update;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIERP;
+import org.efaps.esjp.ci.CIFormContacts;
 import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
@@ -260,7 +261,7 @@ public abstract class Contacts_Base
         if (hasStreet){
             hasStreet = _instance.getType().equals(Type.get("Sales_Contacts_ClassClient"));
         }
-        
+
         final PrintQuery print = new PrintQuery(_instance);
         if (hasStreet) {
             print.addSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
@@ -273,7 +274,7 @@ public abstract class Contacts_Base
         final String taxnumber = print.<String>getSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
         final String idcard = print.<String>getSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
         final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
-        
+
         String street = "";
         if (hasStreet) {
             street  = print.getSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
@@ -305,7 +306,7 @@ public abstract class Contacts_Base
 
     /**
      * Method to check if the instance is of the classification Carrier
-     * 
+     *
      * @param _parameter as passed from eFaps API.
      * @return Return ret.
      * @throws EFapsException on error.
@@ -317,7 +318,7 @@ public abstract class Contacts_Base
         final Instance instance = _parameter.getInstance();
         final String clazz = "Sales_Contacts_ClassCarrier";
         final Classification classif = (Classification) Type.get(clazz);
-        
+
         final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
         queryBldr.addWhereClassification(classif);
         queryBldr.addWhereAttrEqValue(CIContacts.Contact.ID, instance.getId());
@@ -336,4 +337,27 @@ public abstract class Contacts_Base
     }
     //for to get a new select
     protected void addNewSelect(final PrintQuery _print) throws EFapsException{}
+
+    public Return updateFields4PersonNames(final Parameter _parameter)
+    {
+        final Return ret = new Return();
+        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        final Map<String, String> map = new HashMap<String, String>();
+
+        final String names = _parameter.getParameterValue(CIFormContacts.Contacts_ClassPersonForm.forename.name);
+        final String fLastName = _parameter
+                        .getParameterValue(CIFormContacts.Contacts_ClassPersonForm.firstLastName.name);
+        final String sLastName = _parameter
+                        .getParameterValue(CIFormContacts.Contacts_ClassPersonForm.secondLastName.name);
+
+        final StringBuilder contactName = new StringBuilder();
+        contactName.append(fLastName).append(" ")
+                        .append(sLastName).append(", ")
+                        .append(names);
+        map.put(CIFormContacts.Contacts_ContactForm.name.name, contactName.toString());
+        list.add(map);
+
+        ret.put(ReturnValues.VALUES, list);
+        return ret;
+    }
 }

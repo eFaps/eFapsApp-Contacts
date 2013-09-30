@@ -45,14 +45,12 @@
       <sqltable>Contacts_ClassPersonSQLTable</sqltable>
       <sqlcolumn>ID</sqlcolumn>
     </attribute>
-
     <attribute>
       <name>ID</name>
       <type>Long</type>
       <sqltable>Contacts_ClassPersonSQLTable</sqltable>
       <sqlcolumn>ID</sqlcolumn>
     </attribute>
-
     <attribute>
       <name>ContactId</name>
       <type>Link</type>
@@ -60,14 +58,24 @@
       <sqltable>Contacts_ClassPersonSQLTable</sqltable>
       <sqlcolumn>CONTACTID</sqlcolumn>
     </attribute>
-
     <attribute>
       <name>Forename</name>
       <type>String</type>
       <sqltable>Contacts_ClassPersonSQLTable</sqltable>
       <sqlcolumn>FORENAME</sqlcolumn>
     </attribute>
-
+    <attribute>
+      <name>FirstLastName</name>
+      <type>String</type>
+      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+      <sqlcolumn>LASTNAME</sqlcolumn>
+    </attribute>
+    <attribute>
+      <name>SecondLastName</name>
+      <type>String</type>
+      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+      <sqlcolumn>LASTNAME2</sqlcolumn>
+    </attribute>
     <attribute>
       <name>IdentityCard</name>
       <type>String</type>

@@ -35,10 +35,32 @@
         <type>Contacts_ClassPerson</type>
 
         <!-- fields -->
+        <field name="firstLastName">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">FirstLastName</property>
+            <trigger program="org.efaps.esjp.contacts.Contacts"
+                    method="updateFields4PersonNames"
+                    name="Contacts_ClassPersonForm.UI_FIELD_UPDATE"
+                    event="UI_FIELD_UPDATE"/>
+        </field>
+        <field name="secondLastName">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">SecondLastName</property>
+            <trigger program="org.efaps.esjp.contacts.Contacts"
+                    method="updateFields4PersonNames"
+                    name="Contacts_ClassPersonForm.UI_FIELD_UPDATE"
+                    event="UI_FIELD_UPDATE"/>
+        </field>
         <field name="forename">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">Forename</property>
+            <trigger program="org.efaps.esjp.contacts.Contacts"
+                    method="updateFields4PersonNames"
+                    name="Contacts_ClassPersonForm.UI_FIELD_UPDATE"
+                    event="UI_FIELD_UPDATE"/>
         </field>
         <field name="identityCard">
             <property name="ModeCreate">EDITABLE</property>
