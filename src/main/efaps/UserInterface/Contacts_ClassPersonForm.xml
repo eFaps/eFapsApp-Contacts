@@ -36,15 +36,18 @@
 
         <!-- fields -->
         <field name="firstLastName">
+            <property name="Columns">40</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">FirstLastName</property>
+            <property name="Required">true</property>
             <trigger program="org.efaps.esjp.contacts.Contacts"
                     method="updateFields4PersonNames"
                     name="Contacts_ClassPersonForm.UI_FIELD_UPDATE"
                     event="UI_FIELD_UPDATE"/>
         </field>
         <field name="secondLastName">
+            <property name="Columns">40</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">SecondLastName</property>
@@ -54,9 +57,11 @@
                     event="UI_FIELD_UPDATE"/>
         </field>
         <field name="forename">
+            <property name="Columns">40</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">Forename</property>
+            <property name="Required">true</property>
             <trigger program="org.efaps.esjp.contacts.Contacts"
                     method="updateFields4PersonNames"
                     name="Contacts_ClassPersonForm.UI_FIELD_UPDATE"

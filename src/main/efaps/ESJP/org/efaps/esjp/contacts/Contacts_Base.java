@@ -351,9 +351,18 @@ public abstract class Contacts_Base
                         .getParameterValue(CIFormContacts.Contacts_ClassPersonForm.secondLastName.name);
 
         final StringBuilder contactName = new StringBuilder();
-        contactName.append(fLastName).append(" ")
-                        .append(sLastName).append(", ")
-                        .append(names);
+
+        if (fLastName != null && !fLastName.isEmpty()) {
+            contactName.append(fLastName);
+        }
+        if (sLastName != null && !sLastName.isEmpty()) {
+            contactName.append(contactName.length() > 0 ? " " : "").append(sLastName);
+        }
+
+        if (names != null && !names.isEmpty()) {
+            contactName.append(contactName.length() > 0 ? ", " : "").append(names);
+        }
+
         map.put(CIFormContacts.Contacts_ContactForm.name.name, contactName.toString());
         list.add(map);
 
