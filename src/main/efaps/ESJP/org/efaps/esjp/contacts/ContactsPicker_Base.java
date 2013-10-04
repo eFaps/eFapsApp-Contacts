@@ -68,17 +68,46 @@ public abstract class ContactsPicker_Base
         final StringBuilder warnHtml = validateName4Contact(_parameter, name);
         final StringBuilder errorHtml = validateTaxNumber4Contact(_parameter, taxNumber);
         final StringBuilder mistakeHtml = validateAdd4Contact(_parameter);
+        final StringBuilder maxNumberAllowTaxNumber = validateMaxNumberAllowTaxNumber(_parameter,taxNumber,false);
 
         if (errorHtml.length() == 0 && warnHtml.length() == 0 && warnIdentityHtml.length()== 0 && mistakeHtml.length()==0) {
+            if(maxNumberAllowTaxNumber.length()!=0){
+                ret.put(ReturnValues.SNIPLETT,maxNumberAllowTaxNumber.toString());
+            }
             ret.put(ReturnValues.TRUE, true);
         }
         if (warnHtml.length() != 0 || errorHtml.length() != 0 || warnIdentityHtml.length() != 0 || mistakeHtml.length()!=0 ) {
             warnHtml.append(errorHtml);
             warnIdentityHtml.append(warnHtml);
+            if(maxNumberAllowTaxNumber.length()!=0){
+                final StringBuilder validateMaxNumberAditional=validateMaxNumberAllowTaxNumber(_parameter,taxNumber,true);
+                warnIdentityHtml.append(validateMaxNumberAditional);
+            }
             ret.put(ReturnValues.SNIPLETT, mistakeHtml.append(warnIdentityHtml).toString());
         }
         return ret;
     }
+
+    public StringBuilder validateMaxNumberAllowTaxNumber(final Parameter _parameter,final String taxNumber,final boolean msgAdd)
+        throws EFapsException
+    {
+        final StringBuilder html = new StringBuilder();
+        if (taxNumber!=null && taxNumber.length() > 11 && !msgAdd) {
+            html.append("<div style=\"text-align:center;\">")
+                .append(DBProperties
+                            .getProperty("org.efaps.esjp.contacts.ContactsPicker.maxNumberTaxNumber"))
+                .append("</div>");
+        }
+        if(msgAdd){
+            html.append("<div style=\"text-align:center;\">")
+            .append(DBProperties
+                        .getProperty("org.efaps.esjp.contacts.ContactsPicker.maxNumberTaxNumber2"))
+            .append("</div>");
+        }
+
+        return html;
+    }
+
 
     public StringBuilder validateAdd4Contact(final Parameter _parameter)
         throws EFapsException
@@ -204,7 +233,7 @@ public abstract class ContactsPicker_Base
             classInsert1.add(CIContacts.ClassOrganisation.TaxNumber, _parameter.getParameterValue("taxNumber"));
             classInsert1.execute();
 
-            final Classification classification2 = (Classification) classification.getParentClassification();
+            final Classification classification2 = classification.getParentClassification();
             final Insert relInsert2 = new Insert(classification2.getClassifyRelationType());
             relInsert2.add(classification.getRelLinkAttributeName(), contactInst.getId());
             relInsert2.add(classification.getRelTypeAttributeName(), classification2.getId());
