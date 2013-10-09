@@ -20,45 +20,18 @@
  Last Changed By: $Author: jorge.cueva@moxter.net $
 
 --><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>77f9947f-0b77-41fa-9b76-30ef6080d093</uuid>
+  <uuid>5bb5c6e7-aec2-4921-8e15-02977cb61dde</uuid>
   <file-application>eFapsApp-Contacts</file-application>
   <file-revision>$Rev: 10328 $</file-revision>
 
   <definition>
     <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassFinancialInformation</name>
+    <name>Contacts_ClassFinancialInformation_PrincipalesProveedores</name>
     <parent>Contacts_Class</parent>
     <purpose classification="true">
         <LinkColumn>ContactId</LinkColumn>
-        <parent>Contacts_Class</parent>
+        <parent>Contacts_ClassFinancialInformation</parent>
     </purpose>
-
-    <attribute>
-      <name>OID</name>
-      <type>OID</type>
-      <sqltable>Contacts_ClassFinancialInformationSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>ID</name>
-      <type>Long</type>
-      <sqltable>Contacts_ClassFinancialInformationSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>ContactId</name>
-      <type>Link</type>
-      <typelink>Contacts_Contact</typelink>
-      <sqltable>Contacts_ClassFinancialInformationSQLTable</sqltable>
-      <sqlcolumn>CONTACTID</sqlcolumn>
-    </attribute>
-    
-    <trigger program="org.efaps.esjp.admin.access.AccessOnField"
-            method="configCheck" name="Contacts_ClassFinancialInformation.ACCESSCHECK"
-            event="ACCESSCHECK">
-            <property name="SystemConfig">Contacts-Configuration</property>
-            <property name="Attribute">org.efaps.contacts.ActivateCLassFinancialInformation</property>
-    </trigger>
 
   </definition>
 </datamodel-type>
