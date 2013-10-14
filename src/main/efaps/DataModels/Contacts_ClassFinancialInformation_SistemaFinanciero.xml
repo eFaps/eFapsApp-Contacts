@@ -27,11 +27,57 @@
   <definition>
     <version-expression>(version==latest)</version-expression>
     <name>Contacts_ClassFinancialInformation_SistemaFinanciero</name>
-    <parent>Contacts_Class</parent>
+
     <purpose classification="true">
         <LinkColumn>ContactId</LinkColumn>
         <parent>Contacts_ClassFinancialInformation</parent>
     </purpose>
+
+    <attribute>
+        <name>OID</name>
+        <type>OID</type>
+        <sqltable>Contacts_ClassFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+        <sqlcolumn>ID</sqlcolumn>
+    </attribute>
+    <attribute>
+        <name>ID</name>
+        <type>Long</type>
+        <sqltable>Contacts_ClassFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+        <sqlcolumn>ID</sqlcolumn>
+    </attribute>
+    <attribute>
+        <name>ContactId</name>
+        <type>Link</type>
+        <typelink>Contacts_Contact</typelink>
+        <sqltable>Contacts_ClassFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+        <sqlcolumn>CONTACTID</sqlcolumn>
+    </attribute>
+    <attributeset>
+            <name>FISistemaFinancieroSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_SistemaFinanciero</parent>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>609bbfd6-4af0-42ac-bbd3-e3dadeb69f56</uuid>
+            <attribute>
+                <name>Venture</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+                <sqlcolumn>VENTURE</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Classification</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+                <sqlcolumn>CLASS</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Value</name>
+                <type>Decimal</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_SistemaFinancieroSQLTable</sqltable>
+                <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+    </attributeset>
 
   </definition>
 </datamodel-type>
