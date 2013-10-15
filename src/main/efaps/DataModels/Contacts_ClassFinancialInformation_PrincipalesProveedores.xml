@@ -32,6 +32,44 @@
         <LinkColumn>ContactId</LinkColumn>
         <parent>Contacts_ClassFinancialInformation</parent>
     </purpose>
+    <attributeset>
+        <name>FIMainSupplierSet</name>
+        <type>MultiLineArray</type>
+        <parent>Contacts_AttributeAbstractFinancialInformation_MainSupplier</parent>
+        <sqltable>Contacts_AttributeAbstractFinancialInformation_MainSupplierSQLTable</sqltable>
+        <sqlcolumn>RELID</sqlcolumn>
+        <uuid>2dd54103-4f04-4a83-8f28-4a33954013dd</uuid>
+        <attribute>
+            <name>Supplier</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainSupplierSQLTable</sqltable>
+            <sqlcolumn>SPLR</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Phone</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainSupplierSQLTable</sqltable>
+            <sqlcolumn>PHONE</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Contact</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainSupplierSQLTable</sqltable>
+            <sqlcolumn>CONTACT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Credit</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainSupplierSQLTable</sqltable>
+            <sqlcolumn>CREDIT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>PayWay</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainSupplierSQLTable</sqltable>
+            <sqlcolumn>PAYWAY</sqlcolumn>
+        </attribute>
+    </attributeset>
 
   </definition>
 </datamodel-type>
