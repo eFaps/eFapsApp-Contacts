@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2009 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+--><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+  <uuid>5ff3d939-d1a9-49a5-a222-dbbfff06adc5</uuid>
+  <file-application>eFapsApp-Contacts</file-application>
+  <file-revision>$Rev$</file-revision>
+
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_Warranty</name>
+        <parent>Contacts_Class</parent>
+        <purpose classification="true">
+            <LinkColumn>ContactId</LinkColumn>
+            <parent>Contacts_ClassFinancialInformation</parent>
+        </purpose>
+        <attributeset>
+            <name>FIWarrantySet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_Warranty</parent>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>096815de-d2f9-456d-bc35-280605344cd3</uuid>
+            <attribute>
+                <name>WarrantyList</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionWarranty</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Contacts_ClassFinancialInformation_Warranty.FIWarrantySet.WarrantyList" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionWarranty</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>DateBeg</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
+                <sqlcolumn>DATBEG</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>DateEnd</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
+                <sqlcolumn>DATEND</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Description</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
+                <sqlcolumn>DESP</sqlcolumn>
+            </attribute>
+        </attributeset>
+
+    </definition>
+</datamodel-type>

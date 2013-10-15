@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+  Copyright 2003 - 2009 The eFaps Team
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Author:          The eFaps Team
+  Revision:        $Rev$
+  Last Changed:    $Date$
+  Last Changed By: $Author$
+
+--><ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>f1d4be2e-dd71-451d-a11d-7824f13819b1</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_InformacionComercialForm</name>
+        <type>Contacts_ClassFinancialInformation_InformacionComercial</type>
+
+        <field character="Heading" name="headingFITradeInformationSet">
+            <property name="ModeCreate">READONLY</property>
+            <property name="Level">2</property>
+            <property name="Label">Contacts_ClassFinancialInformation_TradeInformationForm/heading.Heading</property>
+        </field>
+        <field name="dateCFITI">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">DateC</property>
+        </field>
+        <field name="moneyFITI">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">Money</property>
+        </field>
+        <field name="patrFITI">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">Patr</property>
+        </field>
+        <field name="workersNumberFITI">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">WorkersNumber</property>
+        </field>
+        <field name="factFITI">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">Fact</property>
+        </field>
+        <field character="Set" name="FITradeInformationSet">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">FITradeInformationSet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_InformacionComercialForm/FITradeInformationSet.Label</property>
+            <property name="Order">Contact|Part|Nationality|IdentityCard</property>
+        </field>
+    </definition>
+</ui-form>

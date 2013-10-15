@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2011 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+--><datamodel-sqltable xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>6184c7a5-2692-4637-9a4b-2931dc830d39</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</name>
+        <typeid-column>TYPEID</typeid-column>
+        <database>
+            <table-name>T_COATTRFI_WARRT</table-name>
+            <!-- columns -->
+            <column name="TYPEID" not-null="true" type="INTEGER"/>
+            <column name="RELID" not-null="true" type="INTEGER"/>
+            <column name="DEFID" type="INTEGER"/>
+            <column length="255" name="DATBEG" type="STRING_SHORT"/>
+            <column length="255" name="DATEND" type="STRING_SHORT"/>
+            <column length="255" name="DESP" type="STRING_SHORT"/>
+            <column name="CREATOR" not-null="true" type="INTEGER"/>
+            <column name="CREATED" not-null="true" type="DATETIME"/>
+            <column name="MODIFIER" not-null="true" type="INTEGER"/>
+            <column name="MODIFIED" not-null="true" type="DATETIME"/>
+            <!-- constrains -->
+            <foreign key="CREATOR" name="T_COATTRFI_WARRT_FK_CRTR" reference="T_USERPERSON(ID)"/>
+            <foreign key="MODIFIER" name="T_COATTRFI_WARRT_FK_MDFR" reference="T_USERPERSON(ID)"/>
+        </database>
+    </definition>
+</datamodel-sqltable>

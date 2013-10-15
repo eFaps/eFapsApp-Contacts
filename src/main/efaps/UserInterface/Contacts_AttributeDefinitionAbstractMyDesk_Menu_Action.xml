@@ -37,6 +37,7 @@
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreatePhone</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateEmail</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateFax</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateFinancialInstitution</child>
         </childs>
     </definition>
 </ui-menu>

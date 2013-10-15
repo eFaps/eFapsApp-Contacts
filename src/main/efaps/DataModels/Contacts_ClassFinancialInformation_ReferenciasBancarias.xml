@@ -24,14 +24,57 @@
   <file-application>eFapsApp-Contacts</file-application>
   <file-revision>$Rev: 10328 $</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassFinancialInformation_ReferenciasBancarias</name>
-    <parent>Contacts_Class</parent>
-    <purpose classification="true">
-        <LinkColumn>ContactId</LinkColumn>
-        <parent>Contacts_ClassFinancialInformation</parent>
-    </purpose>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_ReferenciasBancarias</name>
+        <parent>Contacts_Class</parent>
+        <purpose classification="true">
+            <LinkColumn>ContactId</LinkColumn>
+            <parent>Contacts_ClassFinancialInformation</parent>
+        </purpose>
+        <attributeset>
+            <name>FIBankReferencesSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_BankReferences</parent>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>096815de-d2f9-456d-bc35-280605344cd3</uuid>
+            <attribute>
+                <name>FinancialInst</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionFinancialInstitution</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Contacts_ClassFinancialInformation_ReferenciasBancarias.FIBankReferencesSet.FinancialInst" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionFinancialInstitution</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Nro</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+                <sqlcolumn>NRO</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Contact</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+                <sqlcolumn>CONTACT</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Phone</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+                <sqlcolumn>PHONE</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>CreditLine</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+                <sqlcolumn>CREDITLINE</sqlcolumn>
+            </attribute>
+        </attributeset>
 
-  </definition>
+    </definition>
 </datamodel-type>
