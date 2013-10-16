@@ -59,22 +59,21 @@
             import org.efaps.db.InstanceQuery;
             import org.efaps.esjp.admin.ui.UIUpdate;
             import org.efaps.esjp.admin.user.RoleUpdate;
-            import org.efaps.importer.DataImport;
+            import org.efaps.esjp.data.ObjectImport;
 
             EFAPS_LOGGER.info("Importing Data for eFapsApp-Contacts");
 
             RunLevel.init("shell");
             RunLevel.execute();
 
-            EFAPS_LOGGER.info("    Check if JAASKEY for Role ADMIN_REST must be imported");
-            // Admin_User_JAASKey
-            QueryBuilder queryBldr = new QueryBuilder(UUID.fromString("0e7650c6-8ec3-4c63-b377-f3eb5fb85f16"));
-            queryBldr.addWhereAttrEqValue("Key", "Contacts_Admin");
+            EFAPS_LOGGER.info("    Check if AttributeDefinitions must be imported");
+            // Contacts_AttributeDefinitionEmail
+            QueryBuilder queryBldr = new QueryBuilder(UUID.fromString("c11f1c0a-61b0-4a8c-a82b-8eeb6ee88706"));
             InstanceQuery query = queryBldr.getQuery();
             query.executeWithoutAccessCheck();
             if (!query.next()) {
-                DataImport.readFile(new URL(EFAPS_ROOTURL, "Data/IMPORT_AttributeDefinitions.xml")).updateInDB();
-                DataImport.readFile(new URL(EFAPS_ROOTURL, "Data/IMPORT_UserJAASKey.xml")).updateInDB();
+                ObjectImport objImport = new ObjectImport();
+                objImport.importFromFile(new URL(EFAPS_ROOTURL, "Data/DataImport_AttributeDefinition.xml"));
             }
 
             <!-- Contacts_MyDesk, MainToolBar -->
