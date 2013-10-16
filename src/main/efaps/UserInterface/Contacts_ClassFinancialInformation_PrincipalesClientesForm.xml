@@ -38,7 +38,7 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">FIMainClientSet</property>
             <property name="Label">Contacts_ClassFinancialInformation_MainSupplierForm/FIMainClientSet.Label</property>
-            <property name="Order">Supplier|Phone|Contact|Position</property>
+            <property name="Order">Client|Phone|Contact|Position</property>
         </field>
     </definition>
 </ui-form>

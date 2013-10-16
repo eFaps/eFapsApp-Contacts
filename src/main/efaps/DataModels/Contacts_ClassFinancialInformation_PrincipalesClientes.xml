@@ -40,7 +40,7 @@
         <sqlcolumn>RELID</sqlcolumn>
         <uuid>7471daee-d660-4f26-99c4-d87d9f01ccf9</uuid>
         <attribute>
-            <name>Supplier</name>
+            <name>Client</name>
             <type>String</type>
             <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
             <sqlcolumn>SPLR</sqlcolumn>
