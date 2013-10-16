@@ -47,5 +47,9 @@ public interface ContactsSettings
      */
     String CURRENCY4INVOICE = "org.efaps.contacts.ActivateSubContacts";
 
-
+    /**
+     * Boolean (true/false).<br/>
+     * Activate the Financial Information Classification.
+     */
+    String CLASSFINANCIALACTIVATE =  "org.efaps.contacts.ActivateClassFinancialInformation";
 }

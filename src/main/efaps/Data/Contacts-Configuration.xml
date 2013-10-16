@@ -41,7 +41,7 @@
             <description>Boolean(true/false). Activate the SubContacts UserInterface.</description>
         </attribute>
         <attribute>
-            <key>org.efaps.contacts.ActivateCLassFinancialInformation</key>
+            <key>org.efaps.contacts.ActivateClassFinancialInformation</key>
             <value>false</value>
             <description>Boolean(true/false). Activate the Classification Financial Information for contacts.</description>
         </attribute>

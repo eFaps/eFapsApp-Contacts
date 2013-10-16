@@ -57,7 +57,7 @@
             method="configCheck" name="Contacts_ClassFinancialInformation.ACCESSCHECK"
             event="ACCESSCHECK">
             <property name="SystemConfig">Contacts-Configuration</property>
-            <property name="Attribute">org.efaps.contacts.ActivateCLassFinancialInformation</property>
+            <property name="Attribute">org.efaps.contacts.ActivateClassFinancialInformation</property>
     </trigger>
 
   </definition>
