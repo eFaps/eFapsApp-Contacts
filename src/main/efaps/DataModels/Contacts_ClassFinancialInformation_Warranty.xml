@@ -19,11 +19,12 @@
  Last Changed:    $Date$
  Last Changed By: $Author$
 
---><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>5ff3d939-d1a9-49a5-a222-dbbfff06adc5</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-
+-->
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>5ff3d939-d1a9-49a5-a222-dbbfff06adc5</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassFinancialInformation_Warranty</name>
@@ -45,20 +46,21 @@
                 <typelink>Contacts_AttributeDefinitionWarranty</typelink>
                 <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
                 <sqlcolumn>DEFID</sqlcolumn>
-                <trigger event="RANGE_VALUE" name="Contacts_ClassFinancialInformation_Warranty.FIWarrantySet.WarrantyList" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                <trigger event="RANGE_VALUE" name="Contacts_ClassFinancialInformation_Warranty.FIWarrantySet.WarrantyList"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
                     <property name="Value">Value</property>
                     <property name="Type">Contacts_AttributeDefinitionWarranty</property>
                 </trigger>
             </attribute>
             <attribute>
                 <name>DateBeg</name>
-                <type>String</type>
+                <type>Date</type>
                 <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
                 <sqlcolumn>DATBEG</sqlcolumn>
             </attribute>
             <attribute>
                 <name>DateEnd</name>
-                <type>String</type>
+                <type>Date</type>
                 <sqltable>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</sqltable>
                 <sqlcolumn>DATEND</sqlcolumn>
             </attribute>
@@ -69,6 +71,5 @@
                 <sqlcolumn>DESP</sqlcolumn>
             </attribute>
         </attributeset>
-
     </definition>
 </datamodel-type>

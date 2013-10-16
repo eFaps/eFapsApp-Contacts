@@ -27,7 +27,7 @@
   <definition>
     <version-expression>(version==latest)</version-expression>
     <name>Contacts_ClassFinancialInformation_PrincipalesClientes</name>
-    <parent>Contacts_Class</parent>
+    <parent>Contacts_ClassFinancialInformation</parent>
     <purpose classification="true">
         <LinkColumn>ContactId</LinkColumn>
         <parent>Contacts_ClassFinancialInformation</parent>

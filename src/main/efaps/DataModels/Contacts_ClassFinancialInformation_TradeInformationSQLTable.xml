@@ -29,11 +29,8 @@
         <database>
             <table-name>T_COCLASSFINANCIALINFO_TRADEINF</table-name>
             <column name="CONTACTID" not-null="true" type="INTEGER"/>
-            <column name="DATEC"    type="STRING_SHORT"	length="255"/>
-            <column name="MONEY"    type="INTEGER"/>
-            <column name="PAT"      type="INTEGER"/>
+            <column name="DATEC"    type="DATETIME"/>
             <column name="NROWORK"  type="INTEGER"/>
-            <column name="FACT"     type="INTEGER"/>
             <foreign name="T_COCLASSFINANCIALINFO_TRADEINF_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)"/>
         </database>
     </definition>

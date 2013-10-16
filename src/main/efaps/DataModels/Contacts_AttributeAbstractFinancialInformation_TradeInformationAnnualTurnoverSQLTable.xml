@@ -15,34 +15,32 @@
  limitations under the License.
 
  Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
+ Revision:        $Rev: 10461 $
+ Last Changed:    $Date: 2013-10-15 17:05:14 -0500 (mar, 15 oct 2013) $
+ Last Changed By: $Author: sara.landa@efaps.org $
 
 --><datamodel-sqltable xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>6184c7a5-2692-4637-9a4b-2931dc830d39</uuid>
+    <uuid>eea6add1-77dc-49b8-830a-01b30cc7aa11</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
+    <file-revision>$Rev: 10461 $</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_AttributeAbstractFinancialInformation_WarrantySQLTable</name>
+        <name>Contacts_AttributeAbstractFinancialInformation_TradeInformationAnnualTurnoverSQLTable</name>
         <typeid-column>TYPEID</typeid-column>
         <database>
-            <table-name>T_COATTRFI_WARRT</table-name>
+            <table-name>T_COATTRFI_TRINFANTU</table-name>
             <!-- columns -->
             <column name="TYPEID" not-null="true" type="INTEGER"/>
             <column name="RELID" not-null="true" type="INTEGER"/>
-            <column name="DEFID" type="INTEGER"/>
-            <column name="DATBEG" type="DATETIME"/>
-            <column name="DATEND" type="DATETIME"/>
-            <column length="255" name="DESP" type="STRING_SHORT"/>
+            <column name="ANNTURNAMOUNT" type="DECIMAL" length="10" scale="4"/>
+            <column name="CURRENCYID" type="INTEGER"/>
             <column name="CREATOR" not-null="true" type="INTEGER"/>
             <column name="CREATED" not-null="true" type="DATETIME"/>
             <column name="MODIFIER" not-null="true" type="INTEGER"/>
             <column name="MODIFIED" not-null="true" type="DATETIME"/>
             <!-- constrains -->
-            <foreign key="CREATOR" name="T_COATTRFI_WARRT_FK_CRTR" reference="T_USERPERSON(ID)"/>
-            <foreign key="MODIFIER" name="T_COATTRFI_WARRT_FK_MDFR" reference="T_USERPERSON(ID)"/>
+            <foreign key="CREATOR" name="T_COATTRFI_TRINF_FK_CRTR" reference="T_USERPERSON(ID)"/>
+            <foreign key="MODIFIER" name="T_COATTRFI_TRINF_FK_MDFR" reference="T_USERPERSON(ID)"/>
         </database>
     </definition>
 </datamodel-sqltable>

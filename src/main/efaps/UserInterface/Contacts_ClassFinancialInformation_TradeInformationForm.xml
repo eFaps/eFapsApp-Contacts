@@ -25,8 +25,8 @@
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_ClassFinancialInformation_InformacionComercialForm</name>
-        <type>Contacts_ClassFinancialInformation_InformacionComercial</type>
+        <name>Contacts_ClassFinancialInformation_TradeInformationForm</name>
+        <type>Contacts_ClassFinancialInformation_TradeInformation</type>
 
         <field character="Heading" name="headingFITradeInformationSet">
             <property name="ModeCreate">READONLY</property>
@@ -38,31 +38,37 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">DateC</property>
         </field>
-        <field name="moneyFITI">
+        <field character="Set" name="moneySet">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
-            <property name="Attribute">Money</property>
+            <property name="Attribute">MoneySet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_TradeInformationForm/moneySet.Label</property>
+            <property name="Order">MoneyAmount|MoneyCurrencyId</property>
         </field>
-        <field name="patrFITI">
+        <field character="Set" name="patrimonySet">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
-            <property name="Attribute">Patr</property>
+            <property name="Attribute">PatrimonySet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_TradeInformationForm/patrimonySet.Label</property>
+            <property name="Order">PatrimonyAmount|PatrimonyCurrencyId</property>
         </field>
         <field name="workersNumberFITI">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">WorkersNumber</property>
         </field>
-        <field name="factFITI">
+        <field character="Set" name="annualTurnoverSet">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
-            <property name="Attribute">Fact</property>
+            <property name="Attribute">AnnualTurnoverSet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_TradeInformationForm/annualTurnoverSet.Label</property>
+            <property name="Order">AnnualTurnoverAmount|TurnoverCurrencyId</property>
         </field>
         <field character="Set" name="FITradeInformationSet">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">FITradeInformationSet</property>
-            <property name="Label">Contacts_ClassFinancialInformation_InformacionComercialForm/FITradeInformationSet.Label</property>
+            <property name="Label">Contacts_ClassFinancialInformation_TradeInformationForm/FITradeInformationSet.Label</property>
             <property name="Order">Contact|Part|Nationality|IdentityCard</property>
         </field>
     </definition>

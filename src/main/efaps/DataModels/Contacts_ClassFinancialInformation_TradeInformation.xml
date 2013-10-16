@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2009 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev: 10328 $
+ Last Changed:    $Date: 2013-09-30 15:30:42 -0500 (lun, 30 sep 2013) $
+ Last Changed By: $Author: jorge.cueva@moxter.net $
+
+--><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+  <uuid>0c8abdaa-c9df-48a2-8866-0f280039f6eb</uuid>
+  <file-application>eFapsApp-Contacts</file-application>
+  <file-revision>$Rev: 10328 $</file-revision>
+
+  <definition>
+    <version-expression>(version==latest)</version-expression>
+    <name>Contacts_ClassFinancialInformation_TradeInformation</name>
+    <purpose classification="true">
+        <LinkColumn>ContactId</LinkColumn>
+        <parent>Contacts_ClassFinancialInformation</parent>
+    </purpose>
+        <attribute>
+        <name>OID</name>
+        <type>OID</type>
+        <sqltable>Contacts_ClassFinancialInformation_TradeInformationSQLTable</sqltable>
+        <sqlcolumn>ID</sqlcolumn>
+    </attribute>
+    <attribute>
+        <name>ID</name>
+        <type>Long</type>
+        <sqltable>Contacts_ClassFinancialInformation_TradeInformationSQLTable</sqltable>
+        <sqlcolumn>ID</sqlcolumn>
+    </attribute>
+    <attribute>
+        <name>ContactId</name>
+        <type>Link</type>
+        <typelink>Contacts_Contact</typelink>
+        <sqltable>Contacts_ClassFinancialInformation_TradeInformationSQLTable</sqltable>
+        <sqlcolumn>CONTACTID</sqlcolumn>
+    </attribute>
+    <attribute>
+        <name>DateC</name>
+        <type>Date</type>
+        <sqltable>Contacts_ClassFinancialInformation_TradeInformationSQLTable</sqltable>
+        <sqlcolumn>DATEC</sqlcolumn>
+    </attribute>
+    <attribute>
+        <name>WorkersNumber</name>
+        <type>Integer</type>
+        <sqltable>Contacts_ClassFinancialInformation_TradeInformationSQLTable</sqltable>
+        <sqlcolumn>NROWORK</sqlcolumn>
+    </attribute>
+    <attributeset>
+        <name>MoneySet</name>
+        <type>MultiLineArray</type>
+        <parent>Contacts_AttributeAbstractFinancialInformation_TradeInformationMoney</parent>
+        <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationMoneySQLTable</sqltable>
+        <sqlcolumn>RELID</sqlcolumn>
+        <uuid>c0a94fb3-63c3-46b8-a0d4-3109a1757132</uuid>
+        <attribute>
+            <name>MoneyAmount</name>
+            <type>Decimal</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationMoneySQLTable</sqltable>
+            <sqlcolumn>MONEYAMOUNT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>MoneyCurrencyId</name>
+            <type>LinkWithRanges</type>
+            <typelink>ERP_Currency</typelink>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationMoneySQLTable</sqltable>
+            <sqlcolumn>CURRENCYID</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
+                name="Sales_Payment.CurrencyId.RANGE_VALUE" event="RANGE_VALUE">
+                <property name="Value">Name</property>
+                <property name="Type">ERP_Currency</property>
+            </trigger>
+        </attribute>
+    </attributeset>
+    <attributeset>
+        <name>PatrimonySet</name>
+        <type>MultiLineArray</type>
+        <parent>Contacts_AttributeAbstractFinancialInformation_TradeInformationPatrimony</parent>
+        <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationPatrimonySQLTable</sqltable>
+        <sqlcolumn>RELID</sqlcolumn>
+        <uuid>c0a6b8d0-c11e-4e49-a5eb-526a6f6b2d95</uuid>
+        <attribute>
+            <name>PatrimonyAmount</name>
+            <type>Decimal</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationPatrimonySQLTable</sqltable>
+            <sqlcolumn>PATAMOUNT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>PatrimonyCurrencyId</name>
+            <type>LinkWithRanges</type>
+            <typelink>ERP_Currency</typelink>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationPatrimonySQLTable</sqltable>
+            <sqlcolumn>CURRENCYID</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
+                name="Sales_Payment.CurrencyId.RANGE_VALUE" event="RANGE_VALUE">
+                <property name="Value">Name</property>
+                <property name="Type">ERP_Currency</property>
+            </trigger>
+        </attribute>
+    </attributeset>
+    <attributeset>
+        <name>AnnualTurnoverSet</name>
+        <type>MultiLineArray</type>
+        <parent>Contacts_AttributeAbstractFinancialInformation_TradeInformationAnnualTurnover</parent>
+        <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationAnnualTurnoverSQLTable</sqltable>
+        <sqlcolumn>RELID</sqlcolumn>
+        <uuid>75795f66-53e9-4d3f-8f6b-69bbadc78a84</uuid>
+        <attribute>
+            <name>AnnualTurnoverAmount</name>
+            <type>Decimal</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationAnnualTurnoverSQLTable</sqltable>
+            <sqlcolumn>ANNTURNAMOUNT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>TurnoverCurrencyId</name>
+            <type>LinkWithRanges</type>
+            <typelink>ERP_Currency</typelink>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationAnnualTurnoverSQLTable</sqltable>
+            <sqlcolumn>CURRENCYID</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
+                name="Sales_Payment.CurrencyId.RANGE_VALUE" event="RANGE_VALUE">
+                <property name="Value">Name</property>
+                <property name="Type">ERP_Currency</property>
+            </trigger>
+        </attribute>
+    </attributeset>
+    <attributeset>
+        <name>FITradeInformationSet</name>
+        <type>MultiLineArray</type>
+        <parent>Contacts_AttributeAbstractFinancialInformation_TradeInformation</parent>
+        <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationSQLTable</sqltable>
+        <sqlcolumn>RELID</sqlcolumn>
+        <uuid>7af9ea68-b7ea-4686-a5d5-ad837232e6f8</uuid>
+        <attribute>
+            <name>Contact</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationSQLTable</sqltable>
+            <sqlcolumn>CONTACT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Part</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationSQLTable</sqltable>
+            <sqlcolumn>PART</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Nationality</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationSQLTable</sqltable>
+            <sqlcolumn>NAC</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>IdentityCard</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationSQLTable</sqltable>
+            <sqlcolumn>IDENTI</sqlcolumn>
+        </attribute>
+    </attributeset>
+  </definition>
+</datamodel-type>
