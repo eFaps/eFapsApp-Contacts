@@ -18,12 +18,10 @@
  * Last Changed By: $Author$
  */
 
-
 package org.efaps.esjp.contacts.util;
 
 import org.efaps.admin.program.esjp.EFapsRevision;
 import org.efaps.admin.program.esjp.EFapsUUID;
-
 
 /**
  * TODO comment!
@@ -33,23 +31,22 @@ import org.efaps.admin.program.esjp.EFapsUUID;
  */
 @EFapsUUID("34d740a6-a9de-4f88-b1e9-06c16ecad3ef")
 @EFapsRevision("$Rev$")
-public interface ContactsSettings
-{
-    /**
-     * Boolean (true/false).<br/>
-     * Activate the ContactGroup UserInterface.
-     */
-    String CALCULATECOSTS = "org.efaps.contacts.ActivateContactGroups";
+public interface ContactsSettings {
+	/**
+	 * Boolean (true/false).<br/>
+	 * Activate the ContactGroup UserInterface.
+	 */
+	String CALCULATECOSTS = "org.efaps.contacts.ActivateContactGroups";
 
-    /**
-     * Boolean (true/false).<br/>
-     * Activate the SubContacts UserInterface.
-     */
-    String CURRENCY4INVOICE = "org.efaps.contacts.ActivateSubContacts";
+	/**
+	 * Boolean (true/false).<br/>
+	 * Activate the SubContacts UserInterface.
+	 */
+	String CURRENCY4INVOICE = "org.efaps.contacts.ActivateSubContacts";
 
-    /**
-     * Boolean (true/false).<br/>
-     * Activate the Financial Information Classification.
-     */
-    String CLASSFINANCIALACTIVATE =  "org.efaps.contacts.ActivateClassFinancialInformation";
+	/**
+	 * Boolean (true/false).<br/>
+	 * Activate the Financial Information Classification.
+	 */
+	String CLASSFINANCIALACTIVATE = "org.efaps.contacts.ActivateClassFinancialInformation";
 }

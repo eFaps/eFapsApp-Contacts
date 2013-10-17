@@ -18,6 +18,7 @@
  * Last Changed By: $Author$
  */
 
+
 package org.efaps.esjp.contacts.util;
 
 import java.util.UUID;
@@ -38,27 +39,28 @@ import org.efaps.util.cache.CacheReloadException;
 public final class Contacts
 {
 
-    /**
-     * Key used for Caching of Queries. Should be rested when something in
-     * Contacts is changed.
-     */
-    public static final String CACHKEY = "org.efaps.esjp.contacts.Contacts";
+	/**
+	 * Key used for Caching of Queries. Should be rested when something in
+	 * Contacts is changed.
+	 */
+	public static final String CACHKEY = "org.efaps.esjp.contacts.Contacts";
 
-    /**
-     * Singelton.
-     */
-    private Contacts()
-    {
-    }
+	/**
+	 * Singelton.
+	 */
+	private Contacts()
+	{
+	}
 
-    /**
-     * @return the SystemConfigruation for Sales
-     * @throws CacheReloadException on error
-     */
-    public static SystemConfiguration getSysConfig()
-        throws CacheReloadException
-    {
-        // Contacts-Configuration
-        return SystemConfiguration.get(UUID.fromString("77f5f440-f251-46d0-8603-add22f99f7f0"));
-    }
+	/**
+	 * @return the SystemConfigruation for Constacs
+	 * @throws CacheReloadException on error
+	 */
+	public static SystemConfiguration getSysConfig()
+			throws CacheReloadException
+			{
+		// Contacts-Configuration
+		return SystemConfiguration.get(UUID
+				.fromString("77f5f440-f251-46d0-8603-add22f99f7f0"));
+	}
 }
