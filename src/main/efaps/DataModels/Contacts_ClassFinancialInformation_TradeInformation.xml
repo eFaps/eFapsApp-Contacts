@@ -31,7 +31,7 @@
         <LinkColumn>ContactId</LinkColumn>
         <parent>Contacts_ClassFinancialInformation</parent>
     </purpose>
-        <attribute>
+    <attribute>
         <name>OID</name>
         <type>OID</type>
         <sqltable>Contacts_ClassFinancialInformation_TradeInformationSQLTable</sqltable>
