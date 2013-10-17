@@ -38,7 +38,7 @@
             <parent>Contacts_AttributeAbstractFinancialInformation_BankReferences</parent>
             <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
-            <uuid>096815de-d2f9-456d-bc35-280605344cd3</uuid>
+            <uuid>477aed86-cfaa-4a76-8d69-6b684549ab18</uuid>
             <attribute>
                 <name>FinancialInst</name>
                 <type>LinkWithRanges</type>
