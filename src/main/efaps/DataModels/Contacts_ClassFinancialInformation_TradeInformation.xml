@@ -155,7 +155,7 @@
         </attribute>
         <attribute>
             <name>Part</name>
-            <type>String</type>
+            <type>Integer</type>
             <sqltable>Contacts_AttributeAbstractFinancialInformation_TradeInformationSQLTable</sqltable>
             <sqlcolumn>PART</sqlcolumn>
         </attribute>
