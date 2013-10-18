@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.efaps.admin.datamodel.Classification;
 import org.efaps.admin.datamodel.Type;
 import org.efaps.admin.dbproperty.DBProperties;
@@ -301,7 +302,7 @@ public abstract class Contacts_Base
             .append(street.length() > 0 ? street : locStreet);
         }
 
-        return strBldr.toString();
+        return StringEscapeUtils.escapeEcmaScript(strBldr.toString());
     }
 
     /**
