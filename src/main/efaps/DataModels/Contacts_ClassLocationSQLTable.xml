@@ -41,6 +41,7 @@
             <column name="STREET"           type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <unique name="T_COCLASSLOC_UK_CONTACTID"  columns="CONTACTID" />
             <foreign name="T_COCLASSLOC_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
         </database>
     </definition>
@@ -59,6 +60,7 @@
             <column name="DEPARTMENTID"     type="INTEGER" />
             <column name="PROVINCEID"       type="INTEGER" />
             <column name="DISTRICTID"       type="INTEGER" />
+            <unique name="T_COCLASSLOC_UK_CONTACTID"  columns="CONTACTID" />
             <foreign name="T_COCLASSLOC_FK_CONTACTID"       key="CONTACTID" reference="T_COCONTACT(ID)" />
             <foreign name="T_COCLASSLOC_FK_DEPARTMENTID"    key="DEPARTMENTID" reference="T_UBICACION(ID)" />
             <foreign name="T_COCLASSLOC_FK_PROVINCEID"      key="PROVINCEID" reference="T_UBICACION(ID)" />

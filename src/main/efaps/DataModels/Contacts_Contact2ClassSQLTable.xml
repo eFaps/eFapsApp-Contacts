@@ -23,13 +23,13 @@
 
 -->
 
-<datamodel-sqltable  xmlns="http://www.efaps.org/xsd" 
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+<datamodel-sqltable  xmlns="http://www.efaps.org/xsd"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                      xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
   <uuid>8b3abe66-b4dd-4819-9fdb-ab413ae1f878</uuid>
   <file-application>eFapsApp-Contacts</file-application>
   <file-revision>$Rev$</file-revision>
-  
+
   <definition>
     <version-expression>(version==latest)</version-expression>
     <name>Contacts_Contact2ClassSQLTable</name>
@@ -38,6 +38,7 @@
       <!-- columns -->
        <column name="CONTACTID"    type="INTEGER"        not-null="true" />
        <column name="CLASSTYPEID"  type="INTEGER"        not-null="true" />
+       <unique name="T_COCONTACT2CLASS_UK_CONTACTCLSTYPE"  columns="CONTACTID,CLASSTYPEID" />
        <foreign name="T_COCONTACT2CLASS_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)"/>
      </database>
   </definition>

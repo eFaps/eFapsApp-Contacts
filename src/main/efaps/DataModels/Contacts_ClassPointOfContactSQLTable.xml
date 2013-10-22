@@ -35,6 +35,7 @@
         <database>
             <table-name>T_COCLASSPOC</table-name>
             <column name="CONTACTID"        type="INTEGER" not-null="true" />
+            <unique name="T_COCLASSPOC_UK_CONTACTID"  columns="CONTACTID" />
             <foreign name="T_COCLASSPOC_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
         </database>
     </definition>
