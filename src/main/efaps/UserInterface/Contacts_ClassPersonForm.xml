@@ -35,6 +35,12 @@
         <type>Contacts_ClassPerson</type>
 
         <!-- fields -->
+        <field character="Heading" name="supplierHeading">
+            <property name="Level">2</property>
+            <property name="Label">Contacts_ClassPersonForm.personHeading.Label</property>
+            <property name="ModeCreate">READONLY</property>
+            <property name="ModeEdit">READONLY</property>
+        </field>
         <field name="firstLastName">
             <property name="Columns">40</property>
             <property name="ModeCreate">EDITABLE</property>
