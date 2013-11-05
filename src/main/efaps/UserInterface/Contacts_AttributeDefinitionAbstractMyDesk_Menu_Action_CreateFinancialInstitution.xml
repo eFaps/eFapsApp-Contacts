@@ -21,6 +21,9 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateFinancialInstitution</name>
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
         <!-- target definitions -->
 
         <target>
