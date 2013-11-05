@@ -32,6 +32,11 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ContactTree_ContactFrom</name>
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+            <role>Contacts_Reader</role>
+        </access>
         <!-- target definitions -->
         <target>
             <menu>Contacts_ContactTree_ContactFrom_Menu</menu>
