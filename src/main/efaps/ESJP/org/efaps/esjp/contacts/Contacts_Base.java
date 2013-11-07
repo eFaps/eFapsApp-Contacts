@@ -255,51 +255,54 @@ public abstract class Contacts_Base
     public String getFieldValue4Contact(final Instance _instance)
         throws EFapsException
     {
-        boolean hasStreet = false;
-        if (Type.get("Sales_Contacts_ClassClient") != null) {
-            hasStreet = true;
-        }
-        if (hasStreet){
-            hasStreet = _instance.getType().equals(Type.get("Sales_Contacts_ClassClient"));
-        }
-
-        final PrintQuery print = new PrintQuery(_instance);
-        if (hasStreet) {
-            print.addSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
-        }
-        print.addSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
-        print.addSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
-        print.addSelect("class[Contacts_ClassLocation].attribute[LocationAdressStreet]");
-        addNewSelect(print);
-        print.execute();
-        final String taxnumber = print.<String>getSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
-        final String idcard = print.<String>getSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
-        final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
-
-        String street = "";
-        if (hasStreet) {
-            street  = print.getSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
-        }
-        String locStreet = print.getSelect("class[Contacts_ClassLocation].attribute[LocationAdressStreet]");
-        if (locStreet.equals("")) {
-            locStreet = getNewSelect(print);
-        }
-
         final StringBuilder strBldr = new StringBuilder();
-        strBldr.append(dni ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
-                           : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))
-               .append(": ").append(dni ? idcard : taxnumber);
 
-        if (!street.isEmpty() || !locStreet.isEmpty()){
-            strBldr.append("  -  ");
+        if (_instance.isValid()) {
+            boolean hasStreet = false;
+            if (Type.get("Sales_Contacts_ClassClient") != null) {
+                hasStreet = true;
+            }
+            if (hasStreet){
+                hasStreet = _instance.getType().equals(Type.get("Sales_Contacts_ClassClient"));
+            }
+
+            final PrintQuery print = new PrintQuery(_instance);
             if (hasStreet) {
-                strBldr.append(DBProperties.getProperty("Sales_Contacts_ClassClient/BillingAdressStreet.Label"));
+                print.addSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
             }
-            if (!locStreet.isEmpty()) {
-                strBldr.append(DBProperties.getProperty("Contacts_ClassLocation/LocationAdressStreet.Label"));
+            print.addSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
+            print.addSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
+            print.addSelect("class[Contacts_ClassLocation].attribute[LocationAdressStreet]");
+            addNewSelect(print);
+            print.execute();
+            final String taxnumber = print.<String>getSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
+            final String idcard = print.<String>getSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
+            final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
+
+            String street = "";
+            if (hasStreet) {
+                street  = print.getSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
             }
-            strBldr.append(": ")
-            .append(street.length() > 0 ? street : locStreet);
+            String locStreet = print.getSelect("class[Contacts_ClassLocation].attribute[LocationAdressStreet]");
+            if (locStreet.equals("")) {
+                locStreet = getNewSelect(print);
+            }
+
+            strBldr.append(dni ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
+                               : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))
+                   .append(": ").append(dni ? idcard : taxnumber);
+
+            if (!street.isEmpty() || !locStreet.isEmpty()){
+                strBldr.append("  -  ");
+                if (hasStreet) {
+                    strBldr.append(DBProperties.getProperty("Sales_Contacts_ClassClient/BillingAdressStreet.Label"));
+                }
+                if (!locStreet.isEmpty()) {
+                    strBldr.append(DBProperties.getProperty("Contacts_ClassLocation/LocationAdressStreet.Label"));
+                }
+                strBldr.append(": ")
+                .append(street.length() > 0 ? street : locStreet);
+            }
         }
 
         return StringEscapeUtils.escapeEcmaScript(strBldr.toString());
