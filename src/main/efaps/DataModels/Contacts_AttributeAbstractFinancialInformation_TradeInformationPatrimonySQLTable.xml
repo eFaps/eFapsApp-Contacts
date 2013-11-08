@@ -39,8 +39,8 @@
             <column name="MODIFIER" not-null="true" type="INTEGER"/>
             <column name="MODIFIED" not-null="true" type="DATETIME"/>
             <!-- constrains -->
-            <foreign key="CREATOR" name="T_COATTRFI_TRINF_FK_CRTR" reference="T_USERPERSON(ID)"/>
-            <foreign key="MODIFIER" name="T_COATTRFI_TRINF_FK_MDFR" reference="T_USERPERSON(ID)"/>
+            <foreign key="CREATOR" name="T_COATTRFI_TRINFPAT_FK_CRTR" reference="T_USERPERSON(ID)"/>
+            <foreign key="MODIFIER" name="T_COATTRFI_TRINFPAT_FK_MDFR" reference="T_USERPERSON(ID)"/>
         </database>
     </definition>
 </datamodel-sqltable>
