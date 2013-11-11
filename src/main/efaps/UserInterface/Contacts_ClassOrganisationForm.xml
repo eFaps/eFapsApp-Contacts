@@ -48,6 +48,6 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">TradeName</property>
         </field>
+        <property name="Weight">10</property>
     </definition>
-
 </ui-form>
