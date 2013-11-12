@@ -2,7 +2,7 @@
 
 <!--
 
-  Copyright 2003 - 2011 The eFaps Team
+  Copyright 2003 - 2013 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -45,5 +45,6 @@
             <property name="Label">Contacts_ClassPointOfContact/PointOfContactSet.Label</property>
             <property name="Order">PointOfContact4Contacts|Name|Phone|Email</property>
         </field>
+        <property name="Weight">70</property>
     </definition>
 </ui-form>
