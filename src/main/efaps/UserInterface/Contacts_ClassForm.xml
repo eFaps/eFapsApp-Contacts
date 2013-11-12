@@ -2,7 +2,7 @@
 
 <!--
 
-  Copyright 2003 - 2009 The eFaps Team
+  Copyright 2003 - 2013 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -23,44 +23,37 @@
 
 -->
 
-<ui-form xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
 
-  <uuid>bf60faf2-f1d1-45fa-bfc6-c4be91894863</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+    <uuid>bf60faf2-f1d1-45fa-bfc6-c4be91894863</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassForm</name>
-    <type>Contacts_Class</type>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassForm</name>
+        <type>Contacts_Class</type>
 
-    <field name="heading" character="Heading">
-      <property name="ModeCreate">READONLY</property>
-      <property name="Level">2</property>
-      <property name="Label">Contacts_ClassForm/heading.Heading</property>
-    </field>
-    <field name="phoneSet" character="Set">
-      <property name="ModeCreate">EDITABLE</property>
-      <property name="ModeEdit">EDITABLE</property>
-      <property name="Attribute">PhoneSet</property>
-      <property name="Label">Contacts_Class/PhoneSet.Label</property>
-      <property name="Order">Description4Phone|Phone</property>
-    </field>
-    <field name="faxSet" character="Set">
-      <property name="ModeCreate">EDITABLE</property>
-      <property name="ModeEdit">EDITABLE</property>
-      <property name="Attribute">FaxSet</property>
-      <property name="Label">Contacts_Class/FaxSet.Label</property>
-      <property name="Order">Description4Fax|Fax</property>
-    </field>
-    <field name="emailSet" character="Set">
-      <property name="ModeCreate">EDITABLE</property>
-      <property name="ModeEdit">EDITABLE</property>
-      <property name="Attribute">EmailSet</property>
-      <property name="Label">Contacts_Class/EmailSet.Label</property>
-      <property name="Order">Description4Email|Email</property>
-    </field>
-  </definition>
+        <field name="heading" character="Heading">
+            <property name="ModeCreate">READONLY</property>
+            <property name="Level">2</property>
+            <property name="Label">Contacts_ClassForm/heading.Heading</property>
+        </field>
+        <field name="phoneSet" character="Set">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">PhoneSet</property>
+            <property name="Label">Contacts_Class/PhoneSet.Label</property>
+            <property name="Order">Description4Phone|Phone</property>
+        </field>
+        <field name="emailSet" character="Set">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">EmailSet</property>
+            <property name="Label">Contacts_Class/EmailSet.Label</property>
+            <property name="Order">Description4Email|Email</property>
+        </field>
+        <property name="Weight">50</property>
+    </definition>
 </ui-form>
