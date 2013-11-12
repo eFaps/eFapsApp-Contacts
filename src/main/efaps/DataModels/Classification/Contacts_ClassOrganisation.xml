@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2013 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -35,39 +35,34 @@
         <name>Contacts_ClassOrganisation</name>
 
         <purpose classification="true">
-            <LinkColumn>ContactId</LinkColumn>
+            <LinkColumn>ContactLink</LinkColumn>
             <parent>Contacts_Class</parent>
         </purpose>
-
         <attribute>
             <name>OID</name>
             <type>OID</type>
             <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
             <sqlcolumn>ID</sqlcolumn>
         </attribute>
-
         <attribute>
             <name>ID</name>
             <type>Long</type>
             <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
             <sqlcolumn>ID</sqlcolumn>
         </attribute>
-
         <attribute>
-            <name>ContactId</name>
+            <name>ContactLink</name>
             <type>Link</type>
             <typelink>Contacts_Contact</typelink>
             <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
             <sqlcolumn>CONTACTID</sqlcolumn>
         </attribute>
-
         <attribute>
             <name>TaxNumber</name>
             <type>String</type>
             <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
             <sqlcolumn>TAXID</sqlcolumn>
         </attribute>
-
         <attribute>
             <name>TradeName</name>
             <type>String</type>
