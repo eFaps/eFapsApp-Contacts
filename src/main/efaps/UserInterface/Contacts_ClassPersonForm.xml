@@ -73,6 +73,11 @@
                     name="Contacts_ClassPersonForm.UI_FIELD_UPDATE"
                     event="UI_FIELD_UPDATE"/>
         </field>
+        <field name="doiGroup" character="Group">
+            <property name="GroupCount">2</property>
+            <property name="ModeCreate">READONLY</property>
+            <property name="ModeEdit">READONLY</property>
+        </field>
         <field name="dOITypeLink">
             <property name="Attribute">DOITypeLink</property>
             <property name="ModeCreate">EDITABLE</property>

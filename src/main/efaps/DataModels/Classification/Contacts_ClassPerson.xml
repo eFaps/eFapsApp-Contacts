@@ -88,8 +88,7 @@
                 <property name="Value">$&lt;attribute[Value]&gt; - $&lt;attribute[Description]&gt;</property>
                 <property name="Type">Contacts_AttributeDefinitionDOIType</property>
             </trigger>
-            </attribute>
-        
+        </attribute>
         <attribute>
             <name>IdentityCard</name>
             <type>String</type>

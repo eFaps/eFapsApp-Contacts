@@ -38,7 +38,7 @@
 
         <field name="clientHeading" character="Heading">
             <property name="Level">2</property>
-            <property name="Label">Contacts_ClassClientForm/clientHeading.Label</property>
+            <property name="Label">Contacts_ClassClientForm.clientHeading.Label</property>
             <property name="ModeCreate">READONLY</property>
             <property name="ModeEdit">READONLY</property>
         </field>
