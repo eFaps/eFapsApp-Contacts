@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2013 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -23,65 +23,64 @@
 
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>c7eb27c7-56a4-44aa-811a-5e56d96aabe1</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
+<datamodel-type xmlns="http://www.efaps.org/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>c7eb27c7-56a4-44aa-811a-5e56d96aabe1</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
 
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassPerson</name>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassPerson</name>
 
-    <purpose classification="true">
-        <LinkColumn>ContactId</LinkColumn>
-        <parent>Contacts_Class</parent>
-    </purpose>
+        <purpose classification="true">
+            <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_Class</parent>
+        </purpose>
 
-    <attribute>
-      <name>OID</name>
-      <type>OID</type>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>ID</name>
-      <type>Long</type>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>ContactId</name>
-      <type>Link</type>
-      <typelink>Contacts_Contact</typelink>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>CONTACTID</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>Forename</name>
-      <type>String</type>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>FORENAME</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>FirstLastName</name>
-      <type>String</type>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>LASTNAME</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>SecondLastName</name>
-      <type>String</type>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>LASTNAME2</sqlcolumn>
-    </attribute>
-    <attribute>
-      <name>IdentityCard</name>
-      <type>String</type>
-      <sqltable>Contacts_ClassPersonSQLTable</sqltable>
-      <sqlcolumn>IDCARD</sqlcolumn>
-    </attribute>
-
-  </definition>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ContactLink</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Forename</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>FORENAME</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>FirstLastName</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>LASTNAME</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>SecondLastName</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>LASTNAME2</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>IdentityCard</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>IDCARD</sqlcolumn>
+        </attribute>
+    </definition>
 </datamodel-type>
