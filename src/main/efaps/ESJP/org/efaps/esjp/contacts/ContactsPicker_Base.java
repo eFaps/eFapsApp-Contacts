@@ -64,23 +64,26 @@ public abstract class ContactsPicker_Base
         final String name = _parameter.getParameterValue("name");
         final String taxNumber = _parameter.getParameterValue("taxNumber");
         final String identityCard = _parameter.getParameterValue("identityCard");
-        final StringBuilder warnIdentityHtml = validateIdentityCard4Contact(_parameter,identityCard);
+        final StringBuilder warnIdentityHtml = validateIdentityCard4Contact(_parameter, identityCard);
         final StringBuilder warnHtml = validateName4Contact(_parameter, name);
         final StringBuilder errorHtml = validateTaxNumber4Contact(_parameter, taxNumber);
         final StringBuilder mistakeHtml = validateAdd4Contact(_parameter);
-        final StringBuilder maxNumberAllowTaxNumber = validateMaxNumberAllowTaxNumber(_parameter,taxNumber,false);
+        final StringBuilder maxNumberAllowTaxNumber = validateMaxNumberAllowTaxNumber(_parameter, taxNumber, false);
 
-        if (errorHtml.length() == 0 && warnHtml.length() == 0 && warnIdentityHtml.length()== 0 && mistakeHtml.length()==0) {
-            if(maxNumberAllowTaxNumber.length()!=0){
-                ret.put(ReturnValues.SNIPLETT,maxNumberAllowTaxNumber.toString());
+        if (errorHtml.length() == 0 && warnHtml.length() == 0 && warnIdentityHtml.length() == 0
+                        && mistakeHtml.length() == 0) {
+            if (maxNumberAllowTaxNumber.length() != 0) {
+                ret.put(ReturnValues.SNIPLETT, maxNumberAllowTaxNumber.toString());
             }
             ret.put(ReturnValues.TRUE, true);
         }
-        if (warnHtml.length() != 0 || errorHtml.length() != 0 || warnIdentityHtml.length() != 0 || mistakeHtml.length()!=0 ) {
+        if (warnHtml.length() != 0 || errorHtml.length() != 0 || warnIdentityHtml.length() != 0
+                        || mistakeHtml.length() != 0) {
             warnHtml.append(errorHtml);
             warnIdentityHtml.append(warnHtml);
-            if(maxNumberAllowTaxNumber.length()!=0){
-                final StringBuilder validateMaxNumberAditional=validateMaxNumberAllowTaxNumber(_parameter,taxNumber,true);
+            if (maxNumberAllowTaxNumber.length() != 0) {
+                final StringBuilder validateMaxNumberAditional = validateMaxNumberAllowTaxNumber(_parameter, taxNumber,
+                                true);
                 warnIdentityHtml.append(validateMaxNumberAditional);
             }
             ret.put(ReturnValues.SNIPLETT, mistakeHtml.append(warnIdentityHtml).toString());
@@ -130,19 +133,22 @@ public abstract class ContactsPicker_Base
         throws EFapsException
     {
         final StringBuilder html = new StringBuilder();
-        final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassPerson);
-        queryBldr.addWhereAttrEqValue(CIContacts.ClassPerson.IdentityCard, identityCard);
-        if (_parameter.getInstance() != null) {
-            queryBldr.addWhereAttrNotEqValue(CIContacts.ClassPerson.ContactId, _parameter.getInstance().getId());
-        }
-        final InstanceQuery query = queryBldr.getQuery();
-        if (!query.execute().isEmpty()) {
-            html.append("<div style=\"text-align:center;\">")
-                 .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingIdentityCard"))
-                 .append("</div>");
+        if (!identityCard.isEmpty()) {
+
+            final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassPerson);
+            queryBldr.addWhereAttrEqValue(CIContacts.ClassPerson.IdentityCard, identityCard);
+            if (_parameter.getInstance() != null) {
+                queryBldr.addWhereAttrNotEqValue(CIContacts.ClassPerson.ContactId, _parameter.getInstance().getId());
+            }
+            final InstanceQuery query = queryBldr.getQuery();
+            if (!query.execute().isEmpty()) {
+                html.append("<div style=\"text-align:center;\">").append(DBProperties
+                    .getProperty("org.efaps.esjp.contacts.ContactsPicker.existingIdentityCard")).append("</div>");
+            }
         }
         return html;
     }
+
     /**
      * Method for return the name of a contact.
      *
