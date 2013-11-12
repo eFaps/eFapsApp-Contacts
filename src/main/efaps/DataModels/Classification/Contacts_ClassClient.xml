@@ -60,7 +60,7 @@
             <name>IndustryLink</name>
             <type>LinkWithRanges</type>
             <typelink>Contacts_AttributeDefinitionIndustry</typelink>
-            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqltable>Contacts_ClassClientSQLTable</sqltable>
             <sqlcolumn>INDUSTRYID</sqlcolumn>
             <trigger program="org.efaps.esjp.admin.datamodel.RangesValue" 
                 name="Contacts_ClassClient.IndustryLink.RANGE_VALUE" event="RANGE_VALUE">
@@ -72,7 +72,7 @@
             <name>CommercialActivitiesLink</name>
             <type>LinkWithRanges</type>
             <typelink>Contacts_AttributeDefinitionCommercialActivities</typelink>
-            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqltable>Contacts_ClassClientSQLTable</sqltable>
             <sqlcolumn>COMACTID</sqlcolumn>
             <trigger program="org.efaps.esjp.admin.datamodel.RangesValue" 
                 name="Contacts_ClassClient.CommercialActivitiesLink.RANGE_VALUE" event="RANGE_VALUE">
