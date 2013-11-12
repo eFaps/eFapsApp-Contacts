@@ -133,8 +133,7 @@ public abstract class ContactsPicker_Base
         throws EFapsException
     {
         final StringBuilder html = new StringBuilder();
-        if (!identityCard.isEmpty()) {
-
+        if (identityCard != null && !identityCard.isEmpty()) {
             final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassPerson);
             queryBldr.addWhereAttrEqValue(CIContacts.ClassPerson.IdentityCard, identityCard);
             if (_parameter.getInstance() != null) {
