@@ -151,15 +151,15 @@ public abstract class Contacts_Base
                 orgQueryBldr.addWhereAttrMatchValue(CIContacts.ClassOrganisation.TaxNumber, input + "*");
                 if (classes.length > 0) {
                     final AttributeQuery attrQuery = queryBldr.getAttributeQuery(CIContacts.Contact.ID);
-                    orgQueryBldr.addWhereAttrInQuery(CIContacts.ClassOrganisation.ContactId, attrQuery);
+                    orgQueryBldr.addWhereAttrInQuery(CIContacts.ClassOrganisation.ContactLink, attrQuery);
                 }
                 final MultiPrintQuery multi = orgQueryBldr.getPrint();
                 multi.addAttribute(CIContacts.ClassOrganisation.TaxNumber,
-                                CIContacts.ClassOrganisation.ContactId);
+                                CIContacts.ClassOrganisation.ContactLink);
                 multi.execute();
                 while (multi.next()) {
                     inst2tax.put(Instance.get(CIContacts.Contact.getType(),
-                                    multi.<Long>getAttribute(CIContacts.ClassOrganisation.ContactId)),
+                                    multi.<Long>getAttribute(CIContacts.ClassOrganisation.ContactLink)),
                                     multi.<String>getAttribute(CIContacts.ClassOrganisation.TaxNumber));
                 }
 
@@ -167,16 +167,16 @@ public abstract class Contacts_Base
                 persQueryBldr.addWhereAttrMatchValue(CIContacts.ClassPerson.IdentityCard, input + "*");
                 if (classes.length > 0) {
                     final AttributeQuery attrQuery = queryBldr.getAttributeQuery(CIContacts.Contact.ID);
-                    persQueryBldr.addWhereAttrInQuery(CIContacts.ClassPerson.ContactId, attrQuery);
+                    persQueryBldr.addWhereAttrInQuery(CIContacts.ClassPerson.ContactLink, attrQuery);
                 }
                 final MultiPrintQuery multi2 = persQueryBldr.getPrint();
-                multi2.addAttribute(CIContacts.ClassPerson.IdentityCard, CIContacts.ClassPerson.ContactId);
+                multi2.addAttribute(CIContacts.ClassPerson.IdentityCard, CIContacts.ClassPerson.ContactLink);
                 multi2.execute();
                 while (multi2.next()) {
                     final String idcard = multi2.<String>getAttribute(CIContacts.ClassPerson.IdentityCard);
                     if (idcard != null) {
                         inst2tax.put(Instance.get(CIContacts.Contact.getType(),
-                                        multi2.<Long>getAttribute(CIContacts.ClassPerson.ContactId)), idcard);
+                                        multi2.<Long>getAttribute(CIContacts.ClassPerson.ContactLink)), idcard);
                     }
                 }
                 final List<Instance> queryList =new ArrayList<Instance>();

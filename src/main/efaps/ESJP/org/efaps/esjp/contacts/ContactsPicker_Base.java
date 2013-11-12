@@ -137,7 +137,7 @@ public abstract class ContactsPicker_Base
             final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassPerson);
             queryBldr.addWhereAttrEqValue(CIContacts.ClassPerson.IdentityCard, identityCard);
             if (_parameter.getInstance() != null) {
-                queryBldr.addWhereAttrNotEqValue(CIContacts.ClassPerson.ContactId, _parameter.getInstance().getId());
+                queryBldr.addWhereAttrNotEqValue(CIContacts.ClassPerson.ContactLink, _parameter.getInstance().getId());
             }
             final InstanceQuery query = queryBldr.getQuery();
             if (!query.execute().isEmpty()) {
@@ -193,7 +193,7 @@ public abstract class ContactsPicker_Base
         final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
         queryBldr.addWhereAttrEqValue(CIContacts.ClassOrganisation.TaxNumber, _taxNumber);
         if (_parameter.getInstance() != null) {
-            queryBldr.addWhereAttrNotEqValue(CIContacts.ClassOrganisation.ContactId, _parameter.getInstance().getId());
+            queryBldr.addWhereAttrNotEqValue(CIContacts.ClassOrganisation.ContactLink, _parameter.getInstance().getId());
         }
         final InstanceQuery query = queryBldr.getQuery();
         if (!query.execute().isEmpty()) {
