@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2013 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -23,16 +23,16 @@
 
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<datamodel-type xmlns="http://www.efaps.org/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>75793884-cd0d-4c17-9c94-1eb6a1088b5a</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
-            <profile name="eFaps"/>
+            <profile name="eFaps" />
         </profiles>
         <name>Contacts_ClassLocation</name>
         <purpose classification="true">
@@ -65,6 +65,12 @@
             <sqlcolumn>STREET</sqlcolumn>
         </attribute>
         <attribute>
+            <name>LocationReference</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>REFERENCE</sqlcolumn>
+        </attribute>
+        <attribute>
             <name>LocationAdressCity</name>
             <type>String</type>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
@@ -75,6 +81,18 @@
             <type>String</type>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
             <sqlcolumn>ZIP</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>LocationCountryLink</name>
+            <type>LinkWithRanges</type>
+            <typelink>Contacts_AttributeDefinitionCountry</typelink>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>COUNTRYID</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue" 
+                name="Contacts_ClassLocation.LocationCountryLink.RANGE_VALUE" event="RANGE_VALUE">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionCountry</property>
+                </trigger>
         </attribute>
     </definition>
 
@@ -115,6 +133,12 @@
             <sqlcolumn>STREET</sqlcolumn>
         </attribute>
         <attribute>
+            <name>LocationReference</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>REFERENCE</sqlcolumn>
+        </attribute>
+        <attribute>
             <name>LocationAdressCity</name>
             <type>String</type>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
@@ -146,6 +170,18 @@
             <typelink>Ubicaciones_UbicacionStandardRoot</typelink>
             <sqltable>Contacts_ClassLocationSQLTable</sqltable>
             <sqlcolumn>DISTRICTID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>LocationCountryLink</name>
+            <type>LinkWithRanges</type>
+            <typelink>Contacts_AttributeDefinitionCountry</typelink>
+            <sqltable>Contacts_ClassLocationSQLTable</sqltable>
+            <sqlcolumn>COUNTRYID</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue" 
+                name="Contacts_ClassLocation.LocationCountryLink.RANGE_VALUE" event="RANGE_VALUE">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionCountry</property>
+                </trigger>
         </attribute>
     </definition>
 </datamodel-type>

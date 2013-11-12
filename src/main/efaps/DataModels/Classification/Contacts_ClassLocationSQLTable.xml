@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2013 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -37,10 +37,12 @@
         <name>Contacts_ClassLocationSQLTable</name>
         <database>
             <table-name>T_COCLASSLOC</table-name>
-            <column name="CONTACTID"        type="INTEGER" not-null="true" />
-            <column name="STREET"           type="STRING_SHORT"     not-null="true" length="255"/>
+            <column name="CONTACTID"        type="INTEGER"          not-null="true" />
+            <column name="REFERENCE"        type="STRING_SHORT"     not-null="true" length="255"/>
+            <column name="STREET"           type="STRING_SHORT"                     length="255"/>
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <column name="COUNTRYID"        type="INTEGER"/>
             <unique name="T_COCLASSLOC_UK_CONTACTID"  columns="CONTACTID" />
             <foreign name="T_COCLASSLOC_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
         </database>
@@ -55,8 +57,10 @@
             <table-name>T_COCLASSLOC</table-name>
             <column name="CONTACTID"        type="INTEGER" not-null="true" />
             <column name="STREET"           type="STRING_SHORT"     not-null="true" length="255"/>
+            <column name="REFERENCE"        type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <column name="COUNTRYID"        type="INTEGER"/>
             <column name="DEPARTMENTID"     type="INTEGER" />
             <column name="PROVINCEID"       type="INTEGER" />
             <column name="DISTRICTID"       type="INTEGER" />

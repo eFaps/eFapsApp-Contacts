@@ -2,7 +2,7 @@
 
 <!--
 
-  Copyright 2003 - 2009 The eFaps Team
+  Copyright 2003 - 2013 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -43,15 +43,22 @@
             <property name="ModeEdit">READONLY</property>
         </field>
         <field name="locationAdressStreet">
-            <property name="Columns">40</property>
+            <property name="Columns">50</property>
             <property name="Attribute">LocationAdressStreet</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
             <property name="Required">true</property>
         </field>
+        <field name="locationReference">
+            <property name="Columns">50</property>
+            <property name="Attribute">LocationReference</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="ModeSearch">EDITABLE</property>
+        </field>
         <field name="locationAdressCity">
-            <property name="Columns">15</property>
+            <property name="Columns">40</property>
             <property name="Attribute">LocationAdressCity</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
@@ -65,6 +72,12 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
         </field>
+        <field name="locationCountryLink">
+            <property name="Attribute">LocationCountryLink</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+        </field>
+        <property name="Weight">30</property>
     </definition>
 
 
@@ -82,15 +95,22 @@
             <property name="ModeEdit">READONLY</property>
         </field>
         <field name="locationAdressStreet">
-            <property name="Columns">40</property>
+            <property name="Columns">50</property>
             <property name="Attribute">LocationAdressStreet</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
             <property name="Required">true</property>
         </field>
+        <field name="locationReference">
+            <property name="Columns">50</property>
+            <property name="Attribute">LocationReference</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="ModeSearch">EDITABLE</property>
+        </field>
         <field name="locationAdressCity">
-            <property name="Columns">15</property>
+            <property name="Columns">40</property>
             <property name="Attribute">LocationAdressCity</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
@@ -103,6 +123,11 @@
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
+        </field>
+        <field name="locationCountryLink">
+            <property name="Attribute">LocationCountryLink</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
         </field>
         <field name="departmentLocation">
             <property name="Attribute">DepartmentLocationLink</property>
@@ -212,5 +237,6 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">READONLY</property>
         </field>
+        <property name="Weight">30</property>
     </definition>
 </ui-form>
