@@ -41,6 +41,7 @@
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateCommercialActivities</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateIndustry</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateProducttype</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateDOIType</child>
         </childs>
     </definition>
 </ui-menu>

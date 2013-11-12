@@ -77,6 +77,20 @@
             <sqlcolumn>LASTNAME2</sqlcolumn>
         </attribute>
         <attribute>
+            <name>DOITypeLink</name>
+            <type>LinkWithRanges</type>
+            <typelink>Contacts_AttributeDefinitionDOIType</typelink>
+            <sqltable>Contacts_ClassPersonSQLTable</sqltable>
+            <sqlcolumn>DOITYPEID</sqlcolumn>
+            <trigger name="Contacts_ClassPerson.DOITypeLink.RANGE_VALUE"
+                     event="RANGE_VALUE"
+                     program="org.efaps.esjp.admin.datamodel.RangesValue">
+                <property name="Value">$&lt;attribute[Value]&gt; - $&lt;attribute[Description]&gt;</property>
+                <property name="Type">Contacts_AttributeDefinitionDOIType</property>
+            </trigger>
+            </attribute>
+        
+        <attribute>
             <name>IdentityCard</name>
             <type>String</type>
             <sqltable>Contacts_ClassPersonSQLTable</sqltable>

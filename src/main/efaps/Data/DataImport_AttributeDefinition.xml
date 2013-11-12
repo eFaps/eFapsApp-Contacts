@@ -32,6 +32,7 @@
     <definition name="Import_AttributeDefinition" file="Import_AttributeDefinitions.csv" accessCheck="false">
         <type column="type">
             <attribute name="Value" column="value" validate="false"/>
+             <attribute name="Description" column="description" validate="false"/>
         </type>
     </definition>
 </data-import>
