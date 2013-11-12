@@ -43,6 +43,7 @@ import org.efaps.db.Instance;
 import org.efaps.db.MultiPrintQuery;
 import org.efaps.db.PrintQuery;
 import org.efaps.db.QueryBuilder;
+import org.efaps.db.SelectBuilder;
 import org.efaps.db.Update;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIERP;
@@ -258,53 +259,30 @@ public abstract class Contacts_Base
         final StringBuilder strBldr = new StringBuilder();
 
         if (_instance.isValid()) {
-            boolean hasStreet = false;
-            if (Type.get("Sales_Contacts_ClassClient") != null) {
-                hasStreet = true;
-            }
-            if (hasStreet){
-                hasStreet = _instance.getType().equals(Type.get("Sales_Contacts_ClassClient"));
-            }
-
             final PrintQuery print = new PrintQuery(_instance);
-            if (hasStreet) {
-                print.addSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
-            }
-            print.addSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
-            print.addSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
-            print.addSelect("class[Contacts_ClassLocation].attribute[LocationAdressStreet]");
-            addNewSelect(print);
+            final SelectBuilder selTaxN = SelectBuilder.get().clazz(CIContacts.ClassOrganisation)
+                            .attribute(CIContacts.ClassOrganisation.TaxNumber);
+            final SelectBuilder selIDC = SelectBuilder.get().clazz(CIContacts.ClassPerson)
+                            .attribute(CIContacts.ClassPerson.IdentityCard);
+            final SelectBuilder selStreet = SelectBuilder.get().clazz(CIContacts.ClassLocation)
+                            .attribute(CIContacts.ClassLocation.LocationAdressStreet);
+            print.addSelect(selTaxN, selIDC, selStreet);
             print.execute();
-            final String taxnumber = print.<String>getSelect("class[Contacts_ClassOrganisation].attribute[TaxNumber]");
-            final String idcard = print.<String>getSelect("class[Contacts_ClassPerson].attribute[IdentityCard]");
-            final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
+            final String taxnumber = print.<String>getSelect(selTaxN);
+            final String idcard = print.<String>getSelect(selIDC);
+            final String street = print.<String>getSelect(selStreet);
 
-            String street = "";
-            if (hasStreet) {
-                street  = print.getSelect("class[Sales_Contacts_ClassClient].attribute[BillingAdressStreet]");
-            }
-            String locStreet = print.getSelect("class[Contacts_ClassLocation].attribute[LocationAdressStreet]");
-            if (locStreet.equals("")) {
-                locStreet = getNewSelect(print);
-            }
+            final boolean hasDOI = taxnumber == null
+                            || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
 
-            strBldr.append(dni ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
-                               : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))
-                   .append(": ").append(dni ? idcard : taxnumber);
+            strBldr.append(hasDOI ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
+                            : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))
+                            .append(": ").append(hasDOI ? idcard : taxnumber);
 
-            if (!street.isEmpty() || !locStreet.isEmpty()){
-                strBldr.append("  -  ");
-                if (hasStreet) {
-                    strBldr.append(DBProperties.getProperty("Sales_Contacts_ClassClient/BillingAdressStreet.Label"));
-                }
-                if (!locStreet.isEmpty()) {
-                    strBldr.append(DBProperties.getProperty("Contacts_ClassLocation/LocationAdressStreet.Label"));
-                }
-                strBldr.append(": ")
-                .append(street.length() > 0 ? street : locStreet);
+            if (street != null && !street.isEmpty()) {
+                strBldr.append("  -  ").append(street);
             }
         }
-
         return StringEscapeUtils.escapeEcmaScript(strBldr.toString());
     }
 
@@ -334,13 +312,6 @@ public abstract class Contacts_Base
 
         return ret;
     }
-
-    //for to add a new select
-    protected String getNewSelect(final PrintQuery _print) throws EFapsException{
-        return "";
-    }
-    //for to get a new select
-    protected void addNewSelect(final PrintQuery _print) throws EFapsException{}
 
     public Return updateFields4PersonNames(final Parameter _parameter)
     {

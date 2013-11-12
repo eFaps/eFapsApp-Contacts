@@ -39,8 +39,8 @@ xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.
             <property name="Label">Contacts_ContactTree_MoveObjectForm.contact.Label</property>
             <trigger event="UI_FIELD_AUTOCOMPLETE" method="autoComplete4Contact"
                 name="Contacts_ContactTree_MoveObjectForm.contact.UI_FIELD_AUTOCOMPLETE"
-                program="org.efaps.esjp.contacts.MoveObject"/>
-            <trigger program="org.efaps.esjp.contacts.MoveObject"
+                program="org.efaps.esjp.contacts.Contacts"/>
+            <trigger program="org.efaps.esjp.contacts.Contacts"
                 method="updateFields4Contact"
                 name="Sales_DeliveryNoteForm.contact.UI_FIELD_UPDATE"
                 event="UI_FIELD_UPDATE" />
