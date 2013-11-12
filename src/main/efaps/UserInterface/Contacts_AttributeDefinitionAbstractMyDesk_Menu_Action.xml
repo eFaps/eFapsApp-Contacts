@@ -38,6 +38,9 @@
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateEmail</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateFinancialInstitution</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateCountry</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateCommercialActivities</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateIndustry</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateProducttype</child>
         </childs>
     </definition>
 </ui-menu>
