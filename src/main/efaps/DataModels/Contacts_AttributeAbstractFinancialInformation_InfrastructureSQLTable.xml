@@ -20,31 +20,26 @@
  Last Changed By: $Author$
 
 --><datamodel-sqltable xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>3f0245c6-20f3-4980-bb12-e1b8df1d20d7</uuid>
+    <uuid>048f1326-8cb3-4a1b-ab58-e21a5068dbcb</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</name>
+        <name>Contacts_AttributeAbstractFinancialInformation_InfrastructureSQLTable</name>
         <typeid-column>TYPEID</typeid-column>
         <database>
-            <table-name>T_COATTRFI_BKRF</table-name>
+            <table-name>T_COATTRFI_INFRT</table-name>
             <!-- columns -->
             <column name="TYPEID" not-null="true" type="INTEGER"/>
             <column name="RELID" not-null="true" type="INTEGER"/>
             <column name="DEFID" type="INTEGER"/>
-            <column name="DEFID2" type="INTEGER"/>
-            <column length="255" name="NRO" type="STRING_SHORT"/>
-            <column length="255" name="CONTACT" type="STRING_SHORT"/>
-            <column length="255" name="PHONE" type="STRING_SHORT"/>
-            <column length="255" name="CREDITLINE" type="STRING_SHORT"/>
             <column name="CREATOR" not-null="true" type="INTEGER"/>
             <column name="CREATED" not-null="true" type="DATETIME"/>
             <column name="MODIFIER" not-null="true" type="INTEGER"/>
             <column name="MODIFIED" not-null="true" type="DATETIME"/>
             <!-- constrains -->
-            <foreign key="CREATOR" name="T_COATTRFI_BKRF_FK_CRTR" reference="T_USERPERSON(ID)"/>
-            <foreign key="MODIFIER" name="T_COATTRFI_BKRF_FK_MDFR" reference="T_USERPERSON(ID)"/>
+            <foreign key="CREATOR" name="T_COATTRFI_INFRT_FK_CRTR" reference="T_USERPERSON(ID)"/>
+            <foreign key="MODIFIER" name="T_COATTRFI_INFRT_FK_MDFR" reference="T_USERPERSON(ID)"/>
         </database>
     </definition>
 </datamodel-sqltable>

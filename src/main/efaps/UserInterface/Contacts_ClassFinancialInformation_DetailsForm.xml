@@ -20,25 +20,24 @@
   Last Changed By: $Author$
 
 --><ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>e0cdd72e-c7b4-4b87-a7ba-9db649474607</uuid>
+    <uuid>f8fea57d-d547-45a1-881d-a76931aec5c3</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_ClassFinancialInformation_ReferenciasBancariasForm</name>
-        <type>Contacts_ClassFinancialInformation_ReferenciasBancarias</type>
+        <name>Contacts_ClassFinancialInformation_DetailsForm</name>
+        <type>Contacts_ClassFinancialInformation_Details</type>
 
-        <field character="Heading" name="headingFIBankReferencesSet">
+        <field character="Heading" name="headingFIDetailsSet">
             <property name="ModeCreate">READONLY</property>
             <property name="Level">2</property>
-            <property name="Label">Contacts_ClassFinancialInformation_ReferenciasBancariasForm/heading.Heading</property>
+            <property name="Label">Contacts_ClassFinancialInformation_DetailsForm/heading.Heading</property>
         </field>
-        <field character="Set" name="FIBankReferencesSet">
+        <field name="noteDtls">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
-            <property name="Attribute">FIBankReferencesSet</property>
-            <property name="Label">Contacts_ClassFinancialInformation_ReferenciasBancariasForm/FIBankReferencesSet.Label</property>
-            <property name="Order">FinancialInst|AccountId|Nro|Contact|Phone|CreditLine</property>
+            <property name="Attribute">Note</property>
+            <property name="Rows">5</property>
         </field>
     </definition>
 </ui-form>

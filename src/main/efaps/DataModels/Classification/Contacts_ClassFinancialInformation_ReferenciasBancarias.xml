@@ -51,6 +51,17 @@
                 </trigger>
             </attribute>
             <attribute>
+                <name>AccountId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionAccountType</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>
+                <sqlcolumn>DEFID2</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Contacts_ClassFinancialInformation_ReferenciasBancarias.AccountId.FinancialInst" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionAccountType</property>
+                </trigger>
+            </attribute>
+            <attribute>
                 <name>Nro</name>
                 <type>String</type>
                 <sqltable>Contacts_AttributeAbstractFinancialInformation_BankReferencesSQLTable</sqltable>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+  Copyright 2003 - 2009 The eFaps Team
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Author:          The eFaps Team
+  Revision:        $Rev$
+  Last Changed:    $Date$
+  Last Changed By: $Author$
+
+--><ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>77d0baac-1216-484d-9ab4-6b9a45e3f601</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev$</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_CompanyReferencesForm</name>
+        <type>Contacts_ClassFinancialInformation_CompanyReferences</type>
+
+        <field character="Heading" name="headingFICompanyReferencesSet">
+            <property name="ModeCreate">READONLY</property>
+            <property name="Level">2</property>
+            <property name="Label">Contacts_ClassFinancialInformation_CompanyReferencesForm/heading.Heading</property>
+        </field>
+        <field name="certificationFICR">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">Certification</property>
+        </field>
+        <field character="Set" name="companyRefSet">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">CompanyRefSet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_CompanyReferencesForm/CompanyRefSet.Label</property>
+            <property name="Order">CompanySizeId|AntiquityId|SocialCapitalId|GovernmentSectorSalesId</property>
+        </field>
+        <field character="Set" name="infrastructureSet">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">InfrastructureSet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_CompanyReferencesForm/infrastructureSet.Label</property>
+            <property name="Order">InfrastructureId</property>
+        </field>
+        <field character="Set" name="externalTradeSet">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">ExternalTradeSet</property>
+            <property name="Label">Contacts_ClassFinancialInformation_CompanyReferencesForm/externalTradeSet.Label</property>
+            <property name="Order">ExternalTradeId</property>
+        </field>
+    </definition>
+</ui-form>

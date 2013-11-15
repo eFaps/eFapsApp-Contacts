@@ -42,6 +42,13 @@
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateIndustry</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateProducttype</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateDOIType</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateCompanySize</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateAntiquity</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateSocialCapital</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateGovernmentSectorSales</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateInfrastructure</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateExternalTrade</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateAccountType</child>
         </childs>
     </definition>
 </ui-menu>
