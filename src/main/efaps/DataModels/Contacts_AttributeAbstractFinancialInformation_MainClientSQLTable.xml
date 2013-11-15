@@ -36,6 +36,7 @@
             <column length="255" name="PHONE" type="STRING_SHORT"/>
             <column length="255" name="CONTACT" type="STRING_SHORT"/>
             <column length="255" name="POSITION" type="STRING_SHORT"/>
+            <column length="255" name="FACTY" type="STRING_SHORT"/>
             <column name="CREATOR" not-null="true" type="INTEGER"/>
             <column name="CREATED" not-null="true" type="DATETIME"/>
             <column name="MODIFIER" not-null="true" type="INTEGER"/>

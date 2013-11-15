@@ -63,6 +63,12 @@
             <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
             <sqlcolumn>POSITION</sqlcolumn>
         </attribute>
+        <attribute>
+            <name>FactAnnual</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
+            <sqlcolumn>FACTY</sqlcolumn>
+        </attribute>
     </attributeset>
 
   </definition>
