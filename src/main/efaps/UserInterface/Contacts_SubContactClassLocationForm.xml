@@ -34,7 +34,7 @@
         <type>Contacts_SubContactClassLocation</type>
         <field character="Heading" name="locationAdressHeading">
             <property name="Level">2</property>
-            <property name="Label">Contacts_ClassLocationForm.locationAdressHeading.Heading</property>
+            <property name="Label">Contacts_SubContactClassLocationForm.locationAdressHeading.Heading</property>
             <property name="ModeCreate">READONLY</property>
             <property name="ModeEdit">READONLY</property>
         </field>
@@ -73,7 +73,7 @@
         <type>Contacts_SubContactClassLocation</type>
         <field character="Heading" name="locationAdressHeading">
             <property name="Level">2</property>
-            <property name="Label">Contacts_ClassLocationForm.locationAdressHeading.Heading</property>
+            <property name="Label">Contacts_SubContactClassLocationForm.locationAdressHeading.Heading</property>
             <property name="ModeCreate">READONLY</property>
             <property name="ModeEdit">READONLY</property>
         </field>
