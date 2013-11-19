@@ -32,7 +32,7 @@
             <!-- columns -->
             <column name="TYPEID" not-null="true" type="INTEGER"/>
             <column name="RELID" not-null="true" type="INTEGER"/>
-            <column name="ANNTURNAMOUNT" type="DECIMAL" length="10" scale="4"/>
+            <column name="ANNTURNAMOUNT" type="DECIMAL" length="14" scale="2"/>
             <column name="CURRENCYID" type="INTEGER"/>
             <column name="CREATOR" not-null="true" type="INTEGER"/>
             <column name="CREATED" not-null="true" type="DATETIME"/>
