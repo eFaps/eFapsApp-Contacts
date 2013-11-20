@@ -280,7 +280,8 @@ public abstract class Contacts_Base
                             .append(": ").append(hasDOI ? idcard : taxnumber);
 
             if (street != null && !street.isEmpty()) {
-                strBldr.append("  -  ").append(street);
+                strBldr.append("  -  ").append(DBProperties.getProperty("Contacts_ClassLocation.Label"))
+                        .append(": ").append(street);
             }
         }
         return StringEscapeUtils.escapeEcmaScript(strBldr.toString());
