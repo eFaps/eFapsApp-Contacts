@@ -35,6 +35,7 @@
         <name>Contacts_MyDesk</name>
         <childs>
             <child>Contacts_ContactMyDesk</child>
+            <child>Contacts_Contact4TaxNumberMyDesk</child>
             <child>Contacts_ContactGroupMyDesk</child>
         </childs>
     </definition>
