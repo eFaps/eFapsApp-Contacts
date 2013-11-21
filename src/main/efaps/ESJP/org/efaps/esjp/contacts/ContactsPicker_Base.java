@@ -91,21 +91,21 @@ public abstract class ContactsPicker_Base
         return ret;
     }
 
-    public StringBuilder validateMaxNumberAllowTaxNumber(final Parameter _parameter,final String taxNumber,final boolean msgAdd)
+    public StringBuilder validateMaxNumberAllowTaxNumber(final Parameter _parameter,
+                                                         final String taxNumber,
+                                                         final boolean msgAdd)
         throws EFapsException
     {
         final StringBuilder html = new StringBuilder();
-        if (taxNumber!=null && taxNumber.length() > 11 && !msgAdd) {
+        if (taxNumber != null && taxNumber.length() > 11 && !msgAdd) {
             html.append("<div style=\"text-align:center;\">")
-                .append(DBProperties
-                            .getProperty("org.efaps.esjp.contacts.ContactsPicker.maxNumberTaxNumber"))
+                .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.maxNumberTaxNumber"))
                 .append("</div>");
         }
-        if(msgAdd){
+        if (msgAdd) {
             html.append("<div style=\"text-align:center;\">")
-            .append(DBProperties
-                        .getProperty("org.efaps.esjp.contacts.ContactsPicker.maxNumberTaxNumber2"))
-            .append("</div>");
+                .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.maxNumberTaxNumber2"))
+                .append("</div>");
         }
 
         return html;
@@ -115,9 +115,7 @@ public abstract class ContactsPicker_Base
     public StringBuilder validateAdd4Contact(final Parameter _parameter)
         throws EFapsException
     {
-        final StringBuilder html = new StringBuilder();
-        //To implement
-        return html;
+        return new StringBuilder();
     }
     /**
      * Method for search the taxNumber of the Contact if exists
@@ -141,8 +139,9 @@ public abstract class ContactsPicker_Base
             }
             final InstanceQuery query = queryBldr.getQuery();
             if (!query.execute().isEmpty()) {
-                html.append("<div style=\"text-align:center;\">").append(DBProperties
-                    .getProperty("org.efaps.esjp.contacts.ContactsPicker.existingIdentityCard")).append("</div>");
+                html.append("<div style=\"text-align:center;\">")
+                    .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingIdentityCard"))
+                    .append("</div>");
             }
         }
         return html;
@@ -170,8 +169,8 @@ public abstract class ContactsPicker_Base
         final InstanceQuery query = queryBldr.getQuery();
         if (!query.execute().isEmpty()) {
             html.append("<div style=\"text-align:center;\">")
-                 .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingContact"))
-                 .append("</div>");
+                .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingContact"))
+                .append("</div>");
         }
         return html;
     }
@@ -198,8 +197,8 @@ public abstract class ContactsPicker_Base
         final InstanceQuery query = queryBldr.getQuery();
         if (!query.execute().isEmpty()) {
             html.append("<div style=\"text-align:center;\">")
-                 .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingTaxNumber"))
-                 .append("</div>");
+                .append(DBProperties.getProperty("org.efaps.esjp.contacts.ContactsPicker.existingTaxNumber"))
+                .append("</div>");
         }
         return html;
     }
@@ -300,14 +299,14 @@ public abstract class ContactsPicker_Base
     {
         final PrintQuery print = new PrintQuery(_instance);
         final SelectBuilder selTaxNumber = new SelectBuilder().clazz(CIContacts.ClassOrganisation)
-            .attribute(CIContacts.ClassOrganisation.TaxNumber);
+                        .attribute(CIContacts.ClassOrganisation.TaxNumber);
         final SelectBuilder selIdCard = new SelectBuilder().clazz(CIContacts.ClassPerson)
-            .attribute(CIContacts.ClassPerson.IdentityCard);
+                        .attribute(CIContacts.ClassPerson.IdentityCard);
 
         print.addSelect(selTaxNumber, selIdCard);
         print.execute();
-        final String taxnumber = print.<String> getSelect(selTaxNumber);
-        final String idcard = print.<String> getSelect(selIdCard);
+        final String taxnumber = print.<String>getSelect(selTaxNumber);
+        final String idcard = print.<String>getSelect(selIdCard);
         final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
 
         final StringBuilder strBldr = new StringBuilder();
