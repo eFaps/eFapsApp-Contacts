@@ -67,8 +67,6 @@
             <unique name="T_COCLASSLOC_UK_CONTACTID"  columns="CONTACTID" />
             <foreign name="T_COCLASSLOC_FK_CONTACTID"       key="CONTACTID" reference="T_COCONTACT(ID)" />
             <foreign name="T_COCLASSLOC_FK_DEPARTMENTID"    key="DEPARTMENTID" reference="T_UBICACION(ID)" />
-            <foreign name="T_COCLASSLOC_FK_PROVINCEID"      key="PROVINCEID" reference="T_UBICACION(ID)" />
-            <foreign name="T_COCLASSLOC_FK_DISTRICTID"      key="DISTRICTID" reference="T_UBICACION(ID)" />
         </database>
     </definition>
 </datamodel-sqltable>
