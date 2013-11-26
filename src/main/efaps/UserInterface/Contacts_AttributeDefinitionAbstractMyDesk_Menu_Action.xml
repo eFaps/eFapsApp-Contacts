@@ -49,6 +49,7 @@
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateInfrastructure</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateExternalTrade</child>
             <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateAccountType</child>
+            <child>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateWarranty</child>
         </childs>
     </definition>
 </ui-menu>
