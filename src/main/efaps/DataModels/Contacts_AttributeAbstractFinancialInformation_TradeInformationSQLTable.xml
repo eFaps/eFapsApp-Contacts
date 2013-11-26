@@ -33,7 +33,7 @@
             <column name="TYPEID"   type="INTEGER"       not-null="true"/>
             <column name="RELID"    type="INTEGER"       not-null="true"/>
             <column name="CONTACT"  type="STRING_SHORT"                  length="255"/>
-            <column name="PART"     type="INTEGER"/>
+            <column name="PART"     type="DECIMAL" length="10" scale="4"/>
             <column name="NAC"      type="STRING_SHORT"                  length="255"/>
             <column name="IDENTI"   type="STRING_SHORT"                  length="255"/>
             <column name="CREATOR"  type="INTEGER"       not-null="true"/>
