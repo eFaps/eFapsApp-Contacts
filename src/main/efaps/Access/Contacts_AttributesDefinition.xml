@@ -42,7 +42,6 @@
 
         <type>Contacts_AttributeDefinitionEmail</type>
         <type>Contacts_AttributeDefinitionPhone</type>
-        <type>Contacts_AttributeDefinitionFax</type>
         <type>Contacts_AttributeDefinitionPointOfContact</type>
         <type>Contacts_AttributeDefinitionFinancialInstitution</type>
 

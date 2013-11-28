@@ -82,35 +82,6 @@
         </attributeset>
 
         <attributeset>
-            <name>FaxSet</name>
-            <type>MultiLineArray</type>
-            <parent>Contacts_AttributeAbstract</parent>
-            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-            <sqlcolumn>RELID</sqlcolumn>
-            <uuid>8e5da096-f2ad-4c29-b604-08e6196731c3</uuid>
-            <attribute>
-                <name>Description4Fax</name>
-                <type>LinkWithRanges</type>
-                <typelink>Contacts_AttributeDefinitionFax</typelink>
-                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-                <sqlcolumn>DEFID</sqlcolumn>
-                <trigger event="RANGE_VALUE"
-                    name="Contacts_SubContactClass.FaxSet.Description4Fax"
-                    program="org.efaps.esjp.admin.datamodel.RangesValue">
-                    <property name="Value">Value</property>
-                    <property name="Type">Contacts_AttributeDefinitionFax</property>
-                </trigger>
-            </attribute>
-            <attribute>
-                <name>Fax</name>
-                <type>String</type>
-                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-                <sqlcolumn>VALUE</sqlcolumn>
-            </attribute>
-        </attributeset>
-
-
-        <attributeset>
             <name>EmailSet</name>
             <type>MultiLineArray</type>
             <parent>Contacts_AttributeAbstract</parent>
