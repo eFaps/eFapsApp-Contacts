@@ -253,7 +253,7 @@ public abstract class Contacts_Base
      * @return String for the field
      * @throws EFapsException on error
      */
-    public String getFieldValue4Contact(final Instance _instance)
+    public String getFieldValue4Contact(final Instance _instance, final boolean _scape)
         throws EFapsException
     {
         final StringBuilder strBldr = new StringBuilder();
@@ -284,7 +284,15 @@ public abstract class Contacts_Base
                         .append(": ").append(street);
             }
         }
-        return StringEscapeUtils.escapeEcmaScript(strBldr.toString());
+
+        return _scape ? StringEscapeUtils.escapeEcmaScript(strBldr.toString()) : strBldr.toString();
+    }
+
+    public String getFieldValue4Contact(final Instance _instance)
+        throws EFapsException
+    {
+        return getFieldValue4Contact(_instance,true);
+
     }
 
     /**
