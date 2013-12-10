@@ -250,10 +250,12 @@ public abstract class Contacts_Base
      * Method to get the value for the field directly under the Contact.
      *
      * @param _instance Instacne of the contact
+     * @param _esscape escape the script or not
      * @return String for the field
      * @throws EFapsException on error
      */
-    public String getFieldValue4Contact(final Instance _instance, final boolean _scape)
+    public String getFieldValue4Contact(final Instance _instance,
+                                        final boolean _escape)
         throws EFapsException
     {
         final StringBuilder strBldr = new StringBuilder();
@@ -284,14 +286,13 @@ public abstract class Contacts_Base
                         .append(": ").append(street);
             }
         }
-
-        return _scape ? StringEscapeUtils.escapeEcmaScript(strBldr.toString()) : strBldr.toString();
+        return _escape ? StringEscapeUtils.escapeEcmaScript(strBldr.toString()) : strBldr.toString();
     }
 
     public String getFieldValue4Contact(final Instance _instance)
         throws EFapsException
     {
-        return getFieldValue4Contact(_instance,true);
+        return getFieldValue4Contact(_instance, true);
 
     }
 
