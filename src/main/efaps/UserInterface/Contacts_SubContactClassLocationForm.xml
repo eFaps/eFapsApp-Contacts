@@ -61,6 +61,7 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
         </field>
+        <property name="Weight">20</property>
     </definition>
 
 
@@ -218,5 +219,6 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">READONLY</property>
         </field>
+        <property name="Weight">20</property>
     </definition>
 </ui-form>

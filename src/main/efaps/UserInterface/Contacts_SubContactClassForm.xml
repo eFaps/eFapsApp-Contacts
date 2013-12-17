@@ -51,5 +51,6 @@
             <property name="Label">Contacts_Class/EmailSet.Label</property>
             <property name="Order">Description4Email|Email</property>
         </field>
+        <property name="Weight">10</property>
     </definition>
 </ui-form>

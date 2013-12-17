@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2011 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+ Revision:        $Rev: 10856 $
+ Last Changed:    $Date: 2013-11-12 09:57:34 -0500 (mar, 12 nov 2013) $
+ Last Changed By: $Author: jan@moxter.net $
+
+--><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>14b2f053-8f7c-4fc9-8146-9e5d3e47a41c</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <file-revision>$Rev: 10856 $</file-revision>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_SubContactClassPointOfContact</name>
+        <purpose classification="true">
+            <LinkColumn>SubContactLink</LinkColumn>
+            <parent>Contacts_SubContactClass</parent>
+        </purpose>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_SubContactClassPointOfContactSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_SubContactClassPointOfContactSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>SubContactLink</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_SubContactClassPointOfContactSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+        <attributeset>
+            <name>PointOfContactSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractPointOfContact</parent>
+            <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>02eaca97-93b2-4d0a-b5d4-a566a6261523</uuid>
+            <attribute>
+                <name>PointOfContact4Contacts</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionPointOfContact</typelink>
+                <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Contacts_Class.PointOfContactSet.PointOfContact4Contacts" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionPointOfContact</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>Name</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
+                <sqlcolumn>NAME</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Phone</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
+                <sqlcolumn>PHONE</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Email</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
+                <sqlcolumn>EMAIL</sqlcolumn>
+            </attribute>
+        </attributeset>
+    </definition>
+</datamodel-type>
