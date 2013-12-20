@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
  Copyright 2003 - 2009 The eFaps Team
 
@@ -17,25 +15,21 @@
  limitations under the License.
 
  Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
+ Revision:        $Rev: 11226 $
+ Last Changed:    $Date: 2013-11-28 16:38:16 -0500 (jue, 28 nov 2013) $
+ Last Changed By: $Author: jan@moxter.net $
 
--->
-
-<access-set xmlns="http://www.efaps.org/xsd"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>b12ddd96-bd64-458f-b731-b61118804aec</uuid>
+--><access-set xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>1422b3bd-1c21-433e-b2a6-84a527ab3b90</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
+    <file-revision>$Rev: 11226 $</file-revision>
 
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
             <profile name="eFaps"/>
         </profiles>
-        <name>Contacts_Admin</name>
+        <name>Contacts_AdminAttributesDefinition</name>
 
         <access-type>show</access-type>
         <access-type>read</access-type>
@@ -47,26 +41,20 @@
         <access-type>statusModify</access-type>
         <access-type>delete</access-type>
 
-        <type>Contacts_Contact</type>
-        <type>Contacts_ContactGroup</type>
-        <type>Contacts_SubContact</type>
-        <type>Contacts_Contact2Class</type>
-        <type>Contacts_Organisation2Person</type>
-        <type>Contacts_Class</type>
-        <type>Contacts_ClassOrganisation</type>
-        <type>Contacts_ClassPerson</type>
-        <type>Contacts_ClassPointOfContact</type>
+        <type>Contacts_AttributeDefinitionEmail</type>
+        <type>Contacts_AttributeDefinitionPhone</type>
+        <type>Contacts_AttributeDefinitionPointOfContact</type>
+        <type>Contacts_AttributeDefinitionFinancialInstitution</type>
 
         <role>Contacts_Admin</role>
 
     </definition>
-
-    <definition>
+     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
             <profile name="ubicaciones"/>
         </profiles>
-         <name>Contacts_Admin</name>
+        <name>Contacts_AdminAttributesDefinition</name>
 
         <access-type>show</access-type>
         <access-type>read</access-type>
@@ -78,18 +66,15 @@
         <access-type>statusModify</access-type>
         <access-type>delete</access-type>
 
-        <type>Contacts_Contact</type>
-        <type>Contacts_ContactGroup</type>
-        <type>Contacts_SubContact</type>
-        <type>Contacts_Contact2Class</type>
-        <type>Contacts_Organisation2Person</type>
-        <type>Contacts_Class</type>
-        <type>Contacts_ClassOrganisation</type>
-        <type>Contacts_ClassPerson</type>
-        <type>Contacts_ClassPointOfContact</type>
+        <type>Contacts_AttributeDefinitionEmail</type>
+        <type>Contacts_AttributeDefinitionPhone</type>
+        <type>Contacts_AttributeDefinitionFax</type>
+        <type>Contacts_AttributeDefinitionPointOfContact</type>
+        <type>Contacts_AttributeDefinitionFinancialInstitution</type>
+        <type>Ubicaciones_UbicacionAbstract</type>
+        <type>Ubicaciones_UbicacionStandard</type>
 
         <role>Contacts_Admin</role>
+
     </definition>
 </access-set>
-
-
