@@ -55,7 +55,7 @@
             <parent>Contacts_AttributeAbstractPointOfContact</parent>
             <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
-            <uuid>02eaca97-93b2-4d0a-b5d4-a566a6261523</uuid>
+            <uuid>0bc77502-aaf5-4b66-a109-4c4c8e84e85a</uuid>
             <attribute>
                 <name>PointOfContact4Contacts</name>
                 <type>LinkWithRanges</type>
