@@ -33,7 +33,7 @@ xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.
         <name>Contacts_ContactTree_MoveObjectForm</name>
         <!-- fields -->
         <field name="contact">
-            <property name="Columns">40</property>
+            <property name="Columns">80</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="Required">true</property>
             <property name="Label">Contacts_ContactTree_MoveObjectForm.contact.Label</property>
