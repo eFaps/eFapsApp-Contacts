@@ -43,7 +43,7 @@ xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.
             <trigger program="org.efaps.esjp.contacts.Contacts"
                 method="updateFields4Contact"
                 name="Sales_DeliveryNoteForm.contact.UI_FIELD_UPDATE"
-                event="UI_FIELD_UPDATE" />
+                event="UI_FIELD_UPDATE"/>
         </field>
         <field name="contactData">
             <property name="ModePrint">NONE</property>

@@ -53,7 +53,7 @@
             <trigger program="org.efaps.esjp.contacts.Contacts"
                      method="autoComplete4Contact"
                      name="Contacts_moveDocuments2ContactsForm.toContacts.UI_FIELD_AUTOCOMPLETE"
-                     event="UI_FIELD_AUTOCOMPLETE" />
+                     event="UI_FIELD_AUTOCOMPLETE"/>
         </field>
     </definition>
 
