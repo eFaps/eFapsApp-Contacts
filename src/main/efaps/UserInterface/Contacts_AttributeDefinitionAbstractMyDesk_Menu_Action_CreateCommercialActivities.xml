@@ -24,7 +24,9 @@
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateCommercialActivities</name>
         <!-- target definitions -->
-
+        <access>
+            <role>Contacts_Admin</role>
+        </access>
         <target>
             <form>ERP_AttributeDefinitionForm</form>
             <execute program="org.efaps.esjp.common.uiform.Create" />

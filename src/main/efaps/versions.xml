@@ -83,8 +83,15 @@
             <!-- Contacts_Contact, Admin_Help_MainMenu -->
             update.add2Help("0727550d-4d8a-4aec-b5f4-b2e9290184e3", "dead549e-5cc6-49f9-9a79-8e33aa139f6d", -1);
 
-             <!-- Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action, ERP_AttributeDefinitionMyDesk_Menu-->
+
+            <!-- Define attribute definition -->
+            <!-- Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action, ERP_AttributeDefinitionMyDesk_Menu-->
             update.add2Menu("e80fd5cc-ed48-4528-8af9-754720ddcd0d", "69e0b34a-2483-4662-9a45-1ce5d4e420e6", -1);
+
+            <!-- add to Contacts_Admin role -->
+            RoleUpdate rolUp = new RoleUpdate("a2c4802c-0d4e-464a-9057-8db4c4eb1a5e");
+            <!-- ERP_AttributeDefinitionMyDesk -->
+            rolUp.addUI("1c506850-7e64-439f-ad65-9c82dc762db8");
 
 
             // Admin_Common_Version
@@ -94,7 +101,7 @@
             query.executeWithoutAccessCheck();
             if (query.next()) {
                 <!-- add to Contacts_Admin role -->
-                RoleUpdate rolUp = new RoleUpdate("a2c4802c-0d4e-464a-9057-8db4c4eb1a5e");
+                rolUp = new RoleUpdate("a2c4802c-0d4e-464a-9057-8db4c4eb1a5e");
                 <!-- Ubicaciones_UbicacionMyDesk -->
                 rolUp.addUI("b1a580bd-c4a3-4d06-9b98-2e3b62e06254");
                 <!-- Ubicaciones_UbicacionMyDesk_Menu_Action_Create -->
@@ -102,7 +109,6 @@
                 <!-- Ubicaciones_UbicacionMyDesk_Menu_Action_Delete -->
                 rolUp.addUI("c49a6d0b-83d5-4415-a562-bf255cbeed30");
             }
-
         </script>
     </version>
 </install>
