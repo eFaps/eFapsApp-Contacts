@@ -21,11 +21,12 @@
 package org.efaps.esjp.contacts;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.efaps.admin.datamodel.Classification;
@@ -48,6 +49,8 @@ import org.efaps.db.Update;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIERP;
 import org.efaps.esjp.ci.CIFormContacts;
+import org.efaps.esjp.common.AbstractCommon;
+import org.efaps.esjp.common.util.InterfaceUtils;
 import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
@@ -60,6 +63,7 @@ import org.efaps.util.EFapsException;
 @EFapsUUID("0999190f-d2bb-43e7-a6e6-49fdc5a31b95")
 @EFapsRevision("$Rev$")
 public abstract class Contacts_Base
+    extends AbstractCommon
 {
 
     /**
@@ -110,102 +114,94 @@ public abstract class Contacts_Base
     {
         final String input = (String) _parameter.get(ParameterValues.OTHERS);
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        final Map<?, ?> properties = (Map<?, ?>) _parameter.get(ParameterValues.PROPERTIES);
-        final String minLengthStr = (String) properties.get("MinLength");
-        final Integer minLength = minLengthStr == null ? 0 : Integer.valueOf(minLengthStr);
 
-        final Map<String, Map<String, String>> tmpMap = new TreeMap<String, Map<String, String>>();
-        if (input.length() > minLength) {
-            final String classesStr = (String) properties.get("Classifications");
-            String[] classes = new String[0];
-            if (classesStr != null) {
-                classes = classesStr.split(";");
+        final String key = containsProperty(_parameter, "Key") ? getProperty(_parameter, "Key") : "OID";
+
+        final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
+        final Map<Integer, String> classes = analyseProperty(_parameter, "Classification");
+        if (!classes.isEmpty()) {
+            final List<Classification> classTypes = new ArrayList<Classification>();
+            for (final String clazz : classes.values()) {
+                classTypes.add((Classification) Type.get(clazz));
             }
-            final String key = properties.containsKey("Key") ? (String) properties.get("Key") : "OID";
-
-            final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
-            if (classes.length > 0) {
-                final Classification[] classTypes = new Classification[classes.length];
-                for (int i = 0; i < classes.length; i++) {
-                    classTypes[i] = (Classification) Type.get(classes[i]);
-                }
-                queryBldr.addWhereClassification(classTypes);
+            queryBldr.addWhereClassification(classTypes.toArray(new Classification[classTypes.size()]));
+        }
+        final boolean nameSearch = !Character.isDigit(input.charAt(0));
+        if (nameSearch) {
+            queryBldr.addWhereAttrMatchValue(CIContacts.Contact.Name, input + "*").setIgnoreCase(true);
+            queryBldr.addOrderByAttributeAsc(CIContacts.Contact.Name);
+            InterfaceUtils.addMaxResult2QueryBuilder4AutoComplete(_parameter, queryBldr);
+            final MultiPrintQuery multi = queryBldr.getPrint();
+            multi.addAttribute(CIContacts.Contact.Name);
+            multi.addAttribute(key);
+            multi.setEnforceSorted(true);
+            multi.execute();
+            while (multi.next()) {
+                final String name = multi.<String>getAttribute(CIContacts.Contact.Name);
+                final String keyVal = multi.getAttribute(key).toString();
+                final Map<String, String> map = new HashMap<String, String>();
+                map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), keyVal);
+                map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), name);
+                list.add(map);
             }
-            final boolean nameSearch = !Character.isDigit(input.charAt(0));
-            if (nameSearch) {
-                queryBldr.addWhereAttrMatchValue(CIContacts.Contact.Name, input + "*").setIgnoreCase(true);
-                final MultiPrintQuery multi = queryBldr.getPrint();
-                multi.addAttribute("Name", key);
-                multi.execute();
-                while (multi.next()) {
-                    final String name = multi.<String>getAttribute("Name");
-                    final String keyVal = multi.getAttribute(key).toString();
-                    final Map<String, String> map = new HashMap<String, String>();
-                    map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), keyVal);
-                    map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), name);
-                    map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), name);
-                    tmpMap.put(name, map);
-                }
-            } else {
-                final Map<Instance,String > inst2tax = new HashMap<Instance,String>();
-                final QueryBuilder orgQueryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
-                orgQueryBldr.addWhereAttrMatchValue(CIContacts.ClassOrganisation.TaxNumber, input + "*");
-                if (classes.length > 0) {
-                    final AttributeQuery attrQuery = queryBldr.getAttributeQuery(CIContacts.Contact.ID);
-                    orgQueryBldr.addWhereAttrInQuery(CIContacts.ClassOrganisation.ContactLink, attrQuery);
-                }
-                final MultiPrintQuery multi = orgQueryBldr.getPrint();
-                multi.addAttribute(CIContacts.ClassOrganisation.TaxNumber,
-                                CIContacts.ClassOrganisation.ContactLink);
-                multi.execute();
-                while (multi.next()) {
-                    inst2tax.put(Instance.get(CIContacts.Contact.getType(),
-                                    multi.<Long>getAttribute(CIContacts.ClassOrganisation.ContactLink)),
-                                    multi.<String>getAttribute(CIContacts.ClassOrganisation.TaxNumber));
-                }
+        } else {
+            final QueryBuilder filterAttrQueryBldr = new QueryBuilder(CIContacts.Contact);
+            filterAttrQueryBldr.setOr(true);
 
-                final QueryBuilder persQueryBldr = new QueryBuilder(CIContacts.ClassPerson);
-                persQueryBldr.addWhereAttrMatchValue(CIContacts.ClassPerson.IdentityCard, input + "*");
-                if (classes.length > 0) {
-                    final AttributeQuery attrQuery = queryBldr.getAttributeQuery(CIContacts.Contact.ID);
-                    persQueryBldr.addWhereAttrInQuery(CIContacts.ClassPerson.ContactLink, attrQuery);
-                }
-                final MultiPrintQuery multi2 = persQueryBldr.getPrint();
-                multi2.addAttribute(CIContacts.ClassPerson.IdentityCard, CIContacts.ClassPerson.ContactLink);
-                multi2.execute();
-                while (multi2.next()) {
-                    final String idcard = multi2.<String>getAttribute(CIContacts.ClassPerson.IdentityCard);
-                    if (idcard != null) {
-                        inst2tax.put(Instance.get(CIContacts.Contact.getType(),
-                                        multi2.<Long>getAttribute(CIContacts.ClassPerson.ContactLink)), idcard);
-                    }
-                }
-                final List<Instance> queryList =new ArrayList<Instance>();
-                for (final Entry<Instance, String> entry : inst2tax.entrySet()) {
-                    if (entry.getKey().isValid()) {
-                        queryList.add(entry.getKey());
-                    }
-                }
-                final MultiPrintQuery print = new MultiPrintQuery(queryList);
-                print.setEnforceSorted(true);
-                print.addAttribute(CIContacts.Contact.Name);
-                print.addAttribute(key);
-                print.execute();
-                while (print.next()) {
-                    final Map<String, String> map = new HashMap<String, String>();
-                    final String choice = inst2tax.get(print.getCurrentInstance()) + " - "
-                                    + print.<String>getAttribute(CIContacts.Contact.Name);
-                    map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), print.getAttribute(key).toString());
-                    map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(),
-                                    print.<String>getAttribute(CIContacts.Contact.Name));
-                    map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), choice);
-                    tmpMap.put(choice, map);
-                }
+            final QueryBuilder orgAttrQueryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
+            orgAttrQueryBldr.addWhereAttrMatchValue(CIContacts.ClassOrganisation.TaxNumber, input + "*");
+            orgAttrQueryBldr.addOrderByAttributeAsc(CIContacts.ClassOrganisation.TaxNumber);
+            InterfaceUtils.addMaxResult2QueryBuilder4AutoComplete(_parameter, orgAttrQueryBldr);
+            final AttributeQuery orgAttrQuery = orgAttrQueryBldr
+                            .getAttributeQuery(CIContacts.ClassOrganisation.ContactLink);
 
+            final QueryBuilder persAttrQueryBldr = new QueryBuilder(CIContacts.ClassPerson);
+            persAttrQueryBldr.addWhereAttrMatchValue(CIContacts.ClassPerson.IdentityCard, input + "*");
+            persAttrQueryBldr.addOrderByAttributeAsc(CIContacts.ClassPerson.IdentityCard);
+            InterfaceUtils.addMaxResult2QueryBuilder4AutoComplete(_parameter, persAttrQueryBldr);
+            final AttributeQuery persAttrQuery = persAttrQueryBldr
+                            .getAttributeQuery(CIContacts.ClassPerson.ContactLink);
+
+            filterAttrQueryBldr.addWhereAttrInQuery(CIContacts.Contact.ID, orgAttrQuery);
+            filterAttrQueryBldr.addWhereAttrInQuery(CIContacts.Contact.ID, persAttrQuery);
+            final AttributeQuery filterAttrQuery = filterAttrQueryBldr.getAttributeQuery(CIContacts.Contact.ID);
+
+            queryBldr.addWhereAttrInQuery(CIContacts.Contact.ID, filterAttrQuery);
+
+            final MultiPrintQuery multi = queryBldr.getPrint();
+
+            final SelectBuilder taxSel = SelectBuilder.get().clazz(CIContacts.ClassOrganisation)
+                            .attribute(CIContacts.ClassOrganisation.TaxNumber);
+            final SelectBuilder doiSel = SelectBuilder.get().clazz(CIContacts.ClassPerson)
+                            .attribute(CIContacts.ClassPerson.IdentityCard);
+            multi.addSelect(taxSel, doiSel);
+            multi.addAttribute(CIContacts.Contact.Name);
+            multi.addAttribute(key);
+            multi.execute();
+            while (multi.next()) {
+                final Map<String, String> map = new HashMap<String, String>();
+                final String tax = multi.<String>getSelect(taxSel);
+                final String doi = multi.<String>getSelect(doiSel);
+                final String choice = (tax == null ? doi : tax) + " - "
+                                + multi.<String>getAttribute(CIContacts.Contact.Name);
+                map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), multi.getAttribute(key).toString());
+                map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), multi.<String>getAttribute(CIContacts.Contact.Name));
+                map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), choice);
+                list.add(map);
             }
+
+            Collections.sort(list, new Comparator<Map<String, String>>()
+            {
+                @Override
+                public int compare(final Map<String, String> _o1,
+                                   final Map<String, String> _o2)
+                {
+                    return _o1.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey()).compareTo(
+                                    _o2.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey()));
+                }
+            });
         }
         final Return retVal = new Return();
-        list.addAll(tmpMap.values());
         retVal.put(ReturnValues.VALUES, list);
         return retVal;
     }
