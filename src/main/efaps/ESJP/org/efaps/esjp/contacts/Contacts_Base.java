@@ -222,13 +222,15 @@ public abstract class Contacts_Base
         final Instance instance = value.contains(".") ? Instance.get(value)
                         : Instance.get(CIContacts.Contact.getType(), value);
 
-        final Map<?, ?> properties = (Map<?, ?>) _parameter.get(ParameterValues.PROPERTIES);
-
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         final Map<String, String> map = new HashMap<String, String>();
 
-        final String targetFieldName = properties.containsKey("FieldName") ? (String) properties.get("FieldName")
-                        : "contactData";
+        String targetFieldName;
+        if (containsProperty(_parameter, "FieldName")) {
+            targetFieldName = getProperty(_parameter, "FieldName");
+        } else {
+            targetFieldName = "contactData";
+        }
 
         if (instance.isValid()) {
             map.put(targetFieldName, getFieldValue4Contact(instance));
