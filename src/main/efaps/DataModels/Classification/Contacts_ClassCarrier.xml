@@ -51,5 +51,31 @@
             <sqltable>Contacts_ClassCarrierSQLTable</sqltable>
             <sqlcolumn>CONTACTID</sqlcolumn>
         </attribute>
+        <attributeset>
+            <name>CarrierSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractClassCarrier</parent>
+            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>d6d49ad1-dd0f-400b-a250-cd58315234fb</uuid>
+            <attribute>
+                <name>Make</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+                <sqlcolumn>MAKE</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Registration</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+                <sqlcolumn>REGISTRATION</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>License</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+                <sqlcolumn>LICENSE</sqlcolumn>
+            </attribute>
+        </attributeset>
     </definition>
 </datamodel-type>

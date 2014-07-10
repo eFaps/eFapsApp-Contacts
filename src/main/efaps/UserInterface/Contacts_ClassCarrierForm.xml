@@ -30,6 +30,12 @@
         <name>Contacts_ClassCarrierForm</name>
         <type>Contacts_ClassCarrier</type>
 
-        <property name="Weight">40</property>
+        <field name="carrierSet" character="Set">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">CarrierSet</property>
+            <property name="Label">Contacts_ClassCarrier/CarrierSet.Label</property>
+            <property name="Order">Make|Registration|License</property>
+        </field>
     </definition>
 </ui-form>
