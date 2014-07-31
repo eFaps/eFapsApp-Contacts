@@ -33,7 +33,7 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_MyDesk</name>
-        <icon>Contacts_ContactMyDesk</icon>
+        <icon>Contacts_MyDeskImg</icon>
         <childs>
             <child>Contacts_ContactMyDesk</child>
             <child>Contacts_Contact4TaxNumberMyDesk</child>

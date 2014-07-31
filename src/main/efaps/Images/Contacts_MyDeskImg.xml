@@ -34,7 +34,7 @@
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_ContactMyDesk</name>
-        <file>Contacts_ContactMyDesk.png</file>
+        <name>Contacts_MyDeskImg</name>
+        <file>Contacts_MyDeskImg.png</file>
     </definition>
 </ui-image>
