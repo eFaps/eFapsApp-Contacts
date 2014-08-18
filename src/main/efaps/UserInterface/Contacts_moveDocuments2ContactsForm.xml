@@ -40,6 +40,7 @@
             <property name="Label">Contacts_MoveDocuments2ContactsForm.fromContacts.Label</property>
             <property name="Required">true</property>
             <property name="Columns">80</property>
+            <property name="ClassNameUI">org.efaps.admin.datamodel.ui.StringUI</property>
             <trigger program="org.efaps.esjp.contacts.Contacts"
                      method="autoComplete4Contact"
                      name="Contacts_moveDocuments2ContactsForm.fromContacts.UI_FIELD_AUTOCOMPLETE"
@@ -50,6 +51,7 @@
             <property name="Label">Contacts_MoveDocuments2ContactsForm.toContacts.Label</property>
             <property name="Required">true</property>
             <property name="Columns">80</property>
+            <property name="ClassNameUI">org.efaps.admin.datamodel.ui.StringUI</property>
             <trigger program="org.efaps.esjp.contacts.Contacts"
                      method="autoComplete4Contact"
                      name="Contacts_moveDocuments2ContactsForm.toContacts.UI_FIELD_AUTOCOMPLETE"
