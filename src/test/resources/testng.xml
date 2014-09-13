@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="false">
     <test name="CITests">
-        <parameter name="baseFolder" value="../../../main/efaps"></parameter>
+         <parameter name="baseFolder" value="../../../main/efaps"></parameter>
+         <parameter name="regex4MenuLabelExclude" value=".*_Menu.Label$"/>
          <packages>
             <package name="org.efaps.tests.ci.*"></package>
         </packages>
