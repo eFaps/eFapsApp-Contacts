@@ -46,6 +46,11 @@
         <type>Contacts_AttributeDefinitionPointOfContact</type>
         <type>Contacts_AttributeDefinitionFinancialInstitution</type>
 
+        <status group="ERP_AttributeDefinitionStatus">
+            <key>Active</key>
+            <key>Inactive</key>
+        </status>
+
         <role>Contacts_Admin</role>
 
     </definition>
@@ -72,6 +77,11 @@
         <type>Contacts_AttributeDefinitionFinancialInstitution</type>
         <type>Ubicaciones_UbicacionAbstract</type>
         <type>Ubicaciones_UbicacionStandard</type>
+
+        <status group="ERP_AttributeDefinitionStatus">
+            <key>Active</key>
+            <key>Inactive</key>
+        </status>
 
         <role>Contacts_Admin</role>
 
