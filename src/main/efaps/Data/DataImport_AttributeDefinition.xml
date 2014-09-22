@@ -28,11 +28,14 @@
 <data-import xmlns="http://www.efaps.org/xsd"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    
     <definition name="Import_AttributeDefinition" file="Import_AttributeDefinitions.csv" accessCheck="false">
         <type column="type">
             <attribute name="Value" column="value" validate="false"/>
-             <attribute name="Description" column="description" validate="false"/>
+            <attribute name="Description" column="description" validate="false"/>
+            <attribute name="Status" class="org.efaps.esjp.data.columns.StatusColumn" validateClass="org.efaps.esjp.data.columns.StatusColumn">
+                <property name="StatusGroup">ERP_AttributeDefinitionStatus</property>
+                <property name="Status">Active</property>
+            </attribute>
         </type>
     </definition>
 </data-import>
