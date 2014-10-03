@@ -37,6 +37,7 @@ import org.efaps.db.PrintQuery;
 import org.efaps.db.QueryBuilder;
 import org.efaps.db.SelectBuilder;
 import org.efaps.esjp.ci.CIContacts;
+import org.efaps.esjp.common.AbstractCommon;
 import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
@@ -49,6 +50,7 @@ import org.efaps.util.EFapsException;
 @EFapsUUID("5bdf1780-6b34-4d7d-a1fd-01de63a71037")
 @EFapsRevision("$Rev$")
 public abstract class ContactsPicker_Base
+    extends AbstractCommon
 {
     /**
      * Executed on validate event to check the information for a new contact.
@@ -251,8 +253,9 @@ public abstract class ContactsPicker_Base
             addClassSupplier(_parameter, contactInst);
 
             map.put(EFapsKey.PICKER_VALUE.getKey(), name);
-            map.put("contact", contactInst.getOid());
-            map.put("contactData", getFieldValue4Contact(_parameter, contactInst));
+            map.put(getProperty(_parameter, "FieldName4OID", "contact"), contactInst.getOid());
+            map.put(getProperty(_parameter, "FieldName4Data", "contactData"),
+                            getFieldValue4Contact(_parameter, contactInst));
         }
         return retVal;
     }
@@ -307,7 +310,7 @@ public abstract class ContactsPicker_Base
         print.execute();
         final String taxnumber = print.<String>getSelect(selTaxNumber);
         final String idcard = print.<String>getSelect(selIdCard);
-        final boolean dni = taxnumber == null || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
+        final boolean dni = taxnumber == null || taxnumber.length() < 1 && idcard != null && idcard.length() > 1;
 
         final StringBuilder strBldr = new StringBuilder();
         strBldr.append(dni ? DBProperties.getProperty(CIContacts.ClassPerson.getType().getName()
