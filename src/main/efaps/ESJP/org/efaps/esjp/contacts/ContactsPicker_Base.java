@@ -275,9 +275,7 @@ public abstract class ContactsPicker_Base
     }
 
     /**
-     * To be implemented in another class
-     *
-     * @param _parameter Parameter as passes by the eFaps API
+     *  @param _parameter Parameter as passes by the eFaps API
      * @param _contactInst Instance of contact to connect to supplier
      * @throws EFapsException on error
      */
@@ -285,7 +283,18 @@ public abstract class ContactsPicker_Base
                                     final Instance _contactInst)
         throws EFapsException
     {
+        if ("true".equalsIgnoreCase(getProperty(_parameter, "AddClassSupplier"))) {
+            final Classification classification = (Classification) CIContacts.ClassSupplier.getType();
+            final Insert relInsert1 = new Insert(classification.getClassifyRelationType());
+            relInsert1.add(classification.getRelLinkAttributeName(), _contactInst.getId());
+            relInsert1.add(classification.getRelTypeAttributeName(), classification.getId());
+            relInsert1.execute();
 
+            final Insert classInsert1 = new Insert(classification);
+            classInsert1.add(classification.getLinkAttributeName(), _contactInst.getId());
+            addClassInsert(_parameter, classInsert1);
+            classInsert1.execute();
+        }
     }
 
     /**
