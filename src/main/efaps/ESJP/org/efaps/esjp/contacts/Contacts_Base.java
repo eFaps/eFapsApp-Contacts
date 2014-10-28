@@ -222,8 +222,8 @@ public abstract class Contacts_Base
         final Instance instance = value.contains(".") ? Instance.get(value)
                         : Instance.get(CIContacts.Contact.getType(), value);
 
-        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        final Map<String, String> map = new HashMap<String, String>();
+        final List<Map<String, Object>> list = new ArrayList<>();
+        final Map<String, Object> map = new HashMap<>();
 
         String targetFieldName;
         if (containsProperty(_parameter, "FieldName")) {
@@ -237,12 +237,28 @@ public abstract class Contacts_Base
         } else {
             map.put(targetFieldName, "????");
         }
+        add2UpdateMap4Contact(_parameter, instance,  map);
         list.add(map);
 
         final Return retVal = new Return();
         retVal.put(ReturnValues.VALUES, list);
         return retVal;
     }
+
+    /**
+     * @param _parameter Parameter as passed by the eFaps API
+     * @param _contactInstance instance of the contact
+     * @param _map  map to be added to
+     * @throws EFapsException on error
+     */
+    protected void add2UpdateMap4Contact(final Parameter _parameter,
+                                         final Instance _contactInstance,
+                                         final Map<String, Object> _map)
+        throws EFapsException
+    {
+        //To be used from implementation
+    }
+
 
     /**
      * Method to get the value for the field directly under the Contact.
@@ -273,7 +289,7 @@ public abstract class Contacts_Base
             final String street = print.<String>getSelect(selStreet);
 
             final boolean hasDOI = taxnumber == null
-                            || (taxnumber.length() < 1 && idcard != null && idcard.length() > 1);
+                            || taxnumber.length() < 1 && idcard != null && idcard.length() > 1;
 
             strBldr.append(hasDOI ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
                             : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))

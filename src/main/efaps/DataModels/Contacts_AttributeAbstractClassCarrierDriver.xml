@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
- Copyright 2003 - 2011 The eFaps Team
+ Copyright 2003 - 2014 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,71 +22,71 @@
 -->
 <datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>6576baa4-98aa-4f11-af3b-590cf5b574bc</uuid>
+    <uuid>296ae5fe-6fd3-45dc-91fa-d4d8a51fe947</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_AttributeAbstractClassCarrier</name>
+        <name>Contacts_AttributeAbstractClassCarrierDriver</name>
         <purpose abstract="true"/>
         <attribute>
             <name>Type</name>
             <type>Type</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>TYPEID</sqlcolumn>
         </attribute>
         <attribute>
             <name>OID</name>
             <type>OID</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>TYPEID,ID</sqlcolumn>
         </attribute>
         <attribute>
             <name>ID</name>
             <type>Long</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>ID</sqlcolumn>
         </attribute>
         <attribute>
             <name>Creator</name>
             <type>CreatorLink</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>CREATOR</sqlcolumn>
         </attribute>
         <attribute>
             <name>Created</name>
             <type>Created</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>CREATED</sqlcolumn>
         </attribute>
         <attribute>
             <name>Modifier</name>
             <type>ModifierLink</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>MODIFIER</sqlcolumn>
         </attribute>
         <attribute>
             <name>Modified</name>
             <type>Modified</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>MODIFIED</sqlcolumn>
         </attribute>
         <attribute>
-            <name>Make</name>
+            <name>Name</name>
             <type>String</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
-            <sqlcolumn>MAKE</sqlcolumn>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
+            <sqlcolumn>NAME</sqlcolumn>
         </attribute>
         <attribute>
-            <name>Registration</name>
+            <name>License</name>
             <type>String</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
-            <sqlcolumn>REGISTRATION</sqlcolumn>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
+            <sqlcolumn>LICENSE</sqlcolumn>
         </attribute>
         <attribute>
             <name>DefaultSelected</name>
             <type>Boolean</type>
-            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>DEFAULTSEL</sqlcolumn>
         </attribute>
     </definition>
