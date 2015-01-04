@@ -38,6 +38,7 @@ import org.efaps.admin.event.Return;
 import org.efaps.admin.event.Return.ReturnValues;
 import org.efaps.admin.program.esjp.EFapsRevision;
 import org.efaps.admin.program.esjp.EFapsUUID;
+import org.efaps.admin.program.esjp.Listener;
 import org.efaps.admin.ui.field.Field;
 import org.efaps.db.AttributeQuery;
 import org.efaps.db.Instance;
@@ -51,6 +52,7 @@ import org.efaps.esjp.ci.CIERP;
 import org.efaps.esjp.ci.CIFormContacts;
 import org.efaps.esjp.common.AbstractCommon;
 import org.efaps.esjp.common.util.InterfaceUtils;
+import org.efaps.esjp.contacts.listener.IOnContact;
 import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
@@ -256,7 +258,9 @@ public abstract class Contacts_Base
                                          final Map<String, Object> _map)
         throws EFapsException
     {
-        //To be used from implementation
+        for (final IOnContact listener : Listener.get().<IOnContact>invoke(IOnContact.class)) {
+            listener.add2UpdateMap4Contact(_parameter, _contactInstance, _map);
+        }
     }
 
 
