@@ -119,7 +119,7 @@ public abstract class Contacts_Base
 
         final String key = containsProperty(_parameter, "Key") ? getProperty(_parameter, "Key") : "OID";
 
-        final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
+        final QueryBuilder queryBldr = getQueryBldr4AutoComplete(_parameter);
         final Map<Integer, String> classes = analyseProperty(_parameter, "Classification");
         if (!classes.isEmpty()) {
             final List<Classification> classTypes = new ArrayList<Classification>();
@@ -206,6 +206,17 @@ public abstract class Contacts_Base
         final Return retVal = new Return();
         retVal.put(ReturnValues.VALUES, list);
         return retVal;
+    }
+
+    /**
+     * @param _parameter Parameter as passed from the eFaps API.
+     * @return QueryBuilder used for Autocomplete
+     * @throws EFapsException on error.
+     */
+    protected QueryBuilder getQueryBldr4AutoComplete(final Parameter _parameter)
+     throws EFapsException
+    {
+        return new QueryBuilder(CIContacts.Contact);
     }
 
     /**
