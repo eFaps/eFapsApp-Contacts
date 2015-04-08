@@ -94,8 +94,8 @@
             rolUp.addUI("1c506850-7e64-439f-ad65-9c82dc762db8");
 
 
-            // Admin_Common_Version
-            queryBldr = new QueryBuilder(UUID.fromString("1bb051f3-b664-43db-b409-c0c4009f5972"));
+            // Admin_Common_Application
+            queryBldr = new QueryBuilder(UUID.fromString("a50c9f3f-2987-4196-b74a-bb5861259c67"));
             queryBldr.addWhereAttrEqValue("Name", "eFapsLocalizations-Ubicaciones");
             query = queryBldr.getQuery();
             query.executeWithoutAccessCheck();
