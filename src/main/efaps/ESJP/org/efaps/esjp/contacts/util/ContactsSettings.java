@@ -20,7 +20,7 @@
 
 package org.efaps.esjp.contacts.util;
 
-import org.efaps.admin.program.esjp.EFapsRevision;
+import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 
 /**
@@ -30,23 +30,31 @@ import org.efaps.admin.program.esjp.EFapsUUID;
  * @version $Id$
  */
 @EFapsUUID("34d740a6-a9de-4f88-b1e9-06c16ecad3ef")
-@EFapsRevision("$Rev$")
-public interface ContactsSettings {
-	/**
-	 * Boolean (true/false).<br/>
-	 * Activate the ContactGroup UserInterface.
-	 */
-	String CALCULATECOSTS = "org.efaps.contacts.ActivateContactGroups";
+@EFapsApplication("eFapsApp-Contacts")
+public interface ContactsSettings
+{
 
-	/**
-	 * Boolean (true/false).<br/>
-	 * Activate the SubContacts UserInterface.
-	 */
-	String CURRENCY4INVOICE = "org.efaps.contacts.ActivateSubContacts";
+    /**
+     * OID for a Link.<br/>
+     * Default Currency for the Form like Invoice etc..
+     */
+    String BASE = "org.efaps.contacts.";
 
-	/**
-	 * Boolean (true/false).<br/>
-	 * Activate the Financial Information Classification.
-	 */
-	String CLASSFINANCIALACTIVATE = "org.efaps.contacts.ActivateClassFinancialInformation";
+    /**
+     * Boolean (true/false).<br/>
+     * Activate the ContactGroup UserInterface.
+     */
+    String ACTIVATECONTACTGROUPS = ContactsSettings.BASE + "ActivateContactGroups";
+
+    /**
+     * Boolean (true/false).<br/>
+     * Activate the SubContacts UserInterface.
+     */
+    String ACTIVATESUBCONTACTS = ContactsSettings.BASE + "ActivateSubContacts";
+
+    /**
+     * Boolean (true/false).<br/>
+     * Activate the Financial Information Classification.
+     */
+    String CLASSFINANCIALACTIVATE = ContactsSettings.BASE + "ActivateClassFinancialInformation";
 }
