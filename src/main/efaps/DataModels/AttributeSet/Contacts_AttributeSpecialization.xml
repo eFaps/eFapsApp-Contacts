@@ -24,7 +24,7 @@
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>RudolfReimsac_Contacts_AttributeSpecialization</name>
+        <name>Contacts_AttributeSpecialization</name>
         <parent>Contacts_AttributeAbstract</parent>
         <attribute>
             <name>Class</name>
