@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+ Copyright 2003 - 2015 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          The eFaps Team
+
+-->
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>bf8c9c1e-8a68-473c-9d81-824589eb88af</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassCategorization</name>
+        <purpose classification="true">
+            <LinkColumn>ContactId</LinkColumn>
+            <parent>Contacts_Class</parent>
+        </purpose>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassCategorizationSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassCategorizationSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ContactId</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassCategorizationSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+        <attributeset>
+            <name>SpecializationSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeSpecialization</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>470deee1-572f-41d9-a3e3-9b9c9dc105af</uuid>
+            <attribute>
+                <name>Specialization</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionSpecialization</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger name="Contacts_ClassCategorization.SpecializationSet.Specialization.RANGE_VALUE"
+                    event="RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionSpecialization</property>
+                </trigger>
+            </attribute>
+        </attributeset>
+        <attributeset>
+            <name>ClassificationSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeClassification</parent>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>b9ff396e-3d63-4586-8a84-d449bacbee5b</uuid>
+            <attribute>
+                <name>Classification</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionClassification</typelink>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE"
+                    name="Contacts_ClassCategorization.ClassificationSet.Specialization.RANGE_VALUE"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionClassification</property>
+                </trigger>
+            </attribute>
+        </attributeset>
+    </definition>
+</datamodel-type>
