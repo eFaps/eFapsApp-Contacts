@@ -27,6 +27,7 @@
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Contact</name>
         <parent>Contacts_ContactAbstract</parent>
+        <purpose history="true"/>
         <trigger program="org.efaps.esjp.admin.access.SimpleAccessCheckOnType"
             name="Contacts_Contact.ACCESSCHECK" event="ACCESSCHECK" />
         <trigger program="org.efaps.esjp.common.history.InsertHistoryTrigger"
