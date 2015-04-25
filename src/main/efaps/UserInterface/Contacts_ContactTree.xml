@@ -2,7 +2,7 @@
 
 <!--
 
-  Copyright 2003 - 2012 The eFaps Team
+  Copyright 2003 - 2015 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,20 +17,12 @@
   limitations under the License.
 
   Author:          The eFaps Team
-  Revision:        $Rev$
-  Last Changed:    $Date$
-  Last Changed By: $Author$
 
 -->
-
-<ui-menu xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
+<ui-menu xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>e1944ac8-4007-476c-a5c8-2bfbdb2b79f9</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ContactTree</name>
@@ -39,20 +31,18 @@
             <role>Contacts_Modifier</role>
             <role>Contacts_Reader</role>
         </access>
-        <!-- targets -->
         <target>
             <menu>Contacts_ContactTree_Menu</menu>
             <form>Contacts_ContactForm</form>
             <help>org.efaps.wiki.contacts.Showcontact.wiki</help>
         </target>
-        <!-- type tree for -->
         <type>Contacts_Contact</type>
         <childs>
             <child>Contacts_ContactTree_ContactFrom</child>
             <child>Contacts_ContactTree_ContactTo</child>
             <child>Contacts_ContactTree_Contact2SubContact</child>
+            <child>Common_History_ObjectTree_HistoryLog</child>
         </childs>
-        <!-- properties -->
         <property name="Target">content</property>
         <property name="TargetMode">view</property>
     </definition>

@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2015 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,9 +17,6 @@
  limitations under the License.
 
  Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
 
 -->
 
@@ -28,12 +25,9 @@
                  xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>0cbaa002-3915-4da1-a766-581956dbf595</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassOrganisation</name>
-
         <purpose classification="true">
             <LinkColumn>ContactLink</LinkColumn>
             <parent>Contacts_Class</parent>
@@ -69,5 +63,18 @@
             <sqltable>Contacts_ClassOrganisationSQLTable</sqltable>
             <sqlcolumn>TRADENAME</sqlcolumn>
         </attribute>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_ClassOrganisation.INSERT_POST"
+            event="INSERT_POST">
+            <property name="IgnoreAttribute">ContactLink</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_ClassOrganisation.UPDATE_POST"
+            event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_ClassOrganisation.DELETE_PRE"
+            event="DELETE_PRE">
+        </trigger>
     </definition>
 </datamodel-type>
