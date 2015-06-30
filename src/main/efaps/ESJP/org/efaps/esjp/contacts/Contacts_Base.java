@@ -154,7 +154,12 @@ public abstract class Contacts_Base
                                 orgAttrQueryBldr.getAttributeQuery(CIContacts.ClassOrganisation.ContactLink));
 
                 InterfaceUtils.addMaxResult2QueryBuilder4AutoComplete(_parameter, subQueryBldr);
-                instances.addAll(subQueryBldr.getQuery().execute());
+                final List<Instance> subInstances = subQueryBldr.getQuery().execute();
+                for (final Instance instance : subInstances) {
+                    if (!instances.contains(instance)) {
+                        instances.add(instance);
+                    }
+                }
             }
 
             final MultiPrintQuery multi = new MultiPrintQuery(instances);
