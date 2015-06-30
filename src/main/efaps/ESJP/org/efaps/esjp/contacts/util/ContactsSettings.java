@@ -57,4 +57,10 @@ public interface ContactsSettings
      * Activate the Financial Information Classification.
      */
     String CLASSFINANCIALACTIVATE = ContactsSettings.BASE + "ActivateClassFinancialInformation";
+
+    /**
+     * Boolean (true/false).<br/>
+     * Activate the search in tradename for autocopmlete.
+     */
+    String ACTIVATETRADENAMESEARCH = ContactsSettings.BASE + "ActivateTradeNameSearch";
 }

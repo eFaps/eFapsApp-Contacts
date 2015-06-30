@@ -53,6 +53,8 @@ import org.efaps.esjp.ci.CIFormContacts;
 import org.efaps.esjp.common.AbstractCommon;
 import org.efaps.esjp.common.util.InterfaceUtils;
 import org.efaps.esjp.contacts.listener.IOnContact;
+import org.efaps.esjp.contacts.util.Contacts;
+import org.efaps.esjp.contacts.util.ContactsSettings;
 import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
@@ -133,7 +135,29 @@ public abstract class Contacts_Base
             queryBldr.addWhereAttrMatchValue(CIContacts.Contact.Name, input + "*").setIgnoreCase(true);
             queryBldr.addOrderByAttributeAsc(CIContacts.Contact.Name);
             InterfaceUtils.addMaxResult2QueryBuilder4AutoComplete(_parameter, queryBldr);
-            final MultiPrintQuery multi = queryBldr.getPrint();
+
+            final List<Instance> instances = queryBldr.getQuery().execute();
+
+            if (Contacts.getSysConfig().getAttributeValueAsBoolean(ContactsSettings.ACTIVATETRADENAMESEARCH)) {
+                final QueryBuilder orgAttrQueryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
+                orgAttrQueryBldr.addWhereAttrMatchValue(CIContacts.ClassOrganisation.TradeName, input + "*")
+                    .setIgnoreCase(true);
+                final QueryBuilder subQueryBldr = getQueryBldr4AutoComplete(_parameter);
+                if (!classes.isEmpty()) {
+                    final List<Classification> classTypes = new ArrayList<Classification>();
+                    for (final String clazz : classes.values()) {
+                        classTypes.add((Classification) Type.get(clazz));
+                    }
+                    subQueryBldr.addWhereClassification(classTypes.toArray(new Classification[classTypes.size()]));
+                }
+                subQueryBldr.addWhereAttrInQuery(CIContacts.Contact.ID,
+                                orgAttrQueryBldr.getAttributeQuery(CIContacts.ClassOrganisation.ContactLink));
+
+                InterfaceUtils.addMaxResult2QueryBuilder4AutoComplete(_parameter, subQueryBldr);
+                instances.addAll(subQueryBldr.getQuery().execute());
+            }
+
+            final MultiPrintQuery multi = new MultiPrintQuery(instances);
             multi.addAttribute(CIContacts.Contact.Name);
             multi.addAttribute(key);
             multi.setEnforceSorted(true);
