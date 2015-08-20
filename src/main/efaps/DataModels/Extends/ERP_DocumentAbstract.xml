@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
  Copyright 2003 - 2013 The eFaps Team
@@ -16,23 +15,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>ad1df372-bf47-49d2-af3e-a1c4065f062d</uuid>
     <file-application>eFapsApp-Commons</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>ERP_DocumentAbstract</name>
-        <purpose abstract="true"/>
+        <purpose abstract="true" />
         <attribute>
             <name>Type</name>
             <type>Type</type>
@@ -76,6 +68,12 @@
             <sqlcolumn>REVISION</sqlcolumn>
         </attribute>
         <attribute>
+            <name>Remark</name>
+            <type>String</type>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>REMARK</sqlcolumn>
+        </attribute>
+        <attribute>
             <name>Date</name>
             <type>Date</type>
             <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
@@ -95,17 +93,17 @@
             <sqlcolumn>CONTACTID</sqlcolumn>
         </attribute>
         <attribute>
-          <name>Salesperson</name>
-          <type>LinkWithRanges</type>
-          <typelink>Admin_User_Person</typelink>
-          <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
-          <sqlcolumn>SALESPERS</sqlcolumn>
-          <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
-                   name="ERP_DocumentAbstract.Salesperson.RANGE_VALUE"
-                   event="RANGE_VALUE">
-            <property name="Value">$&lt;FirstName&gt; $&lt;LastName&gt;</property>
-            <property name="Type">Admin_User_Person</property>
-          </trigger>
+            <name>Salesperson</name>
+            <type>LinkWithRanges</type>
+            <typelink>Admin_User_Person</typelink>
+            <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
+            <sqlcolumn>SALESPERS</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
+                name="ERP_DocumentAbstract.Salesperson.RANGE_VALUE"
+                event="RANGE_VALUE">
+                <property name="Value">$&lt;FirstName&gt; $&lt;LastName&gt;</property>
+                <property name="Type">Admin_User_Person</property>
+            </trigger>
         </attribute>
         <attribute>
             <name>Note</name>
@@ -127,8 +125,8 @@
             <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
             <sqlcolumn>STATUS</sqlcolumn>
             <trigger program="org.efaps.esjp.admin.datamodel.StatusValue"
-                    name="ERP_DocumentAbstract.StatusAbstract.RANGE_VALUE"
-                    event="RANGE_VALUE">
+                name="ERP_DocumentAbstract.StatusAbstract.RANGE_VALUE"
+                event="RANGE_VALUE">
             </trigger>
         </attribute>
         <attribute>
