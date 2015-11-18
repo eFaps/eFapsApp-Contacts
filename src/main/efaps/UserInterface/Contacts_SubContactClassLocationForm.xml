@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
-  Copyright 2003 - 2013 The eFaps Team
+  Copyright 2003 - 2015 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,17 +14,11 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 
-  Author:          The eFaps Team
-  Revision:        $Rev$
-  Last Changed:    $Date$
-  Last Changed By: $Author$
-
 -->
 <ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>b6767c90-0e2c-41b3-8ebd-8b83ef34f603</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
@@ -63,8 +57,6 @@
         </field>
         <property name="Weight">20</property>
     </definition>
-
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
@@ -117,8 +109,11 @@
             <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_UPDATE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
-                <property name="targetField">provinceLocation</property>
-                <property name="cleanFields">districtLocation</property>
+                <property name="TargetField">provinceLocation</property>
+                <property name="CleanField">districtLocation</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocation</property>
+                <property name="CombineSourceField01">districtLocation</property>
             </trigger>
         </field>
         <field name="provinceLocation">
@@ -138,7 +133,10 @@
             <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
                 name="Contacts_ClassLocationForm.province.UI_FIELD_UPDATE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
-                <property name="targetField">districtLocation</property>
+                <property name="TargetField">districtLocation</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocation</property>
+                <property name="CombineSourceField01">districtLocation</property>
             </trigger>
         </field>
         <field name="districtLocation">
@@ -154,6 +152,14 @@
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="WhereAttrEqValue">Name|-</property>
+            </trigger>
+            <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.districtLocation.UI_FIELD_UPDATE"
+                program="org.efaps.esjp.ubicaciones.Ubicaciones">
+                <property name="TargetField">districtLocation</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocation</property>
+                <property name="CombineSourceField01">districtLocation</property>
             </trigger>
         </field>
         <field name="departmentLocationEdit">
@@ -172,8 +178,11 @@
             <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
                 name="Contacts_ClassLocationForm.departmentLocationEdit.UI_FIELD_UPDATE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
-                <property name="targetField">provinceLocationEdit</property>
-                <property name="cleanFields">districtLocationEdit</property>
+                <property name="TargetField">provinceLocationEdit</property>
+                <property name="CleanField">districtLocationEdit</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocationEdit</property>
+                <property name="CombineSourceField01">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="provinceLocationEdit">
@@ -193,7 +202,10 @@
             <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
                 name="Contacts_ClassLocationForm.province.UI_FIELD_UPDATE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
-                <property name="targetField">districtLocationEdit</property>
+                <property name="TargetField">districtLocationEdit</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocationEdit</property>
+                <property name="CombineSourceField01">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="districtLocationEdit">
@@ -209,6 +221,13 @@
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="ParentAttribute">ProvinceLocationLink</property>
+            </trigger>
+             <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.districtLocationEdit.UI_FIELD_UPDATE"
+                program="org.efaps.esjp.ubicaciones.Ubicaciones">
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocationEdit</property>
+                <property name="CombineSourceField01">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="ubication">

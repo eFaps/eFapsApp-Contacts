@@ -2,7 +2,7 @@
 
 <!--
 
-  Copyright 2003 - 2013 The eFaps Team
+  Copyright 2003 - 2015 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -16,19 +16,12 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 
-  Author:          The eFaps Team
-  Revision:        $Rev$
-  Last Changed:    $Date$
-  Last Changed By: $Author$
-
 -->
 
-<ui-form xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>15c96292-8850-43fc-bc6d-b5d373f3b0da</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
@@ -79,8 +72,6 @@
         </field>
         <property name="Weight">30</property>
     </definition>
-
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
@@ -135,16 +126,23 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
-            <trigger program="org.efaps.esjp.common.uiform.Field" method="dropDownFieldValue"
-                name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
+            <trigger program="org.efaps.esjp.common.uiform.Field"
+                method="dropDownFieldValue"
+                name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
+                event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
             </trigger>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="updateDropDown4Ubication"
-                name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_UPDATE" event="UI_FIELD_UPDATE">
-                <property name="targetField">provinceLocation</property>
-                <property name="cleanFields">districtLocation</property>
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_UPDATE"
+                event="UI_FIELD_UPDATE">
+                <property name="TargetField">provinceLocation</property>
+                <property name="CleanField">districtLocation</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocation</property>
+                <property name="CombineSourceField01">districtLocation</property>
             </trigger>
         </field>
         <field name="provinceLocation">
@@ -153,16 +151,23 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
-            <trigger program="org.efaps.esjp.common.uiform.Field" method="dropDownFieldValue"
-                name="Contacts_ClassLocationForm.province.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
+            <trigger program="org.efaps.esjp.common.uiform.Field"
+                method="dropDownFieldValue"
+                name="Contacts_ClassLocationForm.province.UI_FIELD_VALUE"
+                event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="WhereAttrEqValue">Name|-</property>
             </trigger>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="updateDropDown4Ubication"
-                name="Contacts_ClassLocationForm.province.UI_FIELD_UPDATE" event="UI_FIELD_UPDATE">
-                <property name="targetField">districtLocation</property>
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.province.UI_FIELD_UPDATE"
+                event="UI_FIELD_UPDATE">
+                <property name="TargetField">districtLocation</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocation</property>
+                <property name="CombineSourceField01">districtLocation</property>
             </trigger>
         </field>
         <field name="districtLocation">
@@ -171,12 +176,22 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
-            <trigger program="org.efaps.esjp.common.uiform.Field" method="dropDownFieldValue"
-                name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
+            <trigger program="org.efaps.esjp.common.uiform.Field"
+                method="dropDownFieldValue"
+                name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
+                event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="WhereAttrEqValue">Name|-</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.districtLocation.UI_FIELD_UPDATE"
+                event="UI_FIELD_UPDATE">
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocation</property>
+                <property name="CombineSourceField01">districtLocation</property>
             </trigger>
         </field>
         <field name="departmentLocationEdit">
@@ -185,16 +200,23 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">DepartmentLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="getDropdown"
-                name="Ubicaciones_UbicacionExampleForm.locationUbicationEdit.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="getDropdown"
+                name="Ubicaciones_UbicacionExampleForm.locationUbicationEdit.UI_FIELD_VALUE"
+                event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
             </trigger>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="updateDropDown4Ubication"
-                name="Contacts_ClassLocationForm.departmentLocationEdit.UI_FIELD_UPDATE" event="UI_FIELD_UPDATE">
-                <property name="targetField">provinceLocationEdit</property>
-                <property name="cleanFields">districtLocationEdit</property>
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.departmentLocationEdit.UI_FIELD_UPDATE"
+                event="UI_FIELD_UPDATE">
+                <property name="TargetField">provinceLocationEdit</property>
+                <property name="CleanField">districtLocationEdit</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocationEdit</property>
+                <property name="CombineSourceField01">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="provinceLocationEdit">
@@ -203,16 +225,23 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">ProvinceLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="getDropdown"
-                name="Contacts_ClassLocationForm.provinceEdit.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="getDropdown"
+                name="Contacts_ClassLocationForm.provinceEdit.UI_FIELD_VALUE"
+                event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandard</property>
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="ParentAttribute">DepartmentLocationLink</property>
             </trigger>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="updateDropDown4Ubication"
-                name="Contacts_ClassLocationForm.province.UI_FIELD_UPDATE" event="UI_FIELD_UPDATE">
-                <property name="targetField">districtLocationEdit</property>
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.province.UI_FIELD_UPDATE"
+                event="UI_FIELD_UPDATE">
+                <property name="TargetField">districtLocationEdit</property>
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocationEdit</property>
+                <property name="CombineSourceField01">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="districtLocationEdit">
@@ -227,6 +256,14 @@
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
                 <property name="ParentAttribute">ProvinceLocationLink</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="updateDropDown4Ubication"
+                name="Contacts_ClassLocationForm.districtLocationEdit.UI_FIELD_UPDATE"
+                event="UI_FIELD_UPDATE">
+                <property name="CombineTargetField">locationAdressCity</property>
+                <property name="CombineSourceField">provinceLocationEdit</property>
+                <property name="CombineSourceField01">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="ubication">

@@ -16,8 +16,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
-
 -->
 
 <ui-menu xmlns="http://www.efaps.org/xsd"
@@ -33,6 +31,7 @@
             <child>Contacts_ContactMyDesk</child>
             <child>Contacts_Contact4TaxNumberMyDesk</child>
             <child>Contacts_ContactClientMyDesk</child>
+            <child>Contacts_ContactSupplierMyDesk</child>
             <child>Contacts_ContactGroupMyDesk</child>
         </childs>
     </definition>
