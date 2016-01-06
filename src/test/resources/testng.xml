@@ -6,6 +6,7 @@
          <parameter name="regex4MenuLabelExclude" value=".*_Menu.Label$"/>
          <packages>
             <package name="org.efaps.tests.ci.*"></package>
+            <package name="org.efaps.tests.others.*"></package>
         </packages>
     </test>
 </suite>
