@@ -101,7 +101,7 @@
             <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
                 name="ERP_DocumentAbstract.Salesperson.RANGE_VALUE"
                 event="RANGE_VALUE">
-                <property name="Value">$&lt;FirstName&gt; $&lt;LastName&gt;</property>
+                <property name="Value">$&lt;attribute[FirstName]&gt; $&lt;attribute[LastName]&gt;</property>
                 <property name="Type">Admin_User_Person</property>
             </trigger>
         </attribute>
