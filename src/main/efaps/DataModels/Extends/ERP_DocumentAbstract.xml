@@ -153,5 +153,6 @@
             <sqltable>ERP_DocumentAbstractSQLTable</sqltable>
             <sqlcolumn>MODIFIED</sqlcolumn>
         </attribute>
+        <store name="ERP_DocumentVFSStore"/>
     </definition>
 </datamodel-type>
