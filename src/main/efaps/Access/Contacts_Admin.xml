@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,24 +15,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
-<access-set xmlns="http://www.efaps.org/xsd"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<access-set xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>b12ddd96-bd64-458f-b731-b61118804aec</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
-            <profile name="eFaps"/>
+            <profile name="eFaps" />
         </profiles>
         <name>Contacts_Admin</name>
 
@@ -57,16 +48,20 @@
         <type>Contacts_ClassPerson</type>
         <type>Contacts_ClassPointOfContact</type>
 
-        <role>Contacts_Admin</role>
+        <status group="Contacts_ContactStatus">
+            <key>Active</key>
+            <key>Inactive</key>
+        </status>
 
+        <role>Contacts_Admin</role>
     </definition>
 
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
-            <profile name="ubicaciones"/>
+            <profile name="ubicaciones" />
         </profiles>
-         <name>Contacts_Admin</name>
+        <name>Contacts_Admin</name>
 
         <access-type>show</access-type>
         <access-type>read</access-type>
@@ -87,6 +82,11 @@
         <type>Contacts_ClassOrganisation</type>
         <type>Contacts_ClassPerson</type>
         <type>Contacts_ClassPointOfContact</type>
+
+        <status group="Contacts_ContactStatus">
+            <key>Active</key>
+            <key>Inactive</key>
+        </status>
 
         <role>Contacts_Admin</role>
     </definition>

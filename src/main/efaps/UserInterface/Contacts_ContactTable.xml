@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,25 +15,15 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
-<ui-table xmlns="http://www.efaps.org/xsd"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
+<ui-table xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>84003425-803d-4918-8189-48d9a54874bf</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ContactTable</name>
-        <!-- fields -->
         <field name="name">
             <property name="Attribute">Name</property>
             <property name="HRef">${COMMONURL}/MenuTree.jsp</property>
@@ -48,14 +37,17 @@
         <field name="classification">
             <property name="Select">class.type</property>
             <property name="Label">Contacts_Contact.classification.Label</property>
-            <trigger program="org.efaps.esjp.common.uiform.Field"
-                method="classificationFieldFormat"
-                name="Contacts_ContactTable.classification"
+            <trigger program="org.efaps.esjp.common.uiform.Field" method="classificationFieldFormat" name="Contacts_ContactTable.classification"
                 event="UI_FIELD_FORMAT" />
         </field>
         <field name="taxNumber">
             <property name="Select">class[Contacts_ClassOrganisation].attribute[TaxNumber]</property>
             <property name="Label">Contacts_ClassOrganisation/TaxNumber.Label</property>
+        </field>
+         <field name="status">
+            <property name="Attribute">Status</property>
+            <property name="Label">Contacts_Contact/Status.Label</property>
+            <property name="ModeSearch">READONLY</property>
         </field>
         <field name="buttonOpenInNewWindow">
             <icon>eFapsActionNewWindow</icon>
