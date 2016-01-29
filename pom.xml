@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,32 +15,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
 
 -->
-
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <!-- ************************************************************************
-    * Module Definition
-    ************************************************************************* -->
     <parent>
         <groupId>org.efaps</groupId>
         <artifactId>efaps-parent</artifactId>
         <version>5.0.0-SNAPSHOT</version>
     </parent>
-
     <packaging>jar</packaging>
     <groupId>org.efaps.apps</groupId>
     <artifactId>contacts</artifactId>
-
     <name>eFaps Contacts App</name>
     <description>
     </description>
@@ -112,11 +98,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
-
-    <!-- ************************************************************************
-  * Project itself
-  ************************************************************************* -->
     <build>
         <plugins>
             <!--
@@ -150,22 +131,24 @@
                     </dependency>
                 </dependencies>
             </plugin>
-             <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${basedir}/src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/efaps/ESJP</sourceDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
-    <!-- ************************************************************************
-    * Dependencies
-    ************************************************************************* -->
     <dependencies>
         <!-- eFaps kernel -->
         <dependency>
@@ -173,7 +156,7 @@
             <artifactId>commons</artifactId>
             <version>${efaps.app.dependencies}</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>org.efaps</groupId>
             <artifactId>efaps-tests</artifactId>
             <version>${project.version}</version>
