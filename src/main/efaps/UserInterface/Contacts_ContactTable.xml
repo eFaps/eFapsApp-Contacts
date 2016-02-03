@@ -44,10 +44,11 @@
             <property name="Select">class[Contacts_ClassOrganisation].attribute[TaxNumber]</property>
             <property name="Label">Contacts_ClassOrganisation/TaxNumber.Label</property>
         </field>
-         <field name="status">
+        <field name="status">
             <property name="Attribute">Status</property>
             <property name="Label">Contacts_Contact/Status.Label</property>
             <property name="ModeSearch">READONLY</property>
+            <property name="FilterType">PICKLIST</property>
         </field>
         <field name="buttonOpenInNewWindow">
             <icon>eFapsActionNewWindow</icon>

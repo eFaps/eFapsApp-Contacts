@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2015 The eFaps Team
+ * Copyright 2003 - 2016 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -238,9 +238,13 @@ public abstract class Contacts_Base
      * @throws EFapsException on error.
      */
     protected QueryBuilder getQueryBldr4AutoComplete(final Parameter _parameter)
-     throws EFapsException
+        throws EFapsException
     {
-        return new QueryBuilder(CIContacts.Contact);
+        QueryBuilder ret = getQueryBldrFromProperties(_parameter);
+        if (ret == null) {
+            ret = new QueryBuilder(CIContacts.Contact);
+        }
+        return ret;
     }
 
     /**
@@ -303,7 +307,7 @@ public abstract class Contacts_Base
      * Method to get the value for the field directly under the Contact.
      *
      * @param _instance Instacne of the contact
-     * @param _esscape escape the script or not
+     * @param _escape the escape
      * @return String for the field
      * @throws EFapsException on error
      */
@@ -342,6 +346,13 @@ public abstract class Contacts_Base
         return _escape ? StringEscapeUtils.escapeEcmaScript(strBldr.toString()) : strBldr.toString();
     }
 
+    /**
+     * Gets the field value4 contact.
+     *
+     * @param _instance the instance
+     * @return the field value4 contact
+     * @throws EFapsException on error
+     */
     public String getFieldValue4Contact(final Instance _instance)
         throws EFapsException
     {
@@ -350,7 +361,7 @@ public abstract class Contacts_Base
     }
 
     /**
-     * Method to check if the instance is of the classification Carrier
+     * Method to check if the instance is of the classification Carrier.
      *
      * @param _parameter as passed from eFaps API.
      * @return Return ret.
@@ -376,6 +387,12 @@ public abstract class Contacts_Base
         return ret;
     }
 
+    /**
+     * Update fields4 person names.
+     *
+     * @param _parameter Parameter as passed by the eFaps API
+     * @return the return
+     */
     public Return updateFields4PersonNames(final Parameter _parameter)
     {
         final Return ret = new Return();
