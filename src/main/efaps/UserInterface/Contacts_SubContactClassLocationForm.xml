@@ -112,8 +112,9 @@
                 <property name="TargetField">provinceLocation</property>
                 <property name="CleanField">districtLocation</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocation</property>
-                <property name="CombineSourceField01">districtLocation</property>
+                <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField01">provinceLocation</property>
+                <property name="CombineSourceField02">districtLocation</property>
             </trigger>
         </field>
         <field name="provinceLocation">
@@ -135,8 +136,9 @@
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
                 <property name="TargetField">districtLocation</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocation</property>
-                <property name="CombineSourceField01">districtLocation</property>
+                <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField01">provinceLocation</property>
+                <property name="CombineSourceField02">districtLocation</property>
             </trigger>
         </field>
         <field name="districtLocation">
@@ -158,8 +160,9 @@
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
                 <property name="TargetField">districtLocation</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocation</property>
-                <property name="CombineSourceField01">districtLocation</property>
+                 <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField01">provinceLocation</property>
+                <property name="CombineSourceField02">districtLocation</property>
             </trigger>
         </field>
         <field name="departmentLocationEdit">
@@ -181,8 +184,9 @@
                 <property name="TargetField">provinceLocationEdit</property>
                 <property name="CleanField">districtLocationEdit</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocationEdit</property>
-                <property name="CombineSourceField01">districtLocationEdit</property>
+                <property name="CombineSourceField">departmentLocationEdit</property>
+                <property name="CombineSourceField01">provinceLocationEdit</property>
+                <property name="CombineSourceField02">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="provinceLocationEdit">
@@ -204,8 +208,9 @@
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
                 <property name="TargetField">districtLocationEdit</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocationEdit</property>
-                <property name="CombineSourceField01">districtLocationEdit</property>
+                <property name="CombineSourceField">departmentLocationEdit</property>
+                <property name="CombineSourceField01">provinceLocationEdit</property>
+                <property name="CombineSourceField02">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="districtLocationEdit">
@@ -226,8 +231,9 @@
                 name="Contacts_ClassLocationForm.districtLocationEdit.UI_FIELD_UPDATE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocationEdit</property>
-                <property name="CombineSourceField01">districtLocationEdit</property>
+                <property name="CombineSourceField">departmentLocationEdit</property>
+                <property name="CombineSourceField01">provinceLocationEdit</property>
+                <property name="CombineSourceField02">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="ubication">
