@@ -141,8 +141,9 @@
                 <property name="TargetField">provinceLocation</property>
                 <property name="CleanField">districtLocation</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocation</property>
-                <property name="CombineSourceField01">districtLocation</property>
+                <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField01">provinceLocation</property>
+                <property name="CombineSourceField02">districtLocation</property>
             </trigger>
         </field>
         <field name="provinceLocation">
@@ -166,8 +167,9 @@
                 event="UI_FIELD_UPDATE">
                 <property name="TargetField">districtLocation</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocation</property>
-                <property name="CombineSourceField01">districtLocation</property>
+                <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField01">provinceLocation</property>
+                <property name="CombineSourceField02">districtLocation</property>
             </trigger>
         </field>
         <field name="districtLocation">
@@ -190,8 +192,9 @@
                 name="Contacts_ClassLocationForm.districtLocation.UI_FIELD_UPDATE"
                 event="UI_FIELD_UPDATE">
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocation</property>
-                <property name="CombineSourceField01">districtLocation</property>
+                <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField01">provinceLocation</property>
+                <property name="CombineSourceField02">districtLocation</property>
             </trigger>
         </field>
         <field name="departmentLocationEdit">
@@ -215,8 +218,9 @@
                 <property name="TargetField">provinceLocationEdit</property>
                 <property name="CleanField">districtLocationEdit</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocationEdit</property>
-                <property name="CombineSourceField01">districtLocationEdit</property>
+                <property name="CombineSourceField">departmentLocationEdit</property>
+                <property name="CombineSourceField01">provinceLocationEdit</property>
+                <property name="CombineSourceField02">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="provinceLocationEdit">
@@ -240,8 +244,9 @@
                 event="UI_FIELD_UPDATE">
                 <property name="TargetField">districtLocationEdit</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocationEdit</property>
-                <property name="CombineSourceField01">districtLocationEdit</property>
+                <property name="CombineSourceField">departmentLocationEdit</property>
+                <property name="CombineSourceField01">provinceLocationEdit</property>
+                <property name="CombineSourceField02">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="districtLocationEdit">
@@ -262,8 +267,9 @@
                 name="Contacts_ClassLocationForm.districtLocationEdit.UI_FIELD_UPDATE"
                 event="UI_FIELD_UPDATE">
                 <property name="CombineTargetField">locationAdressCity</property>
-                <property name="CombineSourceField">provinceLocationEdit</property>
-                <property name="CombineSourceField01">districtLocationEdit</property>
+                <property name="CombineSourceField">departmentLocationEdit</property>
+                <property name="CombineSourceField01">provinceLocationEdit</property>
+                <property name="CombineSourceField02">districtLocationEdit</property>
             </trigger>
         </field>
         <field name="ubication">
