@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
-  Copyright 2003 - 2015 The eFaps Team
+  Copyright 2003 - 2016 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -158,9 +158,8 @@
             <trigger event="UI_FIELD_UPDATE" method="updateDropDown4Ubication"
                 name="Contacts_ClassLocationForm.districtLocation.UI_FIELD_UPDATE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
-                <property name="TargetField">districtLocation</property>
                 <property name="CombineTargetField">locationAdressCity</property>
-                 <property name="CombineSourceField">departmentLocation</property>
+                <property name="CombineSourceField">departmentLocation</property>
                 <property name="CombineSourceField01">provinceLocation</property>
                 <property name="CombineSourceField02">districtLocation</property>
             </trigger>
