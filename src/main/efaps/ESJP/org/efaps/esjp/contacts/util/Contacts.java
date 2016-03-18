@@ -39,7 +39,7 @@ import org.efaps.util.cache.CacheReloadException;
 public final class Contacts
 {
     /** The base. */
-    public static final String BASE = "org.efaps.commons.";
+    public static final String BASE = "org.efaps.contacts.";
 
     /** Contacts-Configuration. */
     public static final UUID SYSCONFUUID = UUID.fromString("77f5f440-f251-46d0-8603-add22f99f7f0");
@@ -68,7 +68,7 @@ public final class Contacts
     @EFapsSysConfAttribute
     public static final BooleanSysConfAttribute CLASSFINANCIALACTIVATE = new BooleanSysConfAttribute()
                     .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "Activate the Financial Information Classification")
+                    .key(BASE + "ActivateClassFinancialInformation")
                     .description("Activate the ContactGroup UserInterface..");
 
     /** See description. */
