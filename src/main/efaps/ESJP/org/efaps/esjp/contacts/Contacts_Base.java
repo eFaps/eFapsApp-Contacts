@@ -117,14 +117,6 @@ public abstract class Contacts_Base
         final String key = containsProperty(_parameter, "Key") ? getProperty(_parameter, "Key") : "OID";
 
         final QueryBuilder queryBldr = getQueryBldr4AutoComplete(_parameter);
-        final Map<Integer, String> classes = analyseProperty(_parameter, "Classification");
-        if (!classes.isEmpty()) {
-            final List<Classification> classTypes = new ArrayList<Classification>();
-            for (final String clazz : classes.values()) {
-                classTypes.add((Classification) Type.get(clazz));
-            }
-            queryBldr.addWhereClassification(classTypes.toArray(new Classification[classTypes.size()]));
-        }
         final boolean nameSearch = !Character.isDigit(input.charAt(0));
         if (nameSearch) {
             queryBldr.addWhereAttrMatchValue(CIContacts.Contact.Name, input + "*").setIgnoreCase(true);
@@ -138,13 +130,6 @@ public abstract class Contacts_Base
                 orgAttrQueryBldr.addWhereAttrMatchValue(CIContacts.ClassOrganisation.TradeName, input + "*")
                     .setIgnoreCase(true);
                 final QueryBuilder subQueryBldr = getQueryBldr4AutoComplete(_parameter);
-                if (!classes.isEmpty()) {
-                    final List<Classification> classTypes = new ArrayList<Classification>();
-                    for (final String clazz : classes.values()) {
-                        classTypes.add((Classification) Type.get(clazz));
-                    }
-                    subQueryBldr.addWhereClassification(classTypes.toArray(new Classification[classTypes.size()]));
-                }
                 subQueryBldr.addWhereAttrInQuery(CIContacts.Contact.ID,
                                 orgAttrQueryBldr.getAttributeQuery(CIContacts.ClassOrganisation.ContactLink));
 
@@ -241,8 +226,18 @@ public abstract class Contacts_Base
         throws EFapsException
     {
         QueryBuilder ret = getQueryBldrFromProperties(_parameter);
+        // if the QueryBuilder was not set via the Properties, set defaults
         if (ret == null) {
             ret = new QueryBuilder(CIContacts.Contact);
+            final Map<Integer, String> classes = analyseProperty(_parameter, "Classification");
+            if (!classes.isEmpty()) {
+                final List<Classification> classTypes = new ArrayList<Classification>();
+                for (final String clazz : classes.values()) {
+                    classTypes.add((Classification) Type.get(clazz));
+                }
+                ret.addWhereClassification(classTypes.toArray(new Classification[classTypes.size()]));
+            }
+            ret.addWhereAttrEqValue(CIContacts.Contact.Status, CIContacts.ContactStatus.Active);
         }
         return ret;
     }
