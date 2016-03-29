@@ -28,7 +28,6 @@ import java.util.Map.Entry;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.efaps.admin.datamodel.Classification;
 import org.efaps.admin.datamodel.Type;
-import org.efaps.admin.dbproperty.DBProperties;
 import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Parameter.ParameterValues;
 import org.efaps.admin.event.Return;
@@ -47,6 +46,7 @@ import org.efaps.db.Update;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIERP;
 import org.efaps.esjp.ci.CIFormContacts;
+import org.efaps.esjp.ci.CIMsgContacts;
 import org.efaps.esjp.common.AbstractCommon;
 import org.efaps.esjp.common.util.InterfaceUtils;
 import org.efaps.esjp.contacts.listener.IOnContact;
@@ -310,35 +310,14 @@ public abstract class Contacts_Base
                                         final boolean _escape)
         throws EFapsException
     {
-        final StringBuilder strBldr = new StringBuilder();
-
+        String ret = null;
         if (_instance.isValid()) {
             final PrintQuery print = new PrintQuery(_instance);
-            final SelectBuilder selTaxN = SelectBuilder.get().clazz(CIContacts.ClassOrganisation)
-                            .attribute(CIContacts.ClassOrganisation.TaxNumber);
-            final SelectBuilder selIDC = SelectBuilder.get().clazz(CIContacts.ClassPerson)
-                            .attribute(CIContacts.ClassPerson.IdentityCard);
-            final SelectBuilder selStreet = SelectBuilder.get().clazz(CIContacts.ClassLocation)
-                            .attribute(CIContacts.ClassLocation.LocationAdressStreet);
-            print.addSelect(selTaxN, selIDC, selStreet);
+            print.addMsgPhrase(CIMsgContacts.ContactInfoMsgPhrase);
             print.execute();
-            final String taxnumber = print.<String>getSelect(selTaxN);
-            final String idcard = print.<String>getSelect(selIDC);
-            final String street = print.<String>getSelect(selStreet);
-
-            final boolean hasDOI = taxnumber == null
-                            || taxnumber.length() < 1 && idcard != null && idcard.length() > 1;
-
-            strBldr.append(hasDOI ? DBProperties.getProperty("Contacts_ClassPerson/IdentityCard.Label")
-                            : DBProperties.getProperty("Contacts_ClassOrganisation/TaxNumber.Label"))
-                            .append(": ").append(hasDOI ? idcard : taxnumber);
-
-            if (street != null && !street.isEmpty()) {
-                strBldr.append("  -  ").append(DBProperties.getProperty("Contacts_ClassLocation.Label"))
-                        .append(": ").append(street);
-            }
+            ret = print.getMsgPhrase(CIMsgContacts.ContactInfoMsgPhrase);
         }
-        return _escape ? StringEscapeUtils.escapeEcmaScript(strBldr.toString()) : strBldr.toString();
+        return ret == null ? "" : _escape ? StringEscapeUtils.escapeEcmaScript(ret) : ret;
     }
 
     /**
