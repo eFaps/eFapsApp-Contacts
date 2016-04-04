@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2011 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,19 +15,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
-
-<datamodel-type  xmlns="http://www.efaps.org/xsd"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>b4a4a330-3520-45e5-bba6-6ba14d093ff7</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassPointOfContact</name>
@@ -68,9 +59,8 @@
                 <typelink>Contacts_AttributeDefinitionPointOfContact</typelink>
                 <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
                 <sqlcolumn>DEFID</sqlcolumn>
-                <trigger name="Contacts_Class.PointOfContactSet.PointOfContact4Contacts"
-                         event="RANGE_VALUE"
-                         program="org.efaps.esjp.admin.datamodel.RangesValue">
+                <trigger name="Contacts_Class.PointOfContactSet.PointOfContact4Contacts" event="RANGE_VALUE"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
                     <property name="Value">Value</property>
                     <property name="Type">Contacts_AttributeDefinitionPointOfContact</property>
                 </trigger>
@@ -93,6 +83,35 @@
                 <sqltable>Contacts_AttributeAbstractPointOfContactSQLTable</sqltable>
                 <sqlcolumn>EMAIL</sqlcolumn>
             </attribute>
+            <trigger program="org.efaps.esjp.common.history.InsertAttributeSetHistoryTrigger"
+                name="Contacts_ClassPointOfContact.PointOfContactSet.INSERT_POST"
+                event="INSERT_POST">
+                <property name="IgnoreAttribute">PointOfContactSet</property>
+                <property name="SelectAttribute01">PointOfContact4Contacts</property>
+                <property name="Select01">linkto[PointOfContact4Contacts].attribute[Value]</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.common.history.UpdateAttributeSetHistoryTrigger"
+                name="Contacts_ClassPointOfContact.PointOfContactSet.UPDATE_POST"
+                event="UPDATE_POST">
+                <property name="SelectAttribute01">PointOfContact4Contacts</property>
+                <property name="Select01">linkto[PointOfContact4Contacts].attribute[Value]</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.common.history.DeleteAttributeSetHistoryTrigger"
+                name="Contacts_ClassPointOfContact.PointOfContactSet.DELETE_PRE"
+                event="DELETE_PRE">
+            </trigger>
         </attributeset>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_ClassPointOfContact.INSERT_POST"
+            event="INSERT_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_ClassPointOfContact.UPDATE_POST"
+            event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_ClassPointOfContact.DELETE_PRE"
+            event="DELETE_PRE">
+        </trigger>
     </definition>
 </datamodel-type>

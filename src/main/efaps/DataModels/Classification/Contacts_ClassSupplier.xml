@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,24 +15,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
-
-<datamodel-type  xmlns="http://www.efaps.org/xsd"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>b3b28a28-424e-4db6-8b31-2f9f9c04d338</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassSupplier</name>
-        
         <purpose classification="true">
             <LinkColumn>ContactLink</LinkColumn>
             <parent>Contacts_Class</parent>
@@ -63,11 +52,28 @@
             <typelink>Contacts_AttributeDefinitionProducttype</typelink>
             <sqltable>Contacts_ClassSupplierSQLTable</sqltable>
             <sqlcolumn>PRODTYPEID</sqlcolumn>
-            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue" 
-                name="Contacts_ClassClient.IndustryLink.RANGE_VALUE" event="RANGE_VALUE">
-                    <property name="Value">Value</property>
-                    <property name="Type">Contacts_AttributeDefinitionProducttype</property>
-                </trigger>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue" name="Contacts_ClassClient.IndustryLink.RANGE_VALUE"
+                event="RANGE_VALUE">
+                <property name="Value">Value</property>
+                <property name="Type">Contacts_AttributeDefinitionProducttype</property>
+            </trigger>
         </attribute>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_ClassSupplier.INSERT_POST"
+            event="INSERT_POST">
+            <property name="IgnoreAttribute">ContactLink</property>
+            <property name="SelectAttribute01">ProducttypeLink</property>
+            <property name="Select01">linkto[DOITypeLink].attribute[Value]</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_ClassSupplier.UPDATE_POST"
+            event="UPDATE_POST">
+            <property name="SelectAttribute01">ProducttypeLink</property>
+            <property name="Select01">linkto[DOITypeLink].attribute[Value]</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_ClassSupplier.DELETE_PRE"
+            event="DELETE_PRE">
+        </trigger>
     </definition>
 </datamodel-type>

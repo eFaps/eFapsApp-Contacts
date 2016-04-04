@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 216 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,62 +14,69 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev: 10328 $
- Last Changed:    $Date: 2013-09-30 15:30:42 -0500 (lun, 30 sep 2013) $
- Last Changed By: $Author: jorge.cueva@moxter.net $
-
---><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>bbc2e1c1-3e93-4e39-93d4-30df7d13f15a</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev: 10328 $</file-revision>
-
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassFinancialInformation_PrincipalesClientes</name>
-    <parent>Contacts_ClassFinancialInformation</parent>
-    <purpose classification="true">
-        <LinkColumn>ContactId</LinkColumn>
+-->
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>bbc2e1c1-3e93-4e39-93d4-30df7d13f15a</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_PrincipalesClientes</name>
         <parent>Contacts_ClassFinancialInformation</parent>
-    </purpose>
-    <attributeset>
-        <name>FIMainClientSet</name>
-        <type>MultiLineArray</type>
-        <parent>Contacts_AttributeAbstractFinancialInformation_MainClient</parent>
-        <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
-        <sqlcolumn>RELID</sqlcolumn>
-        <uuid>7471daee-d660-4f26-99c4-d87d9f01ccf9</uuid>
-        <attribute>
-            <name>Client</name>
-            <type>String</type>
+        <purpose classification="true">
+            <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_ClassFinancialInformation</parent>
+        </purpose>
+        <attributeset>
+            <name>FIMainClientSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_MainClient</parent>
             <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
-            <sqlcolumn>SPLR</sqlcolumn>
-        </attribute>
-        <attribute>
-            <name>Phone</name>
-            <type>String</type>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
-            <sqlcolumn>PHONE</sqlcolumn>
-        </attribute>
-        <attribute>
-            <name>Contact</name>
-            <type>String</type>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
-            <sqlcolumn>CONTACT</sqlcolumn>
-        </attribute>
-        <attribute>
-            <name>Position</name>
-            <type>String</type>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
-            <sqlcolumn>POSITION</sqlcolumn>
-        </attribute>
-        <attribute>
-            <name>FactAnnual</name>
-            <type>String</type>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
-            <sqlcolumn>FACTY</sqlcolumn>
-        </attribute>
-    </attributeset>
-
-  </definition>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>7471daee-d660-4f26-99c4-d87d9f01ccf9</uuid>
+            <attribute>
+                <name>Client</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
+                <sqlcolumn>SPLR</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Phone</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
+                <sqlcolumn>PHONE</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Contact</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
+                <sqlcolumn>CONTACT</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>Position</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
+                <sqlcolumn>POSITION</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>FactAnnual</name>
+                <type>String</type>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_MainClientSQLTable</sqltable>
+                <sqlcolumn>FACTY</sqlcolumn>
+            </attribute>
+        </attributeset>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation_PrincipalesClientes.INSERT_POST"
+            event="INSERT_POST">
+            <property name="IgnoreAttribute">ContactLink</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation_PrincipalesClientes.UPDATE_POST"
+            event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation_PrincipalesClientes.DELETE_PRE"
+            event="DELETE_PRE">
+        </trigger>
+    </definition>
 </datamodel-type>

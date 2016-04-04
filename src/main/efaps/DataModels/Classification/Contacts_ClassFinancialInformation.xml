@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,22 +15,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev: 10328 $
- Last Changed:    $Date: 2013-09-30 15:30:42 -0500 (lun, 30 sep 2013) $
- Last Changed By: $Author: jorge.cueva@moxter.net $
-
 -->
 <datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>77f9947f-0b77-41fa-9b76-30ef6080d093</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev: 10328 $</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassFinancialInformation</name>
         <purpose classification="true">
-            <LinkColumn>ContactId</LinkColumn>
+            <LinkColumn>ContactLink</LinkColumn>
             <parent>Contacts_Class</parent>
         </purpose>
         <attribute>
@@ -51,7 +46,7 @@
             <sqlcolumn>ID</sqlcolumn>
         </attribute>
         <attribute>
-            <name>ContactId</name>
+            <name>ContactLink</name>
             <type>Link</type>
             <typelink>Contacts_Contact</typelink>
             <sqltable>Contacts_ClassFinancialInformationSQLTable</sqltable>
@@ -61,6 +56,19 @@
             name="Contacts_ClassFinancialInformation.ACCESSCHECK" event="ACCESSCHECK">
             <property name="SystemConfig">Contacts-Configuration</property>
             <property name="Attribute">org.efaps.contacts.ActivateClassFinancialInformation</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation.INSERT_POST"
+            event="INSERT_POST">
+            <property name="IgnoreAttribute">ContactLink</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation.UPDATE_POST"
+            event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation.DELETE_PRE"
+            event="DELETE_PRE">
         </trigger>
     </definition>
 </datamodel-type>

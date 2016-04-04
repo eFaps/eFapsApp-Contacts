@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,137 +15,145 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
---><datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>02e51f51-08c6-4ac5-9967-2e217a1581f6</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassFinancialInformation_CompanyReferences</name>
-    <purpose classification="true">
-        <LinkColumn>ContactId</LinkColumn>
-        <parent>Contacts_ClassFinancialInformation</parent>
-    </purpose>
-    <attribute>
-        <name>OID</name>
-        <type>OID</type>
-        <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
-        <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    <attribute>
-        <name>ID</name>
-        <type>Long</type>
-        <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
-        <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-    <attribute>
-        <name>ContactId</name>
-        <type>Link</type>
-        <typelink>Contacts_Contact</typelink>
-        <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
-        <sqlcolumn>CONTACTID</sqlcolumn>
-    </attribute>
-    <attribute>
-        <name>Certification</name>
-        <type>String</type>
-        <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
-        <sqlcolumn>CERT</sqlcolumn>
-    </attribute>
-    <attributeset>
-        <name>CompanyRefSet</name>
-        <type>MultiLineArray</type>
-        <parent>Contacts_AttributeAbstractFinancialInformation_CompanyReferences</parent>
-        <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
-        <sqlcolumn>RELID</sqlcolumn>
-        <uuid>2137e30c-fc4a-4b68-8428-268a2b70c2c8</uuid>
+-->
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>02e51f51-08c6-4ac5-9967-2e217a1581f6</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_CompanyReferences</name>
+        <purpose classification="true">
+            <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_ClassFinancialInformation</parent>
+        </purpose>
         <attribute>
-            <name>CompanySizeId</name>
-            <type>LinkWithRanges</type>
-            <typelink>Contacts_AttributeDefinitionCompanySize</typelink>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
-            <sqlcolumn>DEFID1</sqlcolumn>
-            <trigger event="RANGE_VALUE" name="Sales_Payment.CompanySizeId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
-                <property name="Value">Value</property>
-                <property name="Type">Contacts_AttributeDefinitionCompanySize</property>
-            </trigger>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
         </attribute>
         <attribute>
-            <name>AntiquityId</name>
-            <type>LinkWithRanges</type>
-            <typelink>Contacts_AttributeDefinitionAntiquity</typelink>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
-            <sqlcolumn>DEFID2</sqlcolumn>
-            <trigger event="RANGE_VALUE" name="Sales_Payment.AntiquityId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
-                <property name="Value">Value</property>
-                <property name="Type">Contacts_AttributeDefinitionAntiquity</property>
-            </trigger>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
         </attribute>
         <attribute>
-            <name>SocialCapitalId</name>
-            <type>LinkWithRanges</type>
-            <typelink>Contacts_AttributeDefinitionSocialCapital</typelink>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
-            <sqlcolumn>DEFID3</sqlcolumn>
-            <trigger event="RANGE_VALUE" name="Sales_Payment.SocialCapitalId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
-                <property name="Value">Value</property>
-                <property name="Type">Contacts_AttributeDefinitionSocialCapital</property>
-            </trigger>
+            <name>ContactLink</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
         </attribute>
         <attribute>
-            <name>GovernmentSectorSalesId</name>
-            <type>LinkWithRanges</type>
-            <typelink>Contacts_AttributeDefinitionGovernmentSectorSales</typelink>
-            <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
-            <sqlcolumn>DEFID4</sqlcolumn>
-            <trigger event="RANGE_VALUE" name="Sales_Payment.GovernmentSectorSalesId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
-                <property name="Value">Value</property>
-                <property name="Type">Contacts_AttributeDefinitionGovernmentSectorSales</property>
-            </trigger>
+            <name>Certification</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassFinancialInformation_CompanyReferencesSQLTable</sqltable>
+            <sqlcolumn>CERT</sqlcolumn>
         </attribute>
-    </attributeset>
-    <attributeset>
-        <name>InfrastructureSet</name>
-        <type>MultiLineArray</type>
-        <parent>Contacts_AttributeAbstractFinancialInformation_Infrastructure</parent>
-        <sqltable>Contacts_AttributeAbstractFinancialInformation_InfrastructureSQLTable</sqltable>
-        <sqlcolumn>RELID</sqlcolumn>
-        <uuid>b399616c-c3d1-4de5-bd17-d5d0d8672092</uuid>
-        <attribute>
-            <name>InfrastructureId</name>
-            <type>LinkWithRanges</type>
-            <typelink>Contacts_AttributeDefinitionInfrastructure</typelink>
+        <attributeset>
+            <name>CompanyRefSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_CompanyReferences</parent>
+            <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>2137e30c-fc4a-4b68-8428-268a2b70c2c8</uuid>
+            <attribute>
+                <name>CompanySizeId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionCompanySize</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
+                <sqlcolumn>DEFID1</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Sales_Payment.CompanySizeId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionCompanySize</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>AntiquityId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionAntiquity</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
+                <sqlcolumn>DEFID2</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Sales_Payment.AntiquityId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionAntiquity</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>SocialCapitalId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionSocialCapital</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
+                <sqlcolumn>DEFID3</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Sales_Payment.SocialCapitalId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionSocialCapital</property>
+                </trigger>
+            </attribute>
+            <attribute>
+                <name>GovernmentSectorSalesId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionGovernmentSectorSales</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_CompanyReferencesSQLTable</sqltable>
+                <sqlcolumn>DEFID4</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Sales_Payment.GovernmentSectorSalesId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionGovernmentSectorSales</property>
+                </trigger>
+            </attribute>
+        </attributeset>
+        <attributeset>
+            <name>InfrastructureSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_Infrastructure</parent>
             <sqltable>Contacts_AttributeAbstractFinancialInformation_InfrastructureSQLTable</sqltable>
-            <sqlcolumn>DEFID</sqlcolumn>
-            <trigger event="RANGE_VALUE" name="Sales_Payment.InfrastructureId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
-                <property name="Value">Value</property>
-                <property name="Type">Contacts_AttributeDefinitionInfrastructure</property>
-            </trigger>
-        </attribute>
-    </attributeset>
-    <attributeset>
-        <name>ExternalTradeSet</name>
-        <type>MultiLineArray</type>
-        <parent>Contacts_AttributeAbstractFinancialInformation_ExternalTrade</parent>
-        <sqltable>Contacts_AttributeAbstractFinancialInformation_ExternalTradeSQLTable</sqltable>
-        <sqlcolumn>RELID</sqlcolumn>
-        <uuid>5fbdc6db-6da8-4364-8e5f-03c0b5346976</uuid>
-        <attribute>
-            <name>ExternalTradeId</name>
-            <type>LinkWithRanges</type>
-            <typelink>Contacts_AttributeDefinitionExternalTrade</typelink>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>b399616c-c3d1-4de5-bd17-d5d0d8672092</uuid>
+            <attribute>
+                <name>InfrastructureId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionInfrastructure</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_InfrastructureSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Sales_Payment.InfrastructureId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionInfrastructure</property>
+                </trigger>
+            </attribute>
+        </attributeset>
+        <attributeset>
+            <name>ExternalTradeSet</name>
+            <type>MultiLineArray</type>
+            <parent>Contacts_AttributeAbstractFinancialInformation_ExternalTrade</parent>
             <sqltable>Contacts_AttributeAbstractFinancialInformation_ExternalTradeSQLTable</sqltable>
-            <sqlcolumn>DEFID</sqlcolumn>
-            <trigger event="RANGE_VALUE" name="Sales_Payment.ExternalTradeId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
-                <property name="Value">Value</property>
-                <property name="Type">Contacts_AttributeDefinitionExternalTrade</property>
-            </trigger>
-        </attribute>
-    </attributeset>
-  </definition>
+            <sqlcolumn>RELID</sqlcolumn>
+            <uuid>5fbdc6db-6da8-4364-8e5f-03c0b5346976</uuid>
+            <attribute>
+                <name>ExternalTradeId</name>
+                <type>LinkWithRanges</type>
+                <typelink>Contacts_AttributeDefinitionExternalTrade</typelink>
+                <sqltable>Contacts_AttributeAbstractFinancialInformation_ExternalTradeSQLTable</sqltable>
+                <sqlcolumn>DEFID</sqlcolumn>
+                <trigger event="RANGE_VALUE" name="Sales_Payment.ExternalTradeId.RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    <property name="Value">Value</property>
+                    <property name="Type">Contacts_AttributeDefinitionExternalTrade</property>
+                </trigger>
+            </attribute>
+        </attributeset>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation_CompanyReferences.INSERT_POST"
+            event="INSERT_POST">
+            <property name="IgnoreAttribute">ContactLink</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation_CompanyReferences.UPDATE_POST"
+            event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_ClassFinancialInformation_CompanyReferences.DELETE_PRE"
+            event="DELETE_PRE">
+        </trigger>
+    </definition>
 </datamodel-type>

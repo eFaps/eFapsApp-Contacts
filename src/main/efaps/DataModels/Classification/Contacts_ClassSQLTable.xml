@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,30 +15,20 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
-
-<datamodel-sqltable  xmlns="http://www.efaps.org/xsd"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>b95af7f4-c042-4129-978d-b3d71bd6f31a</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ClassSQLTable</name>
-    <database>
-      <table-name>T_COCLASS</table-name>
-      <!-- columns -->
-      <column name="CONTACTID"        type="INTEGER"           not-null="true"/>
-      <unique name="T_COCLASS_UK_CONTACTID"  columns="CONTACTID" />
-      <foreign name="T_COCLASS_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)"/>
-     </database>
-  </definition>
-
+<datamodel-sqltable xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>b95af7f4-c042-4129-978d-b3d71bd6f31a</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassSQLTable</name>
+        <database>
+            <table-name>T_COCLASS</table-name>
+            <column name="CONTACTID"    type="INTEGER"                      not-null="true" />
+            <column name="WEBSITE"      type="STRING_SHORT" length="256"    />
+            <unique name="T_COCLASS_UK_CONTACTID" columns="CONTACTID" />
+            <foreign name="T_COCLASS_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
+        </database>
+    </definition>
 </datamodel-sqltable>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,20 +15,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
-
-<datamodel-type xmlns="http://www.efaps.org/xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>0a67eae7-b31f-4bed-bb5e-d0c962b89023</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Class</name>
@@ -69,7 +59,8 @@
                 <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
                 <sqlcolumn>DEFID</sqlcolumn>
                 <trigger name="Contacts_Class.PhoneSet.Description4Phone"
-                    event="RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                        event="RANGE_VALUE"
+                        program="org.efaps.esjp.admin.datamodel.RangesValue">
                     <property name="Value">Value</property>
                     <property name="Type">Contacts_AttributeDefinitionPhone</property>
                 </trigger>
@@ -80,6 +71,23 @@
                 <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
                 <sqlcolumn>VALUE</sqlcolumn>
             </attribute>
+            <trigger program="org.efaps.esjp.common.history.InsertAttributeSetHistoryTrigger"
+                name="Contacts_Class.PhoneSet.INSERT_POST"
+                event="INSERT_POST">
+                <property name="IgnoreAttribute">PhoneSet</property>
+                <property name="SelectAttribute01">Description4Phone</property>
+                <property name="Select01">linkto[Description4Phone].attribute[Value]</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.common.history.UpdateAttributeSetHistoryTrigger"
+                name="Contacts_Class.PhoneSet.UPDATE_POST"
+                event="UPDATE_POST">
+                <property name="SelectAttribute01">Description4Phone</property>
+                <property name="Select01">linkto[Description4Phone].attribute[Value]</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.common.history.DeleteAttributeSetHistoryTrigger"
+                name="Contacts_Class.PhoneSet.DELETE_PRE"
+                event="DELETE_PRE">
+            </trigger>
         </attributeset>
         <attributeset>
             <name>EmailSet</name>
@@ -95,7 +103,8 @@
                 <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
                 <sqlcolumn>DEFID</sqlcolumn>
                 <trigger name="Contacts_Class.EmailSet.Description4Email"
-                    event="RANGE_VALUE" program="org.efaps.esjp.admin.datamodel.RangesValue">
+                    event="RANGE_VALUE"
+                    program="org.efaps.esjp.admin.datamodel.RangesValue">
                     <property name="Value">Value</property>
                     <property name="Type">Contacts_AttributeDefinitionEmail</property>
                 </trigger>
@@ -106,9 +115,46 @@
                 <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
                 <sqlcolumn>VALUE</sqlcolumn>
             </attribute>
+            <trigger program="org.efaps.esjp.common.history.InsertAttributeSetHistoryTrigger"
+                name="Contacts_Class.EmailSet.INSERT_POST"
+                event="INSERT_POST">
+                <property name="IgnoreAttribute">EmailSet</property>
+                <property name="SelectAttribute01">Description4Email</property>
+                <property name="Select01">linkto[Description4Email].attribute[Value]</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.common.history.UpdateAttributeSetHistoryTrigger"
+                name="Contacts_Class.EmailSet.UPDATE_POST"
+                event="UPDATE_POST">
+                <property name="SelectAttribute01">Description4Email</property>
+                <property name="Select01">linkto[Description4Email].attribute[Value]</property>
+            </trigger>
+            <trigger program="org.efaps.esjp.common.history.DeleteAttributeSetHistoryTrigger"
+                name="Contacts_Class.EmailSet.DELETE_PRE"
+                event="DELETE_PRE">
+            </trigger>
         </attributeset>
+        <attribute>
+            <name>Website</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassSQLTable</sqltable>
+            <sqlcolumn>WEBSITE</sqlcolumn>
+        </attribute>
+        <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
+            name="Contacts_Class.INSERT_POST"
+            event="INSERT_POST">
+            <property name="IgnoreAttribute">ContactLink</property>
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
+            name="Contacts_Class.UPDATE_POST"
+            event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
+            name="Contacts_Class.DELETE_PRE"
+            event="DELETE_PRE">
+        </trigger>
         <classifies type="Contacts_Contact" relType="Contacts_Contact2Class"
-            relLinkAttribute="Contact" relTypeAttribute="ClassTypeId"
+            relLinkAttribute="Contact"
+            relTypeAttribute="ClassTypeId"
             multipleSelect="true" />
     </definition>
 </datamodel-type>
