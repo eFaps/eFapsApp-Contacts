@@ -40,7 +40,7 @@
         <field name="taxNumber">
             <property name="Select">class[Contacts_ClassOrganisation].attribute[TaxNumber]</property>
             <property name="Label">Contacts_ClassOrganisation/TaxNumber.Label</property>
-            <property name="ClassNameUI">org.efaps.admin.datamodel.ui.StringUI</property>
+            <property name="UIProvider">org.efaps.admin.datamodel.ui.StringUI</property>
             <property name="FilterType">FREETEXT</property>
             <property name="FilterRequired">TRUE</property>
             <property name="FilterBase">DATABASE</property>

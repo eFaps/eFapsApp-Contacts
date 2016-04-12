@@ -34,13 +34,13 @@
             <property name="Label">Contacts_CreateContactPickerForm/Name.Label</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="Required">true</property>
-            <property name="ClassNameUI">org.efaps.admin.datamodel.ui.StringUI</property>
+            <property name="UIProvider">org.efaps.admin.datamodel.ui.StringUI</property>
         </field>
         <field name="taxNumber">
             <property name="ModeCreate">EDITABLE</property>
             <property name="Label">Contacts_CreateContactPickerForm/TaxNumber.Label</property>
             <property name="Required">true</property>
-            <property name="ClassNameUI">org.efaps.admin.datamodel.ui.StringUI</property>
+            <property name="UIProvider">org.efaps.admin.datamodel.ui.StringUI</property>
         </field>
     </definition>
 
