@@ -22,7 +22,6 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Contact4TaxNumberTable</name>
-        <!-- fields -->
         <field name="name">
             <property name="Attribute">Name</property>
             <property name="HRef">${COMMONURL}/MenuTree.jsp</property>
@@ -33,6 +32,7 @@
         <field name="classification">
             <property name="Select">class.type</property>
             <property name="Label">Contacts_Contact.classification.Label</property>
+            <property name="UIProvider">org.efaps.admin.datamodel.ui.StringUI</property>
             <trigger event="UI_FIELD_FORMAT" method="classificationFieldFormat"
                 name="Contacts_ContactTable.classification"
                 program="org.efaps.esjp.common.uiform.Field" />
