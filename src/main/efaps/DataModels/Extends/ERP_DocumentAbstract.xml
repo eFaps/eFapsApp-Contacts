@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 <datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>ad1df372-bf47-49d2-af3e-a1c4065f062d</uuid>
-    <file-application>eFapsApp-Commons</file-application>
+    <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>ERP_DocumentAbstract</name>
