@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.efaps</groupId>
         <artifactId>efaps-parent</artifactId>
-        <version>5.0.0-SNAPSHOT</version>
+        <version>8.0.0-SNAPSHOT</version>
     </parent>
     <packaging>jar</packaging>
     <groupId>org.efaps.apps</groupId>
