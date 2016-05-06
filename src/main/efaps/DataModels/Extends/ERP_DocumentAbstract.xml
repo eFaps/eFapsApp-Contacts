@@ -154,5 +154,9 @@
             <sqlcolumn>MODIFIED</sqlcolumn>
         </attribute>
         <store name="ERP_DocumentVFSStore"/>
+        <index msgPhrase="ERP_IndexDocumentMsgPhrase">
+            <field key="index.ERP_DocumentAbstract.Name" select="attribute[Name]" type="STRING"/>
+            <field key="index.ERP_DocumentAbstract.Contact" select="linkto[Contact].attribute[Name]" type="STRING"/>
+        </index>
     </definition>
 </datamodel-type>
