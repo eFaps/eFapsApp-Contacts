@@ -155,8 +155,10 @@
         </attribute>
         <store name="ERP_DocumentVFSStore"/>
         <index msgPhrase="ERP_IndexDocumentMsgPhrase">
-            <field key="index.ERP_DocumentAbstract.Name" select="attribute[Name]" type="STRING"/>
-            <field key="index.ERP_DocumentAbstract.Contact" select="linkto[Contact].attribute[Name]" type="STRING"/>
+            <field id="nameLong" key="index.ERP_DocumentAbstract.Name" select="attribute[Name]" type="SEARCHLONG"
+                transform="org.efaps.esjp.admin.index.transformer.StringRight2Long"/>
+            <field id="name"    key="index.ERP_DocumentAbstract.Name" select="attribute[Name]" type="STRING" />
+            <field id="contact" key="index.ERP_DocumentAbstract.Contact" select="linkto[Contact].attribute[Name]" type="STRING"/>
         </index>
     </definition>
 </datamodel-type>

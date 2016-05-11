@@ -23,9 +23,10 @@
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>ERP_IndexDocumentMsgPhrase</name>
-        <label>{0}: {1} - {2}</label>
+        <label>{0}: {1} {3, datetime, dd/MM/yy} - {2}</label>
         <argument index="0">type.label</argument>
         <argument index="1">attribute[Name]</argument>
         <argument index="2">linkto[Contact].attribute[Name]</argument>
+        <argument index="3">attribute[Date]</argument>
     </definition>
 </common-msgphrase>
