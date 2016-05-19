@@ -84,5 +84,11 @@
             <sqltable>Contacts_ContactSQLTable</sqltable>
             <sqlcolumn>MODIFIED</sqlcolumn>
         </attribute>
+        <index msgPhrase="Contacts_IndexContactMsgPhrase">
+            <field id="name"            key="index.Contact.Name" select="attribute[Name]" type="TEXT" />
+            <field id="taxNumber"       key="index.Contact.Name" select="class[Contacts_ClassOrganisation].attribute[TaxNumber]" type="STRING"/>
+            <field id="tradeName"       key="index.Contact.Name" select="class[Contacts_ClassOrganisation].attribute[TradeName]" type="TEXT"/>
+            <field id="identityCard"    key="index.Contact.Name" select="class[Contacts_ClassPerson].attribute[IdentityCard]" type="STRING"/>
+        </index>
     </definition>
 </datamodel-type>
