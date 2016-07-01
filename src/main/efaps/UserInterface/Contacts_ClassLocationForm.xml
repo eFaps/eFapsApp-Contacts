@@ -86,7 +86,7 @@
             <property name="ModeEdit">READONLY</property>
         </field>
         <field name="locationAdressStreet">
-            <property name="Columns">50</property>
+            <property name="Width">50</property>
             <property name="Attribute">LocationAdressStreet</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
@@ -94,14 +94,14 @@
             <property name="Required">true</property>
         </field>
         <field name="locationReference">
-            <property name="Columns">50</property>
+            <property name="Width">50</property>
             <property name="Attribute">LocationReference</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
         </field>
         <field name="locationAdressCity">
-            <property name="Columns">40</property>
+            <property name="Width">50</property>
             <property name="Attribute">LocationAdressCity</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
@@ -109,7 +109,7 @@
             <property name="Required">true</property>
         </field>
         <field name="locationAdressZIP">
-            <property name="Columns">15</property>
+            <property name="Width">15</property>
             <property name="Attribute">LocationAdressZIP</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
@@ -126,8 +126,9 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger program="org.efaps.esjp.common.uiform.Field"
-                method="dropDownFieldValue"
+                method="getOptionListFieldValue"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
                 event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
@@ -152,8 +153,9 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger program="org.efaps.esjp.common.uiform.Field"
-                method="dropDownFieldValue"
+                method="getOptionListFieldValue"
                 name="Contacts_ClassLocationForm.province.UI_FIELD_VALUE"
                 event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
@@ -178,8 +180,9 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger program="org.efaps.esjp.common.uiform.Field"
-                method="dropDownFieldValue"
+                method="getOptionListFieldValue"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
                 event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
@@ -203,6 +206,7 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">DepartmentLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
                 method="getDropdown"
                 name="Ubicaciones_UbicacionExampleForm.locationUbicationEdit.UI_FIELD_VALUE"
@@ -229,6 +233,7 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">ProvinceLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
                 method="getDropdown"
                 name="Contacts_ClassLocationForm.provinceEdit.UI_FIELD_VALUE"
@@ -255,6 +260,7 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">DistrictLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="getDropdown"
                 name="Contacts_ClassLocationForm.districtEdit.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandard</property>
