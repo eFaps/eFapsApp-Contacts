@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,31 +16,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
-<datamodel-sqltable  xmlns="http://www.efaps.org/xsd"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-      <uuid>d1b83d9a-ac87-47de-92ec-39aa88350c6c</uuid>
-      <file-application>eFapsApp-Sales</file-application>
-      <file-revision>$Rev$</file-revision>
-
-      <definition>
+<datamodel-sqltable xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>d1b83d9a-ac87-47de-92ec-39aa88350c6c</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+        <definition>
         <version-expression>(version==latest)</version-expression>
-       <name>Contacts_ClassClientSQLTable</name>
+        <name>Contacts_ClassClientSQLTable</name>
         <database>
-          <table-name>T_COCLASSCLIENT</table-name>
-          <!-- columns -->
-          <column name="CONTACTID"        type="INTEGER"          not-null="true"/>
-          <column name="INDUSTRYID"       type="INTEGER"/>
-          <column name="COMACTID"         type="INTEGER"/>
-          <unique name="T_COCLASSCLIENT_UK_CONTACTID"  columns="CONTACTID" />
-          <foreign name="T_COCLASSCLIENT_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)"/>
-         </database>
+            <table-name>T_COCLASSCLIENT</table-name>
+            <column name="CONTACTID"    type="INTEGER" not-null="true" />
+            <column name="INDUSTRYID"   type="INTEGER" />
+            <column name="COMACTID"     type="INTEGER" />
+            <unique name="T_COCLASSCLIENT_UK_CONTACTID" columns="CONTACTID" />
+            <foreign name="T_COCLASSCLIENT_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
+        </database>
     </definition>
 </datamodel-sqltable>
