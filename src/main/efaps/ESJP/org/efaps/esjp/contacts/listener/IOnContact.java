@@ -23,7 +23,7 @@ package org.efaps.esjp.contacts.listener;
 import java.util.Map;
 
 import org.efaps.admin.event.Parameter;
-import org.efaps.admin.program.esjp.EFapsRevision;
+import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 import org.efaps.admin.program.esjp.IEsjpListener;
 import org.efaps.db.Instance;
@@ -33,10 +33,9 @@ import org.efaps.util.EFapsException;
  * TODO comment!
  *
  * @author The eFaps Team
- * @version $Id: IOnCreateDocument.java 13356 2014-07-17 22:54:10Z jan@moxter.net $
  */
 @EFapsUUID("ae413b0b-a7cb-447f-9b53-deb26bf0aa63")
-@EFapsRevision("$Rev: 13356 $")
+@EFapsApplication("eFapsApp-Contacts")
 public interface IOnContact
     extends IEsjpListener
 {

@@ -21,7 +21,7 @@
 
 package org.efaps.esjp.contacts;
 
-import org.efaps.admin.program.esjp.EFapsRevision;
+import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 
 
@@ -31,10 +31,10 @@ import org.efaps.admin.program.esjp.EFapsUUID;
  * class.
  *
  * @author The eFaps Team
- * @version $Id$
+ *
  */
 @EFapsUUID("23dfe052-659f-44fb-a618-01d48424820e")
-@EFapsRevision("$Rev$")
+@EFapsApplication("eFapsApp-Contacts")
 public class ContactsPicker
     extends ContactsPicker_Base
 {

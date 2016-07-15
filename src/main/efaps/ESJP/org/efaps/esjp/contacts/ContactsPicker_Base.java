@@ -28,7 +28,7 @@ import org.efaps.admin.dbproperty.DBProperties;
 import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Return;
 import org.efaps.admin.event.Return.ReturnValues;
-import org.efaps.admin.program.esjp.EFapsRevision;
+import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 import org.efaps.db.Insert;
 import org.efaps.db.Instance;
@@ -45,10 +45,9 @@ import org.efaps.util.EFapsException;
  * TODO comment!
  *
  * @author The eFaps Team
- * @version $Id$
  */
 @EFapsUUID("5bdf1780-6b34-4d7d-a1fd-01de63a71037")
-@EFapsRevision("$Rev$")
+@EFapsApplication("eFapsApp-Contacts")
 public abstract class ContactsPicker_Base
     extends AbstractCommon
 {
@@ -217,7 +216,7 @@ public abstract class ContactsPicker_Base
         throws EFapsException
     {
         final Return retVal = new Return();
-        final Map<String, String> map = new HashMap<String, String>();
+        final Map<String, String> map = new HashMap<>();
         retVal.put(ReturnValues.VALUES, map);
         final String name = _parameter.getParameterValue("name");
         final Insert insert = new Insert(CIContacts.Contact);

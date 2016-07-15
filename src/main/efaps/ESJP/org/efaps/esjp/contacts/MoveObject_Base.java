@@ -29,7 +29,7 @@ import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Parameter.ParameterValues;
 import org.efaps.admin.event.Return;
 import org.efaps.admin.event.Return.ReturnValues;
-import org.efaps.admin.program.esjp.EFapsRevision;
+import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 import org.efaps.db.Context;
 import org.efaps.db.Instance;
@@ -46,10 +46,9 @@ import org.efaps.util.EFapsException;
  * class.
  *
  * @author The eFaps Team
- * @version $Id: MoveObject_Base.java 1 2011-06-13 20:23:17Z Luis Estrada $
  */
 @EFapsUUID("3dbb9818-1816-4944-be87-132bb1e67242")
-@EFapsRevision("$Rev: 1 $")
+@EFapsApplication("eFapsApp-Contacts")
 public class MoveObject_Base
 {
 
@@ -64,7 +63,7 @@ public class MoveObject_Base
         throws EFapsException
     {
         final String input = (String) _parameter.get(ParameterValues.OTHERS);
-        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        final List<Map<String, String>> list = new ArrayList<>();
         final QueryBuilder queryBldr = new QueryBuilder(CIContacts.Contact);
         queryBldr.addWhereAttrMatchValue(CIContacts.Contact.Name, input + "*").setIgnoreCase(true);
         final MultiPrintQuery multi = queryBldr.getPrint();
@@ -73,7 +72,7 @@ public class MoveObject_Base
         while (multi.next()) {
             final String name = multi.<String>getAttribute(CIContacts.Contact.Name);
             final String oid = multi.<String>getAttribute(CIContacts.Contact.OID);
-            final Map<String, String> map = new HashMap<String, String>();
+            final Map<String, String> map = new HashMap<>();
             map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), oid);
             map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), name);
             map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), name);

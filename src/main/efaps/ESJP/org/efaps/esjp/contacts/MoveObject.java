@@ -20,17 +20,20 @@
 
 package org.efaps.esjp.contacts;
 
-import org.efaps.admin.program.esjp.EFapsRevision;
+import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 
 /**
+ * This class must be replaced for customization, therefore it is left empty.
+ * Functional description can be found in the related "<code>_base</code>"
+ * class.
  *
- * @author luis
- *
+ * @author The eFaps Team
  */
 @EFapsUUID("b1b36525-1c7f-4158-bcb4-2adb7f7d6c2c")
-@EFapsRevision("$Rev: 1 $")
-public class MoveObject extends MoveObject_Base
+@EFapsApplication("eFapsApp-Contacts")
+public class MoveObject
+    extends MoveObject_Base
 {
 
 }
