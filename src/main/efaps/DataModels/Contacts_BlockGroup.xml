@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
  Copyright 2003 - 2016 The eFaps Team
 
@@ -18,12 +17,29 @@
 -->
 <datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>ca310764-6ce7-4dfe-b94d-5deaee4d9823</uuid>
+    <uuid>4f61435a-9ec9-4f3e-a9b1-3aac76a93665</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_ContactGroup</name>
+        <name>Contacts_BlockGroup</name>
         <parent>Contacts_GroupAbstract</parent>
+        <attribute>
+            <name>Company</name>
+            <type>CompanyLink</type>
+            <sqltable>Contacts_ContactSQLTable</sqltable>
+            <sqlcolumn>COMPANYID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Status</name>
+            <type>Status</type>
+            <typelink>Contacts_ContactStatus</typelink>
+            <sqltable>Contacts_ContactSQLTable</sqltable>
+            <sqlcolumn>STATUS</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.StatusValue"
+                name="Contacts_BlockGroup.Status.RANGE_VALUE"
+                event="RANGE_VALUE">
+            </trigger>
+        </attribute>
         <trigger event="ACCESSCHECK" name="Contacts_ContactGroup.ACCESSCHECK"
             program="org.efaps.esjp.admin.access.SimpleAccessCheckOnType" />
     </definition>

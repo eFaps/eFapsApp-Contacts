@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
-<!--
-
- Copyright 2003 - 2015 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,23 +15,16 @@
  limitations under the License.
 
 -->
-
 <ui-menu xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>d7ede363-6f81-4576-b2a3-c02f1d8c749b</uuid>
+    <uuid>990a14f9-6b99-4c4e-9854-184c622d17cb</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_MyDesk</name>
-        <icon>Contacts_MyDeskImg</icon>
+        <name>Contacts_BlockGroupTree_Menu_Action</name>
         <childs>
-            <child>Contacts_ContactSearchMyDesk</child>
-            <child>Contacts_ContactMyDesk</child>
-            <child>Contacts_Contact4TaxNumberMyDesk</child>
-            <child>Contacts_ContactClientMyDesk</child>
-            <child>Contacts_ContactSupplierMyDesk</child>
-            <child>Contacts_ContactGroupMyDesk</child>
-            <child>Contacts_BlockGroupMyDesk</child>
+            <child>Contacts_BlockGroupTree_Menu_Action_Edit</child>
+            <child>Contacts_BlockGroupTree_Menu_Action_EditConfiguration</child>
         </childs>
     </definition>
 </ui-menu>

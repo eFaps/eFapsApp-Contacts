@@ -21,12 +21,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.efaps.admin.datamodel.Classification;
+import org.efaps.admin.datamodel.Status;
 import org.efaps.admin.datamodel.Type;
 import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Parameter.ParameterValues;
@@ -35,9 +41,12 @@ import org.efaps.admin.event.Return.ReturnValues;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 import org.efaps.admin.program.esjp.Listener;
+import org.efaps.admin.ui.AbstractCommand;
+import org.efaps.admin.ui.AbstractUserInterfaceObject.TargetMode;
 import org.efaps.admin.ui.field.Field;
 import org.efaps.db.AttributeQuery;
 import org.efaps.db.Instance;
+import org.efaps.db.InstanceQuery;
 import org.efaps.db.MultiPrintQuery;
 import org.efaps.db.PrintQuery;
 import org.efaps.db.QueryBuilder;
@@ -84,7 +93,7 @@ public abstract class Contacts_Base
             multi.addAttribute(CIERP.DocumentAbstract.ID, CIERP.DocumentAbstract.OID);
             multi.execute();
 
-            final Map<Long, String> ids = new HashMap<Long, String>();
+            final Map<Long, String> ids = new HashMap<>();
             while (multi.next()) {
                 ids.put(multi.<Long>getAttribute(CIERP.DocumentAbstract.ID),
                         multi.<String>getAttribute(CIERP.DocumentAbstract.OID));
@@ -112,11 +121,13 @@ public abstract class Contacts_Base
         throws EFapsException
     {
         final String input = (String) _parameter.get(ParameterValues.OTHERS);
-        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        final List<Map<String, String>> list = new ArrayList<>();
 
         final String key = containsProperty(_parameter, "Key") ? getProperty(_parameter, "Key") : "OID";
 
         final QueryBuilder queryBldr = getQueryBldr4AutoComplete(_parameter);
+        add2QueryBuilder4BlockGroup(_parameter, queryBldr);
+
         final boolean nameSearch = !Character.isDigit(input.charAt(0));
         if (nameSearch) {
             queryBldr.addWhereAttrMatchValue(CIContacts.Contact.Name, input + "*").setIgnoreCase(true);
@@ -150,7 +161,7 @@ public abstract class Contacts_Base
             while (multi.next()) {
                 final String name = multi.<String>getAttribute(CIContacts.Contact.Name);
                 final String keyVal = multi.getAttribute(key).toString();
-                final Map<String, String> map = new HashMap<String, String>();
+                final Map<String, String> map = new HashMap<>();
                 map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), keyVal);
                 map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), name);
                 list.add(map);
@@ -190,7 +201,7 @@ public abstract class Contacts_Base
             multi.addAttribute(key);
             multi.execute();
             while (multi.next()) {
-                final Map<String, String> map = new HashMap<String, String>();
+                final Map<String, String> map = new HashMap<>();
                 final String tax = multi.<String>getSelect(taxSel);
                 final String doi = multi.<String>getSelect(doiSel);
                 final String choice = (tax == null ? doi : tax) + " - "
@@ -218,6 +229,70 @@ public abstract class Contacts_Base
     }
 
     /**
+     * Adds the 2 query builder 4 block group.
+     *
+     * @param _parameter the parameter
+     * @param _queryBldr the query bldr
+     * @throws EFapsException the e faps exception
+     */
+    public void add2QueryBuilder4BlockGroup(final Parameter _parameter,
+                                            final QueryBuilder _queryBldr)
+        throws EFapsException
+    {
+        if (Contacts.ACTIVATEBLOCKGROUPS.get()) {
+            final QueryBuilder queryBldr = new QueryBuilder(CIContacts.BlockGroup);
+            queryBldr.addWhereAttrEqValue(CIContacts.BlockGroup.Status, Status.find(CIContacts.ContactStatus.Active));
+            final InstanceQuery query = queryBldr.getCachedQuery("BlockGroup")
+                            .setLifespanUnit(TimeUnit.MINUTES).setLifespan(5);
+            query.execute();
+            final Set<Instance> blockGroupInsts = new HashSet<>();
+            while (query.next()) {
+                final Properties props = Contacts.getSysConfig()
+                                .getObjectAttributeValueAsProperties(query.getCurrentValue());
+                String key = null;
+                String prefix = _parameter.get(ParameterValues.ACCESSMODE) == null
+                                ? null
+                                : String.valueOf(_parameter.get(ParameterValues.ACCESSMODE));
+                if (containsProperty(_parameter, "Key4BlockGroup")) {
+                    key = getProperty(_parameter, "Key4BlockGroup");
+                } else if (!"false".equalsIgnoreCase(props.getProperty("CheckCallCMD", "true"))) {
+                    final AbstractCommand cmd = (AbstractCommand) _parameter.get(ParameterValues.CALL_CMD);
+                    if (cmd != null && cmd.getTargetCreateType() != null) {
+                        key = cmd.getTargetCreateType().getName();
+                        if (prefix == null) {
+                            prefix = TargetMode.CREATE.name();
+                        }
+                    }
+                }
+                if (key == null && _parameter.getInstance() != null) {
+                    key = _parameter.getInstance().getType().getName();
+                }
+                if (key == null && _parameter.getCallInstance() != null) {
+                    key = _parameter.getCallInstance().getType().getName();
+                }
+                if (key != null) {
+                    if (props.containsKey(prefix + "." + key)) {
+                        if (BooleanUtils.toBoolean(
+                                        props.getProperty(_parameter.get(ParameterValues.ACCESSMODE) + "." + key))) {
+                            blockGroupInsts.add(query.getCurrentValue());
+                        }
+                    } else if (props.containsKey(key)) {
+                        if (BooleanUtils.toBoolean(props.getProperty(key))) {
+                            blockGroupInsts.add(query.getCurrentValue());
+                        }
+                    }
+                }
+            }
+            if (!blockGroupInsts.isEmpty()) {
+                final QueryBuilder attrQueryBldr = new QueryBuilder(CIContacts.BlockGroup2Contact);
+                attrQueryBldr.addWhereAttrEqValue(CIContacts.BlockGroup2Contact.FromLink, blockGroupInsts.toArray());
+                _queryBldr.addWhereAttrNotInQuery(CIContacts.ContactAbstract.ID,
+                                attrQueryBldr.getAttributeQuery(CIContacts.BlockGroup2Contact.ToLink));
+            }
+        }
+    }
+
+    /**
      * @param _parameter Parameter as passed from the eFaps API.
      * @return QueryBuilder used for Autocomplete
      * @throws EFapsException on error.
@@ -231,7 +306,7 @@ public abstract class Contacts_Base
             ret = new QueryBuilder(CIContacts.Contact);
             final Map<Integer, String> classes = analyseProperty(_parameter, "Classification");
             if (!classes.isEmpty()) {
-                final List<Classification> classTypes = new ArrayList<Classification>();
+                final List<Classification> classTypes = new ArrayList<>();
                 for (final String clazz : classes.values()) {
                     classTypes.add((Classification) Type.get(clazz));
                 }
@@ -370,8 +445,8 @@ public abstract class Contacts_Base
     public Return updateFields4PersonNames(final Parameter _parameter)
     {
         final Return ret = new Return();
-        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        final Map<String, String> map = new HashMap<String, String>();
+        final List<Map<String, String>> list = new ArrayList<>();
+        final Map<String, String> map = new HashMap<>();
 
         final String names = _parameter.getParameterValue(CIFormContacts.Contacts_ClassPersonForm.forename.name);
         final String fLastName = _parameter

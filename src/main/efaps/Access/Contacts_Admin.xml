@@ -16,7 +16,6 @@
  limitations under the License.
 
 -->
-
 <access-set xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>b12ddd96-bd64-458f-b731-b61118804aec</uuid>
@@ -27,7 +26,6 @@
             <profile name="eFaps" />
         </profiles>
         <name>Contacts_Admin</name>
-
         <access-type>show</access-type>
         <access-type>read</access-type>
         <access-type>modify</access-type>
@@ -37,9 +35,9 @@
         <access-type>statusBoost</access-type>
         <access-type>statusModify</access-type>
         <access-type>delete</access-type>
-
         <type>Contacts_Contact</type>
         <type>Contacts_ContactGroup</type>
+        <type>Contacts_BlockGroup</type>
         <type>Contacts_SubContact</type>
         <type>Contacts_Contact2Class</type>
         <type>Contacts_Organisation2Person</type>
@@ -47,22 +45,18 @@
         <type>Contacts_ClassOrganisation</type>
         <type>Contacts_ClassPerson</type>
         <type>Contacts_ClassPointOfContact</type>
-
         <status group="Contacts_ContactStatus">
             <key>Active</key>
             <key>Inactive</key>
         </status>
-
         <role>Contacts_Admin</role>
     </definition>
-
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
             <profile name="ubicaciones" />
         </profiles>
         <name>Contacts_Admin</name>
-
         <access-type>show</access-type>
         <access-type>read</access-type>
         <access-type>modify</access-type>
@@ -72,9 +66,9 @@
         <access-type>statusBoost</access-type>
         <access-type>statusModify</access-type>
         <access-type>delete</access-type>
-
         <type>Contacts_Contact</type>
         <type>Contacts_ContactGroup</type>
+        <type>Contacts_BlockGroup</type>
         <type>Contacts_SubContact</type>
         <type>Contacts_Contact2Class</type>
         <type>Contacts_Organisation2Person</type>
@@ -82,14 +76,10 @@
         <type>Contacts_ClassOrganisation</type>
         <type>Contacts_ClassPerson</type>
         <type>Contacts_ClassPointOfContact</type>
-
         <status group="Contacts_ContactStatus">
             <key>Active</key>
             <key>Inactive</key>
         </status>
-
         <role>Contacts_Admin</role>
     </definition>
 </access-set>
-
-

@@ -16,25 +16,22 @@
  limitations under the License.
 
 -->
-
 <access-set xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>26d860cc-5f0d-4b57-9e7e-e7685f840747</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
-
         <name>Contacts_Modifier</name>
-
         <access-type>show</access-type>
         <access-type>read</access-type>
         <access-type>modify</access-type>
         <access-type>checkout</access-type>
         <access-type>checkin</access-type>
         <access-type>create</access-type>
-
         <type>Contacts_Contact</type>
         <type>Contacts_ContactGroup</type>
+        <type>Contacts_BlockGroup</type>
         <type>Contacts_SubContact</type>
         <type>Contacts_Contact2Class</type>
         <type>Contacts_Organisation2Person</type>
@@ -45,13 +42,10 @@
         <type>Contacts_AttributeEmail</type>
         <type>Contacts_AttributePhone</type>
         <type>Contacts_AttributePointOfContact</type>
-
         <status group="Contacts_ContactStatus">
             <key>Active</key>
             <key>Inactive</key>
         </status>
-
         <role>Contacts_Modifier</role>
     </definition>
 </access-set>
-

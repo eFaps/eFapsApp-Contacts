@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+ Copyright 2003 - 2016 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+-->
+<ui-table xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>af8945f1-2828-4c07-9fb8-8e347523bc1d</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_BlockGroupTable</name>
+        <field name="type">
+            <property name="Attribute">Type</property>
+            <property name="Label">Contacts_BlockGroup/Type.Label</property>
+            <property name="ShowTypeIcon">true</property>
+        </field>
+        <field name="name">
+            <property name="Attribute">Name</property>
+            <property name="HRef">${COMMONURL}/MenuTree.jsp</property>
+            <property name="Label">Contacts_BlockGroup/Name.Label</property>
+            <property name="ModeSearch">READONLY</property>
+        </field>
+         <field name="status">
+            <property name="Attribute">Status</property>
+            <property name="Label">Contacts_BlockGroup/Status.Label</property>
+            <property name="ModeSearch">READONLY</property>
+            <property name="FilterType">PICKLIST</property>
+        </field>
+    </definition>
+</ui-table>

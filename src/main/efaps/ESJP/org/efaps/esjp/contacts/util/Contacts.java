@@ -76,7 +76,14 @@ public final class Contacts
     public static final BooleanSysConfAttribute ACTIVATETRADENAMESEARCH = new BooleanSysConfAttribute()
                     .sysConfUUID(SYSCONFUUID)
                     .key(BASE + "ActivateTradeNameSearch")
-                    .description("Activate the search in tradename for autocopmlete..");
+                    .description("Activate the search in tradename for autocomplete.");
+
+    /** See description. */
+    @EFapsSysConfAttribute
+    public static final BooleanSysConfAttribute ACTIVATEBLOCKGROUPS = new BooleanSysConfAttribute()
+                    .sysConfUUID(SYSCONFUUID)
+                    .key(BASE + "ActivateBlockGroups")
+                    .description("Activate the BlockGroup Mechanism.");
 
     /**
      * Singelton.
