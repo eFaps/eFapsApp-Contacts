@@ -60,6 +60,7 @@ import org.efaps.esjp.common.AbstractCommon;
 import org.efaps.esjp.common.util.InterfaceUtils;
 import org.efaps.esjp.contacts.listener.IOnContact;
 import org.efaps.esjp.contacts.util.Contacts;
+import org.efaps.esjp.db.InstanceUtils;
 import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
@@ -264,10 +265,10 @@ public abstract class Contacts_Base
                         }
                     }
                 }
-                if (key == null && _parameter.getInstance() != null) {
+                if (key == null && InstanceUtils.isValid(_parameter.getInstance())) {
                     key = _parameter.getInstance().getType().getName();
                 }
-                if (key == null && _parameter.getCallInstance() != null) {
+                if (key == null && InstanceUtils.isValid(_parameter.getCallInstance())) {
                     key = _parameter.getCallInstance().getType().getName();
                 }
                 if (key != null) {
