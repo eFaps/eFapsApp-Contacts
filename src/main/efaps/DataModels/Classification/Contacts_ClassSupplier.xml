@@ -63,13 +63,13 @@
             event="INSERT_POST">
             <property name="IgnoreAttribute">ContactLink</property>
             <property name="SelectAttribute01">ProducttypeLink</property>
-            <property name="Select01">linkto[DOITypeLink].attribute[Value]</property>
+            <property name="Select01">linkto[ProducttypeLink].attribute[Value]</property>
         </trigger>
         <trigger program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger"
             name="Contacts_ClassSupplier.UPDATE_POST"
             event="UPDATE_POST">
             <property name="SelectAttribute01">ProducttypeLink</property>
-            <property name="Select01">linkto[DOITypeLink].attribute[Value]</property>
+            <property name="Select01">linkto[ProducttypeLink].attribute[Value]</property>
         </trigger>
         <trigger program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger"
             name="Contacts_ClassSupplier.DELETE_PRE"
