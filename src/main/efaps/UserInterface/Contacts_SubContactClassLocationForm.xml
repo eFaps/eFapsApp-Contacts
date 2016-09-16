@@ -99,6 +99,7 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger event="UI_FIELD_VALUE" method="dropDownFieldValue"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
                 program="org.efaps.esjp.common.uiform.Field">
@@ -123,6 +124,7 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger event="UI_FIELD_VALUE" method="dropDownFieldValue"
                 name="Contacts_ClassLocationForm.province.UI_FIELD_VALUE"
                 program="org.efaps.esjp.common.uiform.Field">
@@ -147,6 +149,7 @@
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger event="UI_FIELD_VALUE" method="dropDownFieldValue"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
                 program="org.efaps.esjp.common.uiform.Field">
@@ -170,6 +173,7 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">DepartmentLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger event="UI_FIELD_VALUE" method="getDropdown"
                 name="Ubicaciones_UbicacionExampleForm.locationUbicationEdit.UI_FIELD_VALUE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
@@ -194,6 +198,7 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">ProvinceLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger event="UI_FIELD_VALUE" method="getDropdown"
                 name="Contacts_ClassLocationForm.provinceEdit.UI_FIELD_VALUE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
@@ -218,6 +223,7 @@
             <property name="ModeView">NONE</property>
             <property name="Attribute">DistrictLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
+            <property name="UIType">DROPDOWN</property>
             <trigger event="UI_FIELD_VALUE" method="getDropdown"
                 name="Contacts_ClassLocationForm.districtEdit.UI_FIELD_VALUE"
                 program="org.efaps.esjp.ubicaciones.Ubicaciones">
