@@ -100,7 +100,7 @@
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.department.Label</property>
             <property name="UIType">DROPDOWN</property>
-            <trigger event="UI_FIELD_VALUE" method="dropDownFieldValue"
+            <trigger event="UI_FIELD_VALUE" method="getOptionListFieldValue"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
                 program="org.efaps.esjp.common.uiform.Field">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
@@ -125,7 +125,7 @@
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.province.Label</property>
             <property name="UIType">DROPDOWN</property>
-            <trigger event="UI_FIELD_VALUE" method="dropDownFieldValue"
+            <trigger event="UI_FIELD_VALUE" method="getOptionListFieldValue"
                 name="Contacts_ClassLocationForm.province.UI_FIELD_VALUE"
                 program="org.efaps.esjp.common.uiform.Field">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
@@ -150,7 +150,7 @@
             <property name="ModeView">NONE</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
             <property name="UIType">DROPDOWN</property>
-            <trigger event="UI_FIELD_VALUE" method="dropDownFieldValue"
+            <trigger event="UI_FIELD_VALUE" method="getOptionListFieldValue"
                 name="Contacts_ClassLocationForm.departmentLocation.UI_FIELD_VALUE"
                 program="org.efaps.esjp.common.uiform.Field">
                 <property name="Type">Ubicaciones_UbicacionStandardRoot</property>
