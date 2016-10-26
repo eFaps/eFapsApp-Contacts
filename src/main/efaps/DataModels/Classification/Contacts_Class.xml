@@ -20,6 +20,7 @@
         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>0a67eae7-b31f-4bed-bb5e-d0c962b89023</uuid>
     <file-application>eFapsApp-Contacts</file-application>
+    <!--  Overwritten by eFapsApp-ElectronicBilling -->
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Class</name>
@@ -114,6 +115,12 @@
                 <type>String</type>
                 <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
                 <sqlcolumn>VALUE</sqlcolumn>
+            </attribute>
+            <attribute>
+                <name>ElectronicBilling</name>
+                <type>Boolean</type>
+                <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+                <sqlcolumn>BOOLEAN1</sqlcolumn>
             </attribute>
             <trigger program="org.efaps.esjp.common.history.InsertAttributeSetHistoryTrigger"
                 name="Contacts_Class.EmailSet.INSERT_POST"

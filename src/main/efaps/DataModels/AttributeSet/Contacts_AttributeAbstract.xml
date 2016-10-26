@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2016 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,78 +16,63 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
-<datamodel-type  xmlns="http://www.efaps.org/xsd"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-  <uuid>f35bf3a5-190f-4def-9311-ca539bef656c</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_AttributeAbstract</name>
-    <purpose abstract="true" />
-    <attribute>
-      <name>Type</name>
-      <type>Type</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>TYPEID</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>OID</name>
-      <type>OID</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>TYPEID,ID</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>ID</name>
-      <type>Long</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>ID</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>Creator</name>
-      <type>CreatorLink</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>CREATOR</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>Created</name>
-      <type>Created</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>CREATED</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>Modifier</name>
-      <type>ModifierLink</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>MODIFIER</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>Modified</name>
-      <type>Modified</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>MODIFIED</sqlcolumn>
-    </attribute>
-
-    <attribute>
-      <name>Value</name>
-      <type>String</type>
-      <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
-      <sqlcolumn>VALUE</sqlcolumn>
-    </attribute>
-  </definition>
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>f35bf3a5-190f-4def-9311-ca539bef656c</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_AttributeAbstract</name>
+        <purpose abstract="true" />
+        <attribute>
+            <name>Type</name>
+            <type>Type</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>TYPEID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>TYPEID,ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Creator</name>
+            <type>CreatorLink</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>CREATOR</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Created</name>
+            <type>Created</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>CREATED</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Modifier</name>
+            <type>ModifierLink</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>MODIFIER</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Modified</name>
+            <type>Modified</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>MODIFIED</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Value</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractSQLTable</sqltable>
+            <sqlcolumn>VALUE</sqlcolumn>
+        </attribute>
+    </definition>
 </datamodel-type>

@@ -44,6 +44,26 @@
             <property name="Attribute">EmailSet</property>
             <property name="Label">Contacts_Class/EmailSet.Label</property>
             <property name="Order">Description4Email|Email</property>
+            <trigger program="org.efaps.esjp.admin.access.AccessCheck4UI"
+                name="Contacts_ClassForm.emailSet2.UI_ACCESSCHECK"
+                method="check4Application"
+                event="UI_ACCESSCHECK">
+                <property name="Application">eFapsApp-ElectronicBilling</property>
+                <property name="Inverse">true</property>
+            </trigger>
+        </field>
+         <field name="emailSet2" character="Set">
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+            <property name="Attribute">EmailSet</property>
+            <property name="Label">Contacts_Class/EmailSet.Label</property>
+            <property name="Order">Description4Email|Email|ElectronicBilling</property>
+            <trigger program="org.efaps.esjp.admin.access.AccessCheck4UI"
+                name="Contacts_ClassForm.emailSet2.UI_ACCESSCHECK"
+                method="check4Application"
+                event="UI_ACCESSCHECK">
+                <property name="Application">eFapsApp-ElectronicBilling</property>
+            </trigger>
         </field>
         <field name="website">
             <property name="ModeCreate">EDITABLE</property>
