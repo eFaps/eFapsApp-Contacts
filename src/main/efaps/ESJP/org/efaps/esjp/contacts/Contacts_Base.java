@@ -373,7 +373,6 @@ public abstract class Contacts_Base
         }
     }
 
-
     /**
      * Method to get the value for the field directly under the Contact.
      *
@@ -407,7 +406,6 @@ public abstract class Contacts_Base
         throws EFapsException
     {
         return getFieldValue4Contact(_instance, true);
-
     }
 
     /**
