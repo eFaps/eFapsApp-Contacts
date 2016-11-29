@@ -45,6 +45,7 @@ import org.efaps.admin.ui.AbstractCommand;
 import org.efaps.admin.ui.AbstractUserInterfaceObject.TargetMode;
 import org.efaps.admin.ui.field.Field;
 import org.efaps.db.AttributeQuery;
+import org.efaps.db.CachedPrintQuery;
 import org.efaps.db.Instance;
 import org.efaps.db.InstanceQuery;
 import org.efaps.db.MultiPrintQuery;
@@ -337,7 +338,7 @@ public abstract class Contacts_Base
         final List<Map<String, Object>> list = new ArrayList<>();
         final Map<String, Object> map = new HashMap<>();
 
-        String targetFieldName;
+        final String targetFieldName;
         if (containsProperty(_parameter, "FieldName")) {
             targetFieldName = getProperty(_parameter, "FieldName");
         } else {
@@ -471,5 +472,29 @@ public abstract class Contacts_Base
 
         ret.put(ReturnValues.VALUES, list);
         return ret;
+    }
+
+    /**
+     * Checks if is foreign.
+     *
+     * @param _parameter Parameter as passed by the eFaps API
+     * @param _contactInst the contact inst
+     * @return true, if is foreign
+     * @throws EFapsException on error
+     */
+    protected static boolean isForeign(final Parameter _parameter,
+                                       final Instance _contactInst)
+        throws EFapsException
+    {
+        final SelectBuilder selCountryInst = SelectBuilder.get().clazz(CIContacts.ClassLocation).linkto(
+                        CIContacts.ClassLocation.LocationCountryLink).instance();
+        final PrintQuery print = CachedPrintQuery.get4Request(_contactInst);
+        print.addSelect(selCountryInst);
+        print.executeWithoutAccessCheck();
+
+        final Instance countryInst = print.getSelect(selCountryInst);
+        final Instance homeCountyrInst =  Contacts.HOMECOUNTRY.get();
+        return InstanceUtils.isValid(homeCountyrInst) && InstanceUtils.isValid(countryInst)
+                        && !homeCountyrInst.equals(countryInst);
     }
 }

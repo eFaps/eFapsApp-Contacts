@@ -17,8 +17,11 @@
 
 package org.efaps.esjp.contacts;
 
+import org.efaps.admin.event.Parameter;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
+import org.efaps.db.Instance;
+import org.efaps.util.EFapsException;
 
 /**
  * This class must be replaced for customization, therefore it is left empty.
@@ -33,4 +36,18 @@ public class Contacts
     extends Contacts_Base
 {
 
+    /**
+     * Checks if is foreign.
+     *
+     * @param _parameter Parameter as passed by the eFaps API
+     * @param _contactInst the contact inst
+     * @return true, if is foreign
+     * @throws EFapsException on error
+     */
+    public static boolean isForeign(final Parameter _parameter,
+                                    final Instance _contactInst)
+        throws EFapsException
+    {
+        return Contacts_Base.isForeign(_parameter, _contactInst);
+    }
 }

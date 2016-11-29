@@ -24,8 +24,10 @@ import org.efaps.admin.common.SystemConfiguration;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 import org.efaps.api.annotation.EFapsSysConfAttribute;
+import org.efaps.api.annotation.EFapsSysConfLink;
 import org.efaps.api.annotation.EFapsSystemConfiguration;
 import org.efaps.esjp.admin.common.systemconfiguration.BooleanSysConfAttribute;
+import org.efaps.esjp.admin.common.systemconfiguration.SysConfLink;
 import org.efaps.util.cache.CacheReloadException;
 
 /**
@@ -84,6 +86,14 @@ public final class Contacts
                     .sysConfUUID(SYSCONFUUID)
                     .key(BASE + "ActivateBlockGroups")
                     .description("Activate the BlockGroup Mechanism.");
+
+    /** See description. */
+    @EFapsSysConfLink
+    public static final SysConfLink HOMECOUNTRY = new SysConfLink()
+                    .sysConfUUID(SYSCONFUUID)
+                    .key(BASE + "HomeCountry")
+                    .description("Instanc eo fthe HomeCountry to be "
+                                    + "able to distinguihs foreign contacts form lovcal contacts.");
 
     /**
      * Singelton.
