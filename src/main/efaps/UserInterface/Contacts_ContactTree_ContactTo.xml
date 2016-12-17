@@ -42,8 +42,8 @@
             <menu>Contacts_ContactTree_ContactTo_Menu</menu>
             <table>Contacts_Contact2ContactFromTable</table>
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
-                <property name="Types">Contacts_Contact2ContactAbstract</property>
-                <property name="LinkFroms">ToAbstractLink</property>
+                <property name="Type">Contacts_Contact2ContactAbstract</property>
+                <property name="LinkFrom">ToAbstractLink</property>
                 <property name="ExpandChildTypes">true</property>
             </evaluate>
         </target>

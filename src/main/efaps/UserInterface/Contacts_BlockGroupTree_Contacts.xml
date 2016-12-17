@@ -27,7 +27,7 @@
             <table>Contacts_BlockGroup2ContactTable</table>
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
                 <property name="Type">Contacts_BlockGroup2Contact</property>
-                <property name="LinkFroms">FromLink</property>
+                <property name="LinkFrom">FromLink</property>
             </evaluate>
         </target>
         <property name="Target">content</property>
