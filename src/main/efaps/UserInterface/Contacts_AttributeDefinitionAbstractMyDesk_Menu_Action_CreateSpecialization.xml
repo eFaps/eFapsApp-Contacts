@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
   Copyright 2003 - 2017 The eFaps Team
 
@@ -18,11 +17,11 @@
 -->
 <ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>5ef38b5e-6d38-46ba-90e4-92e96f28ef2e</uuid>
+    <uuid>b19891fc-74a9-4926-8f9c-b77a41f119f2</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <definition>
+   <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreatePhone</name>
+        <name>Contacts_AttributeDefinitionAbstractMyDesk_Menu_Action_CreateSpecialization</name>
         <access>
             <role>Contacts_Admin</role>
         </access>
@@ -31,7 +30,7 @@
             <execute program="org.efaps.esjp.common.uiform.Create" />
         </target>
         <property name="Target">modal</property>
-        <property name="TargetCreateType">Contacts_AttributeDefinitionPhone</property>
+        <property name="TargetCreateType">Contacts_AttributeDefinitionSpecialization</property>
         <property name="TargetMode">create</property>
     </definition>
 </ui-command>
