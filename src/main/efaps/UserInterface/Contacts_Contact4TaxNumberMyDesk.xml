@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2017 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,15 +14,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev: 9346 $
- Last Changed:    $Date: 2013-05-07 11:09:19 -0500 (mar, 07 may 2013) $
- Last Changed By: $Author: jan@moxter.net $
-
---><ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+-->
+<ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>9e0bd524-2ac3-4067-a9cd-a0e539863267</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev: 9346 $</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_Contact4TaxNumberMyDesk</name>
@@ -32,7 +28,7 @@
             <role>Contacts_Reader</role>
         </access>
         <target>
-            <menu>Contacts_ContactMyDesk_Menu</menu>
+            <menu>Contacts_Contact4TaxNumberMyDesk_Menu</menu>
             <table>Contacts_Contact4TaxNumberTable</table>
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
                 <property name="Type">Contacts_Contact</property>

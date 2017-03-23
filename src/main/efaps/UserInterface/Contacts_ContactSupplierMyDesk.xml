@@ -29,7 +29,7 @@
             <role>Contacts_Reader</role>
         </access>
         <target>
-            <menu>Contacts_ContactMyDesk_Menu</menu>
+            <menu>Contacts_ContactSupplierMyDesk_Menu</menu>
             <table>Contacts_ContactTable</table>
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
                 <property name="Type01">Contacts_Contact</property>
