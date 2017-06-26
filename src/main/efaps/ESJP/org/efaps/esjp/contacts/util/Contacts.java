@@ -27,6 +27,7 @@ import org.efaps.api.annotation.EFapsSysConfAttribute;
 import org.efaps.api.annotation.EFapsSysConfLink;
 import org.efaps.api.annotation.EFapsSystemConfiguration;
 import org.efaps.esjp.admin.common.systemconfiguration.BooleanSysConfAttribute;
+import org.efaps.esjp.admin.common.systemconfiguration.StringSysConfAttribute;
 import org.efaps.esjp.admin.common.systemconfiguration.SysConfLink;
 import org.efaps.util.cache.CacheReloadException;
 
@@ -55,45 +56,52 @@ public final class Contacts
     /** See description. */
     @EFapsSysConfAttribute
     public static final BooleanSysConfAttribute ACTIVATECONTACTGROUPS = new BooleanSysConfAttribute()
-                    .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "ActivateContactGroups")
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "ActivateContactGroups")
                     .description("Activate the ContactGroup UserInterface..");
 
     /** See description. */
     @EFapsSysConfAttribute
     public static final BooleanSysConfAttribute ACTIVATESUBCONTACTS = new BooleanSysConfAttribute()
-                    .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "ActivateSubContacts")
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "ActivateSubContacts")
                     .description("Activate the SubContacts UserInterface.");
 
     /** See description. */
     @EFapsSysConfAttribute
     public static final BooleanSysConfAttribute CLASSFINANCIALACTIVATE = new BooleanSysConfAttribute()
-                    .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "ActivateClassFinancialInformation")
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "ActivateClassFinancialInformation")
                     .description("Activate the ContactGroup UserInterface..");
 
     /** See description. */
     @EFapsSysConfAttribute
     public static final BooleanSysConfAttribute ACTIVATETRADENAMESEARCH = new BooleanSysConfAttribute()
-                    .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "ActivateTradeNameSearch")
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "ActivateTradeNameSearch")
                     .description("Activate the search in tradename for autocomplete.");
 
     /** See description. */
     @EFapsSysConfAttribute
     public static final BooleanSysConfAttribute ACTIVATEBLOCKGROUPS = new BooleanSysConfAttribute()
-                    .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "ActivateBlockGroups")
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "ActivateBlockGroups")
                     .description("Activate the BlockGroup Mechanism.");
 
     /** See description. */
     @EFapsSysConfLink
     public static final SysConfLink HOMECOUNTRY = new SysConfLink()
-                    .sysConfUUID(SYSCONFUUID)
-                    .key(BASE + "HomeCountry")
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "HomeCountry")
                     .description("Instanc eo fthe HomeCountry to be "
                                     + "able to distinguihs foreign contacts form lovcal contacts.");
+
+    /** See description. */
+    @EFapsSysConfAttribute
+    public static final StringSysConfAttribute TAXID_RESTURI = new StringSysConfAttribute()
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "taxid.RESTURI")
+                    .description("The base url for the REST interface.");
 
     /**
      * Singelton.
@@ -110,6 +118,6 @@ public final class Contacts
         throws CacheReloadException
     {
         // Contacts-Configuration
-        return SystemConfiguration.get(SYSCONFUUID);
+        return SystemConfiguration.get(Contacts.SYSCONFUUID);
     }
 }

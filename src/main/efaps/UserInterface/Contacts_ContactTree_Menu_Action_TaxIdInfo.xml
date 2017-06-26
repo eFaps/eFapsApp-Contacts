@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
  Copyright 2003 - 2017 The eFaps Team
 
@@ -16,23 +15,24 @@
  limitations under the License.
 
 -->
-
-<ui-menu xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>d7ede363-6f81-4576-b2a3-c02f1d8c749b</uuid>
+    <uuid>26cce3e2-751f-4491-9a6b-28d5551ac4ea</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_MyDesk</name>
-        <icon>Contacts_MyDeskImg</icon>
-        <childs>
-            <child>Contacts_ContactSearchMyDesk</child>
-            <child>Contacts_ContactMyDesk</child>
-            <child>Contacts_Contact4TaxNumberMyDesk</child>
-            <child>Contacts_ContactClientMyDesk</child>
-            <child>Contacts_ContactSupplierMyDesk</child>
-            <child>Contacts_ContactGroupMyDesk</child>
-            <child>Contacts_BlockGroupMyDesk</child>
-        </childs>
+        <name>Contacts_ContactTree_Menu_Action_TaxIdInfo</name>
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
+        <target>
+            <form>Contacts_TaxIdInfoForm</form>
+        </target>
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Contacts_Contact</property>
+        <property name="TargetMode">edit</property>
+        <property name="WindowHeight">660</property>
+        <property name="WindowWidth">815</property>
     </definition>
-</ui-menu>
+</ui-command>
