@@ -83,6 +83,12 @@ public class InfoJson
     @JsonProperty("comercialName")
     private String comercialName;
 
+    @JsonProperty("addressZoneType")
+    private String addressZoneType;
+
+    @JsonProperty("addressZoneNumber")
+    private String addressZoneNumber;
+
     /** The sub address. */
     @JsonProperty("subAddress")
     private List<SubAddress> subAddress = null;
@@ -349,6 +355,50 @@ public class InfoJson
     public void setComercialName(final String comercialName)
     {
         this.comercialName = comercialName;
+    }
+
+    /**
+     * Getter method for the instance variable {@link #addressZoneType}.
+     *
+     * @return value of instance variable {@link #addressZoneType}
+     */
+    @JsonProperty("addressZoneType")
+    public String getAddressZoneType()
+    {
+        return this.addressZoneType;
+    }
+
+    /**
+     * Setter method for instance variable {@link #addressZoneType}.
+     *
+     * @param _addressZoneType value for instance variable {@link #addressZoneType}
+     */
+    @JsonProperty("addressZoneType")
+    public void setAddressZoneType(final String _addressZoneType)
+    {
+        this.addressZoneType = _addressZoneType;
+    }
+
+    /**
+     * Getter method for the instance variable {@link #addressZoneNumber}.
+     *
+     * @return value of instance variable {@link #addressZoneNumber}
+     */
+    @JsonProperty("addressZoneNumber")
+    public String getAddressZoneNumber()
+    {
+        return this.addressZoneNumber;
+    }
+
+    /**
+     * Setter method for instance variable {@link #addressZoneNumber}.
+     *
+     * @param _addressZoneNumber value for instance variable {@link #addressZoneNumber}
+     */
+    @JsonProperty("addressZoneNumber")
+    public void setAddressZoneNumber(final String _addressZoneNumber)
+    {
+        this.addressZoneNumber = _addressZoneNumber;
     }
 
     @Override

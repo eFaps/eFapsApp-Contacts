@@ -17,25 +17,17 @@
 -->
 <ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-    <uuid>26cce3e2-751f-4491-9a6b-28d5551ac4ea</uuid>
+    <uuid>7e8e35a1-1672-4309-a47b-326026f7e8c5</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
-        <name>Contacts_ContactTree_Menu_Action_TaxIdInfo</name>
+        <name>Contacts_TaxIdMyDesk_TaxIdInfo</name>
         <access>
             <role>Contacts_Admin</role>
             <role>Contacts_Modifier</role>
         </access>
         <target>
             <form>Contacts_TaxIdInfoForm</form>
-            <trigger program="org.efaps.esjp.admin.access.AccessCheck4UI"
-                method="configCheck"
-                name="Contacts_ContactTree_Menu_Action_TaxIdInfo.UI_ACCESSCHECK"
-                event="UI_ACCESSCHECK">
-                <!-- Contacts-Configuration -->
-                <property name="SystemConfig">77f5f440-f251-46d0-8603-add22f99f7f0</property>
-                <property name="AttributeExists">org.efaps.contacts.taxid.RESTURI</property>
-            </trigger>
         </target>
         <property name="Target">modal</property>
         <property name="TargetMode">view</property>

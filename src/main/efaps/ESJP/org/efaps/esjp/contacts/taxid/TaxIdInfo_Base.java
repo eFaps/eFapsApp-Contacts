@@ -20,6 +20,7 @@ package org.efaps.esjp.contacts.taxid;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Return;
@@ -27,9 +28,13 @@ import org.efaps.admin.event.Return.ReturnValues;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsClassLoader;
 import org.efaps.admin.program.esjp.EFapsUUID;
+import org.efaps.db.PrintQuery;
+import org.efaps.db.SelectBuilder;
+import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIFormContacts;
 import org.efaps.esjp.common.AbstractCommon;
 import org.efaps.esjp.contacts.taxid.InfoJson.SubAddress;
+import org.efaps.esjp.db.InstanceUtils;
 import org.efaps.esjp.ui.html.HtmlTable;
 import org.efaps.update.AppDependency;
 import org.efaps.update.util.InstallationException;
@@ -64,7 +69,16 @@ public abstract class TaxIdInfo_Base
         throws EFapsException
     {
         final Return ret = new Return();
-        final String taxId = _parameter.getParameterValue(CIFormContacts.Contacts_TaxIdRequestForm.taxid.name);
+        String taxId = _parameter.getParameterValue(CIFormContacts.Contacts_TaxIdRequestForm.taxid.name);
+        if (StringUtils.isEmpty(taxId)
+                        && InstanceUtils.isKindOf(_parameter.getInstance(), CIContacts.ContactAbstract)) {
+            final PrintQuery print = new PrintQuery(_parameter.getInstance());
+            final SelectBuilder selTaxId = SelectBuilder.get().clazz(CIContacts.ClassOrganisation)
+                            .attribute(CIContacts.ClassOrganisation.TaxNumber);
+            print.addSelect(selTaxId);
+            print.execute();
+            taxId = print.getSelect(selTaxId);
+        }
         final Request request = new Request();
         final InfoJson infoJson = request.getInfoJson(taxId);
         ret.put(ReturnValues.SNIPLETT, getSnipplet4InfoJson(_parameter, infoJson));
@@ -104,12 +118,16 @@ public abstract class TaxIdInfo_Base
             .tr()
                 .td(getDBProperty("comercialName"))
                 .td(_infoJson.getComercialName())
-            .trC()
-            .tr()
+            .trC();
+
+        if (isNotEmpty(_infoJson.getAddressStreetType())) {
+            table.tr()
                 .td(getDBProperty("addressStreetType"))
                 .td(_infoJson.getAddressStreetType())
-            .trC()
-            .tr()
+                .trC();
+        }
+
+        table.tr()
                 .td(getDBProperty("addressStreet"))
                 .td(_infoJson.getAddressStreet())
             .trC()
@@ -117,16 +135,28 @@ public abstract class TaxIdInfo_Base
                 .td(getDBProperty("addressNumber"))
                 .td(_infoJson.getAddressNumber())
             .trC();
+        if (isNotEmpty(_infoJson.getAddressZoneType())) {
+            table.tr()
+                .td(getDBProperty("addressZoneType"))
+                .td(_infoJson.getAddressZoneType())
+                .trC();
+        }
+        if (isNotEmpty(_infoJson.getAddressZoneNumber())) {
+            table.tr()
+                .td(getDBProperty("addressZoneNumber"))
+                .td(_infoJson.getAddressZoneNumber())
+                .trC();
+        }
 
         for (final SubAddress subAddress : _infoJson.getSubAddress()) {
             table.tr()
-                .td(getDBProperty("subAddressType"))
-                .td(subAddress.getType())
-            .trC()
-            .tr()
-                .td(getDBProperty("subAddressValue"))
-                .td(subAddress.getValue())
-            .trC();
+                    .td(getDBProperty("subAddressType"))
+                    .td(subAddress.getType())
+                .trC()
+                .tr()
+                    .td(getDBProperty("subAddressValue"))
+                    .td(subAddress.getValue())
+                .trC();
         }
         table.tr()
                 .td(getDBProperty("addressUbigeo"))
@@ -204,11 +234,22 @@ public abstract class TaxIdInfo_Base
         throws EFapsException
     {
         final StringBuilder ret = new StringBuilder();
-        ret.append(WordUtils.capitalizeFully(_infoJson.getAddressStreetType()))
-            .append(" ")
-            .append(WordUtils.capitalizeFully(_infoJson.getAddressStreet()))
-            .append(" ")
-            .append(_infoJson.getAddressNumber());
+        if (isNotEmpty(_infoJson.getAddressStreetType())) {
+            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressStreetType()))
+                .append(" ");
+        }
+        if (isNotEmpty(_infoJson.getAddressStreet())) {
+            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressStreet())).append(" ");
+        }
+        if (isNotEmpty(_infoJson.getAddressNumber())) {
+            ret.append(_infoJson.getAddressNumber()).append(" ");
+        }
+        if (isNotEmpty(_infoJson.getAddressZoneType())) {
+            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressZoneType())).append(" ");
+        }
+        if (isNotEmpty(_infoJson.getAddressZoneNumber())) {
+            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressZoneNumber())).append(" ");
+        }
 
         for (final SubAddress subAddress : _infoJson.getSubAddress()) {
             ret.append(" ");
@@ -235,5 +276,15 @@ public abstract class TaxIdInfo_Base
                 .append(subAddress.getValue());
         }
         return ret;
+    }
+
+    /**
+     * Checks if is not empty.
+     *
+     * @param _value the value
+     * @return true, if is not empty
+     */
+    protected boolean isNotEmpty(final String _value) {
+        return StringUtils.isNoneEmpty(_value) && !_value.equals("-");
     }
 }

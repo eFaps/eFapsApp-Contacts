@@ -33,6 +33,7 @@
             <child>Contacts_ContactSupplierMyDesk</child>
             <child>Contacts_ContactGroupMyDesk</child>
             <child>Contacts_BlockGroupMyDesk</child>
+            <child>Contacts_TaxIdMyDesk</child>
         </childs>
     </definition>
 </ui-menu>

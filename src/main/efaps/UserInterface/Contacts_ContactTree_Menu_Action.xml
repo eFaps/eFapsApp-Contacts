@@ -27,7 +27,7 @@
         <name>Contacts_ContactTree_Menu_Action</name>
         <childs>
             <child>Contacts_ContactTree_Menu_Action_Edit</child>
-            <child>Contacts_ContactTree_Menu_Action_TaxId</child>
+            <child>Contacts_ContactTree_Menu_Action_TaxIdInfo</child>
         </childs>
     </definition>
 </ui-menu>
