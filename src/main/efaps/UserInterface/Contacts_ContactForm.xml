@@ -54,7 +54,7 @@
             <property name="Attribute">Modified</property>
         </field>
         <field name="name">
-            <property name="Columns">40</property>
+            <property name="Width">40</property>
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
