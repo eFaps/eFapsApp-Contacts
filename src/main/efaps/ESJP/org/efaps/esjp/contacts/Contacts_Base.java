@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2016 The eFaps Team
+ * Copyright 2003 - 2017 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ package org.efaps.esjp.contacts;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -30,7 +29,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.BooleanUtils;
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 import org.efaps.admin.datamodel.Classification;
 import org.efaps.admin.datamodel.Status;
 import org.efaps.admin.datamodel.Type;
@@ -214,16 +213,9 @@ public abstract class Contacts_Base
                 list.add(map);
             }
 
-            Collections.sort(list, new Comparator<Map<String, String>>()
-            {
-                @Override
-                public int compare(final Map<String, String> _o1,
-                                   final Map<String, String> _o2)
-                {
-                    return _o1.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey()).compareTo(
-                                    _o2.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey()));
-                }
-            });
+            Collections.sort(list, (_o1,
+             _o2) -> _o1.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey()).compareTo(
+                            _o2.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey())));
         }
         final Return retVal = new Return();
         retVal.put(ReturnValues.VALUES, list);
