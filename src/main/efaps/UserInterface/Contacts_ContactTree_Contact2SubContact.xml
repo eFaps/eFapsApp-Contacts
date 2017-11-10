@@ -41,7 +41,7 @@
                 <property name="Type">Contacts_Contact2SubContact</property>
                 <property name="LinkFrom">From</property>
             </evaluate>
-            <trigger program="org.efaps.esjp.admin.access.AccessOnField"
+            <trigger program="org.efaps.esjp.admin.access.AccessCheck4UI"
                 method="configCheck"
                 name="Contacts_ContactGroupMyDesk.UI_ACCESSCHECK"
                 event="UI_ACCESSCHECK">

@@ -52,7 +52,7 @@
             <sqltable>Contacts_ClassFinancialInformationSQLTable</sqltable>
             <sqlcolumn>CONTACTID</sqlcolumn>
         </attribute>
-        <trigger program="org.efaps.esjp.admin.access.AccessOnField" method="configCheck"
+        <trigger program="org.efaps.esjp.admin.access.AccessCheck4UI" method="configCheck"
             name="Contacts_ClassFinancialInformation.ACCESSCHECK" event="ACCESSCHECK">
             <property name="SystemConfig">Contacts-Configuration</property>
             <property name="Attribute">org.efaps.contacts.ActivateClassFinancialInformation</property>

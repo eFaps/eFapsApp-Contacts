@@ -39,7 +39,7 @@
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
                 <property name="Type">Contacts_ContactGroup</property>
             </evaluate>
-             <trigger program="org.efaps.esjp.admin.access.AccessOnField"
+             <trigger program="org.efaps.esjp.admin.access.AccessCheck4UI"
                 method="configCheck"
                 name="Contacts_ContactGroupMyDesk.UI_ACCESSCHECK"
                 event="UI_ACCESSCHECK">

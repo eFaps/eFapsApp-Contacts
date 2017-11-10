@@ -36,7 +36,7 @@
             </evaluate>
             <trigger event="UI_ACCESSCHECK" method="configCheck"
                 name="Contacts_BlockGroupMyDesk.UI_ACCESSCHECK"
-                program="org.efaps.esjp.admin.access.AccessOnField">
+                program="org.efaps.esjp.admin.access.AccessCheck4UI">
                 <property name="SystemConfig">Contacts-Configuration</property>
                 <property name="Attribute">org.efaps.contacts.ActivateBlockGroups</property>
             </trigger>
