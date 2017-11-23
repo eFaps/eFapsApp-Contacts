@@ -29,6 +29,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.efaps.admin.datamodel.Classification;
 import org.efaps.admin.datamodel.Status;
@@ -205,7 +206,7 @@ public abstract class Contacts_Base
                 final Map<String, String> map = new HashMap<>();
                 final String tax = multi.<String>getSelect(taxSel);
                 final String doi = multi.<String>getSelect(doiSel);
-                final String choice = (tax == null ? doi : tax) + " - "
+                final String choice = (StringUtils.isEmpty(tax) ? doi : tax) + " - "
                                 + multi.<String>getAttribute(CIContacts.Contact.Name);
                 map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), multi.getAttribute(key).toString());
                 map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), multi.<String>getAttribute(CIContacts.Contact.Name));
