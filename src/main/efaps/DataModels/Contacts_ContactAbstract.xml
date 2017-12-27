@@ -60,6 +60,12 @@
             <sqltable>Contacts_ContactSQLTable</sqltable>
             <sqlcolumn>NAME</sqlcolumn>
         </attribute>
+         <attribute>
+            <name>Note</name>
+            <type>String</type>
+            <sqltable>Contacts_ContactSQLTable</sqltable>
+            <sqlcolumn>NOTE</sqlcolumn>
+        </attribute>
         <attribute>
             <name>Creator</name>
             <type>CreatorLink</type>

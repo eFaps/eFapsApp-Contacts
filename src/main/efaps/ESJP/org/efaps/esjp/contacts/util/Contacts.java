@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2015 The eFaps Team
+ * Copyright 2003 - 2017 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * limitations under the License.
  *
  */
-
 
 package org.efaps.esjp.contacts.util;
 
@@ -32,7 +31,6 @@ import org.efaps.esjp.admin.common.systemconfiguration.SysConfLink;
 import org.efaps.util.cache.CacheReloadException;
 
 /**
- * TODO comment!
  *
  * @author The eFaps Team
  */
@@ -87,6 +85,13 @@ public final class Contacts
                     .sysConfUUID(Contacts.SYSCONFUUID)
                     .key(Contacts.BASE + "ActivateBlockGroups")
                     .description("Activate the BlockGroup Mechanism.");
+
+    /** See description. */
+    @EFapsSysConfAttribute
+    public static final BooleanSysConfAttribute ACTIVATENOTE = new BooleanSysConfAttribute()
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "ActivateNote")
+                    .description("Activate the possiblity to add a general Note to a Contact.");
 
     /** See description. */
     @EFapsSysConfLink
