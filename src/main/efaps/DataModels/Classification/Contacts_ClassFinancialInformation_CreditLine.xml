@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2018 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+-->
+<datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>dac65724-b325-4a15-90f4-da7cbd888be3</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ClassFinancialInformation_CreditLine</name>
+        <purpose classification="true">
+            <LinkColumn>ContactLink</LinkColumn>
+            <parent>Contacts_ClassFinancialInformation</parent>
+        </purpose>
+        <attribute>
+            <name>OID</name>
+            <type>OID</type>
+            <sqltable>Contacts_ClassFinancialInformation_CreditLineSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ID</name>
+            <type>Long</type>
+            <sqltable>Contacts_ClassFinancialInformation_CreditLineSQLTable</sqltable>
+            <sqlcolumn>ID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>ContactLink</name>
+            <type>Link</type>
+            <typelink>Contacts_Contact</typelink>
+            <sqltable>Contacts_ClassFinancialInformation_CreditLineSQLTable</sqltable>
+            <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Amount</name>
+            <type>Decimal</type>
+            <sqltable>Contacts_ClassFinancialInformation_CreditLineSQLTable</sqltable>
+            <sqlcolumn>AMOUNT</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>CurrencyLink</name>
+            <type>LinkWithRanges</type>
+            <typelink>ERP_Currency</typelink>
+            <sqltable>Contacts_ClassFinancialInformation_CreditLineSQLTable</sqltable>
+            <sqlcolumn>CURRENCYID</sqlcolumn>
+            <trigger program="org.efaps.esjp.admin.datamodel.RangesValue"
+                name="Contacts_ClassFinancialInformation_CreditLine.RANGE_VALUE" event="RANGE_VALUE">
+                <property name="Value">Name</property>
+                <property name="Type">ERP_Currency</property>
+            </trigger>
+        </attribute>
+        <trigger event="INSERT_POST" name="Contacts_ClassFinancialInformation_CreditLine.INSERT_POST"
+            program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger">
+            <property name="IgnoreAttribute">ContactLink</property>
+        </trigger>
+        <trigger event="UPDATE_POST" name="Contacts_ClassFinancialInformation_CreditLine.UPDATE_POST"
+            program="org.efaps.esjp.common.history.UpdateClassificationHistoryTrigger">
+        </trigger>
+        <trigger event="DELETE_PRE" name="Contacts_ClassFinancialInformation_CreditLine.DELETE_PRE"
+            program="org.efaps.esjp.common.history.DeleteClassificationHistoryTrigger">
+        </trigger>
+    </definition>
+</datamodel-type>
