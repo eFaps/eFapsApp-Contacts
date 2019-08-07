@@ -24,7 +24,7 @@
         <name>Contacts_BlockGroupTree_Contacts_Menu_Action</name>
         <childs>
             <child>Contacts_BlockGroupTree_Contacts_Menu_Action_AddExistingContact</child>
-            <child>Contacts_ContactTree_ContactFrom_Menu_Action_Disconnect</child>
+            <child>Contacts_BlockGroupTree_Contacts_Menu_Action_Disconnect</child>
         </childs>
     </definition>
 </ui-menu>
