@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+ Copyright 2003 - 2020 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+-->
+<ui-command xmlns="http://www.efaps.org/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>394d9e4e-c59e-4b4e-b227-a747fffa99c3</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ContactMyDesk_Menu_Action_Create_Person</name>
+        <icon>Contacts_Contact+Add</icon>
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
+        <target>
+            <form>Contacts_ContactForm</form>
+            <execute
+                program="org.efaps.esjp.common.uiform.Create" />
+            <validate method="validateContact"
+                program="org.efaps.esjp.contacts.ContactsPicker" />
+        </target>
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Contacts_Contact</property>
+        <property name="TargetCreateClassifications">Contacts_ClassClient;Contacts_ClassPerson;Contacts_ClassLocation</property>
+        <property name="TargetMode">create</property>
+        <property name="WindowHeight">660</property>
+        <property name="WindowWidth">815</property>
+    </definition>
+</ui-command>

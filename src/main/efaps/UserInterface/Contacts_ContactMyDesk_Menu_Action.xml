@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2009 The eFaps Team
+ Copyright 2003 - 2020 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,30 +15,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
 <ui-menu xmlns="http://www.efaps.org/xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
-
-  <uuid>f54e5a23-4760-4322-9600-756ee787cff5</uuid>
-  <file-application>eFapsApp-Contacts</file-application>
-  <file-revision>$Rev$</file-revision>
-
-  <definition>
-    <version-expression>(version==latest)</version-expression>
-    <name>Contacts_ContactMyDesk_Menu_Action</name>
-    <!-- childs -->
-    <childs>
-      <child>Contacts_ContactMyDesk_Menu_Action_Create</child>
-      <child>Contacts_ContactMyDesk_Menu_Action_MoveDocuments2Contacts</child>
-      <child>Contacts_ContactMyDesk_Menu_Action_Delete</child>
-    </childs>
-  </definition>
-
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>f54e5a23-4760-4322-9600-756ee787cff5</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <name>Contacts_ContactMyDesk_Menu_Action</name>
+        <childs>
+            <child>Contacts_ContactMyDesk_Menu_Action_Create</child>
+            <child>Contacts_ContactMyDesk_Menu_Action_Create_Person</child>
+            <child>Contacts_ContactMyDesk_Menu_Action_MoveDocuments2Contacts</child>
+            <child>Contacts_ContactMyDesk_Menu_Action_Delete</child>
+        </childs>
+    </definition>
 </ui-menu>
