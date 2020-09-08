@@ -354,7 +354,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
         <band height="12" splitType="Stretch">
             <property name="local_mesure_unitheight" value="pixel"/>
             <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="60" height="12" uuid="c0a8ee33-d925-41c1-8d60-8bf5e9192b44">
                     <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                 </reportElement>
@@ -363,42 +363,42 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                 </textElement>
                 <textFieldExpression><![CDATA[$F{taxNumber}]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="60" y="0" width="143" height="12" uuid="65a966c4-f77d-47cc-8094-22aa18c96ee3"/>
                 <textElement>
                     <font size="8"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="203" y="0" width="97" height="12" uuid="942313de-501b-4ed8-8f85-76f8609030cf"/>
                 <textElement>
                     <font size="8"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{tradeName}]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="300" y="0" width="115" height="12" uuid="fad25632-1096-4897-b92d-b3ce0418e2c7"/>
                 <textElement>
                     <font size="8"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{departmentLocation}]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="415" y="0" width="85" height="12" uuid="aedcd8bf-32d3-4a8f-80c4-fe4ee1a5067c"/>
                 <textElement>
                     <font size="8"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{provinceLocation}]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="500" y="0" width="90" height="12" uuid="51ca0fd0-3467-481c-adb3-fe41c59cb84e"/>
                 <textElement>
                     <font size="8"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{districtLocationLink}]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                 <reportElement stretchType="RelativeToBandHeight" x="590" y="0" width="180" height="12" uuid="22d6369d-c057-4414-b5d3-638b4e1aedca">
                     <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                 </reportElement>
@@ -419,7 +419,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                         <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
                     </datasetRun>
                     <jr:listContents height="12" width="390">
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="60" y="0" width="130" height="12" uuid="244e3138-47af-4bce-abb3-165e6060df01">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -428,21 +428,21 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                             </textElement>
                             <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="190" y="0" width="100" height="12" uuid="331eb342-6a43-42a9-b5ef-b3dae22909fc"/>
                             <textElement>
                                 <font size="8"/>
                             </textElement>
                             <textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="290" y="0" width="100" height="12" uuid="bd3b9ac3-af33-4016-a82d-67967758240a"/>
                             <textElement>
                                 <font size="8"/>
                             </textElement>
                             <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="0" y="0" width="60" height="12" uuid="77976e84-c865-4921-b82f-3d567bcc00b8">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -466,7 +466,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                         <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
                     </datasetRun>
                     <jr:listContents height="12" width="500">
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement stretchType="RelativeToBandHeight" x="200" y="0" width="100" height="12" uuid="4a13a22d-11b6-45cb-9bef-9964f1b04f04">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -475,28 +475,28 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                             </textElement>
                             <textFieldExpression><![CDATA[$F{nro}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement stretchType="RelativeToBandHeight" x="300" y="0" width="100" height="12" uuid="b16d7456-ad63-43ce-8102-3b613c76013b"/>
                             <textElement>
                                 <font size="8"/>
                             </textElement>
                             <textFieldExpression><![CDATA[$F{contact}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement stretchType="RelativeToBandHeight" x="400" y="0" width="100" height="12" uuid="d69c291c-0faf-4e24-8955-aa777484cbe4"/>
                             <textElement>
                                 <font size="8"/>
                             </textElement>
                             <textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="12" uuid="0f2fe195-4868-445a-b7c2-8b364945165f"/>
                             <textElement>
                                 <font size="8"/>
                             </textElement>
                             <textFieldExpression><![CDATA[$F{financialInst}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement stretchType="RelativeToBandHeight" x="100" y="0" width="100" height="12" uuid="1b74bec0-9fbc-4e94-af58-849e4dc26898">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -520,7 +520,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                         <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
                     </datasetRun>
                     <jr:listContents height="12" width="100">
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="12" uuid="de040c2a-92bf-447d-b4b3-7f9bcfbc69d0">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -544,7 +544,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                         <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
                     </datasetRun>
                     <jr:listContents height="12" width="140">
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="70" y="0" width="70" height="12" uuid="4a18cd8b-c19b-44fa-98d6-7090be0d0959">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -553,7 +553,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                             </textElement>
                             <textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="0" y="0" width="70" height="12" uuid="0bf1cc01-5033-4a41-8ada-f35aa4543fa8">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -578,7 +578,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                         <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
                     </datasetRun>
                     <jr:listContents height="12" width="140">
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="0" y="0" width="50" height="12" uuid="3a43d2d2-be5b-493b-aad2-729c6409409c">
                                 <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
                             </reportElement>
@@ -587,7 +587,7 @@ class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as di
                             </textElement>
                             <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
                         </textField>
-                        <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                        <textField textAdjust="StretchHeight" isBlankWhenNull="true">
                             <reportElement x="50" y="0" width="90" height="12" uuid="9982121a-68bd-4ea4-ba10-2b1fe6569c6b"/>
                             <textElement>
                                 <font size="8"/>
