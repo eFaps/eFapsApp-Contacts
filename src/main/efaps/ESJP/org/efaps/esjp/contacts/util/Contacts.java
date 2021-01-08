@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2017 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,6 +107,13 @@ public final class Contacts
                     .sysConfUUID(Contacts.SYSCONFUUID)
                     .key(Contacts.BASE + "taxid.RESTURI")
                     .description("The base url for the REST interface.");
+
+    /** See description. */
+    @EFapsSysConfAttribute
+    public static final StringSysConfAttribute TAXID_TOKEN = new StringSysConfAttribute()
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "taxid.Token")
+                    .description("The token for accessing taxid service.");
 
     /**
      * Singelton.

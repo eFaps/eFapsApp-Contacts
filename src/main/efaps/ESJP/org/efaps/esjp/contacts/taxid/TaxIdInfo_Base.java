@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2017 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
 import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Return;
 import org.efaps.admin.event.Return.ReturnValues;
@@ -33,7 +32,6 @@ import org.efaps.db.SelectBuilder;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIFormContacts;
 import org.efaps.esjp.common.AbstractCommon;
-import org.efaps.esjp.contacts.taxid.InfoJson.SubAddress;
 import org.efaps.esjp.db.InstanceUtils;
 import org.efaps.esjp.ui.html.HtmlTable;
 import org.efaps.update.AppDependency;
@@ -80,113 +78,37 @@ public abstract class TaxIdInfo_Base
             taxId = print.getSelect(selTaxId);
         }
         final Request request = new Request();
-        final InfoJson infoJson = request.getInfoJson(taxId);
-        ret.put(ReturnValues.SNIPLETT, getSnipplet4InfoJson(_parameter, infoJson));
+        final var dto = request.getTaxpayer(taxId);
+        ret.put(ReturnValues.SNIPLETT, getSnipplet4Taxpayer(_parameter, dto));
         return ret;
     }
 
-    /**
-     * Gets the snipplet for info json.
-     *
-     * @param _parameter Parameter as passed by the eFaps API
-     * @param _infoJson the info json
-     * @return the snipplet for info json
-     * @throws EFapsException on error
-     */
-    public CharSequence getSnipplet4InfoJson(final Parameter _parameter,
-                                             final InfoJson _infoJson)
+    public CharSequence getSnipplet4Taxpayer(final Parameter _parameter,
+                                             final TaxpayerDto _dto)
         throws EFapsException
     {
-        final HtmlTable table = new HtmlTable();
-        table.table()
-            .tr()
-                .th(getDBProperty("KeyHeader"))
-                .th(getDBProperty("ValueHeader"))
-            .trC()
-            .tr()
-                .td(getDBProperty("retrieved"))
-                .td(_infoJson.getRetrieved())
-            .trC()
-            .tr()
-                .td(getDBProperty("taxId"))
-                .td(_infoJson.getTaxId())
-            .trC()
-            .tr()
-                .td(getDBProperty("name"))
-                .td(_infoJson.getName())
-            .trC()
-            .tr()
-                .td(getDBProperty("comercialName"))
-                .td(_infoJson.getComercialName())
-            .trC();
-
-        if (isNotEmpty(_infoJson.getAddressStreetType())) {
-            table.tr()
-                .td(getDBProperty("addressStreetType"))
-                .td(_infoJson.getAddressStreetType())
-                .trC();
+        CharSequence ret;
+        if (_dto != null) {
+            final HtmlTable table = new HtmlTable();
+            table.table()
+                            .tr()
+                            .th(getDBProperty("KeyHeader"))
+                            .th(getDBProperty("ValueHeader"))
+                            .trC()
+                            .tr()
+                            .td(getDBProperty("taxId"))
+                            .td(_dto.getId())
+                            .trC()
+                            .tr()
+                            .td(getDBProperty("name"))
+                            .td(_dto.getName())
+                            .trC();
+            ret = table.toString();
+        } else {
+            final String taxId = _parameter.getParameterValue(CIFormContacts.Contacts_TaxIdRequestForm.taxid.name);
+            ret = getFormatedDBProperty("NotFound", taxId);
         }
-
-        table.tr()
-                .td(getDBProperty("addressStreet"))
-                .td(_infoJson.getAddressStreet())
-            .trC()
-            .tr()
-                .td(getDBProperty("addressNumber"))
-                .td(_infoJson.getAddressNumber())
-            .trC();
-        if (isNotEmpty(_infoJson.getAddressZoneType())) {
-            table.tr()
-                .td(getDBProperty("addressZoneType"))
-                .td(_infoJson.getAddressZoneType())
-                .trC();
-        }
-        if (isNotEmpty(_infoJson.getAddressZoneNumber())) {
-            table.tr()
-                .td(getDBProperty("addressZoneNumber"))
-                .td(_infoJson.getAddressZoneNumber())
-                .trC();
-        }
-
-        for (final SubAddress subAddress : _infoJson.getSubAddress()) {
-            table.tr()
-                    .td(getDBProperty("subAddressType"))
-                    .td(subAddress.getType())
-                .trC()
-                .tr()
-                    .td(getDBProperty("subAddressValue"))
-                    .td(subAddress.getValue())
-                .trC();
-        }
-        table.tr()
-                .td(getDBProperty("addressUbigeo"))
-                .td(_infoJson.getAddressUbigeo())
-            .trC()
-            .tr()
-                .td(getDBProperty("addressReference"))
-                .td(_infoJson.getAddressReference())
-            .trC()
-            .tr()
-                .td(getDBProperty("active"))
-                .td(_infoJson.getActive())
-            .trC()
-            .tr()
-                .td(getDBProperty("verified"))
-                .td(_infoJson.getVerified())
-            .trC()
-            .tr()
-                .td("")
-            .trC()
-            .tr()
-                .td(getDBProperty("cityLabel"))
-                .td(getCityLabel(_parameter, _infoJson.getAddressUbigeo()).toString())
-            .trC()
-            .tr()
-                .td(getDBProperty("addressLabel"))
-                .td(getAddressLabel(_parameter, _infoJson).toString())
-                .trC()
-            .tableC();
-        return table.toString();
+        return ret;
     }
 
     /**
@@ -208,7 +130,7 @@ public abstract class TaxIdInfo_Base
                     final Class<?> clazz = Class.forName("org.efaps.esjp.ubicaciones.Ubicaciones", false,
                                     EFapsClassLoader.getInstance());
                     final Method method = clazz.getMethod("getAddressLabel", Parameter.class, String.class);
-                    ret.append(method.invoke(clazz.newInstance(), _parameter, _ubigeo));
+                    ret.append(method.invoke(clazz.getDeclaredConstructor().newInstance(), _parameter, _ubigeo));
                 } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalAccessException
                                 | IllegalArgumentException | InvocationTargetException | InstantiationException e) {
                     TaxIdInfo_Base.LOG.error("Catched error", e);
@@ -217,63 +139,6 @@ public abstract class TaxIdInfo_Base
         } catch (final InstallationException e) {
             TaxIdInfo_Base.LOG.error("Catched error", e);
             throw new EFapsException("AppDependency", e);
-        }
-        return ret;
-    }
-
-    /**
-     * Gets the address label.
-     *
-     * @param _parameter Parameter as passed by the eFaps API
-     * @param _infoJson the info json
-     * @return the address label
-     * @throws EFapsException on error
-     */
-    public CharSequence getAddressLabel(final Parameter _parameter,
-                                        final InfoJson _infoJson)
-        throws EFapsException
-    {
-        final StringBuilder ret = new StringBuilder();
-        if (isNotEmpty(_infoJson.getAddressStreetType())) {
-            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressStreetType()))
-                .append(" ");
-        }
-        if (isNotEmpty(_infoJson.getAddressStreet())) {
-            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressStreet())).append(" ");
-        }
-        if (isNotEmpty(_infoJson.getAddressNumber())) {
-            ret.append(_infoJson.getAddressNumber()).append(" ");
-        }
-        if (isNotEmpty(_infoJson.getAddressZoneType())) {
-            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressZoneType())).append(" ");
-        }
-        if (isNotEmpty(_infoJson.getAddressZoneNumber())) {
-            ret.append(WordUtils.capitalizeFully(_infoJson.getAddressZoneNumber())).append(" ");
-        }
-
-        for (final SubAddress subAddress : _infoJson.getSubAddress()) {
-            ret.append(" ");
-            switch (subAddress.getType()) {
-                case "INTERNAL":
-                    ret.append("Int.");
-                    break;
-                case "DEPARTMENT":
-                    ret.append("dep.");
-                    break;
-                case "BLOCK":
-                    ret.append("Mz.");
-                    break;
-                case "KILOMETER":
-                    ret.append("km.");
-                    break;
-                case "LOT":
-                    ret.append("Lote");
-                    break;
-                default:
-                    break;
-            }
-            ret.append(" ")
-                .append(subAddress.getValue());
         }
         return ret;
     }

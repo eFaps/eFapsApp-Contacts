@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2017 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,20 +53,21 @@ public class Request
      * @return the info
      * @throws EFapsException on error
      */
-    public InfoJson getInfoJson(final String _taxId)
+    public TaxpayerDto getTaxpayer(final String _taxId)
         throws EFapsException
     {
         Request.LOG.debug("Request TaxId: {}", _taxId);
-        InfoJson ret = null;
+        TaxpayerDto ret = null;
         if (Contacts.TAXID_RESTURI.exists()) {
             final ClientConfig clientConfig = new ClientConfig();
 
             final Client client = ClientBuilder.newClient(clientConfig).register(JacksonFeature.class);
-
             final WebTarget webTarget = client.target(Contacts.TAXID_RESTURI.get());
 
-            ret = webTarget.path(_taxId).request().accept(MediaType.APPLICATION_JSON_TYPE).get(InfoJson.class);
-
+            ret = webTarget.queryParam("id", _taxId).request()
+                            .header("Authorization", "Bearer " + Contacts.TAXID_TOKEN.get())
+                            .accept(MediaType.APPLICATION_JSON_TYPE)
+                            .get(TaxpayerDto.class);
             Request.LOG.debug("Retrieved TaxIdInfo: {}", ret);
         }
         return ret;
