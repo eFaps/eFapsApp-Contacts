@@ -53,18 +53,6 @@
             <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
             <uuid>d6d49ad1-dd0f-400b-a250-cd58315234fb</uuid>
-            <attribute>
-                <name>Make</name>
-                <type>String</type>
-                <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
-                <sqlcolumn>MAKE</sqlcolumn>
-            </attribute>
-            <attribute>
-                <name>Registration</name>
-                <type>String</type>
-                <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
-                <sqlcolumn>REGISTRATION</sqlcolumn>
-            </attribute>
         </attributeset>
          <attributeset>
             <name>DriverSet</name>
@@ -73,12 +61,6 @@
             <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
             <sqlcolumn>RELID</sqlcolumn>
             <uuid>09ee80a0-e8c0-41d2-b272-c30a32733fea</uuid>
-            <attribute>
-                <name>License</name>
-                <type>String</type>
-                <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
-                <sqlcolumn>LICENSE</sqlcolumn>
-            </attribute>
         </attributeset>
         <trigger program="org.efaps.esjp.common.history.InsertClassificationHistoryTrigger"
             name="Contacts_ClassCarrier.INSERT_POST"

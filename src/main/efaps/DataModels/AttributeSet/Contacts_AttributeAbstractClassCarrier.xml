@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
- Copyright 2003 - 2011 The eFaps Team
+ Copyright 2003 - 2021 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,17 +14,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 <datamodel-type xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>6576baa4-98aa-4f11-af3b-590cf5b574bc</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_AttributeAbstractClassCarrier</name>
@@ -82,6 +76,12 @@
             <type>String</type>
             <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
             <sqlcolumn>REGISTRATION</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>Certificate</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqlcolumn>CERT</sqlcolumn>
         </attribute>
         <attribute>
             <name>DefaultSelected</name>
