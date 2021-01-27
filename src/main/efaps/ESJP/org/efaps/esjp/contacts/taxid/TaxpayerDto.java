@@ -16,6 +16,7 @@
  */
 package org.efaps.esjp.contacts.taxid;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 
@@ -163,6 +164,12 @@ public class TaxpayerDto
     public String getAddress()
     {
         return address;
+    }
+
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this);
     }
 
     public static Builder builder()
