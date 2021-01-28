@@ -20,6 +20,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsUUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = TaxpayerDto.Builder.class)
@@ -47,6 +48,7 @@ public class TaxpayerDto
     private final String province;
     private final String district;
     private final String address;
+    private final String updated;
 
     private TaxpayerDto(final Builder _builder)
     {
@@ -69,6 +71,7 @@ public class TaxpayerDto
         province = _builder.province;
         district = _builder.district;
         address = _builder.address;
+        updated = _builder.updated;
     }
 
     public String getId()
@@ -166,6 +169,11 @@ public class TaxpayerDto
         return address;
     }
 
+    public String getUpdated()
+    {
+        return updated;
+    }
+
     @Override
     public String toString()
     {
@@ -177,6 +185,7 @@ public class TaxpayerDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Builder
     {
 
@@ -199,6 +208,7 @@ public class TaxpayerDto
         private String province;
         private String district;
         private String address;
+        private String updated;
 
         public Builder withId(final String _id)
         {
@@ -311,6 +321,12 @@ public class TaxpayerDto
         public Builder withAddress(final String _address)
         {
             address = _address;
+            return this;
+        }
+
+        public Builder withUpdated(final String _updated)
+        {
+            updated = _updated;
             return this;
         }
 
