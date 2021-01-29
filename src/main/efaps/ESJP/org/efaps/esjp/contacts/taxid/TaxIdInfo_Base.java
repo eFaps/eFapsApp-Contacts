@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2020 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,14 +21,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
+import org.efaps.admin.datamodel.Classification;
 import org.efaps.admin.event.Parameter;
 import org.efaps.admin.event.Return;
 import org.efaps.admin.event.Return.ReturnValues;
 import org.efaps.admin.program.esjp.EFapsApplication;
 import org.efaps.admin.program.esjp.EFapsClassLoader;
 import org.efaps.admin.program.esjp.EFapsUUID;
+import org.efaps.db.Instance;
 import org.efaps.db.PrintQuery;
 import org.efaps.db.SelectBuilder;
+import org.efaps.eql.EQL;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.ci.CIFormContacts;
 import org.efaps.esjp.common.AbstractCommon;
@@ -149,7 +153,100 @@ public abstract class TaxIdInfo_Base
      * @param _value the value
      * @return true, if is not empty
      */
-    protected boolean isNotEmpty(final String _value) {
+    protected boolean isNotEmpty(final String _value)
+    {
         return StringUtils.isNoneEmpty(_value) && !_value.equals("-");
     }
+
+    public Instance createContactFromTaxpayerDto(final TaxpayerDto _dto, final boolean _isClient)
+        throws EFapsException
+    {
+        Instance ret = null;
+        if (_dto != null) {
+            ret = EQL.builder().insert(CIContacts.Contact)
+                            .set(CIContacts.Contact.Name, _dto.getName())
+                            .set(CIContacts.Contact.Status, CIContacts.ContactStatus.Active)
+                            .stmt().execute();
+
+            final var classClass = (Classification) CIContacts.Class.getType();
+            EQL.builder().insert(classClass.getClassifyRelationType())
+                            .set(classClass.getRelLinkAttributeName(), String.valueOf(ret.getId()))
+                            .set(classClass.getRelTypeAttributeName(), String.valueOf(classClass.getId()))
+                            .stmt().execute();
+            EQL.builder().insert(classClass)
+                            .set(classClass.getLinkAttributeName(), String.valueOf(ret.getId()))
+                            .stmt().execute();
+
+            final var orgClass = (Classification) CIContacts.ClassOrganisation.getType();
+            EQL.builder().insert(orgClass.getClassifyRelationType())
+                            .set(orgClass.getRelLinkAttributeName(), String.valueOf(ret.getId()))
+                            .set(orgClass.getRelTypeAttributeName(), String.valueOf(orgClass.getId()))
+                            .stmt().execute();
+            EQL.builder().insert(orgClass)
+                            .set(orgClass.getLinkAttributeName(), String.valueOf(ret.getId()))
+                            .set(CIContacts.ClassOrganisation.TaxNumber, _dto.getId())
+                            .stmt().execute();
+
+            final var locationClass = (Classification) CIContacts.ClassLocation.getType();
+            EQL.builder().insert(locationClass.getClassifyRelationType())
+                            .set(locationClass.getRelLinkAttributeName(), String.valueOf(ret.getId()))
+                            .set(locationClass.getRelTypeAttributeName(), String.valueOf(locationClass.getId()))
+                            .stmt().execute();
+            EQL.builder().insert(locationClass)
+                            .set(locationClass.getLinkAttributeName(), String.valueOf(ret.getId()))
+                            .set(CIContacts.ClassLocation.LocationAdressStreet, getAdressStreet(_dto))
+                            .set(CIContacts.ClassLocation.LocationAdressCity, getAdressCity(_dto))
+                            .stmt().execute();
+
+            if (_isClient) {
+                final var classClient = (Classification) CIContacts.ClassClient.getType();
+                EQL.builder().insert(classClient.getClassifyRelationType())
+                                .set(classClient.getRelLinkAttributeName(), String.valueOf(ret.getId()))
+                                .set(classClient.getRelTypeAttributeName(), String.valueOf(classClient.getId()))
+                                .stmt().execute();
+
+                EQL.builder().insert(classClient)
+                                .set(classClient.getLinkAttributeName(), String.valueOf(ret.getId()))
+                                .stmt().execute();
+            }
+        }
+        return ret;
+    }
+
+    public String getAdressStreet(final TaxpayerDto _dto)
+    {
+        final var ret = new StringBuilder();
+        if (isNotEmpty(_dto.getStreetType())) {
+            ret.append(_dto.getStreetType()).append(" ");
+        }
+        if (_dto.getStreet() != null) {
+            ret.append(WordUtils.capitalizeFully(_dto.getStreet())).append(" ");
+        }
+        if (isNotEmpty(_dto.getStreetNumber())) {
+            ret.append("Nro. ").append(_dto.getStreetNumber()).append(" ");
+        }
+        if (isNotEmpty(_dto.getStreetInterior())) {
+            ret.append("Int. ").append(_dto.getStreetInterior()).append(" ");
+        }
+        if (isNotEmpty(_dto.getApartmentNumber())) {
+            ret.append("Dep. ").append(_dto.getApartmentNumber()).append(" ");
+        }
+        return ret.toString();
+    }
+
+    public String getAdressCity(final TaxpayerDto _dto)
+    {
+        final var ret = new StringBuilder();
+        if (isNotEmpty(_dto.getDepartment())) {
+            ret.append(_dto.getDepartment()).append(" - ");
+        }
+        if (isNotEmpty(_dto.getProvince())) {
+            ret.append(_dto.getProvince()).append(" - ");
+        }
+        if (isNotEmpty(_dto.getDistrict())) {
+            ret.append(_dto.getDistrict()).append(" - ");
+        }
+        return ret.toString();
+    }
+
 }
