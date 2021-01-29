@@ -59,16 +59,19 @@ public class Request
         Request.LOG.debug("Request TaxId: {}", _taxId);
         TaxpayerDto ret = null;
         if (Contacts.TAXID_RESTURI.exists()) {
-            final ClientConfig clientConfig = new ClientConfig();
+            try {
+                final ClientConfig clientConfig = new ClientConfig();
+                final Client client = ClientBuilder.newClient(clientConfig).register(JacksonFeature.class);
+                final WebTarget webTarget = client.target(Contacts.TAXID_RESTURI.get());
 
-            final Client client = ClientBuilder.newClient(clientConfig).register(JacksonFeature.class);
-            final WebTarget webTarget = client.target(Contacts.TAXID_RESTURI.get());
-
-            ret = webTarget.queryParam("id", _taxId).request()
-                            .header("Authorization", "Bearer " + Contacts.TAXID_TOKEN.get())
-                            .accept(MediaType.APPLICATION_JSON_TYPE)
-                            .get(TaxpayerDto.class);
-            Request.LOG.debug("Retrieved TaxIdInfo: {}", ret);
+                ret = webTarget.queryParam("id", _taxId).request()
+                                .header("Authorization", "Bearer " + Contacts.TAXID_TOKEN.get())
+                                .accept(MediaType.APPLICATION_JSON_TYPE)
+                                .get(TaxpayerDto.class);
+                Request.LOG.debug("Retrieved TaxIdInfo: {}", ret);
+            } catch (final Exception e) {
+                Request.LOG.error("Catched Exception", e);
+            }
         }
         return ret;
     }
