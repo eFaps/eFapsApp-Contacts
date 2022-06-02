@@ -28,6 +28,7 @@
             <table-name>T_COCONTACT</table-name>
             <column name="TYPEID"       type="INTEGER"          not-null="true" />
             <column name="STATUS"       type="INTEGER"          not-null="true" />
+            <column name="ASSOCID"      type="INTEGER"/>
             <column name="COMPANYID"    type="INTEGER"/>
             <column name="NAME"         type="STRING_SHORT"     not-null="true" length="255" />
             <column name="NOTE"         type="STRING_SHORT"                     length="1024" />
@@ -37,6 +38,7 @@
             <column name="MODIFIED"     type="DATETIME"         not-null="true"/>
             <foreign name="T_COCONTACT_FK_CRTR"         key="CREATOR"   reference="T_USERPERSON(ID)"/>
             <foreign name="T_COCONTACT_FK_MDFR"         key="MODIFIER"  reference="T_USERPERSON(ID)"/>
+            <foreign name="T_COCONTACT_FK_ASSOCID"      key="ASSOCID"   reference="T_CMASSOC(ID)"/>
             <foreign name="T_COCONTACT_FK_COMPANYID"    key="COMPANYID" reference="T_USERABSTRACT(ID)"/>
         </database>
     </definition>

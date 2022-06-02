@@ -26,6 +26,12 @@
         <parent>Contacts_ContactAbstract</parent>
         <purpose history="true"/>
         <attribute>
+            <name>Association</name>
+            <type>AssociationLink</type>
+            <sqltable>Contacts_ContactSQLTable</sqltable>
+            <sqlcolumn>ASSOCID</sqlcolumn>
+        </attribute>
+        <attribute>
             <name>Status</name>
             <type>Status</type>
             <typelink>Contacts_ContactStatus</typelink>
