@@ -133,8 +133,13 @@ public abstract class ContactsPicker_Base
     {
         final StringBuilder html = new StringBuilder();
         if (identityCard != null && !identityCard.isEmpty()) {
+            final var attrQueryBldr = new QueryBuilder(CIContacts.Contact);
+            final var attrQuery = attrQueryBldr.getAttributeQuery(CIContacts.Contact.ID);
+
             final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassPerson);
             queryBldr.addWhereAttrEqValue(CIContacts.ClassPerson.IdentityCard, identityCard);
+            queryBldr.addWhereAttrInQuery(CIContacts.ClassPerson.ContactLink, attrQuery);
+
             if (_parameter.getInstance() != null) {
                 queryBldr.addWhereAttrNotEqValue(CIContacts.ClassPerson.ContactLink, _parameter.getInstance().getId());
             }
@@ -190,8 +195,11 @@ public abstract class ContactsPicker_Base
         throws EFapsException
     {
         final StringBuilder html = new StringBuilder();
+        final var attrQueryBldr = new QueryBuilder(CIContacts.Contact);
+        final var attrQuery = attrQueryBldr.getAttributeQuery(CIContacts.Contact.ID);
         final QueryBuilder queryBldr = new QueryBuilder(CIContacts.ClassOrganisation);
         queryBldr.addWhereAttrEqValue(CIContacts.ClassOrganisation.TaxNumber, _taxNumber);
+        queryBldr.addWhereAttrInQuery(CIContacts.ClassOrganisation.ContactLink, attrQuery);
         if (_parameter.getInstance() != null) {
             queryBldr.addWhereAttrNotEqValue(CIContacts.ClassOrganisation.ContactLink, _parameter.getInstance().getId());
         }
