@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+ Copyright 2003 - 2021 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+-->
+<ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>730e01f7-99b5-4b95-b007-53b65e28b64a</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <application-dependencies>
+            <application name="eFapsApp-Archives"/>
+        </application-dependencies>
+        <name>Contacts_ContactTree_File_Menu_Action_CreateRoot</name>
+        <access>
+            <role>Contacts_Admin</role>
+            <role>Contacts_Modifier</role>
+        </access>
+        <target>
+            <form>Archives_ArchiveRootForm</form>
+            <execute method="createRoot" program="org.efaps.esjp.archives.Archive">
+                <property name="ConnectType">Contacts_Contact2ArchiveAbstract</property>
+                <property name="ConnectChildAttribute">ToLink</property>
+                <property name="ConnectParentAttribute">FromLink</property>
+                <property name="StatusGroup">Archives_ArchiveNodeStatus</property>
+                <property name="Status">Editable</property>
+            </execute>
+            <trigger event="UI_ACCESSCHECK" index="1" method="configCheck"
+                name="Contacts_ContactTree_File_Menu_Action_CreateRoot.UI_ACCESSCHECK"
+                program="org.efaps.esjp.admin.access.AccessCheck4UI">
+                   <!-- Contacts-Configuration -->
+                <property name="SystemConfig">77f5f440-f251-46d0-8603-add22f99f7f0</property>
+                <property name="Attribute">org.efaps.contacts.Contact.ActivateFilesStructurBrowser</property>
+            </trigger>
+            <trigger event="UI_ACCESSCHECK" index="2" method="checkAccess2ArchiveRoot"
+                name="Contacts_ContactTree_File_Menu_Action_CreateRoot.UI_ACCESSCHECK"
+                program="org.efaps.esjp.archives.Archive">
+                <property name="Object2ArchiveType">Contacts_Contact2ArchiveAbstract</property>
+            </trigger>
+        </target>
+        <property name="Target">modal</property>
+        <property name="TargetCreateType">Archives_ArchiveRoot</property>
+        <property name="TargetMode">create</property>
+        <property name="WindowHeight">460</property>
+        <property name="WindowWidth">515</property>
+        <property name="Label">Sales_AbstractDocTree_File_Menu_Action_CreateRoot.Label</property>
+        <property name="TargetTitle">Sales_AbstractDocTree_File_Menu_Action_CreateRoot.Title</property>
+    </definition>
+</ui-command>

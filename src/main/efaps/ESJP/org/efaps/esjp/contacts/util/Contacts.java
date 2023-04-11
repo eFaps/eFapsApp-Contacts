@@ -115,6 +115,19 @@ public final class Contacts
                     .key(Contacts.BASE + "taxid.Token")
                     .description("The token for accessing taxid service.");
 
+    @EFapsSysConfAttribute
+    public static final BooleanSysConfAttribute CONTACT_FILE = new BooleanSysConfAttribute()
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "Contact.ActivateFiles")
+                    .description("Activate the possiblity to upload Files");
+
+    /** See description. */
+    @EFapsSysConfAttribute
+    public static final StringSysConfAttribute CONTACT_FILESTRBROWSER = new StringSysConfAttribute()
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "Contact.ActivateFilesStructurBrowser")
+                    .description("The token for accessing taxid service.");
+
     /**
      * Singelton.
      */

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+  Copyright 2003 - 2023 The eFaps Team
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+-->
+<ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+    <uuid>5278b441-e652-467a-827d-b1642b08d198</uuid>
+    <file-application>eFapsApp-Contacts</file-application>
+    <definition>
+        <version-expression>(version==latest)</version-expression>
+        <application-dependencies>
+            <application name="eFapsApp-Archives"/>
+        </application-dependencies>
+        <name>Contacts_ContactTree_FileStrBrowser</name>
+        <target>
+            <menu>Contacts_Contact_File_Menu</menu>
+            <table>Archives_ArchiveTable</table>
+            <evaluate program="org.efaps.esjp.archives.ArchiveStructurBrowser">
+                <property name="Type">Archives_ArchiveRoot</property>
+                <property name="Object2ArchiveType">Contacts_Contact2ArchiveAbstract</property>
+                <property name="Child_Type">Archives_ArchiveNode</property>
+                <property name="Child_LinkFrom">ParentLink</property>
+            </evaluate>
+            <trigger event="UI_ACCESSCHECK" method="configCheck"
+                name="Contacts_ContactTree_FileStrBrowser.UI_ACCESSCHECK" program="org.efaps.esjp.admin.access.AccessCheck4UI">
+                <!-- Contacts-Configuration -->
+                <property name="SystemConfig">77f5f440-f251-46d0-8603-add22f99f7f0</property>
+                <property name="Attribute">org.efaps.contacts.Contact.ActivateFilesStructurBrowser</property>
+            </trigger>
+        </target>
+        <!-- adding via parent due to application Dependency -->
+        <parents>
+            <parent>Contacts_ContactTree</parent>
+        </parents>
+        <property name="Target">content</property>
+        <property name="TargetShowCheckBoxes">true</property>
+        <property name="TargetStructurBrowserField">name</property>
+        <property name="Label">Sales_AbstractDocTree_FileStrBrowser.Label</property>
+        <property name="TargetTitle">Sales_AbstractDocTree_FileStrBrowser.Label</property>
+    </definition>
+</ui-command>
