@@ -157,6 +157,11 @@
             <version>${efaps.app.dependencies}</version>
         </dependency>
         <dependency>
+            <groupId>org.efaps.apps</groupId>
+            <artifactId>archives</artifactId>
+            <version>${efaps.app.dependencies}</version>
+        </dependency>
+        <dependency>
             <groupId>org.efaps</groupId>
             <artifactId>efaps-tests</artifactId>
             <version>${project.version}</version>
