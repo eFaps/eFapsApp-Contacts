@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
- Copyright 2003 - 2021 The eFaps Team
+ Copyright 2003 - 2023 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@
             <column name="REGISTRATION" type="STRING_SHORT"                 length="255" />
             <column name="CERT"         type="STRING_SHORT"                 length="255" />
             <column name="DEFAULTSEL"   type="BOOLEAN"/>
+            <column name="MINOR"        type="BOOLEAN"/>
             <column name="CREATOR"      type="INTEGER"      not-null="true" />
             <column name="CREATED"      type="DATETIME"     not-null="true" />
             <column name="MODIFIER"     type="INTEGER"      not-null="true" />

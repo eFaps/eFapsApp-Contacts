@@ -84,10 +84,18 @@
             <sqlcolumn>CERT</sqlcolumn>
         </attribute>
         <attribute>
+            <name>MinorVehicle</name>
+            <type>Boolean</type>
+            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqlcolumn>MINOR</sqlcolumn>
+            <defaultvalue>false</defaultvalue>
+        </attribute>
+        <attribute>
             <name>DefaultSelected</name>
             <type>Boolean</type>
             <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
             <sqlcolumn>DEFAULTSEL</sqlcolumn>
+            <defaultvalue>false</defaultvalue>
         </attribute>
     </definition>
 </datamodel-type>
