@@ -29,9 +29,12 @@
             <column name="TYPEID"       type="INTEGER"      not-null="true" />
             <column name="RELID"        type="INTEGER"      not-null="true" />
             <column name="NAME"         type="STRING_SHORT"                 length="255" />
+            <column name="LASTNAME"     type="STRING_SHORT"                 length="255" />
             <column name="LICENSETYPE"  type="STRING_SHORT"                 length="255" />
             <column name="LICENSE"      type="STRING_SHORT"                 length="255" />
             <column name="DEFAULTSEL"   type="BOOLEAN"/>
+            <column name="DOITYPEID"    type="INTEGER"  />
+            <column name="DOI"          type="STRING_SHORT"                 length="255" />
             <column name="CREATOR"      type="INTEGER"      not-null="true" />
             <column name="CREATED"      type="DATETIME"     not-null="true" />
             <column name="MODIFIER"     type="INTEGER"      not-null="true" />

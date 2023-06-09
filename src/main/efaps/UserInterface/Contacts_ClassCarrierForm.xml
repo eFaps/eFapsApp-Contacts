@@ -28,14 +28,14 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">CarrierSet</property>
             <property name="Label">Contacts_ClassCarrier/CarrierSet.Label</property>
-            <property name="Order">Make|Registration|Certificate|MinorVehicle|DefaultSelected</property>
+            <property name="Order">Registration|Certificate|MinorVehicle|DefaultSelected</property>
         </field>
         <field name="driverSet" character="Set">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">DriverSet</property>
             <property name="Label">Contacts_ClassCarrier/DriverSet.Label</property>
-            <property name="Order">Name|LicenseType|License|DefaultSelected</property>
+            <property name="Order">Name|LastName|DOITypeLink|DocumentOfIdentity|License|DefaultSelected</property>
         </field>
     </definition>
 </ui-form>

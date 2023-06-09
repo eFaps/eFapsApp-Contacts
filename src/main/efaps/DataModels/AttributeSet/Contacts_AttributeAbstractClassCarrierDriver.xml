@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
- Copyright 2003 - 2017 The eFaps Team
+ Copyright 2003 - 2023 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -72,10 +72,29 @@
             <sqlcolumn>NAME</sqlcolumn>
         </attribute>
         <attribute>
-            <name>LicenseType</name>
+            <name>LastName</name>
             <type>String</type>
             <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
-            <sqlcolumn>LICENSETYPE</sqlcolumn>
+            <sqlcolumn>LASTNAME</sqlcolumn>
+        </attribute>
+        <attribute>
+            <name>DOITypeLink</name>
+            <type>LinkWithRanges</type>
+            <typelink>Contacts_AttributeDefinitionDOIType</typelink>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
+            <sqlcolumn>DOITYPEID</sqlcolumn>
+            <trigger name="Contacts_AttributeAbstractClassCarrierDriver.DOITypeLink.RANGE_VALUE"
+                event="RANGE_VALUE"
+                program="org.efaps.esjp.admin.datamodel.RangesValue">
+                <property name="Value">$&lt;attribute[Value]&gt; - $&lt;attribute[Description]&gt;</property>
+                <property name="Type">Contacts_AttributeDefinitionDOIType</property>
+            </trigger>
+        </attribute>
+        <attribute>
+            <name>DocumentOfIdentity</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractClassCarrierDriverSQLTable</sqltable>
+            <sqlcolumn>DOI</sqlcolumn>
         </attribute>
         <attribute>
             <name>License</name>
