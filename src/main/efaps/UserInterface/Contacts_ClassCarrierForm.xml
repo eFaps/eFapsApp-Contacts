@@ -23,6 +23,11 @@
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassCarrierForm</name>
         <type>Contacts_ClassCarrier</type>
+        <field name="publicRegistryNo">
+            <property name="Attribute">PublicRegistryNo</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+        </field>
         <field name="carrierSet" character="Set">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>

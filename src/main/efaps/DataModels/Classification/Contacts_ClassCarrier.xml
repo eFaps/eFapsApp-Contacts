@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
- Copyright 2003 - 2017 The eFaps Team
+ Copyright 2003 - 2023 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -45,6 +45,12 @@
             <typelink>Contacts_Contact</typelink>
             <sqltable>Contacts_ClassCarrierSQLTable</sqltable>
             <sqlcolumn>CONTACTID</sqlcolumn>
+        </attribute>
+         <attribute>
+            <name>PublicRegistryNo</name>
+            <type>String</type>
+            <sqltable>Contacts_ClassCarrierSQLTable</sqltable>
+            <sqlcolumn>PUBREG</sqlcolumn>
         </attribute>
         <attributeset>
             <name>CarrierSet</name>
