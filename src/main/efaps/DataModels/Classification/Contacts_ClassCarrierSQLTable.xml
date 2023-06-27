@@ -25,7 +25,6 @@
         <database>
             <table-name>T_COCLASSCARRIER</table-name>
             <column name="CONTACTID" not-null="true" type="INTEGER" />
-            <column name="PUBREG" type="STRING_SHORT" length="64"/>
             <unique columns="CONTACTID" name="T_COCLASSCARRIER_UK_CONTACTID" />
             <foreign key="CONTACTID" name="T_COCLASSCARRIER_FK_CONTACTID" reference="T_COCONTACT(ID)" />
         </database>

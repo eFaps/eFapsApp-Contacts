@@ -84,6 +84,12 @@
             <sqlcolumn>CERT</sqlcolumn>
         </attribute>
         <attribute>
+            <name>PublicRegistryNo</name>
+            <type>String</type>
+            <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>
+            <sqlcolumn>PUBREG</sqlcolumn>
+        </attribute>
+        <attribute>
             <name>MinorVehicle</name>
             <type>Boolean</type>
             <sqltable>Contacts_AttributeAbstractClassCarrierSQLTable</sqltable>

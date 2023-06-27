@@ -46,12 +46,6 @@
             <sqltable>Contacts_ClassCarrierSQLTable</sqltable>
             <sqlcolumn>CONTACTID</sqlcolumn>
         </attribute>
-         <attribute>
-            <name>PublicRegistryNo</name>
-            <type>String</type>
-            <sqltable>Contacts_ClassCarrierSQLTable</sqltable>
-            <sqlcolumn>PUBREG</sqlcolumn>
-        </attribute>
         <attributeset>
             <name>CarrierSet</name>
             <type>MultiLineArray</type>

@@ -23,17 +23,12 @@
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ClassCarrierForm</name>
         <type>Contacts_ClassCarrier</type>
-        <field name="publicRegistryNo">
-            <property name="Attribute">PublicRegistryNo</property>
-            <property name="ModeCreate">EDITABLE</property>
-            <property name="ModeEdit">EDITABLE</property>
-        </field>
         <field name="carrierSet" character="Set">
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
             <property name="Attribute">CarrierSet</property>
             <property name="Label">Contacts_ClassCarrier/CarrierSet.Label</property>
-            <property name="Order">Registration|Certificate|MinorVehicle|DefaultSelected</property>
+            <property name="Order">Registration|Certificate|PublicRegistryNo|MinorVehicle|DefaultSelected</property>
         </field>
         <field name="driverSet" character="Set">
             <property name="ModeCreate">EDITABLE</property>

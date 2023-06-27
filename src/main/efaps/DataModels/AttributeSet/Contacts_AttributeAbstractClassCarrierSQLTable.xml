@@ -31,6 +31,7 @@
             <column name="MAKE"         type="STRING_SHORT"                 length="255" />
             <column name="REGISTRATION" type="STRING_SHORT"                 length="255" />
             <column name="CERT"         type="STRING_SHORT"                 length="255" />
+            <column name="PUBREG"       type="STRING_SHORT"                 length="64"/>
             <column name="DEFAULTSEL"   type="BOOLEAN"/>
             <column name="MINOR"        type="BOOLEAN"/>
             <column name="CREATOR"      type="INTEGER"      not-null="true" />
