@@ -128,6 +128,13 @@ public final class Contacts
                     .key(Contacts.BASE + "Contact.ActivateFilesStructurBrowser")
                     .description("The token for accessing taxid service.");
 
+    /** See description. */
+    @EFapsSysConfLink
+    public static final SysConfLink STRAYCOSTUMER = new SysConfLink()
+                    .sysConfUUID(Contacts.SYSCONFUUID)
+                    .key(Contacts.BASE + "StrayCostumer")
+                    .description("Instance for \"Cliente Various\"");
+
     /**
      * Singelton.
      */
