@@ -55,6 +55,12 @@
             <property name="ModeEdit">EDITABLE</property>
             <property name="ModeSearch">EDITABLE</property>
         </field>
+        <field name="locationCode">
+            <property name="Columns">12</property>
+            <property name="Attribute">LocationCode</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+        </field>
         <property name="Weight">20</property>
     </definition>
     <definition>
@@ -248,6 +254,12 @@
             <property name="ModeCreate">NONE</property>
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">READONLY</property>
+        </field>
+        <field name="locationCode">
+            <property name="Columns">12</property>
+            <property name="Attribute">LocationCode</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
         </field>
         <property name="Weight">20</property>
     </definition>

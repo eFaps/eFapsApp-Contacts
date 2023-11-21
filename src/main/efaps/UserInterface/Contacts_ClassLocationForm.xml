@@ -2,7 +2,7 @@
 
 <!--
 
-  Copyright 2003 - 2015 The eFaps Team
+  Copyright 2003 - 2023 The eFaps Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,20 +18,22 @@
 
 -->
 
-<ui-form xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
+<ui-form xmlns="http://www.efaps.org/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>15c96292-8850-43fc-bc6d-b5d373f3b0da</uuid>
     <file-application>eFapsApp-Contacts</file-application>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
-            <profile name="eFaps"/>
+            <profile name="eFaps" />
         </profiles>
         <name>Contacts_ClassLocationForm</name>
         <type>Contacts_ClassLocation</type>
         <field name="locationAdressHeading" character="Heading">
             <property name="Level">2</property>
-            <property name="Label">Contacts_ClassLocationForm.locationAdressHeading.Heading</property>
+            <property name="Label">
+                Contacts_ClassLocationForm.locationAdressHeading.Heading</property>
             <property name="ModeCreate">READONLY</property>
             <property name="ModeEdit">READONLY</property>
         </field>
@@ -70,6 +72,12 @@
             <property name="ModeCreate">EDITABLE</property>
             <property name="ModeEdit">EDITABLE</property>
         </field>
+        <field name="locationCode">
+            <property name="Columns">12</property>
+            <property name="Attribute">LocationCode</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
+        </field>
         <property name="Weight">30</property>
     </definition>
     <definition>
@@ -81,7 +89,8 @@
         <type>Contacts_ClassLocation</type>
         <field name="locationAdressHeading" character="Heading">
             <property name="Level">2</property>
-            <property name="Label">Contacts_ClassLocationForm.locationAdressHeading.Heading</property>
+            <property name="Label">
+                Contacts_ClassLocationForm.locationAdressHeading.Heading</property>
             <property name="ModeCreate">READONLY</property>
             <property name="ModeEdit">READONLY</property>
         </field>
@@ -261,8 +270,10 @@
             <property name="Attribute">DistrictLocationLink</property>
             <property name="Label">Contacts_ClassLocationForm.district.Label</property>
             <property name="UIType">DROPDOWN</property>
-            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones" method="getDropdown"
-                name="Contacts_ClassLocationForm.districtEdit.UI_FIELD_VALUE" event="UI_FIELD_VALUE">
+            <trigger program="org.efaps.esjp.ubicaciones.Ubicaciones"
+                method="getDropdown"
+                name="Contacts_ClassLocationForm.districtEdit.UI_FIELD_VALUE"
+                event="UI_FIELD_VALUE">
                 <property name="Type">Ubicaciones_UbicacionStandard</property>
                 <property name="Select">attribute[Name]</property>
                 <property name="OrderSelect">attribute[Name]</property>
@@ -279,12 +290,20 @@
             </trigger>
         </field>
         <field name="ubication">
-            <property name="Phrase">$&lt;linkto[DepartmentLocationLink].attribute[Name]&gt; - $&lt;linkto[ProvinceLocationLink].attribute[Name]&gt; - $&lt;linkto[DistrictLocationLink].attribute[Name]&gt;</property>
+            <property name="Phrase">$&lt;linkto[DepartmentLocationLink].attribute[Name]&gt;
+                - $&lt;linkto[ProvinceLocationLink].attribute[Name]&gt; -
+                $&lt;linkto[DistrictLocationLink].attribute[Name]&gt;</property>
             <property name="UIProvider">org.efaps.admin.datamodel.ui.StringUI</property>
             <property name="Label">Contacts_ClassLocationForm.ubication.Label</property>
             <property name="ModeCreate">NONE</property>
             <property name="ModeEdit">NONE</property>
             <property name="ModeView">READONLY</property>
+        </field>
+        <field name="locationCode">
+            <property name="Columns">12</property>
+            <property name="Attribute">LocationCode</property>
+            <property name="ModeCreate">EDITABLE</property>
+            <property name="ModeEdit">EDITABLE</property>
         </field>
         <property name="Weight">30</property>
     </definition>

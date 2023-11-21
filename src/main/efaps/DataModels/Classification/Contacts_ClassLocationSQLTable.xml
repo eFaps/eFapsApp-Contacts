@@ -2,7 +2,7 @@
 
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2023 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,11 +16,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 
 <datamodel-sqltable  xmlns="http://www.efaps.org/xsd"
@@ -28,7 +23,6 @@
                      xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>fe10ecab-e0c5-4e8e-99f6-cf371eb22ea4</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
@@ -43,6 +37,7 @@
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
             <column name="COUNTRYID"        type="INTEGER"/>
+            <column name="LOCCODE"          type="STRING_SHORT"                     length="32"/>
             <unique name="T_COCLASSLOC_UK_CONTACTID"  columns="CONTACTID" />
             <foreign name="T_COCLASSLOC_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
         </database>
@@ -60,6 +55,7 @@
             <column name="REFERENCE"        type="STRING_SHORT"                     length="255"/>
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <column name="LOCCODE"          type="STRING_SHORT"                     length="32"/>
             <column name="COUNTRYID"        type="INTEGER"/>
             <column name="DEPARTMENTID"     type="INTEGER" />
             <column name="PROVINCEID"       type="INTEGER" />

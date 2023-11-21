@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2023 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,18 +14,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
-
 -->
 <datamodel-sqltable  xmlns="http://www.efaps.org/xsd"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                      xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>3607345d-c24a-4d5b-8c2d-40d18f38fc76</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
     <definition>
         <version-expression>(version==latest)</version-expression>
         <profiles>
@@ -38,6 +32,7 @@
             <column name="STREET"           type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <column name="LOCCODE"          type="STRING_SHORT"                     length="32"/>
             <foreign name="T_COSUBCOCLASSLOC_FK_CONTACTID" key="CONTACTID" reference="T_COCONTACT(ID)" />
         </database>
     </definition>
@@ -53,6 +48,7 @@
             <column name="STREET"           type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="CITY"             type="STRING_SHORT"     not-null="true" length="255"/>
             <column name="ZIP"              type="STRING_SHORT"                     length="255"/>
+            <column name="LOCCODE"          type="STRING_SHORT"                     length="32"/>
             <column name="DEPARTMENTID"     type="INTEGER" />
             <column name="PROVINCEID"       type="INTEGER" />
             <column name="DISTRICTID"       type="INTEGER" />
