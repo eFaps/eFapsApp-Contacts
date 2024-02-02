@@ -87,7 +87,7 @@ public abstract class ContactDataFetcher_Base
             data.put("name", evaluator.get(CIContacts.Contact.Name));
             final String taxNumber = evaluator.get("taxNumber");
             if (taxNumber != null) {
-                data.put(keyMapping.containsKey("idTypeKey") ? keyMapping.get("idTypeKey") : "idTypeKey", "07");
+                data.put(keyMapping.containsKey("idTypeKey") ? keyMapping.get("idTypeKey") : "idTypeKey", "06");
                 data.put(keyMapping.containsKey("idTypeName") ? keyMapping.get("idTypeName") : "idTypeName", "RUC");
                 data.put(keyMapping.containsKey("idNumber") ? keyMapping.get("idNumber") : "idNumber", taxNumber);
             } else {
