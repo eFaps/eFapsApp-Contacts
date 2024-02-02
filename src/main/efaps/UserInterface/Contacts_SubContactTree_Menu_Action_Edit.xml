@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
 
- Copyright 2003 - 2013 The eFaps Team
+ Copyright 2003 - 2024 The eFaps Team
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -13,11 +14,6 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
 
 -->
 <ui-command xmlns="http://www.efaps.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -36,16 +32,13 @@
             <role>Contacts_Admin</role>
             <role>Contacts_Modifier</role>
         </access>
-        <!-- target definitions -->
         <target>
             <form>Contacts_SubContactForm</form>
             <execute program="org.efaps.esjp.common.uiform.Edit" />
         </target>
-
-        <!-- properties -->
         <property name="Target">modal</property>
         <property name="TargetMode">edit</property>
         <property name="WindowHeight">460</property>
-        <property name="WindowWidth">515</property>
+        <property name="WindowWidth">800</property>
     </definition>
 </ui-command>
