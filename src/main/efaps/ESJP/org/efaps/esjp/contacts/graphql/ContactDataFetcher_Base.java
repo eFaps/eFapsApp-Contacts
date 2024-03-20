@@ -39,9 +39,10 @@ import org.efaps.util.EFapsException;
 import graphql.execution.DataFetcherResult;
 import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.GraphQLList;
+import graphql.schema.GraphQLNamedSchemaElement;
 import graphql.schema.GraphQLNamedType;
 
-@EFapsUUID("484b0053-6204-419e-873b-40b1d25ffa35")
+;@EFapsUUID("484b0053-6204-419e-873b-40b1d25ffa35")
 @EFapsApplication("eFapsApp-Contacts")
 public abstract class ContactDataFetcher_Base
     extends BaseDataFetcher
@@ -73,7 +74,7 @@ public abstract class ContactDataFetcher_Base
             final var objectDef = objectDefOpt.get();
             final String[] words = { "idTypeKey", "idTypeName", "idNumber" };
             for (final var child : environment.getFieldType().getChildren()) {
-                final var fieldDef = objectDef.getFields().get(((GraphQLNamedType) child).getName());
+                final var fieldDef = objectDef.getFields().get(((GraphQLNamedSchemaElement) child).getName());
                 if (fieldDef != null && StringUtils.isNotEmpty(fieldDef.getSelect())
                                 && Arrays.stream(words).anyMatch(fieldDef.getSelect()::equals)) {
                     keyMapping.put(fieldDef.getSelect(), fieldDef.getName());
