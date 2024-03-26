@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
- Copyright 2003 - 2013 The eFaps Team
+    Copyright © 2003 - 2024 The eFaps Team (-)
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+        http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-
- Author:          The eFaps Team
- Revision:        $Rev$
- Last Changed:    $Date$
- Last Changed By: $Author$
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
 -->
+
+
+
 
 <ui-command xmlns="http://www.efaps.org/xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -29,7 +26,7 @@
 
     <uuid>31854e2f-a6ab-4c91-aaf0-30cd112e8995</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    <file-revision>$Rev$</file-revision>
+    
 
     <definition>
         <version-expression>(version==latest)</version-expression>
@@ -38,13 +35,15 @@
         <access>
             <role>Contacts_Admin</role>
         </access>
-        <!-- target definitions -->
+        
+
         <target>
             <form>Contacts_MoveDocuments2ContactsForm</form>
             <execute program="org.efaps.esjp.contacts.Contacts" method="moveDocuments2Contacts" />
         </target>
 
-        <!-- properties -->
+        
+
         <property name="Target">modal</property>
         <property name="TargetMode">create</property>
         <property name="WindowHeight">460</property>

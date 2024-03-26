@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 5.5.1  -->
-<!-- 2015-09-15T14:04:55 -->
+
+
+
+
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contacts_ExportContact" pageWidth="2100" pageHeight="1190" orientation="Landscape" columnWidth="2060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4729e11-b380-4d70-b6ae-7a3055f8ef47">
     <property name="org.efaps.admin.program.jasper.EFapsApplication" value="eFapsApp-Contacts"/>
     <property name="com.jaspersoft.studio.data.defaultdataadapter" value="9999 SD"/>
