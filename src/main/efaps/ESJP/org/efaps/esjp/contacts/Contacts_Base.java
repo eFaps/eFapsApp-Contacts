@@ -60,7 +60,6 @@ import org.efaps.esjp.common.util.InterfaceUtils;
 import org.efaps.esjp.contacts.listener.IOnContact;
 import org.efaps.esjp.contacts.util.Contacts;
 import org.efaps.esjp.db.InstanceUtils;
-import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
 /**
@@ -162,8 +161,8 @@ public abstract class Contacts_Base
                 final String name = multi.<String>getAttribute(CIContacts.Contact.Name);
                 final String keyVal = multi.getAttribute(key).toString();
                 final Map<String, String> map = new HashMap<>();
-                map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), keyVal);
-                map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), name);
+                map.put("eFapsAutoCompleteKEY", keyVal);
+                map.put("eFapsAutoCompleteVALUE", name);
                 list.add(map);
             }
         } else {
@@ -206,15 +205,15 @@ public abstract class Contacts_Base
                 final String doi = multi.<String>getSelect(doiSel);
                 final String choice = (StringUtils.isEmpty(tax) ? doi : tax) + " - "
                                 + multi.<String>getAttribute(CIContacts.Contact.Name);
-                map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), multi.getAttribute(key).toString());
-                map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), multi.<String>getAttribute(CIContacts.Contact.Name));
-                map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), choice);
+                map.put("eFapsAutoCompleteKEY", multi.getAttribute(key).toString());
+                map.put("eFapsAutoCompleteVALUE", multi.<String>getAttribute(CIContacts.Contact.Name));
+                map.put("eFapsAutoCompleteCHOICE", choice);
                 list.add(map);
             }
 
             Collections.sort(list, (_o1,
-             _o2) -> _o1.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey()).compareTo(
-                            _o2.get(EFapsKey.AUTOCOMPLETE_CHOICE.getKey())));
+             _o2) -> _o1.get("eFapsAutoCompleteCHOICE").compareTo(
+                            _o2.get("eFapsAutoCompleteCHOICE")));
         }
         final Return retVal = new Return();
         retVal.put(ReturnValues.VALUES, list);
