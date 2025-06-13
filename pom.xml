@@ -28,7 +28,7 @@
     </parent>
     <packaging>jar</packaging>
     <groupId>org.efaps.apps</groupId>
-    <artifactId>contacts</artifactId>
+    <artifactId>efaps-app-contacts</artifactId>
     <name>eFaps Contacts App</name>
     <description>
     </description>
