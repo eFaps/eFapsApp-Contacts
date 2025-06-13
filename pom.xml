@@ -68,43 +68,9 @@
         <url>http://www.efaps.org</url>
     </organization>
 
-    
-
-    <issueManagement>
-        <system>eFaps Issues on Google Code</system>
-        <url>http://issues.efaps.org</url>
-    </issueManagement>
-
-    
-
-    <scm>
-        <connection>scm:svn:http://efaps.googlecode.com/svn/eFapsApps/contacts/trunk</connection>
-        <developerConnection>scm:svn:https://efaps.googlecode.com/svn/eFapsApps/contacts/trunk</developerConnection>
-        <url>http://code.google.com/p/efaps/source/browse/#svn/eFapsApps/contacts/trunk</url>
-    </scm>
-
-    
-
-    <distributionManagement>
-        <site>
-            <id>efaps</id>
-            <name>eFaps App contacts</name>
-            <url>svn:https://eFaps.googlecode.com/svn/site/eFaps-WebApp-Install</url>
-        </site>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
     <build>
         <plugins>
-            
+
 
             <plugin>
                 <groupId>org.efaps</groupId>
@@ -121,13 +87,13 @@
                 <configuration>
                     <userName>Administrator</userName>
                     <passWord>Administrator</passWord>
-                    
+
 
                     <count>${count}</count>
                     <ciName>Contacts</ciName>
                 </configuration>
                 <dependencies>
-                    
+
 
                     <dependency>
                         <groupId>org.apache.commons</groupId>
@@ -155,16 +121,16 @@
         </plugins>
     </build>
     <dependencies>
-        
+
 
         <dependency>
             <groupId>org.efaps.apps</groupId>
-            <artifactId>commons</artifactId>
+            <artifactId>efaps-app-commons</artifactId>
             <version>${efaps.app.dependencies}</version>
         </dependency>
         <dependency>
             <groupId>org.efaps.apps</groupId>
-            <artifactId>archives</artifactId>
+            <artifactId>efaps-app-archives</artifactId>
             <version>${efaps.app.dependencies}</version>
         </dependency>
         <dependency>
