@@ -33,27 +33,33 @@
         </field>
         <field name="createGroup" character="Group">
             <property name="GroupCount">2</property>
+            <property name="ModeEdit">NONE</property>
         </field>
         <field name="creator">
             <property name="SelectAlternateOID">linkto[Creator].oid</property>
             <property name="Attribute">Creator</property>
             <property name="HRef">${COMMONURL}/MenuTree.jsp</property>
             <property name="ShowTypeIcon">true</property>
+            <property name="ModeEdit">NONE</property>
         </field>
         <field name="created">
             <property name="Attribute">Created</property>
+            <property name="ModeEdit">NONE</property>
         </field>
         <field name="modifyGroup" character="Group">
             <property name="GroupCount">2</property>
+            <property name="ModeEdit">NONE</property>
         </field>
         <field name="modifier">
             <property name="SelectAlternateOID">linkto[Modifier].oid</property>
             <property name="Attribute">Modifier</property>
             <property name="HRef">${COMMONURL}/MenuTree.jsp</property>
             <property name="ShowTypeIcon">true</property>
+            <property name="ModeEdit">NONE</property>
         </field>
         <field name="modified">
             <property name="Attribute">Modified</property>
+            <property name="ModeEdit">NONE</property>
         </field>
         <field name="name">
             <property name="Width">40</property>
@@ -79,7 +85,7 @@
                 name="Contacts_ContactForm.note.UI_ACCESSCHECK"
                 method="configCheck"
                 event="UI_ACCESSCHECK">
-                 
+
 
                 <property name="SystemConfig">77f5f440-f251-46d0-8603-add22f99f7f0</property>
                 <property name="Attribute">org.efaps.contacts.ActivateNote</property>
