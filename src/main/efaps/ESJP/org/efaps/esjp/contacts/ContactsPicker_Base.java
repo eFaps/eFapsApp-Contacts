@@ -33,7 +33,6 @@ import org.efaps.db.QueryBuilder;
 import org.efaps.db.SelectBuilder;
 import org.efaps.esjp.ci.CIContacts;
 import org.efaps.esjp.common.AbstractCommon;
-import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
 /**
@@ -254,7 +253,7 @@ public abstract class ContactsPicker_Base
             // create Classification of Supplier
             addClassSupplier(_parameter, contactInst);
 
-            map.put(EFapsKey.PICKER_VALUE.getKey(), name);
+            map.put("eFapsPickerValue4Field", name);
             map.put(getProperty(_parameter, "FieldName4OID", "contact"), contactInst.getOid());
             map.put(getProperty(_parameter, "FieldName4Data", "contactData"),
                             getFieldValue4Contact(_parameter, contactInst));

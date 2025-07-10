@@ -32,7 +32,6 @@ import org.efaps.db.MultiPrintQuery;
 import org.efaps.db.QueryBuilder;
 import org.efaps.db.Update;
 import org.efaps.esjp.ci.CIContacts;
-import org.efaps.ui.wicket.util.EFapsKey;
 import org.efaps.util.EFapsException;
 
 /**
@@ -68,9 +67,9 @@ public class MoveObject_Base
             final String name = multi.<String>getAttribute(CIContacts.Contact.Name);
             final String oid = multi.<String>getAttribute(CIContacts.Contact.OID);
             final Map<String, String> map = new HashMap<>();
-            map.put(EFapsKey.AUTOCOMPLETE_KEY.getKey(), oid);
-            map.put(EFapsKey.AUTOCOMPLETE_VALUE.getKey(), name);
-            map.put(EFapsKey.AUTOCOMPLETE_CHOICE.getKey(), name);
+            map.put("eFapsAutoCompleteKEY", oid);
+            map.put("eFapsAutoCompleteVALUE", name);
+            map.put("eFapsAutoCompleteCHOICE", name);
             list.add(map);
         }
         final Return retVal = new Return();
