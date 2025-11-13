@@ -41,7 +41,9 @@ import graphql.schema.GraphQLList;
 import graphql.schema.GraphQLNamedSchemaElement;
 import graphql.schema.GraphQLNamedType;
 
-;@EFapsUUID("484b0053-6204-419e-873b-40b1d25ffa35")
+;
+
+@EFapsUUID("484b0053-6204-419e-873b-40b1d25ffa35")
 @EFapsApplication("eFapsApp-Contacts")
 public abstract class ContactDataFetcher_Base
     extends BaseDataFetcher
@@ -71,7 +73,7 @@ public abstract class ContactDataFetcher_Base
         final var keyMapping = new HashMap<String, String>();
         if (objectDefOpt.isPresent()) {
             final var objectDef = objectDefOpt.get();
-            final String[] words = { "idTypeKey", "idTypeName", "idNumber" };
+            final String[] words = { "idTypeKey", "idTypeName", "idNumber", "name", "email" };
             for (final var child : environment.getFieldType().getChildren()) {
                 final var fieldDef = objectDef.getFields().get(((GraphQLNamedSchemaElement) child).getName());
                 if (fieldDef != null && StringUtils.isNotEmpty(fieldDef.getSelect())
@@ -110,7 +112,10 @@ public abstract class ContactDataFetcher_Base
         throws EFapsException
     {
         final Map<String, String> map = new HashMap<>();
-        map.put("name", evaluator.get(CIContacts.Contact.Name));
+        map.put(keyMapping.containsKey("name") ? keyMapping.get("name") : "name",
+                        evaluator.get(CIContacts.Contact.Name));
+        map.put(keyMapping.containsKey("email") ? keyMapping.get("email") : "email",
+                        evaluator.get("email"));
         final String taxNumber = evaluator.get("taxNumber");
         if (taxNumber != null) {
             map.put(keyMapping.containsKey("idTypeKey") ? keyMapping.get("idTypeKey") : "idTypeKey", "06");
@@ -130,13 +135,22 @@ public abstract class ContactDataFetcher_Base
     public void addSelects(final Print print)
     {
         print.attribute(CIContacts.Contact.Name)
-                        .clazz(CIContacts.ClassOrganisation).attribute(CIContacts.ClassOrganisation.TaxNumber)
-                        .as("taxNumber")
-                        .clazz(CIContacts.ClassPerson).attribute(CIContacts.ClassPerson.IdentityCard)
-                        .as("identityCard")
-                        .clazz(CIContacts.ClassPerson).linkto(CIContacts.ClassPerson.DOITypeLink)
-                        .attribute(CIContacts.AttributeDefinitionDOIType.Value).as("doiTypeValue")
-                        .clazz(CIContacts.ClassPerson).linkto(CIContacts.ClassPerson.DOITypeLink)
-                        .attribute(CIContacts.AttributeDefinitionDOIType.Description).as("doiTypeDescr");
+                        .clazz(CIContacts.ClassOrganisation)
+                            .attribute(CIContacts.ClassOrganisation.TaxNumber)
+                            .as("taxNumber")
+                        .clazz(CIContacts.ClassPerson)
+                            .attribute(CIContacts.ClassPerson.IdentityCard)
+                            .as("identityCard")
+                        .clazz(CIContacts.ClassPerson)
+                            .linkto(CIContacts.ClassPerson.DOITypeLink)
+                            .attribute(CIContacts.AttributeDefinitionDOIType.Value)
+                            .as("doiTypeValue")
+                        .clazz(CIContacts.ClassPerson)
+                            .linkto(CIContacts.ClassPerson.DOITypeLink)
+                            .attribute(CIContacts.AttributeDefinitionDOIType.Description)
+                            .as("doiTypeDescr")
+                            .clazz(CIContacts.Class)
+                            .attributeSet(CIContacts.Class.EmailSet)
+                            .attribute("Email").first().as("email");
     }
 }
