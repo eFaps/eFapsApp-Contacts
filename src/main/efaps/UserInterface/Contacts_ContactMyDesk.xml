@@ -17,15 +17,12 @@
 
 -->
 
-
-
-
 <ui-command xmlns="http://www.efaps.org/xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.efaps.org/xsd http://www.efaps.org/xsd/eFaps_1.0.xsd">
     <uuid>f81b45c7-dec6-4835-bf19-2d6dc95a2236</uuid>
     <file-application>eFapsApp-Contacts</file-application>
-    
+
     <definition>
         <version-expression>(version==latest)</version-expression>
         <name>Contacts_ContactMyDesk</name>
@@ -40,10 +37,7 @@
             <evaluate program="org.efaps.esjp.common.uitable.MultiPrint">
                 <property name="Type">Contacts_Contact</property>
             </evaluate>
-            <help>org.efaps.wiki.contacts.Contacts.wiki</help>
         </target>
-        
-
         <property name="Target">content</property>
         <property name="TargetShowCheckBoxes">true</property>
     </definition>
