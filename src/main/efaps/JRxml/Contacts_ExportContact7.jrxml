@@ -1,0 +1,359 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.0  -->
+<jasperReport name="Contacts_ExportContact7" language="java" pageWidth="2100" pageHeight="1190" orientation="Landscape" columnWidth="2060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="634a19a8-2ae1-4f6c-9111-74e0711c0fdc">
+    <property name="org.efaps.admin.program.jasper.EFapsApplication" value="eFapsApp-Contacts"/>
+    <property name="org.efaps.eql.Version" value="2"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="9999 SD"/>
+    <property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+    <property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+    <property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+    <property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+    <property name="net.sf.jasperreports.export.xls.ignore.cell.border" value="true"/>
+    <property name="net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.1" value="columnHeader"/>
+    <property name="net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.2" value="pageHeader"/>
+    <property name="net.sf.jasperreports.export.xls.exclude.origin.band.3" value="pageFooter"/>
+    <property name="net.sf.jasperreports.export.xls.exclude.origin.band.4" value="lastPageFooter"/>
+    <property name="net.sf.jasperreports.export.xls.exclude.origin.band.5" value="columnFooter"/>
+    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+    <property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+    <import>org.joda.time.DateTime</import>
+    <dataset name="pointOfContactDataSet" uuid="881b2a43-f603-4e16-804d-e4d6874ef43d">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="9999 SD"/>
+        <parameter name="INSTANCE" class="java.lang.Object"/>
+        <query language="eFaps"><![CDATA[print query type 02eaca97-93b2-4d0a-b5d4-a566a6261523
+where linkto[PointOfContactSet].attribute[ContactLink] == $P!{INSTANCE}
+select
+linkto[PointOfContact4Contacts].attribute[Value] as value,
+attribute[Name] as name,
+attribute[Phone] as phone,
+attribute[Email] as email]]></query>
+        <field name="name" class="java.lang.String"/>
+        <field name="phone" class="java.lang.String"/>
+        <field name="email" class="java.lang.String"/>
+        <field name="value" class="java.lang.String"/>
+    </dataset>
+    <dataset name="bankReferences" uuid="f182abea-77d7-46f8-976c-1921a7d7249f">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="eFaps"/>
+        <parameter name="INSTANCE" class="java.lang.Object"/>
+        <query language="eFaps"><![CDATA[print query type 477aed86-cfaa-4a76-8d69-6b684549ab18
+where linkto[FIBankReferencesSet].attribute[ContactId] == $P!{INSTANCE}
+select
+linkto[FinancialInst].attribute[Value] as financialInst,
+linkto[AccountId].attribute[Value] as accountType,
+attribute[Nro] as nro,
+attribute[Contact] as contact,
+attribute[Phone] as phone]]></query>
+        <field name="nro" class="java.lang.String"/>
+        <field name="contact" class="java.lang.String"/>
+        <field name="phone" class="java.lang.String"/>
+        <field name="financialInst" class="java.lang.String"/>
+        <field name="accountType" class="java.lang.String"/>
+    </dataset>
+    <dataset name="condition" uuid="5f36aecc-f394-4260-8fab-f308b09c4358">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="9999 SD"/>
+        <parameter name="INSTANCE" class="java.lang.Object"/>
+        <query language="eFaps"><![CDATA[print query type Sales_ChannelPurchaseCondition2Contact
+where ToLink==$P!{INSTANCE}
+select
+linkto[FromLink].attribute[Name] as name]]></query>
+        <field name="name" class="java.lang.String"/>
+    </dataset>
+    <dataset name="phones" uuid="3ca09c91-af92-4012-8131-612aa216cfa5">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="9999 SD"/>
+        <parameter name="INSTANCE" class="java.lang.Object"/>
+        <query language="eFaps"><![CDATA[print query type 3c805fae-cd5c-4894-adb3-262f58a1f5d3
+where PhoneSet == $P!{INSTANCE}
+select
+linkto[Description4Phone].attribute[Value] as value,
+attribute[Phone] as phone]]></query>
+        <field name="phone" class="java.lang.String"/>
+        <field name="value" class="java.lang.String"/>
+    </dataset>
+    <dataset name="mails" uuid="851c3685-486a-4eef-82d1-0a4e1a34250d">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="9999 SD"/>
+        <parameter name="INSTANCE" class="java.lang.Object"/>
+        <query language="eFaps"><![CDATA[print query type 439d085d-e120-47cc-91c8-a832231fef14
+where EmailSet == $P!{INSTANCE}
+select
+linkto[Description4Email].attribute[Value] as value,
+attribute[Email] as email]]></query>
+        <field name="email" class="java.lang.String"/>
+        <field name="value" class="java.lang.String"/>
+    </dataset>
+    <query language="eFaps"><![CDATA[print query type Contacts_Contact
+select
+attribute[OID] as oid,
+class[Contacts_ClassOrganisation].attribute[TaxNumber] as taxNumber,
+attribute[Name] as name,
+class[Contacts_ClassOrganisation].attribute[TradeName] as tradeName,
+class[Contacts_ClassLocation].attribute[LocationAdressStreet] as locationAdressStreet,
+class[Contacts_ClassLocation].linkto[DepartmentLocationLink].attribute[Name] as departmentLocation,
+class[Contacts_ClassLocation].linkto[ProvinceLocationLink].attribute[Name] as provinceLocation,
+class[Contacts_ClassLocation].linkto[DistrictLocationLink].attribute[Name] as districtLocationLink]]></query>
+    <field name="taxNumber" class="java.lang.String"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="tradeName" class="java.lang.String"/>
+    <field name="departmentLocation" class="java.lang.String"/>
+    <field name="provinceLocation" class="java.lang.String"/>
+    <field name="districtLocationLink" class="java.lang.String"/>
+    <field name="locationAdressStreet" class="java.lang.String"/>
+    <field name="oid" class="java.lang.String"/>
+    <columnHeader height="24" splitType="Stretch">
+        <element kind="staticText" uuid="ccf90ea8-112b-4afe-bf93-496f402c91ef" x="0" y="0" width="60" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[R.U.C.]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="371be14d-a46d-48ae-a9f2-b9ae7b78f4fe" x="60" y="0" width="143" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Razon Social]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="aa2cf710-2c8d-40f3-b961-ba59b397c48d" x="203" y="0" width="97" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Nombre Comercial]]></text>
+            <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="a3047a32-feb2-411c-a473-e3126e3bd793" x="300" y="0" width="115" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Departamento]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="2912c7a4-9362-4134-8a79-700b9db0cd17" x="415" y="0" width="85" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Provincia]]></text>
+        </element>
+        <element kind="staticText" uuid="ebb0ccba-c398-4b1c-a24c-4ed35dca04f3" x="500" y="0" width="90" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Distrito]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="ea2fa193-f80e-4b80-b87b-51d16f5cc213" x="590" y="0" width="180" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Direccion]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="f34ca357-65a6-4855-8948-24279ccdab61" x="970" y="12" width="80" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Correo]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="ab077d2f-8465-4cab-b1f4-87cbe5d6208b" x="910" y="0" width="140" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[E-mail]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="6854a4c1-4e07-471f-bb3d-e4ebc3b7a256" x="910" y="12" width="60" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Tipo]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="3306c3e9-ea8e-4e4c-9c72-3a60d60efc31" x="830" y="12" width="80" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Número]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="cb03da8a-14e1-4600-81e7-c5d643a8b2d7" x="770" y="0" width="140" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Teléfono]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="6bd75835-bd15-41bb-9fba-e2f99b99b0dd" x="770" y="12" width="60" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Tipo]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="dcb95cf3-14fd-47f6-8cb5-9440baab0d8f" x="1050" y="0" width="390" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Referencia de Contacto]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="c5f60fbc-0d38-4146-852c-a11405ae138c" x="1440" y="0" width="500" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Referencia bancaria]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="feeaf75a-4a4f-4aa9-af12-8b6c848b963e" x="1940" y="0" width="100" height="24" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Condicion]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="65a206a0-5f62-4daa-9f39-6d2022472c30" x="1240" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Teléfono]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="c779da64-5d02-404c-aa8c-0672963da3ec" x="1050" y="12" width="60" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Cargo]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="90129284-b0da-4f06-b801-4ebca41f8234" x="1110" y="12" width="130" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Nombre]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="c73aecd3-0e86-4b8c-81c7-e4be243ea5df" x="1340" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[e-mail]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="54ba1ba4-5cbf-470f-8d2f-965c480a80ab" x="1440" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Entidad financiera]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="845e6ede-a2b2-4704-9e9b-69bb3c3d3d8f" x="1540" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Tipo de cuenta]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="6d7dbba0-2a51-40fa-b2b9-aac5a4406c5f" x="1640" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Número de cuenta]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="d58a8452-8d37-4edd-985d-bcb9f1322c0c" x="1740" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Sectorista]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <element kind="staticText" uuid="42757a61-aa17-40ad-aed1-ad06b61d2e41" x="1840" y="12" width="100" height="12" fontSize="9.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Teléfono]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+        </element>
+        <property name="local_mesure_unitheight" value="pixel"/>
+        <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+        <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+    </columnHeader>
+    <detail>
+        <band height="12" splitType="Stretch">
+            <element kind="textField" uuid="c0a8ee33-d925-41c1-8d60-8bf5e9192b44" stretchType="ContainerHeight" x="0" y="0" width="60" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{taxNumber}]]></expression>
+                <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+            </element>
+            <element kind="textField" uuid="65a966c4-f77d-47cc-8094-22aa18c96ee3" stretchType="ContainerHeight" x="60" y="0" width="143" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{name}]]></expression>
+            </element>
+            <element kind="textField" uuid="942313de-501b-4ed8-8f85-76f8609030cf" stretchType="ContainerHeight" x="203" y="0" width="97" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{tradeName}]]></expression>
+            </element>
+            <element kind="textField" uuid="fad25632-1096-4897-b92d-b3ce0418e2c7" stretchType="ContainerHeight" x="300" y="0" width="115" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{departmentLocation}]]></expression>
+            </element>
+            <element kind="textField" uuid="aedcd8bf-32d3-4a8f-80c4-fe4ee1a5067c" stretchType="ContainerHeight" x="415" y="0" width="85" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{provinceLocation}]]></expression>
+            </element>
+            <element kind="textField" uuid="51ca0fd0-3467-481c-adb3-fe41c59cb84e" stretchType="ContainerHeight" x="500" y="0" width="90" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{districtLocationLink}]]></expression>
+            </element>
+            <element kind="textField" uuid="22d6369d-c057-4414-b5d3-638b4e1aedca" stretchType="ContainerHeight" x="590" y="0" width="180" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                <expression><![CDATA[$F{locationAdressStreet}]]></expression>
+                <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+            </element>
+            <element kind="component" uuid="da6b81b8-e6fc-4f98-b44f-3d13e96e2079" x="1050" y="0" width="390" height="12">
+                <component kind="list" printOrder="Vertical">
+                    <datasetRun uuid="e14702dc-a14d-4305-9855-0809a32eb4fd" subDataset="pointOfContactDataSet">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                        <parameter name="INSTANCE">
+                            <expression><![CDATA[$F{oid}]]></expression>
+                        </parameter>
+                    </datasetRun>
+                    <contents height="12" width="390">
+                        <element kind="textField" uuid="244e3138-47af-4bce-abb3-165e6060df01" x="60" y="0" width="130" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{name}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                        <element kind="textField" uuid="331eb342-6a43-42a9-b5ef-b3dae22909fc" x="190" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{phone}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="bd3b9ac3-af33-4016-a82d-67967758240a" x="290" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{email}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="77976e84-c865-4921-b82f-3d567bcc00b8" x="0" y="0" width="60" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{value}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                    </contents>
+                </component>
+                <property name="net.sf.jasperreports.export.headertoolbar.table.name" value="PointOfContact"/>
+            </element>
+            <element kind="component" uuid="cf39dea9-8870-499b-9e0c-09017e2a155a" stretchType="ContainerHeight" x="1440" y="0" width="500" height="12">
+                <component kind="list" printOrder="Vertical">
+                    <datasetRun uuid="57bc6f63-4633-4725-9164-abd0f101a515" subDataset="bankReferences">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                        <parameter name="INSTANCE">
+                            <expression><![CDATA[$F{oid}]]></expression>
+                        </parameter>
+                    </datasetRun>
+                    <contents height="12" width="500">
+                        <element kind="textField" uuid="4a13a22d-11b6-45cb-9bef-9964f1b04f04" stretchType="ContainerHeight" x="200" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{nro}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                        <element kind="textField" uuid="b16d7456-ad63-43ce-8102-3b613c76013b" stretchType="ContainerHeight" x="300" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{contact}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="d69c291c-0faf-4e24-8955-aa777484cbe4" stretchType="ContainerHeight" x="400" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{phone}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="0f2fe195-4868-445a-b7c2-8b364945165f" stretchType="ContainerHeight" x="0" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{financialInst}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="1b74bec0-9fbc-4e94-af58-849e4dc26898" stretchType="ContainerHeight" x="100" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{accountType}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                    </contents>
+                </component>
+                <property name="net.sf.jasperreports.export.headertoolbar.table.name" value="Bankreference"/>
+            </element>
+            <element kind="component" uuid="bb3eee48-c251-4afd-b30f-b9c6ba63d24b" x="1940" y="0" width="100" height="12">
+                <component kind="list" printOrder="Vertical">
+                    <datasetRun uuid="3ad82e5e-0f75-4a5b-bd2e-291c8db421e3" subDataset="condition">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                        <parameter name="INSTANCE">
+                            <expression><![CDATA[$F{oid}]]></expression>
+                        </parameter>
+                    </datasetRun>
+                    <contents height="12" width="100">
+                        <element kind="textField" uuid="de040c2a-92bf-447d-b4b3-7f9bcfbc69d0" stretchType="ContainerHeight" x="0" y="0" width="100" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{name}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                    </contents>
+                </component>
+                <property name="net.sf.jasperreports.export.headertoolbar.table.name" value="Condition"/>
+            </element>
+            <element kind="component" uuid="746fbb92-a3a0-47ec-aba4-27250d72bf41" x="770" y="0" width="140" height="12">
+                <component kind="list" printOrder="Vertical">
+                    <datasetRun uuid="ed2925b0-d9ee-4e7c-acb3-c3e805f5c065" subDataset="phones">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                        <parameter name="INSTANCE">
+                            <expression><![CDATA[$F{oid}]]></expression>
+                        </parameter>
+                    </datasetRun>
+                    <contents height="12" width="140">
+                        <element kind="textField" uuid="4a18cd8b-c19b-44fa-98d6-7090be0d0959" x="70" y="0" width="70" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{phone}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                        <element kind="textField" uuid="0bf1cc01-5033-4a41-8ada-f35aa4543fa8" x="0" y="0" width="70" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{value}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                    </contents>
+                </component>
+                <property name="net.sf.jasperreports.export.headertoolbar.table.name" value="phones"/>
+            </element>
+            <element kind="component" uuid="f527ad45-541e-411e-a2d1-96359af84f40" x="910" y="0" width="140" height="12">
+                <component kind="list" printOrder="Vertical">
+                    <datasetRun uuid="e658afb3-f913-4938-baea-6df6af9f97d5" subDataset="mails">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                        <parameter name="INSTANCE">
+                            <expression><![CDATA[$F{oid}]]></expression>
+                        </parameter>
+                    </datasetRun>
+                    <contents height="12" width="140">
+                        <element kind="textField" uuid="3a43d2d2-be5b-493b-aad2-729c6409409c" x="0" y="0" width="50" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{email}]]></expression>
+                            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                        </element>
+                        <element kind="textField" uuid="9982121a-68bd-4ea4-ba10-2b1fe6569c6b" x="50" y="0" width="90" height="12" fontSize="8.0" textAdjust="StretchHeight" blankWhenNull="true">
+                            <expression><![CDATA[$F{value}]]></expression>
+                        </element>
+                    </contents>
+                </component>
+                <property name="net.sf.jasperreports.export.headertoolbar.table.name" value="mails"/>
+                <property name="com.jaspersoft.studio.unit.CONTENTS.height" value="pixel"/>
+            </element>
+            <property name="local_mesure_unitheight" value="pixel"/>
+            <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+        </band>
+    </detail>
+</jasperReport>
