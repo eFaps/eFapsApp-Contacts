@@ -47,12 +47,22 @@
         <trigger program="org.efaps.esjp.admin.access.SimpleAccessCheckOnType"
             name="Contacts_Contact.ACCESSCHECK" event="ACCESSCHECK" />
         <trigger program="org.efaps.esjp.common.history.InsertHistoryTrigger"
-            name="Contacts_Contact.INSERT_POST"
+            name="Contacts_Contact.INSERT_POST.1" index="1"
             event="INSERT_POST">
         </trigger>
+        <trigger program="org.efaps.esjp.common.webhook.WebhookTrigger"
+            name="Contacts_Contact.INSERT_POST.2" index="2"
+            event="INSERT_POST">
+            <property name="Event">contact.create</property>
+        </trigger>
         <trigger program="org.efaps.esjp.common.history.UpdateHistoryTrigger"
-            name="Contacts_Contact.UPDATE_POST"
+            name="Contacts_Contact.UPDATE_POST.1" index="1"
             event="UPDATE_POST">
+        </trigger>
+        <trigger program="org.efaps.esjp.common.webhook.WebhookTrigger"
+            name="Contacts_Contact.UPDATE_POST.2" index="2"
+            event="UPDATE_POST">
+            <property name="Event">contact.update</property>
         </trigger>
     </definition>
 </datamodel-type>
